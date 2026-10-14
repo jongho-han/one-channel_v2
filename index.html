@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>iM라이프 사이버창구</title>
+<meta name="apple-mobile-web-app-title" content="iM라이프">
+<meta name="application-name" content="iM라이프 사이버창구">
+<meta name="theme-color" content="#00A49A">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main" data-action="skip-to-main">본문 바로가기</a>
+<div class="proto" role="region" aria-label="프로토타입 안내"><div class="wrap">
+  <span id="protoNotice"></span>
+</div></div>
+<header class="top" id="header"></header>
+<div class="appbar" id="appbar"></div>
+<main id="main" tabindex="-1"></main>
+<footer id="footer"></footer>
+<nav class="tabbar" id="tabbar" aria-label="하단 메뉴"></nav>
+<div id="layer"></div>
+<div role="region" aria-label="알림">
+  <div id="toastRegion" role="status" aria-live="polite"></div>
+  <p class="sr-only" id="liveRegion" aria-live="polite"></p>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
