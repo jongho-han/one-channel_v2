@@ -60,4 +60,4 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 
 ## 배포
 - main 에 push 하면 GitHub Actions 가 analyze·test·build 후 GitHub Pages 로 자동 배포
-- 확인 주소: https://jongho-han.github.io/one-channel/
+- 확인 주소: https://jongho-han.github.io/one-channel_v2/

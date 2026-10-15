@@ -56,3 +56,4 @@
 | 2026-10-14 15:25:56 | main에 병합하고 push | ARCHITECTURE.md 커밋 후 main fast-forward 병합·push |
 | 2026-10-14 15:27:29 | architecture.md에 Clean Architecture 원칙 적용 작성 (예시 박스 다이어그램 형태) | ARCHITECTURE.md 4절 추가: Presentation·Application·Business Logic·Data 4계층 다이어그램(폴더 매핑), 원칙별 적용 방식 표, 실제 import 분석으로 확인한 역방향 참조 예외·해소 방안. 3절 문구·알려진 부채 보완, 절 번호 조정 |
 | 2026-10-14 15:28:01 | main에 병합하고 push | Clean Architecture 절 커밋 후 main fast-forward 병합·push |
+| 2026-10-15 09:06:37 | https://jongho-han.github.io/one-channel_v2 동작하지 않음 | 업로드 시 누락된 GitHub Pages 배포 워크플로(.github/workflows/deploy.yml: analyze·test·build 후 dist 배포)와 .gitignore 추가, CLAUDE.md 확인 주소를 one-channel_v2로 수정. analyze 0·테스트 10건 통과 |
