@@ -129,12 +129,13 @@ test('하단 이용 안내 링크는 회사 홈페이지로 새 창 연결된다
   }
 });
 
-test('보험계약관리 메뉴 순서와 연금전환 사전신청 계산 (CH-11)', () => {
+test('연금전환 사전신청 메뉴 위치(보험금청구/신청)와 계산 (CH-11)', () => {
   login();
   window.App.openScreen('CH-11');
   const lnb = [...window.document.querySelectorAll('.lnb button')].map(button => button.textContent.trim());
+  assert.equal(lnb[lnb.indexOf('연금 지급 신청') + 1], '연금전환 사전신청');
   const start = lnb.indexOf('계약관계자변경');
-  assert.deepEqual(lnb.slice(start, start + 11), ['계약관계자변경', '보험기간/연금개시연도 변경', '연금개시유형 선택/변경', '연금전환 사전신청',
+  assert.deepEqual(lnb.slice(start, start + 10), ['계약관계자변경', '보험기간/연금개시연도 변경', '연금개시유형 선택/변경',
     '변액보험 펀드변경/관리', '감액완납', '특약해지', '보험계약 해지', '대리청구인 지정/등록', '금융정보보호 신청/해제', '청약철회']);
 
   const picks = [...window.document.querySelectorAll('[data-action="pick"]')];

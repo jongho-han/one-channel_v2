@@ -60,3 +60,4 @@
 | 2026-10-15 09:11:17 | npx getdesign@latest add starbucks | Starbucks 영감 디자인 시스템 DESIGN.md 설치(색상·타이포·컴포넌트·레이아웃 가이드, 앱 코드 미적용) |
 | 2026-10-15 09:12:57 | DESIGN.md Starbucks 스타일 앱 전체 적용 (3번) | app.css 토큰을 Starbucks 그린 4단계·웜 크림 배경·House Green 셸/푸터·골드 강조로 교체, 버튼 알약형(50px)·누름 scale(.95), 카드 12px+옅은 그림자, 헤더 3단 그림자, 모달 플로팅 그림자, 검색창 알약형. fund 차트·바로가기 아이콘·theme-color 색 갱신, CLAUDE.md 디자인 지침 추가. analyze 0·테스트 10건 통과 |
 | 2026-10-15 09:13:32 | 변경 완료 배포 시작 | Starbucks 스타일 적용 커밋 main fast-forward 병합·push, GitHub Pages 배포 실행 |
+| 2026-10-15 11:30:22 | 연금전환 사전신청 메뉴를 보험금청구/신청 내 연금 지급 신청 뒤로 이동 | CH-11 2Depth 보험계약관리→보험금청구/신청, PY-09 다음 배치(menu-spec.json·메뉴정의서 행 이동·비고·개정이력, 메뉴ID 유지), 테스트 메뉴 순서 검증 갱신. analyze 0·테스트 10건 통과 |
