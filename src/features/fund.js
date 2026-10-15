@@ -167,7 +167,7 @@ function scoreToProfile(score) {
 }
 
 const FUND_REBALANCE_BEFORE = false;   // 현재 자동재배분 신청 여부 (샘플)
-const FUND_BAR_COLORS = ['#00786F', '#2558C4', '#8F5800', '#6B7A8C', '#7A3FB0', '#B0413E'];
+const FUND_BAR_COLORS = ['#00754A', '#2558C4', '#8F5800', '#6B7A8C', '#7A3FB0', '#B0413E'];
 
 function hasFundChange(flow) {
   const after = currentFundRatios(flow);

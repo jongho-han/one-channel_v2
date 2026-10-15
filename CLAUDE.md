@@ -29,6 +29,9 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - git add, commit, push 금지. 사용자가 지시할때만 수행
 - remote push 할때 api key, id/pw, 휴대폰번호, 주민번호 포함 파일 push 절대 금지
 
+## 디자인
+- UI 작성·수정 전 @DESIGN.md (Starbucks 영감 디자인 시스템) 참조. 색·반경·그림자는 `src/styles/app.css` 1절 토큰으로만 지정
+
 ## 코드 품질
 - 변경후 analyze 실행하여 에러 없는지 확인 (`npm run analyze`, 테스트는 `npm test`)
 - fix all major linting and avoid minor via analysis options

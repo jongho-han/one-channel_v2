@@ -19,7 +19,7 @@ export function registerAppIcon() {
     const canvas = document.createElement('canvas');
     canvas.width = canvas.height = 180;
     const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#00A49A';
+    ctx.fillStyle = '#00754A';
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(0, 0, 180, 180, 40);
     else ctx.rect(0, 0, 180, 180);
