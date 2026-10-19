@@ -1,5 +1,5 @@
 import { $, $$, each, escapeHtml, focusElement, when } from '../core/dom.js';
-import { EMAIL_PATTERN, PHONE_PATTERN, formatWon, toNumber, withObjectParticle } from '../core/format.js';
+import { EMAIL_PATTERN, PHONE_PATTERN, formatWon, toNumber, withObjectParticle } from '../core/format';
 import { ZIP_SAMPLES } from '../data/addressRepository.js';
 import { ACCOUNTS } from '../data/customerRepository.js';
 import { NOT_APPLICABLE } from '../features/annuity.js';

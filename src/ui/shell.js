@@ -1,4 +1,3 @@
-import { APP } from '../core/config.js';
 import { $, $$, each, escapeHtml, when } from '../core/dom.js';
 import { USER } from '../data/customerRepository.js';
 import { MENU_GROUPS, MENU_ORDER, MENU_TREE, SCREEN_BY_ID } from '../data/menuRepository.js';
@@ -9,7 +8,6 @@ export function renderShell() {
   renderHeader();
   renderAppBar();
   renderTabBar();
-  renderFooter();
 }
 
 const logoButton = () =>
@@ -99,18 +97,4 @@ function renderTabBar() {
     { label: '전체메뉴',   icon: 'menu',   action: 'data-action="toggle-all-menu"',            active: page === 'all' },
   ];
   $('#tabbar').innerHTML = each(tabs, tab => `<button class="${tab.active ? 'on' : ''}" ${tab.action}${tab.active ? ' aria-current="page"' : ''}>${icon(tab.icon)}${tab.label}</button>`);
-}
-
-/** 하단 이용 안내 항목: URL이 있으면 회사 홈페이지 새 창 링크 */
-const footerLink = ([label, url, isStrong]) => (url
-  ? `<a href="${url}" target="_blank" rel="noopener noreferrer"${isStrong ? ' class="strong"' : ''}>${label}<span class="sr-only"> (새 창)</span></a>`
-  : `<span>${label}</span>`);
-
-function renderFooter() {
-  $('#footer').innerHTML = `
-    <div class="wrap">
-      <nav aria-label="이용 안내">${each(APP.footerLinks, footerLink)}</nav>
-      <p>iM라이프생명보험(주) · 고객센터 1588-4770 (평일 09:00~18:00)</p>
-      <p>본 화면은 「사이버창구 Web 메뉴정의서 ${APP.specVersion}」 기반 기획 검토용 프로토타입입니다. 표시 금액은 예시이며 실제 계약과 무관합니다.</p>
-    </div>`;
 }

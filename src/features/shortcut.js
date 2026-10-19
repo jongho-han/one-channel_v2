@@ -1,4 +1,4 @@
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { saveFile } from '../core/download.js';
 import { each, isNarrowScreen, when } from '../core/dom.js';
 import { openModal, toast } from '../ui/overlay.js';

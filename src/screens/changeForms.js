@@ -1,4 +1,4 @@
-import { formatWon, toNumber } from '../core/format.js';
+import { formatWon, toNumber } from '../core/format';
 import { USER, activeContracts } from '../data/customerRepository.js';
 
 /* T4 단일폼 변경 (current: 현재 등록값 / custom: 전용 화면 notice · marketing · fund) */

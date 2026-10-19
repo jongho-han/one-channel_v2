@@ -1,5 +1,5 @@
-import { APP } from '../core/config.js';
-import { randomDigits } from '../core/format.js';
+import { APP } from '../core/config';
+import { randomDigits } from '../core/format';
 import { icon } from '../ui/icons.js';
 
 /* 보험료 납입 (PM-01): 가상계좌 발급 --------------------------------------- */

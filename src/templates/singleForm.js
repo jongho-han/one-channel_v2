@@ -1,6 +1,6 @@
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { $, each, escapeHtml, scrollToTop, when } from '../core/dom.js';
-import { clockTime, receiptNo } from '../core/format.js';
+import { clockTime, receiptNo } from '../core/format';
 import { bindFundExtras, bindFundTotal, fundAllocationBody, fundTotal, submitFundChange } from '../features/fund.js';
 import { marketingConsentBody } from '../features/marketing.js';
 import { bindNoticeSettings, noticeSettingsBody } from '../features/noticeSettings.js';

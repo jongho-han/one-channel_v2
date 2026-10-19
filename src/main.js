@@ -1,8 +1,9 @@
 import './styles/app.css';
 import { render } from './app/render.js';
 import { navigate, openScreen } from './app/router.js';
+import { mountFooter } from './components/mountFooter';
 import { bindGlobalEvents } from './controller/events.js';
-import { APP } from './core/config.js';
+import { APP } from './core/config';
 import { $ } from './core/dom.js';
 import { storage } from './core/storage.js';
 import { setLargeText } from './features/largeText.js';
@@ -25,6 +26,7 @@ function boot() {
   }
 
   registerAppIcon();
+  mountFooter($('#footer'));
   bindGlobalEvents();
   render();
 }

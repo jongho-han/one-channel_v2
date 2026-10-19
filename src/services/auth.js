@@ -1,6 +1,6 @@
 import { showNewPage } from '../app/router.js';
 import { $, $$, each, escapeHtml } from '../core/dom.js';
-import { formatClock, maskPhone } from '../core/format.js';
+import { formatClock, maskPhone } from '../core/format';
 import { USER } from '../data/customerRepository.js';
 import { freshScreenState, state } from '../state/store.js';
 import { announce, closeModal, onModalClose, openModal, toast } from '../ui/overlay.js';

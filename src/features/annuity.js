@@ -1,5 +1,5 @@
 import { $, $$, each, escapeHtml, focusElement } from '../core/dom.js';
-import { formatWon } from '../core/format.js';
+import { formatWon } from '../core/format';
 import { CONTRACTS, insuredLabel } from '../data/customerRepository.js';
 import { state } from '../state/store.js';
 

@@ -1,6 +1,6 @@
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { each, escapeHtml, when } from '../core/dom.js';
-import { formatWon } from '../core/format.js';
+import { formatWon } from '../core/format';
 import { CONTRACTS, insuredLabel, isInsuredOther } from '../data/customerRepository.js';
 import { loanAvailable } from '../features/loan.js';
 import { infoBox, statusChip } from '../ui/widgets.js';

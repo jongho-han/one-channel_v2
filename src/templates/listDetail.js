@@ -1,5 +1,5 @@
 import { $, $$, each, escapeHtml, focusElement, when } from '../core/dom.js';
-import { formatWon } from '../core/format.js';
+import { formatWon } from '../core/format';
 import { CONTRACTS, USER, insuredLabel } from '../data/customerRepository.js';
 import { contractDocumentsCard } from '../features/contractDocuments.js';
 import { SCREEN_BY_ID } from '../data/menuRepository.js';

@@ -1,4 +1,4 @@
-import { formatWon } from '../core/format.js';
+import { formatWon } from '../core/format';
 import { CONTRACTS, contractByNo, insuredLabel, isInsuredOther } from '../data/customerRepository.js';
 import { ANNUITY_AGE_RANGE, ANNUITY_OPTION_FIELDS, annuityAgeOptions, annuityLockRules, annuityOptionCalc, bindAnnuityPickStep, pickedAnnuityContract, renderAnnuityPickStep, validateAnnuityPick } from '../features/annuity.js';
 import { ANNUITY_CONVERSION_FIELDS, annuityConversionCalc, isConvertible } from '../features/annuityConversion.js';

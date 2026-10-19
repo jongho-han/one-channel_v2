@@ -149,3 +149,13 @@ test('연금전환 사전신청 메뉴 위치(보험금청구/신청)와 계산 
   assert.match($('#main').textContent, /매월 예상 연금액\(예시\)/);
   assert.deepEqual(errors, []);
 });
+
+test('하단 영역은 React로 한 번만 그려 화면 이동 시 다시 만들지 않는다', () => {
+  const firstLink = $('#footer nav a');
+  assert.ok(firstLink);
+  window.App.navigate('login');
+  window.App.navigate('home');
+  assert.equal($('#footer nav a'), firstLink);
+  assert.equal(window.document.querySelectorAll('#footer nav').length, 1);
+  assert.deepEqual(errors, []);
+});

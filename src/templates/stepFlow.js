@@ -1,6 +1,6 @@
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { $, $$, each, escapeHtml, focusElement, scrollToTop, when } from '../core/dom.js';
-import { clockTime, receiptNo } from '../core/format.js';
+import { clockTime, receiptNo } from '../core/format';
 import { RETENTION_OPTIONS } from '../data/homeContent.js';
 import { bindFormBehaviors, displayValue, isFieldVisible, readFieldValues, renderField, validateFields } from '../form/formEngine.js';
 import { rerenderScreen } from '../pages/screen.js';

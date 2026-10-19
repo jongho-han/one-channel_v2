@@ -1,7 +1,7 @@
 import { buildPdf } from '../core/pdf.js';
 import { saveFile } from '../core/download.js';
 import { each, escapeHtml } from '../core/dom.js';
-import { formatWon } from '../core/format.js';
+import { formatWon } from '../core/format';
 import { contractDocuments, findContractDocument } from '../data/contractDocumentRepository.js';
 import { USER, insuredLabel } from '../data/customerRepository.js';
 import { icon } from '../ui/icons.js';

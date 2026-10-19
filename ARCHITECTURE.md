@@ -13,7 +13,8 @@ iM라이프 사이버창구 기획 검토용 프로토타입의 구조와 설계
 one-channel/
 ├── index.html                  # 메인 진입점 (셸 마크업, src/main.js 로드)
 ├── package.json                # 스크립트(dev·build·analyze·test)·개발 의존성
-├── vite.config.js              # Vite + singlefile 빌드 설정
+├── vite.config.js              # Vite(React 플러그인) + singlefile 빌드, vitest 설정
+├── tsconfig.json               # TypeScript 설정 (allowJs: JS·TS 공존)
 ├── eslint.config.js            # 정적 분석 규칙
 ├── README.md                   # 명령·폴더 개요·화면 추가 순서
 ├── ARCHITECTURE.md             # 구조·설계 원칙 (이 문서)
@@ -31,15 +32,20 @@ one-channel/
 │   └── 사이버창구_이용안내_v3.7.docx  # 고객용 이용안내
 │
 ├── tests/
-│   └── smoke.test.js           # 빌드본(dist) jsdom 스모크·회귀 테스트
+│   ├── smoke.test.js           # 빌드본(dist) jsdom 스모크·회귀 테스트
+│   └── unit/                   # vitest 단위 테스트 (TS 모듈·React 컴포넌트)
 │
 └── src/
     ├── main.js                 # 부팅, 테스트용 window.App 노출
     │
+    ├── components/             # React(TSX) 컴포넌트 — 점진 전환 대상
+    │   ├── Footer.tsx          # 공통 하단 이용 안내·회사 정보
+    │   └── mountFooter.tsx     # #footer 에 React 루트 마운트
+    │
     ├── core/                   # 기반 유틸 (다른 레이어에 의존하지 않음)
-    │   ├── config.js           # 버전·기준일·하단 링크·기능 플래그
+    │   ├── config.ts           # 버전·기준일·하단 링크(FooterLink 타입)·기능 플래그
     │   ├── dom.js              # 선택자·HTML 조각·이스케이프·초점
-    │   ├── format.js           # 금액·날짜·시간 포맷, 입력 패턴, 접수번호
+    │   ├── format.ts           # 금액·날짜·시간 포맷, 입력 패턴, 접수번호
     │   ├── storage.js          # 브라우저 저장소 래퍼
     │   ├── download.js         # 파일 내려받기
     │   └── pdf.js              # 한글 PDF 생성

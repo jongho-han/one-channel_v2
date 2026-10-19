@@ -1,5 +1,5 @@
 import { refresh } from '../app/render.js';
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { storage } from '../core/storage.js';
 import { state } from '../state/store.js';
 import { toast } from '../ui/overlay.js';

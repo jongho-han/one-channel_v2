@@ -1,6 +1,6 @@
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { $, $$, each, escapeHtml, scrollToTop } from '../core/dom.js';
-import { PHONE_PATTERN } from '../core/format.js';
+import { PHONE_PATTERN } from '../core/format';
 import { USER } from '../data/customerRepository.js';
 import { readFieldValues, renderField } from '../form/formEngine.js';
 import { rerenderScreen } from '../pages/screen.js';

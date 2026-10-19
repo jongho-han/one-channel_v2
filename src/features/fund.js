@@ -1,6 +1,6 @@
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { $, $$, each, escapeHtml, focusElement, scrollToTop } from '../core/dom.js';
-import { formatWon, nextDay, parseYmd } from '../core/format.js';
+import { formatWon, nextDay, parseYmd } from '../core/format';
 import { FUND_GRADE_NAMES, INVEST_PROFILES, SUITABILITY, SUITABILITY_QUESTIONS } from '../data/fundRepository.js';
 import { rerenderScreen } from '../pages/screen.js';
 import { state } from '../state/store.js';

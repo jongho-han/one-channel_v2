@@ -1,5 +1,5 @@
 import { openScreen } from '../app/router.js';
-import { APP } from '../core/config.js';
+import { APP } from '../core/config';
 import { $, $$, each, escapeHtml, when } from '../core/dom.js';
 import { CONTRACTS, USER } from '../data/customerRepository.js';
 import { HOME } from '../data/homeContent.js';

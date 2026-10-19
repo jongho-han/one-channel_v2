@@ -1,5 +1,5 @@
-import { APP } from '../core/config.js';
-import { formatWon } from '../core/format.js';
+import { APP } from '../core/config';
+import { formatWon } from '../core/format';
 import { USER, contractByNo } from '../data/customerRepository.js';
 
 /* 연금전환 사전신청 (CH-11): 종신보험 적립금을 정한 나이에 연금으로 바꾸도록 미리 신청 */

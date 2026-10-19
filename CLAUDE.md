@@ -8,13 +8,21 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - 개발 언어·프레임워크: **React + TypeScript** (빌드 Vite 유지)
 - 신규 코드는 `.tsx`(컴포넌트)·`.ts`(로직) 로 작성. `any` 지양, props·상태·데이터는 타입(interface/type) 정의
 - 현재 소스는 바닐라 JS(ES 모듈) — 전환 전까지 기존 구조·명령을 따르고, 전환은 화면 단위로 점진 진행
+- 전환 완료: `core/format.ts`·`core/config.ts`, 공통 하단 `components/Footer.tsx`(React 마운트 `mountFooter.tsx`). JS에서 TS 모듈은 확장자 없이 import
+- React 마운트는 `flushSync` 로 동기 렌더 (스모크 테스트가 부팅 직후 DOM을 검사)
 - 전환 후에도 배포물은 `dist/index.html` 단일 파일 유지
 
 ## 명령
 - `npm run dev` 개발 서버 / `npm run build` → `dist/index.html` 단일 파일 (vite-plugin-singlefile, CSS·JS 인라인. 더블클릭으로 열려야 함)
-- `npm run analyze` ESLint / `npm test` 빌드 후 `node --test` 실행
+- `npm run analyze` ESLint + 타입검사(tsc) / `npm test` = 단위(vitest) → 빌드 → 스모크(`node --test`)
+- `npm run test:unit` 단위만(`tests/unit/*.test.ts(x)`, jsdom + Testing Library) / `npm run test:smoke` 빌드+스모크만
 - 테스트 하나만: `npm run build && node --test --test-name-pattern="CT-02" tests/smoke.test.js`
 - 테스트는 소스가 아닌 **빌드 결과 `dist/index.html`** 을 jsdom에 올려 검사하므로 소스 수정 후 반드시 재빌드. 테스트에서는 `window.App`(state·render·openScreen 등)으로 화면을 연다
+
+## TDD (변경 시 테스트 우선)
+- 순서: 실패하는 테스트 작성(RED) → 실행해 실패 확인 → 최소 구현(GREEN) → 리팩터링 → 전체 테스트·analyze
+- 컴포넌트·로직은 `tests/unit` 단위 테스트, 화면 연결·회귀는 `tests/smoke.test.js`
+- JS → TS 전환은 기존 동작을 고정하는 특성 테스트를 먼저 작성한 뒤 전환
 
 ## 아키텍처 (흐름)
 - 진입 `src/main.js` → `controller/events.js` 전역 이벤트 바인딩 → `app/render.js` 가 셸 + `state.route.page`(home·all·login·screen)별 페이지 렌더

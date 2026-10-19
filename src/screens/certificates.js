@@ -1,4 +1,4 @@
-import { formatWon } from '../core/format.js';
+import { formatWon } from '../core/format';
 import { CONTRACTS, USER } from '../data/customerRepository.js';
 
 /* T5 발급 (document(values) → [[항목, 값]] · 첫 줄은 증명서 이름) */

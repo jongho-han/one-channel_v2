@@ -1,5 +1,5 @@
 import { $, $$, FOCUSABLE } from '../core/dom.js';
-import { withObjectParticle } from '../core/format.js';
+import { withObjectParticle } from '../core/format';
 import { icon } from './icons.js';
 
 /** 짧은 알림: 화면낭독기에도 읽히도록 상태 영역(role=status)에 표시 */
