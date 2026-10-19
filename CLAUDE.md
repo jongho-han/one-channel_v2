@@ -4,6 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53개 화면). 프레임워크 없는 바닐라 JS(ES 모듈) + Vite. 데이터는 모두 샘플, 인증·거래는 시뮬레이션.
 
+## 언어 / 기술 스택
+- 개발 언어·프레임워크: **React + TypeScript** (빌드 Vite 유지)
+- 신규 코드는 `.tsx`(컴포넌트)·`.ts`(로직) 로 작성. `any` 지양, props·상태·데이터는 타입(interface/type) 정의
+- 현재 소스는 바닐라 JS(ES 모듈) — 전환 전까지 기존 구조·명령을 따르고, 전환은 화면 단위로 점진 진행
+- 전환 후에도 배포물은 `dist/index.html` 단일 파일 유지
+
 ## 명령
 - `npm run dev` 개발 서버 / `npm run build` → `dist/index.html` 단일 파일 (vite-plugin-singlefile, CSS·JS 인라인. 더블클릭으로 열려야 함)
 - `npm run analyze` ESLint / `npm test` 빌드 후 `node --test` 실행
