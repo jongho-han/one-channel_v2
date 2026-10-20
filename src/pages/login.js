@@ -1,7 +1,7 @@
 import { $, each, escapeHtml } from '../core/dom.js';
 import { SCREEN_BY_ID } from '../data/menuRepository.js';
 import { LOGIN_METHODS } from '../services/auth.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { icon } from '../ui/icons.js';
 
 /* 로그인 ------------------------------------------------------------ */

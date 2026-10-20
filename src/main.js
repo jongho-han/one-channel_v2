@@ -2,6 +2,7 @@ import './styles/app.css';
 import { render } from './app/render.js';
 import { navigate, openScreen } from './app/router.js';
 import { mountFooter } from './components/mountFooter';
+import { mountShell } from './components/shell/mountShell';
 import { bindGlobalEvents } from './controller/events.js';
 import { APP } from './core/config';
 import { $ } from './core/dom.js';
@@ -9,7 +10,7 @@ import { storage } from './core/storage.js';
 import { setLargeText } from './features/largeText.js';
 import { registerAppIcon } from './features/shortcut.js';
 import { rerenderScreen } from './pages/screen.js';
-import { state } from './state/store.js';
+import { state } from './state/store';
 
 /* 시작 ================================================================= */
 function boot() {
@@ -26,6 +27,7 @@ function boot() {
   }
 
   registerAppIcon();
+  mountShell({ header: $('#header'), appBar: $('#appbar'), tabBar: $('#tabbar') });
   mountFooter($('#footer'));
   bindGlobalEvents();
   render();

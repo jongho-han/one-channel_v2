@@ -6,7 +6,7 @@ import { SCREEN_BY_ID } from '../data/menuRepository.js';
 import { bindFileList } from '../form/formEngine.js';
 import { rerenderScreen } from '../pages/screen.js';
 import { LIST_SCREENS, isStatusColumn, setRowStatus } from '../screens/listScreens.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { icon } from '../ui/icons.js';
 import { closeModal, openModal, toast } from '../ui/overlay.js';
 import { infoBox, linkButtons, statusChip, summaryTiles } from '../ui/widgets.js';

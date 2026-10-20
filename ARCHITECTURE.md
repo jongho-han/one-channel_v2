@@ -39,8 +39,17 @@ one-channel/
     ├── main.js                 # 부팅, 테스트용 window.App 노출
     │
     ├── components/             # React(TSX) 컴포넌트 — 점진 전환 대상
+    │   ├── Icon.tsx            # SVG 선 아이콘 (경로는 ui/icons.js)
     │   ├── Footer.tsx          # 공통 하단 이용 안내·회사 정보
-    │   └── mountFooter.tsx     # #footer 에 React 루트 마운트
+    │   ├── mountFooter.tsx     # #footer 에 React 루트 마운트
+    │   └── shell/              # 공통 셸
+    │       ├── Header.tsx      # PC 헤더 (로고·주메뉴·큰글씨·로그인·전체메뉴)
+    │       ├── MegaMenu.tsx    # 주메뉴 2Depth·3Depth 메가메뉴
+    │       ├── AppBar.tsx      # 모바일 상단 앱바
+    │       ├── TabBar.tsx      # 모바일 하단 탭바
+    │       ├── common.tsx      # 로고·큰글씨·로그인 버튼
+    │       ├── useAppState.ts  # store 구독 훅 (useSyncExternalStore)
+    │       └── mountShell.tsx  # 셸 마운트·refreshShell·메가메뉴 열기/닫기
     │
     ├── core/                   # 기반 유틸 (다른 레이어에 의존하지 않음)
     │   ├── config.ts           # 버전·기준일·하단 링크(FooterLink 타입)·기능 플래그
@@ -51,11 +60,12 @@ one-channel/
     │   └── pdf.js              # 한글 PDF 생성
     │
     ├── state/
-    │   └── store.js            # 전역 상태·화면 진행 상태 초기화
+    │   └── store.ts            # 전역 상태(타입)·화면 진행 상태 초기화·구독(subscribe/notify)
     │
     ├── data/                   # Repository: 샘플 데이터와 조회 함수
     │   ├── menu-spec.json      # 메뉴정의서 행 (화면 정의 원천)
     │   ├── menuRepository.js   # 메뉴 트리·id 색인·검색 키워드
+    │   ├── menu.ts             # 메뉴 데이터 타입 정의 (TS 컴포넌트용)
     │   ├── customerRepository.js   # 고객·계약·계좌
     │   ├── contractDocumentRepository.js  # 계약별 약관·안내장
     │   ├── fundRepository.js   # 투자성향·적합성진단
@@ -69,14 +79,13 @@ one-channel/
     │
     ├── app/
     │   ├── router.js           # 페이지·화면 전환, 로그인 가드, 뒤로가기
-    │   └── render.js           # 셸 + 페이지 렌더, 큰글씨 전환 시 다시 그리기
+    │   └── render.js           # 셸 갱신(refreshShell) + 페이지 렌더, 큰글씨 전환 시 다시 그리기
     │
     ├── controller/
     │   ├── events.js           # 전역 이벤트 위임
     │   └── actions.js          # data-action → 처리 함수 (ACTIONS)
     │
     ├── ui/                     # 재사용 UI 위젯
-    │   ├── shell.js            # 헤더·메가메뉴·탭바·하단
     │   ├── widgets.js          # 안내 박스·버튼 줄·요약 타일·완료 카드
     │   ├── overlay.js          # 모달·토스트·화면낭독기 안내
     │   ├── icons.js            # SVG 아이콘
@@ -184,7 +193,7 @@ one-channel/
 - form → `features/annuity`의 「해당없음」 상수: 공통 상수로 옮기면 해소
 
 ## 5. 런타임 흐름
-- **렌더링**: 상태 → HTML 문자열 → `innerHTML`. 가상 DOM 없음. 사용자 입력·샘플 값은 출력 시 이스케이프
+- **렌더링**: 공통 셸·하단은 React(상태 변경 → `notify` → 동기 재렌더). 페이지·업무 화면은 아직 상태 → HTML 문자열 → `innerHTML`. 사용자 입력·샘플 값은 출력 시 이스케이프
 - **페이지 전환**: `state.route.page`(home·all·login·screen)에 따라 `app/render`가 페이지를 고름. 업무 화면 이동 시 h1 초점 이동·문서 제목 갱신(KWCAG)
 - **로그인 가드**: 인증수준이 A0가 아닌 화면을 미로그인 상태로 열면 로그인으로 보낸 뒤, 로그인 완료 시 원래 화면을 이어서 연다
 - **클릭 처리**: 모든 버튼은 `data-action` + `data-*` 속성만 갖고, 처리는 `controller/actions`의 ACTIONS 한 곳에 모은다

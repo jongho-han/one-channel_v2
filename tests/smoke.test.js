@@ -159,3 +159,78 @@ test('하단 영역은 React로 한 번만 그려 화면 이동 시 다시 만�
   assert.equal(window.document.querySelectorAll('#footer nav').length, 1);
   assert.deepEqual(errors, []);
 });
+
+/* ---- 공통 셸(헤더·메가메뉴·앱바·탭바) 특성 테스트: React 전환 전후 동작 동일 ---- */
+const texts = selector => [...window.document.querySelectorAll(selector)].map(element => element.textContent.trim());
+
+test('셸: 화면 이동에 따라 탭바·주메뉴·앱바 제목·로그인 버튼이 바뀐다', () => {
+  assert.deepEqual(texts('#tabbar button'), ['홈', '내 계약', '보험금청구', '증명서', '전체메뉴']);
+  assert.equal($('#tabbar button.on').textContent.trim(), '홈');
+  assert.equal($('#header [data-action="nav"][data-page="login"]').textContent.trim(), '로그인');
+
+  login();
+  window.App.openScreen('CT-01');
+  assert.equal($('#tabbar button.on').textContent.trim(), '내 계약');
+  assert.equal($('#tabbar button.on').getAttribute('aria-current'), 'page');
+  assert.equal($('#gnb button.on').textContent.trim(), '보험');
+  assert.equal($('#gnb button[aria-current="true"]').dataset.group, '보험');
+  assert.equal($('#appbar .title').textContent, '계약종합현황');
+  assert.ok($('#appbar [data-action="back"]'));
+  assert.match($('#header .user-chip').textContent, /홍길동/);
+  assert.equal($('#header [data-action="logout"]').textContent.trim(), '로그아웃');
+
+  window.App.openScreen('CF-02');
+  assert.equal($('#tabbar button.on').textContent.trim(), '증명서');
+  assert.deepEqual(errors, []);
+});
+
+test('셸: 큰글씨 버튼은 눌림 상태와 이름이 바뀐다', () => {
+  click($('#header [data-action="toggle-large-text"]'));
+  assert.equal($('#header [data-action="toggle-large-text"]').getAttribute('aria-pressed'), 'true');
+  assert.match($('#header [data-action="toggle-large-text"]').textContent, /큰글씨 켜짐/);
+  assert.ok(window.document.documentElement.classList.contains('big'));
+  click($('#header [data-action="toggle-large-text"]'));
+  assert.equal($('#header [data-action="toggle-large-text"]').getAttribute('aria-pressed'), 'false');
+  assert.deepEqual(errors, []);
+});
+
+test('셸: 전체메뉴 버튼은 열림 상태를 알리고 다시 누르면 닫힌다', () => {
+  click($('#header [data-action="toggle-all-menu"]'));
+  assert.equal(window.App.state.route.page, 'all');
+  assert.equal($('#header [data-action="toggle-all-menu"]').getAttribute('aria-expanded'), 'true');
+  assert.equal($('#header [data-action="toggle-all-menu"]').getAttribute('aria-label'), '전체메뉴 닫기');
+  assert.equal($('#tabbar button.on').textContent.trim(), '전체메뉴');
+  click($('#header [data-action="toggle-all-menu"]'));
+  assert.equal(window.App.state.route.page, 'home');
+  assert.deepEqual(errors, []);
+});
+
+test('셸: 주메뉴에 초점이 오면 메가메뉴, 2Depth 선택·Esc 닫기', () => {
+  const gnbButton = $('#gnb [data-group="보험"]');
+  gnbButton.dispatchEvent(new window.FocusEvent('focusin', { bubbles: true }));
+  assert.equal($('#mega').hidden, false);
+  assert.equal(gnbButton.getAttribute('aria-expanded'), 'true');
+  assert.equal($('#mega .mega-title').textContent, '계약종합현황');
+
+  click($('#mega [data-action="mega-section"][data-index="2"]'));
+  assert.equal($('#mega .mega-title').textContent, '보험금청구/신청');
+  assert.equal($('#mega .mega-depth2 button.on').dataset.index, '2');
+  assert.equal(window.document.activeElement, $('#mega [data-index="2"]'));
+  assert.ok(texts('#mega .mega-depth3 li button').includes('연금전환 사전신청'));
+
+  window.document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal($('#mega').hidden, true);
+  assert.equal($('#gnb [data-group="보험"]').getAttribute('aria-expanded'), 'false');
+  assert.deepEqual(errors, []);
+});
+
+test('셸은 React가 유지해 화면 이동 시 요소를 다시 만들지 않는다', () => {
+  const logo = $('#header .logo');
+  const homeTab = $('#tabbar button');
+  login();
+  window.App.openScreen('CT-01');
+  window.App.navigate('home');
+  assert.equal($('#header .logo'), logo);
+  assert.equal($('#tabbar button'), homeTab);
+  assert.deepEqual(errors, []);
+});

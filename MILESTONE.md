@@ -23,9 +23,11 @@
 - [x] React + TypeScript 전환 1단계 (TDD) — 2026-10-19
   - React 19·TypeScript·vitest·Testing Library·typescript-eslint 도입, analyze 에 타입검사 포함
   - core/format·config TS 전환(특성 테스트 선작성), 공통 하단 React 컴포넌트 전환
+- [x] React + TypeScript 전환 2단계 (TDD) — 2026-10-20
+  - 공통 셸(헤더·메가메뉴·앱바·탭바) React 전환, store TS 전환·구독(subscribe/notify), 메뉴 데이터 타입(menu.ts)
+  - 셸 특성 테스트 5건 선작성 — 메가메뉴 Esc 후 초점 복귀 시 다시 열리던 버그 발견·수정
 
 ## 다음 후보
-- [ ] React 전환 2단계: 하단 탭바·앱바·헤더(메가메뉴) 컴포넌트화 → 상태 store 를 React 구독 구조로
 - [ ] React 전환 3단계: 화면 템플릿(T1~T5) → 업무 화면 단위 전환
 - [ ] 모달·폼 내부 onclick 직접 바인딩을 액션(data-action) 방식으로 통일
 - [ ] 화면별 단계 진행(T3 전 과정) 테스트 확대

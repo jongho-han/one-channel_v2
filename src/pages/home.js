@@ -6,7 +6,7 @@ import { HOME } from '../data/homeContent.js';
 import { MENU_GROUPS, searchScreens } from '../data/menuRepository.js';
 import { HOME_NOTICE_COUNT, NOTICES } from '../data/noticeRepository.js';
 import { LOGIN_METHODS } from '../services/auth.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { icon } from '../ui/icons.js';
 import { announce, openModal } from '../ui/overlay.js';
 

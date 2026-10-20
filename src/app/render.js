@@ -1,11 +1,11 @@
+import { refreshShell } from '../components/shell/mountShell';
 import { $ } from '../core/dom.js';
 import { renderAllMenuPage } from '../pages/allMenu.js';
 import { renderHomePage } from '../pages/home.js';
 import { renderLoginPage } from '../pages/login.js';
 import { renderScreenPage, saveScreenInputs } from '../pages/screen.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { applyTableA11y } from '../ui/a11y.js';
-import { renderShell } from '../ui/shell.js';
 import { documentTitle } from './router.js';
 
 const PAGES = {
@@ -22,7 +22,8 @@ export function refresh() {
 }
 
 export function render() {
-  renderShell();
+  state.ui.mega = null;   // 화면을 다시 그리면 메가메뉴는 닫힘
+  refreshShell();
   PAGES[state.route.page]();
   applyTableA11y($('#main'));
   document.title = documentTitle();

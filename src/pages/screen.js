@@ -6,7 +6,7 @@ import { readFieldValues } from '../form/formEngine.js';
 import { CERTIFICATES } from '../screens/certificates.js';
 import { CHANGE_FORMS } from '../screens/changeForms.js';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { renderDashboard } from '../templates/dashboard.js';
 import { bindIssuance, renderIssuance } from '../templates/issuance.js';
 import { bindListDetail, renderListDetail } from '../templates/listDetail.js';

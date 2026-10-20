@@ -8,7 +8,7 @@ import { bindFormBehaviors, readFieldValues, renderField, validateFields } from 
 import { rerenderScreen } from '../pages/screen.js';
 import { CHANGE_FORMS } from '../screens/changeForms.js';
 import { chooseSignMethod } from '../services/auth.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { toast } from '../ui/overlay.js';
 import { agreementList, doneCard, infoBox } from '../ui/widgets.js';
 

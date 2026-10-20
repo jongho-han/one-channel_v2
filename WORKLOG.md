@@ -64,3 +64,4 @@
 | 2026-10-15 11:30:56 | MAIN 병합 후 PUSH | 연금전환 사전신청 메뉴 이동 커밋 main fast-forward 병합·push, GitHub Pages 배포 실행 |
 | 2026-10-20 08:51:35 | Claude.md 에 언어 타입 추가 (React + TypeScript 로 개발) | CLAUDE.md 「언어 / 기술 스택」 절 추가: React + TypeScript, .tsx/.ts 작성·타입 정의 원칙, 현 바닐라 JS에서 화면 단위 점진 전환, 단일 HTML 배포 유지 |
 | 2026-10-20 08:56:33 | (React + TypeScript 전환) 진행하되 변경 시 테스트 우선 실행 TDD 방식으로 | 1단계: React 19·TS 6·vitest·Testing Library·typescript-eslint 도입(tsconfig allowJs, analyze=ESLint+tsc, test=단위→빌드→스모크). 테스트 선작성 후 core/format·config TS 전환, 공통 하단 Footer.tsx(React, flushSync 마운트) 전환, 스모크 1건 추가. CLAUDE.md TDD 절·ARCHITECTURE·MILESTONE 갱신. analyze 0·단위 8건·스모크 11건 통과 |
+| 2026-10-20 09:34:51 | (React 전환) 이어서 진행 | 2단계: 셸 특성 스모크 테스트 5건·단위 테스트 16건 선작성(RED) 후 공통 셸(헤더·메가메뉴·앱바·탭바)을 React 컴포넌트로 전환, store.ts(타입·subscribe/notify)·useAppState 훅·menu.ts 타입, ui/shell.js 삭제. 메가메뉴 Esc 시 초점 복귀로 다시 열리던 기존 버그 수정. analyze 0·단위 24건·스모크 16건 통과, Chromium 동작 확인 |

@@ -5,7 +5,7 @@ import { USER } from '../data/customerRepository.js';
 import { readFieldValues, renderField } from '../form/formEngine.js';
 import { rerenderScreen } from '../pages/screen.js';
 import { CERTIFICATES, FORM_DOWNLOADS } from '../screens/certificates.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { icon } from '../ui/icons.js';
 import { infoBox } from '../ui/widgets.js';
 

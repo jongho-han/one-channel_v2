@@ -8,7 +8,10 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - 개발 언어·프레임워크: **React + TypeScript** (빌드 Vite 유지)
 - 신규 코드는 `.tsx`(컴포넌트)·`.ts`(로직) 로 작성. `any` 지양, props·상태·데이터는 타입(interface/type) 정의
 - 현재 소스는 바닐라 JS(ES 모듈) — 전환 전까지 기존 구조·명령을 따르고, 전환은 화면 단위로 점진 진행
-- 전환 완료: `core/format.ts`·`core/config.ts`, 공통 하단 `components/Footer.tsx`(React 마운트 `mountFooter.tsx`). JS에서 TS 모듈은 확장자 없이 import
+- 전환 완료: `core/format.ts`·`core/config.ts`·`state/store.ts`, 공통 하단 `components/Footer.tsx`, 공통 셸 `components/shell/*`(헤더·메가메뉴·앱바·탭바). JS에서 TS 모듈은 확장자 없이 import
+- 셸은 상태를 직접 읽어 그림: 상태를 바꾼 뒤 `refreshShell()`(= flushSync + `notify`). `render()` 는 자동 호출. 메가메뉴는 `state.ui.mega` + `showMegaMenu`/`hideMegaMenu`
+- 버튼 동작은 React onClick 대신 기존처럼 `data-action` 속성으로 (`controller/actions.js`)
+- TS 컴포넌트에서 메뉴 데이터는 타입이 있는 `data/menu.ts` 로 import
 - React 마운트는 `flushSync` 로 동기 렌더 (스모크 테스트가 부팅 직후 DOM을 검사)
 - 전환 후에도 배포물은 `dist/index.html` 단일 파일 유지
 
@@ -25,8 +28,8 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - JS → TS 전환은 기존 동작을 고정하는 특성 테스트를 먼저 작성한 뒤 전환
 
 ## 아키텍처 (흐름)
-- 진입 `src/main.js` → `controller/events.js` 전역 이벤트 바인딩 → `app/render.js` 가 셸 + `state.route.page`(home·all·login·screen)별 페이지 렌더
-- 상태는 `state/store.js` 의 전역 `state` 객체 하나. 화면 이동 시 `state.screen` 은 `freshScreenState()` 로 초기화 (`flow`: T3~T5 진행, `list`: T2)
+- 진입 `src/main.js` → React 셸·하단 마운트 → `controller/events.js` 전역 이벤트 바인딩 → `app/render.js` 가 셸 갱신 + `state.route.page`(home·all·login·screen)별 페이지 렌더
+- 상태는 `state/store.ts` 의 전역 `state` 객체 하나. 화면 이동 시 `state.screen` 은 `freshScreenState()` 로 초기화 (`flow`: T3~T5 진행, `list`: T2)
 - 라우팅 `app/router.js`: `openScreen(id)` 는 `authLevel` 이 A0 가 아니고 미로그인이면 로그인으로 보낸 뒤 이어서 연다. 화면 전환 시 h1 초점 이동·문서 제목 갱신 (KWCAG)
 - 렌더링은 HTML 문자열 → `innerHTML`. 사용자 표시값은 `core/dom.js` 의 `escapeHtml` 사용
 - 클릭은 요소의 `data-action="이름"` + `data-*` 를 `controller/actions.js` 의 `ACTIONS` 맵 한 곳에서 처리. 새 버튼은 onclick 대신 여기에 액션 추가

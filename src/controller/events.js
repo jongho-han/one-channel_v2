@@ -1,8 +1,12 @@
+import { hideMegaMenu, showMegaMenu } from '../components/shell/mountShell';
 import { $ } from '../core/dom.js';
 import { shortcut } from '../features/shortcut.js';
+import { state } from '../state/store';
 import { handleModalKeys } from '../ui/overlay.js';
-import { hideMegaMenu, showMegaMenu } from '../ui/shell.js';
 import { runAction } from './actions.js';
+
+/** Esc로 닫으며 주메뉴로 초점을 돌려줄 때는 메가메뉴를 다시 열지 않음 */
+let isReturningFocus = false;
 
 export function bindGlobalEvents() {
   document.addEventListener('click', event => {
@@ -14,10 +18,12 @@ export function bindGlobalEvents() {
   /* 키보드: 모달 안 Tab 순환 · Esc로 모달/메가메뉴 닫기 */
   document.addEventListener('keydown', event => {
     if (handleModalKeys(event)) return;
-    if (event.key === 'Escape' && !$('#mega')?.hidden) {
-      const group = $('#mega').dataset.group;
+    if (event.key === 'Escape' && state.ui.mega) {
+      const { group } = state.ui.mega;
       hideMegaMenu();
+      isReturningFocus = true;
       $(`#gnb [data-group="${group}"]`)?.focus();
+      isReturningFocus = false;
     }
   });
 
@@ -25,8 +31,8 @@ export function bindGlobalEvents() {
   const header = $('#header');
   const showForGnbButton = event => {
     const button = event.target.closest('#gnb [data-group]');
-    const mega = $('#mega');
-    if (button && (mega.hidden || mega.dataset.group !== button.dataset.group)) showMegaMenu(button.dataset.group);
+    if (isReturningFocus || !button) return;
+    if (state.ui.mega?.group !== button.dataset.group) showMegaMenu(button.dataset.group);
   };
   header.addEventListener('mouseover', showForGnbButton);
   header.addEventListener('focusin', showForGnbButton);

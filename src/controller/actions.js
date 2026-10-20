@@ -1,4 +1,5 @@
 import { goBack, navigate, openScreen, toggleAllMenu } from '../app/router.js';
+import { showMegaMenu } from '../components/shell/mountShell';
 import { $, focusElement } from '../core/dom.js';
 import { MENU_TREE, SCREEN_BY_ID } from '../data/menuRepository.js';
 import { downloadContractDocument } from '../features/contractDocuments.js';
@@ -10,12 +11,11 @@ import { openNoticeBoard } from '../pages/home.js';
 import { rerenderScreen } from '../pages/screen.js';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
 import { chooseSignMethod, login, logout } from '../services/auth.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { confirmCancelRequest, submitDocuments } from '../templates/listDetail.js';
 import { completeSingleForm } from '../templates/singleForm.js';
 import { showNextStep } from '../templates/stepFlow.js';
 import { closeModal, copyText, toast } from '../ui/overlay.js';
-import { showMegaMenu } from '../ui/shell.js';
 
 /** 클릭 가능한 요소는 모두 data-action="이름" 을 갖고, 여기 한 곳에서 처리 */
 const ACTIONS = {

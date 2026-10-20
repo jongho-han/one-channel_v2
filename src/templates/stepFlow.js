@@ -6,7 +6,7 @@ import { bindFormBehaviors, displayValue, isFieldVisible, readFieldValues, rende
 import { rerenderScreen } from '../pages/screen.js';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
 import { SIGN_METHODS, signAndConfirm } from '../services/auth.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { icon } from '../ui/icons.js';
 import { agreementList, calcBox, doneCard, infoBox, keyValueList, stepper } from '../ui/widgets.js';
 

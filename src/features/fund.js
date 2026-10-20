@@ -3,7 +3,7 @@ import { $, $$, each, escapeHtml, focusElement, scrollToTop } from '../core/dom.
 import { formatWon, nextDay, parseYmd } from '../core/format';
 import { FUND_GRADE_NAMES, INVEST_PROFILES, SUITABILITY, SUITABILITY_QUESTIONS } from '../data/fundRepository.js';
 import { rerenderScreen } from '../pages/screen.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { announce, openModal, toast } from '../ui/overlay.js';
 import { infoBox, summaryTiles } from '../ui/widgets.js';
 import { activeFunds, selectedVariableContract, variableContractTabs } from './variableContract.js';

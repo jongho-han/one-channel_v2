@@ -1,6 +1,6 @@
 import { $, $$, each, escapeHtml, when } from '../core/dom.js';
 import { MENU_GROUPS, MENU_ORDER, MENU_TREE, SEARCH_KEYWORDS } from '../data/menuRepository.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { icon } from '../ui/icons.js';
 import { announce } from '../ui/overlay.js';
 

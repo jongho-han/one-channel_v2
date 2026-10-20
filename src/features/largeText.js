@@ -1,7 +1,7 @@
 import { refresh } from '../app/render.js';
 import { APP } from '../core/config';
 import { storage } from '../core/storage.js';
-import { state } from '../state/store.js';
+import { state } from '../state/store';
 import { toast } from '../ui/overlay.js';
 
 /* 부가 기능 ============================================================ */

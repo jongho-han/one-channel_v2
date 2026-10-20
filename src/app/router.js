@@ -1,7 +1,7 @@
 import { $, focusElement, scrollToTop } from '../core/dom.js';
 import { MENU_GROUPS, SCREEN_BY_ID } from '../data/menuRepository.js';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
-import { freshScreenState, state } from '../state/store.js';
+import { freshScreenState, state } from '../state/store';
 import { stepsOf } from '../templates/stepFlow.js';
 import { render } from './render.js';
 
