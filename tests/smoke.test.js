@@ -957,7 +957,7 @@ const layerGolden = name => assertMatchesGolden(`modal-${name}`, '#layer');
 const escape = () => window.document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
 const stubDownload = () => {
   const saved = {};
-  window.URL.createObjectURL = () => 'blob:test';
+  window.URL.createObjectURL = blob => { saved.blob = blob; return 'blob:test'; };
   window.URL.revokeObjectURL = () => {};
   window.HTMLAnchorElement.prototype.click = function () { saved.name = this.download; };
   return saved;
@@ -1031,7 +1031,7 @@ test('모달: 우편번호 검색 · 신청 취소 · 펀드 진단 안내 내�
   assert.deepEqual(errors, []);
 });
 
-test('모달: 공지 게시판 · 바로가기 안내(기기 탭·파일 받기) · 로그인 인증 대기', () => {
+test('모달: 공지 게시판 · 바로가기 안내(기기 탭·파일 받기) · 로그인 인증 대기', async () => {
   click($('[data-action="open-notices"][data-notice="n9"]'));
   layerGolden('notice-board');
   click($('#layer [data-action="close-modal"]'));
@@ -1046,6 +1046,9 @@ test('모달: 공지 게시판 · 바로가기 안내(기기 탭·파일 받기)
   click($('[data-action="download-shortcut"][data-kind="mac"]'));
   assert.equal(saved.name, 'iM라이프 사이버창구.webloc');
   assert.ok(toasts().includes('바로가기 파일을 내려받았습니다. 바탕화면으로 옮겨 주세요.'));
+  click($('[data-action="download-shortcut"][data-kind="win"]'));
+  assert.equal(saved.name, 'iM라이프 사이버창구.url');
+  assert.match(await saved.blob.text(), /^\[InternetShortcut\]\r\nURL=https:\/\/example\.test\/\r\n/);   // 지금 보고 있는 사이버창구를 연다
   click($('#layer [data-action="close-modal"]'));
   click($('#main [data-action="login"][data-method="간편인증"]'));
   layerGolden('login-waiting');

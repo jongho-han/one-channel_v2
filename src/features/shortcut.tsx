@@ -46,12 +46,20 @@ export function registerAppIcon(): void {
   } catch { /* 아이콘을 못 그려도 기능은 계속 */ }
 }
 
+/** 바로가기가 열 주소: 지금 보고 있는 사이버창구(웹·파일). 알 수 없으면 설정 주소 */
+export function shortcutTarget(href: string, fallback: string): string {
+  return /^(https?|file):/.test(href) ? href.split('#')[0] : fallback;
+}
+const escapeXml = (text: string) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const currentTarget = () => shortcutTarget(location.href, APP.shortcut.url);
+
 /** PC 바탕화면용 바로가기 파일 내려받기 (Windows .url / Mac .webloc) */
 export function downloadShortcut(kind: string): void {
-  const { name, url } = APP.shortcut;
+  const { name } = APP.shortcut;
+  const url = currentTarget();
   const isMac = kind === 'mac';
   const body = isMac
-    ? `<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0"><dict><key>URL</key><string>${url}</string></dict></plist>\n`
+    ? `<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0"><dict><key>URL</key><string>${escapeXml(url)}</string></dict></plist>\n`
     : `[InternetShortcut]\r\nURL=${url}\r\nIconIndex=0\r\n`;
 
   saveFile(name + (isMac ? '.webloc' : '.url'), body, isMac ? 'application/xml' : 'application/octet-stream');
@@ -59,8 +67,7 @@ export function downloadShortcut(kind: string): void {
 }
 
 export function openShortcutGuide(tab: ShortcutTab = defaultShortcutTab()): void {
-  const { name, url } = APP.shortcut;
-  openModal(<ShortcutGuide tab={tab} name={name} url={url} iconPng={shortcut.iconPng} canInstall={Boolean(shortcut.installPrompt)} />);
+  openModal(<ShortcutGuide tab={tab} name={APP.shortcut.name} url={currentTarget()} iconPng={shortcut.iconPng} canInstall={Boolean(shortcut.installPrompt)} />);
 }
 
 function defaultShortcutTab(): ShortcutTab {

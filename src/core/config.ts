@@ -12,7 +12,7 @@ export const APP = {
   storageKeys: { largeText: 'im_big' },
   shortcut: {
     name: 'iM라이프 사이버창구',
-    url: 'https://www.imlifeins.co.kr/cyber/main.do',   // 운영 시 실제 메인 URL
+    url: 'https://www.imlifeins.co.kr/cyber/main.do',   // 지금 페이지 주소를 알 수 없을 때만 사용
   },
   footerLinks: [
     { label: '개인정보처리방침', url: 'https://www.imlifeins.co.kr/BE/BE_A030_2.do', strong: true },

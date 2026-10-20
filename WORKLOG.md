@@ -78,3 +78,4 @@
 | 2026-10-20 11:28:56 | main 병합 후 배포 | 남은 JS 정리(모달 React·src 전체 TS) 커밋 main fast-forward 병합·push, GitHub Pages 배포 실행(#7) |
 | 2026-10-20 11:42:43 | docs 메뉴정의서 업데이트 | 메뉴정의서·menu-spec.json 53개 화면 일치 확인 후 React 전환에 따른 동작 변경 반영: 비고 MY-02(수신동의 해제 팝업 Esc=아니오)·CM-04(메가메뉴 Esc 초점 복귀), CM-08 처리결과(인증 대기 중 Esc 불가), 개정이력 4건(2026-10-20: React+TypeScript 전환·화면 변경 없음 등), menu-spec.json MY-02 비고 동기화. analyze 0·단위 145건·스모크 109건 통과 |
 | 2026-10-20 11:43:10 | main 병합 후 배포 | 메뉴정의서 비고·개정이력 갱신 커밋 main fast-forward 병합·push, GitHub Pages 배포 실행(#8). 이전 배포 #7 성공 확인 |
+| 2026-10-20 16:15:40 | 메인에 바로가기 추가 다운로드 후 실행이 안되는데? | 원인: 바로가기 파일(.url/.webloc)이 운영 예정 주소(imlifeins.co.kr/cyber/main.do)를 가리켜 프로토타입이 열리지 않음. 단위 테스트 3건·스모크(.url 내용 검사) 선작성(RED) 후 지금 페이지 주소(웹·파일, # 제외)로 만들도록 수정(shortcutTarget), webloc 주소 XML 이스케이프, 바로가기 안내 모달 기준 2종 갱신, 메뉴정의서 비고·개정이력 갱신. analyze 0·단위 148건·스모크 109건 통과 |
