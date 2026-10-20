@@ -1,0 +1,3241 @@
+{
+ "tag": "main",
+ "attrs": {
+  "id": "main",
+  "tabindex": "-1"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "page"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "wrap"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "title-row"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h1",
+           "attrs": {
+            "tabindex": "-1"
+           },
+           "children": [
+            "전체메뉴"
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {},
+           "children": [
+            "메뉴를 누르면 세부 메뉴가 펼쳐집니다.",
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "rect",
+               "attrs": {
+                "height": "10",
+                "rx": "2",
+                "width": "14",
+                "x": "5",
+                "y": "11"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M8 11V7a4 4 0 0 1 8 0v4"
+               },
+               "children": []
+              }
+             ]
+            },
+            "표시는 추가인증이 필요한 금전 거래입니다."
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "am-search search"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "search-icon"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "circle",
+             "attrs": {
+              "cx": "11",
+              "cy": "11",
+              "r": "7"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M20 20l-4-4"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "label",
+         "attrs": {
+          "class": "sr-only",
+          "for": "amq"
+         },
+         "children": [
+          "메뉴 이름으로 찾기"
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "id": "amq",
+          "placeholder": "메뉴 이름으로 찾기",
+          "type": "search"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "am",
+        "id": "amList"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "am-col",
+          "data-group": "MyPage"
+         },
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "circle",
+               "attrs": {
+                "cx": "12",
+                "cy": "8",
+                "r": "4"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"
+               },
+               "children": []
+              }
+             ]
+            },
+            "MyPage"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "MyPage|개인정보관리"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-MyPage0",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "개인정보관리"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-MyPage0"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "개인정보변경 개인정보관리 주소 이사 연락처 전화번호 휴대폰 이메일 개인정보"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "MY-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "개인정보변경"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "안내장수신설정 개인정보관리 안내장 우편 이메일 모바일 수신"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "MY-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "안내장수신설정"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "마케팅동의 및 철회 개인정보관리 마케팅 동의 철회 광고 문자"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "MY-03"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "마케팅동의 및 철회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "신용정보 이용·제공 내역 개인정보관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "MY-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "신용정보 이용·제공 내역"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "고객확인제도 개인정보관리 고객확인 KYC 자금세탁"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "MY-05"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "고객확인제도"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "MyPage|안내장 수신내역조회"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-MyPage1",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "안내장 수신내역조회"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-MyPage1"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "안내장 수신내역조회 안내장 수신내역조회 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "MY-07"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "안내장 수신내역조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "am-col",
+          "data-group": "보험"
+         },
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M9 12l2 2 4-4"
+               },
+               "children": []
+              }
+             ]
+            },
+            "보험"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "보험|계약종합현황"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-보험0",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "계약종합현황"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-보험0"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "계약종합현황 계약종합현황 내계약 계약현황 보유계약 한눈에"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "계약종합현황"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "보험|보험계약조회"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-보험1",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "보험계약조회"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-보험1"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "계약조회 보험계약조회 보장내용 가입금액 특약 계약조회"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "계약조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "변액보험 조회 보험계약조회 펀드 수익률 변액 적립금"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-03"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "변액보험 조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "휴면보험금 조회 보험계약조회 휴면 잠자는 숨은보험금"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "휴면보험금 조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "연금지급내역 조회 보험계약조회 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-05"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "연금지급내역 조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "원천징수내역 조회 보험계약조회 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-06"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "원천징수내역 조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "미래예상연금액 조회 보험계약조회 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-07"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "미래예상연금액 조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "거래내역조회 보험계약조회 거래내역 입출금 납입내역"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-08"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "거래내역조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "전자서명계약서류 조회 보험계약조회 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CT-09"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "전자서명계약서류 조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "보험|보험금청구/신청"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-보험2",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "보험금청구/신청"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-보험2"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험금 청구 보험금청구/신청 보험금 청구 병원 병원비 실손 진단서 영수증 입원 통원 수술"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험금 청구"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험금 청구 조회/서류추가 보험금청구/신청 청구 진행 보완서류 서류추가 심사"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험금 청구 조회/서류추가"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험금 찾기 보험금청구/신청 숨은보험금 찾기 미수령 만기"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-03"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험금 찾기"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "분할/만기보험금 신청 보험금청구/신청 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "분할/만기보험금 신청"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "중도인출 신청 보험금청구/신청 중도인출 적립금 인출 급전"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-05"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "중도인출 신청"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "지급신청현황 조회/취소 보험금청구/신청 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-06"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "지급신청현황 조회/취소"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "미수령보험금 신청 보험금청구/신청 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-07"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "미수령보험금 신청"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "자동송금 신청/해지 보험금청구/신청 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-08"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "자동송금 신청/해지"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "연금 지급 신청 보험금청구/신청 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PY-09"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "연금 지급 신청"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "연금전환 사전신청 보험금청구/신청 연금전환 연금 전환 종신 노후 사전신청"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-11"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "연금전환 사전신청"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "보험|보험료납입/자동이체"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-보험3",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "보험료납입/자동이체"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-보험3"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험료 납입 관리 보험료납입/자동이체 보험료 납입 미납 연체 선납"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PM-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험료 납입 관리"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험료 자동이체 관리 보험료납입/자동이체 자동이체 계좌변경 출금일"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PM-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험료 자동이체 관리"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험료 자동대출납입 신청/취소 보험료납입/자동이체 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PM-03"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험료 자동대출납입 신청/취소"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "유니버설 자유납입 관리 보험료납입/자동이체 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "PM-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "유니버설 자유납입 관리"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "보험|보험계약관리"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-보험4",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "보험계약관리"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-보험4"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "계약관계자변경 보험계약관리 수익자 변경 계약자"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-10"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "계약관계자변경"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험기간/연금개시연도 변경 보험계약관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-05"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험기간/연금개시연도 변경"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "연금개시유형 선택/변경 보험계약관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-07"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "연금개시유형 선택/변경"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "변액보험 펀드변경/관리 보험계약관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "변액보험 펀드변경/관리"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "감액완납 보험계약관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "감액완납"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "특약해지 보험계약관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-03"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "특약해지"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약 해지 보험계약관리 해지 환급금 해약"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약 해지"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "대리청구인 지정/등록 보험계약관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-09"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "대리청구인 지정/등록"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "금융정보보호 신청/해제 보험계약관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-08"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "금융정보보호 신청/해제"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "청약철회 보험계약관리 청약철회 취소 철회"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CH-06"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "청약철회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "am-col",
+          "data-group": "대출"
+         },
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "circle",
+               "attrs": {
+                "cx": "12",
+                "cy": "12",
+                "r": "9"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M7.5 8.5l1.8 7 2.7-6 2.7 6 1.8-7M6.5 12h11"
+               },
+               "children": []
+              }
+             ]
+            },
+            "대출"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "대출|대출조회"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-대출0",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "대출조회"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-대출0"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "대출내역 조회 대출조회 대출 잔액 이자"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "대출내역 조회"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "대출|보험계약대출"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-대출1",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "보험계약대출"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-대출1"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약대출 신청 보험계약대출 약관대출 보험계약대출 대출신청 급전"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약대출 신청"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약대출 신청 현황 조회/취소 보험계약대출 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-03"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약대출 신청 현황 조회/취소"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약대출 상환/이자납입 보험계약대출 대출상환 이자납입 갚기"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약대출 상환/이자납입"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약대출 정액분할상환 보험계약대출 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-05"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약대출 정액분할상환"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "대출|보험계약대출 관리"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-대출2",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "보험계약대출 관리"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-대출2"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "원리금 자동이체 신청/해지 보험계약대출 관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-06"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "원리금 자동이체 신청/해지"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": [
+                    {
+                     "tag": "svg",
+                     "attrs": {
+                      "aria-hidden": "true",
+                      "class": "i",
+                      "viewBox": "0 0 24 24"
+                     },
+                     "children": [
+                      {
+                       "tag": "rect",
+                       "attrs": {
+                        "height": "10",
+                        "rx": "2",
+                        "width": "14",
+                        "x": "5",
+                        "y": "11"
+                       },
+                       "children": []
+                      },
+                      {
+                       "tag": "path",
+                       "attrs": {
+                        "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                       },
+                       "children": []
+                      }
+                     ]
+                    },
+                    {
+                     "tag": "span",
+                     "attrs": {
+                      "class": "sr-only"
+                     },
+                     "children": [
+                      "(추가인증 필요)"
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "am-col",
+          "data-group": "증명서발급"
+         },
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M6 3h9l4 4v14H6z"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M15 3v4h4M9 12h7M9 16h4"
+               },
+               "children": []
+              }
+             ]
+            },
+            "증명서발급"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "증명서발급|보험"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-증명서발급0",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "보험"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-증명서발급0"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "소득/세액공제 납입증명서 보험 연말정산 소득공제 세액공제 납입증명"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CF-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "소득/세액공제 납입증명서"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험료납입증명서 보험 납입증명서 보험료"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CF-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험료납입증명서"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험증권재발급 보험 증권 재발급"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CF-03"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험증권재발급"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "해지환급금증명서 보험 해지환급금 증명"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CF-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "해지환급금증명서"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "사고보험금지급명세 보험 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CF-05"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "사고보험금지급명세"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "증명서발급|대출"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-증명서발급1",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "대출"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-증명서발급1"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약대출 증명서 대출 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CF-06"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약대출 증명서"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "am-col",
+          "data-group": "서류·안내"
+         },
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M6 3h12v18H6z"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M9 8h6M9 12h6M9 16h3"
+               },
+               "children": []
+              }
+             ]
+            },
+            "서류·안내"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "acc",
+            "data-key": "서류·안내|제지급/신청서류"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-controls": "amp-서류·안내0",
+              "aria-expanded": "false",
+              "class": "acc-h",
+              "data-action": "toggle-menu-section"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                "제지급/신청서류"
+               ]
+              },
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "ul",
+             "attrs": {
+              "class": "acc-p",
+              "hidden": "",
+              "id": "amp-서류·안내0"
+             },
+             "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "사고보험금 청구서류 제지급/신청서류 청구서류 양식 다운로드 서류"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CS-01"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "사고보험금 청구서류"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "제지급 서류 제지급/신청서류 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "CS-02"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "제지급 서류"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {
+        "class": "am-empty",
+        "hidden": "",
+        "id": "amNone"
+       },
+       "children": [
+        "맞는 메뉴가 없습니다. 다른 단어로 찾아보세요."
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

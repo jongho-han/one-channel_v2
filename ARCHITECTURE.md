@@ -3,7 +3,7 @@
 iM라이프 사이버창구 기획 검토용 프로토타입의 구조와 설계 원칙. 명령·폴더 개요는 README, 작업 규칙은 CLAUDE.md 참조.
 
 ## 1. 전제와 제약
-- React 19 + TypeScript + Vite. 공통 셸·하단·업무 화면 본문(T1~T5)은 React(TSX), 메인·전체메뉴·로그인 페이지와 업무 화면 틀(LNB·제목)은 아직 JS(HTML 문자열). 런타임 의존성은 React 뿐
+- React 19 + TypeScript + Vite. 모든 화면(셸·메인·전체메뉴·로그인·업무 화면 53개·하단)은 React(TSX). 라우터·액션·모달 등 일부 모듈은 아직 JS. 런타임 의존성은 React 뿐
 - 배포물은 `dist/index.html` 한 파일 (CSS·JS 인라인). 서버 없이 더블클릭·GitHub Pages로 열림
 - 데이터·인증·거래는 모두 샘플·시뮬레이션. 외부 API 호출 없음 (하단 회사 홈페이지 링크만 예외)
 - 화면 정의의 원본은 `docs/메뉴정의서.xlsx`, 코드는 이를 옮긴 `src/data/menu-spec.json`을 따른다
@@ -83,7 +83,7 @@ one-channel/
     │
     ├── app/
     │   ├── router.js           # 페이지·화면 전환, 로그인 가드, 뒤로가기
-    │   └── render.js           # 셸 갱신(refreshShell) + 페이지 렌더, 큰글씨 전환 시 다시 그리기
+    │   └── render.js           # 다시 그리기(redrawMain: 셸 갱신 + 본문 새로 마운트), 큰글씨 전환 시 입력 보존 후 다시 그리기
     │
     ├── controller/
     │   ├── events.js           # 전역 이벤트 위임
@@ -105,15 +105,18 @@ one-channel/
     │   └── validation.ts       # 입력 검증 규칙
     │
     ├── pages/
-    │   ├── home.js             # 메인(검색·요약·공지)
-    │   ├── allMenu.js          # 전체메뉴
-    │   ├── login.js            # 로그인
-    │   └── screen.js           # 업무 화면 틀(LNB·제목) + 본문 React 마운트, 큰글씨 전환 시 입력 보존
+    │   ├── Main.tsx            # #main React 루트: route 별 페이지 (pageKey 로 새로 마운트)
+    │   ├── HomePage.tsx        # 메인 (검색·요약·할 일·자주 찾는 업무·이럴 땐 이렇게·공지)
+    │   ├── HomeSearch.tsx      # 업무 검색 콤보박스 (추천·화살표·Enter)
+    │   ├── AllMenuPage.tsx     # 전체메뉴 (2Depth 펼치기·메뉴 검색)
+    │   ├── LoginPage.tsx       # 로그인
+    │   ├── ScreenPage.tsx      # 업무 화면 틀 (LNB·경로·제목·배지) + 화면유형 본문
+    │   ├── screen.ts           # redrawMain·rerenderScreen, 큰글씨 전환 시 입력 보존
+    │   └── noticeBoard.js      # 공지사항 게시판 모달 (HTML)
     │
     ├── screens/                # 화면 id별 선언형 설정 + React 전환 템플릿
     │   ├── reactTemplates.tsx  # 화면유형(T1~T5) → 본문 React 요소
     │   ├── list/               # T2 목록·상세 (listRules.ts 규칙 · ListScreen.tsx · ContractDetail.tsx 계약조회 · ListDetailScreen.tsx 상태 연결 · listActions.ts 취소·보완서류)
-    │   ├── mountScreenBody.tsx # #sbody React 루트 마운트·해제
     │   ├── dashboard/          # T1 계약종합현황 (Dashboard.tsx · contractSummary.ts)
     │   ├── issuance/           # T5 발급 (Issuance.tsx 화면 부품 · IssuanceScreen.tsx 상태 연결)
     │   ├── singleForm/         # T4 단일폼 (SingleForm 표준 · CustomForms 안내장·마케팅 · CustomFormScreen 전용 화면 · SingleFormScreen 서명·완료 · completeSingleForm)
@@ -200,7 +203,7 @@ one-channel/
 - screens·features → `pages/screen`의 화면 다시 그리기, features → `app/render`의 전체 다시 그리기, services → `app/router`의 로그인 후 화면 이동: 상태 변경 후 갱신 요청. 화면 틀까지 React로 옮기고 store 구독으로 바꾸면 해소
 
 ## 5. 런타임 흐름
-- **렌더링**: 공통 셸·하단·업무 화면 본문은 React(동기 렌더 `flushSync`). 메인·전체메뉴·로그인과 업무 화면 틀은 아직 HTML 문자열 → `innerHTML`(출력 시 이스케이프). 업무 화면은 다시 그릴 때 본문 React 루트를 해제 후 다시 마운트
+- **렌더링**: 화면 전체가 React — 셸(헤더·앱바·탭바)·본문(#main)·하단 루트가 store 를 구독하고 `refreshShell()`(flushSync + notify)로 동기 갱신. 화면 이동·다시 그리기는 `pageKey` 를 올려 본문 페이지를 새로 마운트, 제자리 갱신(전체메뉴 펼치기)은 마운트 없이 갱신. 모달 내용만 HTML 문자열(출력 시 이스케이프)
 - **페이지 전환**: `state.route.page`(home·all·login·screen)에 따라 `app/render`가 페이지를 고름. 업무 화면 이동 시 h1 초점 이동·문서 제목 갱신(KWCAG)
 - **로그인 가드**: 인증수준이 A0가 아닌 화면을 미로그인 상태로 열면 로그인으로 보낸 뒤, 로그인 완료 시 원래 화면을 이어서 연다
 - **클릭 처리**: 모든 버튼은 `data-action` + `data-*` 속성만 갖고, 처리는 `controller/actions`의 ACTIONS 한 곳에 모은다
@@ -209,7 +212,7 @@ one-channel/
 ## 6. 화면 정의 파이프라인
 1. `menu-spec.json` 한 행 = 한 화면 (id, 1~3Depth, 화면유형, 인증수준, 표시·입력·결과 정보 등). 배열 순서가 메뉴 표시 순서
 2. `data/menuRepository`가 이를 1Depth → 2Depth → 3Depth 트리, id 색인, 검색 키워드로 가공 → GNB·전체메뉴·LNB·메인 검색이 공유
-3. `pages/screen`이 화면유형으로 `screens/reactTemplates`의 React 화면을 고른다
+3. `pages/ScreenPage`가 화면유형으로 `screens/reactTemplates`의 React 화면을 고른다
 
 | 화면유형 | React 화면 | 화면별 설정 |
 |---|---|---|

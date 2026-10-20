@@ -1,4 +1,15 @@
-export const HOME = {
+import type { IconName } from '../components/Icon';
+
+type Link = readonly [label: string, screenId: string];
+
+export interface HomeContent {
+  popular: readonly Link[];
+  quickTasks: readonly (readonly [screenId: string, label: string, icon: IconName])[];
+  todos: readonly { id: string; tone: string; icon: IconName; title: string; desc: string }[];
+  lifeGuides: readonly (readonly [title: string, desc: string, links: readonly Link[]])[];
+}
+
+export const HOME: HomeContent = {
   popular: [['실손 청구', 'PY-01'], ['약관대출', 'LN-02'], ['연말정산', 'CF-01'], ['자동이체 변경', 'PM-02'], ['해지환급금', 'CF-04']],
   quickTasks: [
     ['PY-01', '보험금 청구', 'claim'], ['CT-01', '내 계약 조회', 'shield'], ['PM-01', '보험료 납입', 'card'], ['LN-02', '보험계약대출', 'won'],
@@ -19,7 +30,7 @@ export const HOME = {
 };
 
 /* 화면 부제 */
-export const SCREEN_SUBTITLES = {
+export const SCREEN_SUBTITLES: { byScreen: Record<string, string>; byBizType: Record<string, string> } = {
   byScreen: {
     'CH-04': '해지하시기 전에 받으실 금액과 잃게 되는 보장을 함께 확인하세요.',
     'PY-01': '사진 몇 장으로 청구가 끝납니다. 평균 처리기간은 3영업일입니다.',
@@ -35,7 +46,7 @@ export const SCREEN_SUBTITLES = {
   },
 };
 
-export const RETENTION_OPTIONS = [
+export const RETENTION_OPTIONS: readonly (readonly [title: string, desc: string, screenId: string])[] = [
   ['목돈이 필요하다면 · 보험계약대출', '해지환급금 범위에서 바로 대출, 신용점수 영향 없음', 'LN-02'],
   ['보험료가 부담된다면 · 감액완납', '보장을 줄이고 더 이상 보험료를 내지 않음', 'CH-02'],
   ['잠시 납입이 어렵다면 · 자동대출납입', '대출로 보험료를 대신 내서 계약 유지', 'PM-03'],

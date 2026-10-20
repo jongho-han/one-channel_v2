@@ -5,7 +5,7 @@ import { APP } from '../../core/config';
 import { scrollToTop } from '../../core/dom.js';
 import { USER } from '../../data/customerRepository';
 import type { ScreenSpec } from '../../data/menu';
-import { rerenderScreen } from '../../pages/screen.js';
+import { rerenderScreen } from '../../pages/screen';
 import { state } from '../../state/store';
 import { CERTIFICATES, FORM_DOWNLOADS } from '../certificates';
 import { FormDownloads, IssuanceForm, IssuedCertificate } from './Issuance';

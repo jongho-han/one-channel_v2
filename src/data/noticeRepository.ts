@@ -1,6 +1,14 @@
 /* 공지사항 게시판 (메인은 최근 HOME_NOTICE_COUNT건만 표시) — body: 문단 배열 */
 export const HOME_NOTICE_COUNT = 4;
-export const NOTICES = [
+export interface Notice {
+  id: string;
+  type: '공지' | '안내';
+  title: string;
+  date: string;
+  body: readonly string[];   // 문단 (\n 은 줄바꿈)
+}
+
+export const NOTICES: readonly Notice[] = [
   { id: 'n10', type: '공지', title: '사이버창구 시스템 점검 안내 (10/11 00:00~06:00)', date: '2026.09.28', body: [
     '보다 안정적인 서비스 제공을 위해 아래와 같이 시스템 점검을 실시합니다.',
     '· 점검 일시: 2026년 10월 11일(일) 00:00 ~ 06:00\n· 대상 서비스: 사이버창구(PC·모바일) 전체, 모바일 보험금 청구',

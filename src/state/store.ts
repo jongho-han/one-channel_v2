@@ -36,6 +36,7 @@ export const state = {
     largeText: false,                        // 큰글씨모드
     openMenuSections: new Set<string>(),     // 전체메뉴에서 펼친 2Depth
     mega: null as MegaMenu | null,           // 헤더 메가메뉴
+    pageKey: 0,                              // 본문(#main)을 새로 그릴 때마다 증가 — React 가 페이지를 다시 마운트
   },
   screen: freshScreenState(),                // 지금 보고 있는 업무 화면의 진행 상태
   variableNo: null as string | null,         // 변액보험 조회·펀드변경에서 고른 변액 계약 (화면을 옮겨도 유지)

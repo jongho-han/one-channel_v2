@@ -5,7 +5,7 @@ import { $, focusElement, scrollToTop } from '../../core/dom.js';
 import { nextDay } from '../../core/format';
 import { SUITABILITY, SUITABILITY_QUESTIONS } from '../../data/fundRepository';
 import { activeFunds } from '../../features/variableContract';
-import { rerenderScreen } from '../../pages/screen.js';
+import { rerenderScreen } from '../../pages/screen';
 import { state } from '../../state/store';
 import { announce, openModal, toast } from '../../ui/overlay.js';
 import { infoBoxHtml } from '../../ui/infoBoxHtml';

@@ -1,13 +1,12 @@
 import { goBack, navigate, openScreen, toggleAllMenu } from '../app/router.js';
-import { showMegaMenu } from '../components/shell/mountShell';
+import { refreshShell, showMegaMenu } from '../components/shell/mountShell';
 import { $, focusElement } from '../core/dom.js';
 import { MENU_TREE, SCREEN_BY_ID } from '../data/menuRepository.js';
 import { downloadContractDocument } from '../features/contractDocuments.js';
 import { setLargeText } from '../features/largeText.js';
 import { downloadShortcut, openShortcutGuide, shortcut } from '../features/shortcut.js';
-import { setMenuSectionOpen } from '../pages/allMenu.js';
-import { openNoticeBoard } from '../pages/home.js';
-import { rerenderScreen } from '../pages/screen.js';
+import { openNoticeBoard } from '../pages/noticeBoard.js';
+import { rerenderScreen } from '../pages/screen';
 import { showFundPhase, startSuitability, submitSuitability } from '../screens/fund/fundFlow';
 import { completeSingleForm } from '../screens/singleForm/completeSingleForm';
 import { goToStep } from '../screens/stepFlow/stepFlowActions';
@@ -29,11 +28,11 @@ const ACTIONS = {
     showMegaMenu(group, Number(index));
     $(`#mega [data-index="${index}"]`).focus();
   },
-  'toggle-menu-section': (data, element) => {
-    const section = element.closest('.acc');
-    const isOpen = !section.classList.contains('open');
-    state.ui.openMenuSections[isOpen ? 'add' : 'delete'](section.dataset.key);
-    setMenuSectionOpen(section, isOpen);
+  'toggle-menu-section': (data, element) => {   // 제자리 갱신 (다시 마운트하지 않아 초점 유지)
+    const { key } = element.closest('.acc').dataset;
+    const sections = state.ui.openMenuSections;
+    if (sections.has(key)) sections.delete(key); else sections.add(key);
+    refreshShell();
   },
 
   /* 로그인 · 설정 */

@@ -1,0 +1,1017 @@
+{
+ "tag": "main",
+ "attrs": {
+  "id": "main",
+  "tabindex": "-1"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "page"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "sub-layout wrap"
+     },
+     "children": [
+      {
+       "tag": "nav",
+       "attrs": {
+        "aria-labelledby": "lnbTitle",
+        "class": "lnb"
+       },
+       "children": [
+        {
+         "tag": "h2",
+         "attrs": {
+          "id": "lnbTitle"
+         },
+         "children": [
+          "보험"
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-labelledby": "lnbG0",
+          "class": "lnb-group",
+          "role": "group"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "g",
+            "id": "lnbG0"
+           },
+           "children": [
+            "계약종합현황"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lnb-sub"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-01"
+             },
+             "children": [
+              "계약종합현황"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-labelledby": "lnbG1",
+          "class": "lnb-group",
+          "role": "group"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "g",
+            "id": "lnbG1"
+           },
+           "children": [
+            "보험계약조회"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lnb-sub"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-02"
+             },
+             "children": [
+              "계약조회"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-03"
+             },
+             "children": [
+              "변액보험 조회"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-04"
+             },
+             "children": [
+              "휴면보험금 조회"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-05"
+             },
+             "children": [
+              "연금지급내역 조회"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-06"
+             },
+             "children": [
+              "원천징수내역 조회"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-07"
+             },
+             "children": [
+              "미래예상연금액 조회"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-08"
+             },
+             "children": [
+              "거래내역조회"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-09"
+             },
+             "children": [
+              "전자서명계약서류 조회"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-labelledby": "lnbG2",
+          "class": "lnb-group",
+          "role": "group"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "g",
+            "id": "lnbG2"
+           },
+           "children": [
+            "보험금청구/신청"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lnb-sub"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-01"
+             },
+             "children": [
+              "보험금 청구"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-02"
+             },
+             "children": [
+              "보험금 청구 조회/서류추가"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-03"
+             },
+             "children": [
+              "보험금 찾기"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-04"
+             },
+             "children": [
+              "분할/만기보험금 신청"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-current": "page",
+              "class": "on",
+              "data-action": "open",
+              "data-id": "PY-05"
+             },
+             "children": [
+              "중도인출 신청"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-06"
+             },
+             "children": [
+              "지급신청현황 조회/취소"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-07"
+             },
+             "children": [
+              "미수령보험금 신청"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-08"
+             },
+             "children": [
+              "자동송금 신청/해지"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-09"
+             },
+             "children": [
+              "연금 지급 신청"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-11"
+             },
+             "children": [
+              "연금전환 사전신청"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-labelledby": "lnbG3",
+          "class": "lnb-group",
+          "role": "group"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "g",
+            "id": "lnbG3"
+           },
+           "children": [
+            "보험료납입/자동이체"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lnb-sub"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PM-01"
+             },
+             "children": [
+              "보험료 납입 관리"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PM-02"
+             },
+             "children": [
+              "보험료 자동이체 관리"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PM-03"
+             },
+             "children": [
+              "보험료 자동대출납입 신청/취소"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PM-04"
+             },
+             "children": [
+              "유니버설 자유납입 관리"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-labelledby": "lnbG4",
+          "class": "lnb-group",
+          "role": "group"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "g",
+            "id": "lnbG4"
+           },
+           "children": [
+            "보험계약관리"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lnb-sub"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-10"
+             },
+             "children": [
+              "계약관계자변경"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-05"
+             },
+             "children": [
+              "보험기간/연금개시연도 변경"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-07"
+             },
+             "children": [
+              "연금개시유형 선택/변경"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-01"
+             },
+             "children": [
+              "변액보험 펀드변경/관리"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-02"
+             },
+             "children": [
+              "감액완납"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-03"
+             },
+             "children": [
+              "특약해지"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-04"
+             },
+             "children": [
+              "보험계약 해지"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-09"
+             },
+             "children": [
+              "대리청구인 지정/등록"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-08"
+             },
+             "children": [
+              "금융정보보호 신청/해제"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CH-06"
+             },
+             "children": [
+              "청약철회"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "sub-main"
+       },
+       "children": [
+        {
+         "tag": "nav",
+         "attrs": {
+          "aria-label": "현재 위치",
+          "class": "crumb"
+         },
+         "children": [
+          "홈",
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 6l6 6-6 6"
+             },
+             "children": []
+            }
+           ]
+          },
+          "보험",
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 6l6 6-6 6"
+             },
+             "children": []
+            }
+           ]
+          },
+          "보험금청구/신청",
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 6l6 6-6 6"
+             },
+             "children": []
+            }
+           ]
+          },
+          {
+           "tag": "b",
+           "attrs": {
+            "aria-current": "page"
+           },
+           "children": [
+            "중도인출 신청"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "title-row"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "h1",
+             "attrs": {
+              "tabindex": "-1"
+             },
+             "children": [
+              "중도인출 신청"
+             ]
+            },
+            {
+             "tag": "p",
+             "attrs": {},
+             "children": [
+              "신청하신 금액은 본인 명의 계좌로 입금됩니다."
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "badges"
+           },
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "bdg lock"
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "rect",
+                 "attrs": {
+                  "height": "10",
+                  "rx": "2",
+                  "width": "14",
+                  "x": "5",
+                  "y": "11"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M8 11V7a4 4 0 0 1 8 0v4"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "추가인증 필요"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "bdg"
+             },
+             "children": [
+              "이용대상 · 유니버설·변액 계약자"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "id": "sbody"
+         },
+         "children": [
+          {
+           "tag": "ol",
+           "attrs": {
+            "aria-label": "진행 단계 (전체 5단계)",
+            "class": "steps"
+           },
+           "children": [
+            {
+             "tag": "li",
+             "attrs": {
+              "aria-current": "step",
+              "class": "on",
+              "id": "currentStep"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "n"
+               },
+               "children": [
+                "1"
+               ]
+              },
+              "선택",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "(현재 단계)"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "li",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "n"
+               },
+               "children": [
+                "2"
+               ]
+              },
+              "입력"
+             ]
+            },
+            {
+             "tag": "li",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "n"
+               },
+               "children": [
+                "3"
+               ]
+              },
+              "확인"
+             ]
+            },
+            {
+             "tag": "li",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "n"
+               },
+               "children": [
+                "4"
+               ]
+              },
+              "인증"
+             ]
+            },
+            {
+             "tag": "li",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "n"
+               },
+               "children": [
+                "5"
+               ]
+              },
+              "완료"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "card"
+           },
+           "children": [
+            {
+             "tag": "h2",
+             "attrs": {
+              "id": "pickTitle"
+             },
+             "children": [
+              "인출할 계약을 선택하세요"
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {
+              "aria-labelledby": "pickTitle",
+              "class": "picks",
+              "role": "group"
+             },
+             "children": [
+              {
+               "tag": "button",
+               "attrs": {
+                "aria-pressed": "false",
+                "class": "pick",
+                "data-action": "pick",
+                "data-key": "2020-0456789"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "rd"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "pm"
+                 },
+                 "children": [
+                  {
+                   "tag": "b",
+                   "attrs": {},
+                   "children": [
+                    "(무)iM 하이브리드 변액연금보험"
+                   ]
+                  },
+                  {
+                   "tag": "small",
+                   "attrs": {
+                    "class": "num"
+                   },
+                   "children": [
+                    "증권번호 2020-0456789 · 피보험자 홍길동"
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "num pv"
+                 },
+                 "children": [
+                  "인출가능 4,700,000원"
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "button",
+               "attrs": {
+                "aria-pressed": "false",
+                "class": "pick",
+                "data-action": "pick",
+                "data-key": "2016-0033190"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "rd"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "pm"
+                 },
+                 "children": [
+                  {
+                   "tag": "b",
+                   "attrs": {},
+                   "children": [
+                    "(무)iM 유니버설저축보험"
+                   ]
+                  },
+                  {
+                   "tag": "small",
+                   "attrs": {
+                    "class": "num"
+                   },
+                   "children": [
+                    "증권번호 2016-0033190 · 피보험자 홍길동"
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "num pv"
+                 },
+                 "children": [
+                  "인출가능 5,210,000원"
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "button",
+               "attrs": {
+                "aria-pressed": "false",
+                "class": "pick",
+                "data-action": "pick",
+                "data-key": "2021-0345678"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "rd"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "pm"
+                 },
+                 "children": [
+                  {
+                   "tag": "b",
+                   "attrs": {},
+                   "children": [
+                    "(무)iM 변액유니버설 종신보험"
+                   ]
+                  },
+                  {
+                   "tag": "small",
+                   "attrs": {
+                    "class": "num"
+                   },
+                   "children": [
+                    "증권번호 2021-0345678 · 피보험자 홍길동"
+                   ]
+                  }
+                 ]
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "num pv"
+                 },
+                 "children": [
+                  "인출가능 4,700,000원"
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "navrow"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "class": "btn lg",
+              "data-action": "back"
+             },
+             "children": [
+              "취소"
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-describedby": "pickHint",
+              "class": "btn lg pri",
+              "disabled": "",
+              "id": "next"
+             },
+             "children": [
+              "다음"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "sr-only",
+              "id": "pickHint"
+             },
+             "children": [
+              "먼저 위에서 하나를 선택해야 다음 단계로 갈 수 있습니다."
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

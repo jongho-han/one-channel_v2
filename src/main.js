@@ -9,7 +9,8 @@ import { $ } from './core/dom.js';
 import { storage } from './core/storage.js';
 import { setLargeText } from './features/largeText.js';
 import { registerAppIcon } from './features/shortcut.js';
-import { rerenderScreen } from './pages/screen.js';
+import { mountMain } from './pages/Main';
+import { rerenderScreen } from './pages/screen';
 import { state } from './state/store';
 
 /* 시작 ================================================================= */
@@ -28,6 +29,7 @@ function boot() {
 
   registerAppIcon();
   mountShell({ header: $('#header'), appBar: $('#appbar'), tabBar: $('#tabbar') });
+  mountMain($('#main'));
   mountFooter($('#footer'));
   bindGlobalEvents();
   render();

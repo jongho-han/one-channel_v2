@@ -6,7 +6,7 @@ import type { FieldSpec, FieldValues } from '../../components/form/fieldSpec';
 import { Icon } from '../../components/Icon';
 import { Agreements, CalcBox, DoneCard, InfoBox, KeyValueList, checkedAgreements, type CalcRow, type ReceiptRow } from '../../components/widgets';
 import { focusElement } from '../../core/dom.js';
-import { RETENTION_OPTIONS } from '../../data/homeContent.js';
+import { RETENTION_OPTIONS } from '../../data/homeContent';
 import type { AuthLevel } from '../../data/menu';
 import { isFieldVisible, renderedValues } from '../../form/display';
 import { focusFirstError } from '../../form/focus';
@@ -26,7 +26,7 @@ function RetentionOptions() {
       <h2>해지하기 전에 이런 방법도 있어요</h2>
       <p>보장은 그대로 두고 필요한 문제만 해결할 수 있습니다.</p>
       <div className="retain">
-        {(RETENTION_OPTIONS as [string, string, string][]).map(([title, desc, id]) => <button key={id} data-action="open" data-id={id}><b>{title}</b><small>{desc}</small></button>)}
+        {RETENTION_OPTIONS.map(([title, desc, id]) => <button key={id} data-action="open" data-id={id}><b>{title}</b><small>{desc}</small></button>)}
       </div>
     </div>
   );

@@ -237,9 +237,9 @@ test('셸은 React가 유지해 화면 이동 시 요소를 다시 만들지 않
 });
 
 /* ---- 업무 화면 본문 golden 비교: 기준 파일은 전환 전(JS) 화면에서 UPDATE_GOLDEN=1 로 생성 ---- */
-function assertMatchesGolden(name) {
+function assertMatchesGolden(name, selector = '#sbody') {
   const file = new URL(`./golden/${name}.json`, import.meta.url);
-  const shape = domShape($('#sbody'));
+  const shape = domShape($(selector));
   if (process.env.UPDATE_GOLDEN) writeFileSync(file, JSON.stringify(shape, null, 1) + '\n');
   assert.deepEqual(shape, JSON.parse(readFileSync(file, 'utf8')));
 }
@@ -840,5 +840,114 @@ test('T3 이전 단계로 돌아가도 입력값 유지 (CH-10)', () => {
   assert.equal(currentStepName(), '입력');
   assert.equal($('#nm').value, '홍서연');
   assert.equal(window.document.activeElement, $('#currentStep'));
+  assert.deepEqual(errors, []);
+});
+
+/* ---- 페이지: 메인 · 전체메뉴 · 로그인 · 업무 화면 틀 (#main 전체) ---- */
+const keydown = (element, key) => element.dispatchEvent(new window.KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
+
+test('페이지 기준 화면: 메인(비로그인·로그인) · 로그인(일반·이어서 열 화면) · 업무 화면 틀', () => {
+  assertMatchesGolden('page-home-guest', '#main');
+  window.App.navigate('login');
+  assertMatchesGolden('page-login', '#main');
+  window.App.openScreen('CT-01');
+  assertMatchesGolden('page-login-pending', '#main');
+  login();
+  window.App.navigate('home');
+  assertMatchesGolden('page-home-member', '#main');
+  window.App.openScreen('PY-05');
+  assertMatchesGolden('page-screen-PY-05', '#main');
+  assert.deepEqual(errors, []);
+});
+
+test('메인 업무 검색: 추천·화살표 선택·Enter 이동, 결과 없음, 바깥 누르면 닫힘', async () => {
+  const input = $('#q');
+  setInput(input, '청구');
+  assert.equal($('#sug').hidden, false);
+  assert.equal(input.getAttribute('aria-expanded'), 'true');
+  const options = texts('#sugList [role="option"] span');
+  assert.ok(options.length >= 2, options.join());
+  keydown(input, 'ArrowDown');
+  keydown(input, 'ArrowDown');
+  keydown(input, 'ArrowUp');
+  assert.equal(input.getAttribute('aria-activedescendant'), 'sug-0');
+  assert.equal($('#sug-0').getAttribute('aria-selected'), 'true');
+  assert.ok($('#sug-0').classList.contains('on'));
+  await wait(60);
+  assert.match($('#liveRegion').textContent, /추천 업무 \d+건/);
+  assertMatchesGolden('page-home-search', '#main');
+
+  setInput(input, 'zzz');
+  assert.equal($('#sug .empty').textContent, '“zzz”와 맞는 업무가 없습니다. 전체메뉴에서 찾아보세요.');
+  assert.equal(input.getAttribute('aria-expanded'), 'false');
+  keydown(input, 'Escape');
+  assert.equal($('#sug').hidden, true);
+
+  setInput(input, '청구');
+  click($('#main h1'));
+  assert.equal($('#sug').hidden, true);
+
+  setInput(input, '청구');
+  keydown(input, 'Enter');
+  assert.equal(window.App.state.route.page, 'login', '로그인이 필요한 첫 추천 화면');
+  assert.ok(window.App.state.pendingScreenId);
+  assert.deepEqual(errors, []);
+});
+
+test('메인 찾기 버튼은 첫 추천 화면으로 이동', () => {
+  login();
+  window.App.navigate('home');
+  setInput($('#q'), '주소');
+  click($('#qbtn'));
+  assert.equal(window.App.state.route.screenId, 'MY-01');
+  assert.deepEqual(errors, []);
+});
+
+test('메인 공지사항: 고른 글이 펼쳐진 게시판, 다른 글을 누르면 하나만 펼침', () => {
+  click($('[data-action="open-notices"][data-notice="n9"]'));
+  assert.equal($('#nq-n9').getAttribute('aria-expanded'), 'true');
+  assert.equal($('#na-n9').hidden, false);
+  assert.equal(window.document.activeElement, $('#nq-n9'));
+  click($('#nq-n8'));
+  assert.equal($('#na-n9').hidden, true);
+  assert.equal($('#na-n8').hidden, false);
+  assert.deepEqual(errors, []);
+});
+
+test('전체메뉴: 2Depth 펼치기(초점 유지·상태 기억), 메뉴 검색', async () => {
+  window.App.navigate('all');
+  assertMatchesGolden('page-all-menu', '#main');
+  const toggle = () => $('.am-col[data-group="대출"] .acc-h');
+  toggle().focus();
+  click(toggle());
+  assert.equal(toggle().getAttribute('aria-expanded'), 'true');
+  assert.equal(toggle().closest('.acc').classList.contains('open'), true);
+  assert.equal(toggle().nextElementSibling.hidden, false);
+  assert.equal(window.document.activeElement, toggle(), '초점 유지');
+  window.App.navigate('home');
+  window.App.navigate('all');
+  assert.equal(toggle().getAttribute('aria-expanded'), 'true', '다시 열어도 펼친 상태');
+  assertMatchesGolden('page-all-menu-open', '#main');
+
+  setInput($('#amq'), '대출');
+  assertMatchesGolden('page-all-menu-search', '#main');
+  await wait(60);
+  assert.match($('#liveRegion').textContent, /맞는 메뉴 \d+개/);
+  setInput($('#amq'), 'zzzz');
+  assert.equal($('#amNone').hidden, false);
+  setInput($('#amq'), '');
+  assert.equal($('#amNone').hidden, true);
+  assert.equal(window.document.querySelectorAll('.acc.open').length, 1, '검색을 지우면 원래 펼침 상태');
+  assert.deepEqual(errors, []);
+});
+
+test('로그인: 인증하면 이어서 열 화면으로', async () => {
+  window.App.openScreen('CT-01');
+  assert.match($('#main p').textContent, /계약종합현황 화면은 본인 확인 후 이용할 수 있습니다/);
+  click($('[data-action="login"][data-method="간편인증"]'));
+  await wait(1400);
+  assert.equal(window.App.state.isLoggedIn, true);
+  assert.equal(window.App.state.route.screenId, 'CT-01');
+  assert.equal($('#main h1').textContent, '계약종합현황');
   assert.deepEqual(errors, []);
 });

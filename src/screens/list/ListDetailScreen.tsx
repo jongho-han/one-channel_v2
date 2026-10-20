@@ -3,7 +3,7 @@ import { CONTRACTS, USER } from '../../data/customerRepository';
 import { contractDocuments } from '../../data/contractDocumentRepository.js';
 import type { ScreenSpec } from '../../data/menu';
 import { VARIABLE_CONTRACTS, selectedVariableContract } from '../../features/variableContract';
-import { rerenderScreen } from '../../pages/screen.js';
+import { rerenderScreen } from '../../pages/screen';
 import { state, updateScreenList } from '../../state/store';
 import { VariableContractTabs } from '../fund/FundViews';
 import { LIST_SCREENS } from '../listScreens';

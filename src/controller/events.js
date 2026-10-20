@@ -12,7 +12,6 @@ export function bindGlobalEvents() {
   document.addEventListener('click', event => {
     const target = event.target.closest('[data-action]');
     if (target && !target.disabled) runAction(target, event);
-    if (!event.target.closest('.search')) $('#sug')?.setAttribute('hidden', '');
   });
 
   /* 키보드: 모달 안 Tab 순환 · Esc로 모달/메가메뉴 닫기 */

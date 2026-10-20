@@ -1,0 +1,1521 @@
+{
+ "tag": "main",
+ "attrs": {
+  "id": "main",
+  "tabindex": "-1"
+ },
+ "children": [
+  {
+   "tag": "section",
+   "attrs": {
+    "class": "hero"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "wrap"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "shortbar"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "자주 이용하신다면 바로가기를 만들어 두세요."
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "shortbtn",
+          "data-action": "open-shortcut"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "ap"
+           },
+           "children": [
+            "iM"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sl"
+           },
+           "children": [
+            "바로가기 추가"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "eyebrow"
+         },
+         "children": [
+          "iM라이프 사이버창구"
+         ]
+        },
+        {
+         "tag": "h1",
+         "attrs": {},
+         "children": [
+          "보험 업무,",
+          {
+           "tag": "em",
+           "attrs": {},
+           "children": [
+            "찾지 말고 물어보세요"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "p",
+         "attrs": {
+          "class": "lead"
+         },
+         "children": [
+          "“병원비 청구”, “주소 변경”, “연말정산”처럼 하고 싶은 일을 입력하면 바로 그 화면으로 안내합니다."
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "search",
+          "role": "search"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "search-icon"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "circle",
+               "attrs": {
+                "cx": "11",
+                "cy": "11",
+                "r": "7"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M20 20l-4-4"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {
+            "class": "sr-only",
+            "for": "q"
+           },
+           "children": [
+            "하고 싶은 업무 검색"
+           ]
+          },
+          {
+           "tag": "input",
+           "attrs": {
+            "aria-autocomplete": "list",
+            "aria-controls": "sugList",
+            "aria-describedby": "qHint",
+            "aria-expanded": "false",
+            "autocomplete": "off",
+            "id": "q",
+            "placeholder": "예: 병원비 청구, 대출 이자, 납입증명서",
+            "role": "combobox",
+            "type": "search"
+           },
+           "children": [],
+           "state": {
+            "value": ""
+           }
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only",
+            "id": "qHint"
+           },
+           "children": [
+            "입력하면 추천 업무가 아래에 나타나며, 위아래 화살표로 고르고 Enter로 이동합니다."
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "btn pri",
+            "id": "qbtn"
+           },
+           "children": [
+            "찾기"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "suggest",
+            "hidden": "",
+            "id": "sug"
+           },
+           "children": []
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "chips"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "많이 찾는 업무"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "chip",
+            "data-action": "open",
+            "data-id": "PY-01"
+           },
+           "children": [
+            "실손 청구"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "chip",
+            "data-action": "open",
+            "data-id": "LN-02"
+           },
+           "children": [
+            "약관대출"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "chip",
+            "data-action": "open",
+            "data-id": "CF-01"
+           },
+           "children": [
+            "연말정산"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "chip",
+            "data-action": "open",
+            "data-id": "PM-02"
+           },
+           "children": [
+            "자동이체 변경"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "chip",
+            "data-action": "open",
+            "data-id": "CF-04"
+           },
+           "children": [
+            "해지환급금"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "login-card login-guest"
+       },
+       "children": [
+        {
+         "tag": "h2",
+         "attrs": {},
+         "children": [
+          "로그인하고 바로 처리하세요"
+         ]
+        },
+        {
+         "tag": "p",
+         "attrs": {},
+         "children": [
+          "조회·청구·대출·증명서 발급을 한 번의 인증으로 이용할 수 있습니다."
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "auth-grid"
+         },
+         "children": [
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "auth-opt",
+            "data-action": "login",
+            "data-method": "간편인증"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "간편인증"
+             ]
+            },
+            {
+             "tag": "small",
+             "attrs": {},
+             "children": [
+              "카카오·네이버·PASS·토스"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "auth-opt",
+            "data-action": "login",
+            "data-method": "공동인증서"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "공동인증서"
+             ]
+            },
+            {
+             "tag": "small",
+             "attrs": {},
+             "children": [
+              "PC·휴대폰 저장 인증서"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "foot"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "로그인 없이 이용"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "data-action": "open",
+            "data-id": "CS-01"
+           },
+           "children": [
+            "청구서류 내려받기"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "section",
+   "attrs": {
+    "class": "sec"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "wrap"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "sec-h"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "자주 찾는 업무"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "link",
+          "data-action": "nav",
+          "data-page": "all"
+         },
+         "children": [
+          "전체메뉴",
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 6l6 6-6 6"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "quick"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "PY-01"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M14 3v6h6M12 12v6M9 15h6"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "보험금 청구"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "CT-01"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M9 12l2 2 4-4"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "내 계약 조회"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "PM-01"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "rect",
+               "attrs": {
+                "height": "14",
+                "rx": "2",
+                "width": "18",
+                "x": "3",
+                "y": "5"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M3 10h18M7 15h4"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "보험료 납입"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "LN-02"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "circle",
+               "attrs": {
+                "cx": "12",
+                "cy": "12",
+                "r": "9"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M7.5 8.5l1.8 7 2.7-6 2.7 6 1.8-7M6.5 12h11"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "보험계약대출"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "CF-01"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M6 3h9l4 4v14H6z"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M15 3v4h4M9 12h7M9 16h4"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "연말정산 증명서"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "MY-01"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"
+               },
+               "children": []
+              },
+              {
+               "tag": "circle",
+               "attrs": {
+                "cx": "12",
+                "cy": "10",
+                "r": "2.5"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "주소·연락처 변경"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "PY-03"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "circle",
+               "attrs": {
+                "cx": "11",
+                "cy": "11",
+                "r": "7"
+               },
+               "children": []
+              },
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M20 20l-4-4M8.5 11h5M11 8.5v5"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "숨은 보험금 찾기"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "q",
+          "data-action": "open",
+          "data-id": "PM-02"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "ic"
+           },
+           "children": [
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M4 8h13l-3-3M20 16H7l3 3"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          },
+          "자동이체 변경"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "section",
+   "attrs": {
+    "class": "life-guide sec"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "wrap"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "sec-h"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "이럴 땐 이렇게"
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {},
+           "children": [
+            "상황을 고르면 필요한 업무를 순서대로 안내합니다."
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "life"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "life-card"
+         },
+         "children": [
+          {
+           "tag": "h3",
+           "attrs": {},
+           "children": [
+            "병원에 다녀왔어요"
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {},
+           "children": [
+            "진료비 영수증과 세부내역서를 사진으로 찍어 바로 청구할 수 있습니다."
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "go"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-01"
+             },
+             "children": [
+              "보험금 청구",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CS-01"
+             },
+             "children": [
+              "청구서류 안내",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "life-card"
+         },
+         "children": [
+          {
+           "tag": "h3",
+           "attrs": {},
+           "children": [
+            "급하게 돈이 필요해요"
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {},
+           "children": [
+            "해지하면 보장이 사라지고 손해가 날 수 있어요. 대출이나 중도인출을 먼저 살펴보세요."
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "go"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "LN-02"
+             },
+             "children": [
+              "보험계약대출",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-05"
+             },
+             "children": [
+              "중도인출",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "life-card"
+         },
+         "children": [
+          {
+           "tag": "h3",
+           "attrs": {},
+           "children": [
+            "연말정산 시즌이에요"
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {},
+           "children": [
+            "보장성·연금저축 공제 대상 납입액을 연도별로 바로 발급합니다."
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "go"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CF-01"
+             },
+             "children": [
+              "소득·세액공제 증명서",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "life-card"
+         },
+         "children": [
+          {
+           "tag": "h3",
+           "attrs": {},
+           "children": [
+            "이사했어요"
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {},
+           "children": [
+            "주소를 바꾸면 모든 계약의 안내장이 새 주소로 갑니다."
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "go"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "MY-01"
+             },
+             "children": [
+              "주소·연락처 변경",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "MY-02"
+             },
+             "children": [
+              "안내장 수신설정",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "life-card"
+         },
+         "children": [
+          {
+           "tag": "h3",
+           "attrs": {},
+           "children": [
+            "연금을 받을 때가 됐어요"
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {},
+           "children": [
+            "예상 연금액을 유형별로 비교하고 지급을 신청하세요."
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "go"
+           },
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "CT-07"
+             },
+             "children": [
+              "미래예상연금액",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "button",
+             "attrs": {
+              "data-action": "open",
+              "data-id": "PY-09"
+             },
+             "children": [
+              "연금 지급 신청",
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 6l6 6-6 6"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "section",
+   "attrs": {
+    "class": "last sec"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "two wrap"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "panel"
+       },
+       "children": [
+        {
+         "tag": "h2",
+         "attrs": {},
+         "children": [
+          "공지사항",
+          {
+           "tag": "button",
+           "attrs": {
+            "aria-label": "공지사항 더보기",
+            "class": "link",
+            "data-action": "open-notices"
+           },
+           "children": [
+            "더보기",
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M9 6l6 6-6 6"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "ul",
+         "attrs": {
+          "class": "notice-list"
+         },
+         "children": [
+          {
+           "tag": "li",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-haspopup": "dialog",
+              "class": "notice-link",
+              "data-action": "open-notices",
+              "data-notice": "n10"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "n tag"
+                 },
+                 "children": [
+                  "공지"
+                 ]
+                },
+                "사이버창구 시스템 점검 안내 (10/11 00:00~06:00)"
+               ]
+              },
+              {
+               "tag": "time",
+               "attrs": {},
+               "children": [
+                "2026.09.28"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "li",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-haspopup": "dialog",
+              "class": "notice-link",
+              "data-action": "open-notices",
+              "data-notice": "n9"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "i tag"
+                 },
+                 "children": [
+                  "안내"
+                 ]
+                },
+                "보험계약대출 적용이율 변경 안내 (10월)"
+               ]
+              },
+              {
+               "tag": "time",
+               "attrs": {},
+               "children": [
+                "2026.09.25"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "li",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-haspopup": "dialog",
+              "class": "notice-link",
+              "data-action": "open-notices",
+              "data-notice": "n8"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "i tag"
+                 },
+                 "children": [
+                  "안내"
+                 ]
+                },
+                "실손보험 청구 서류 간소화 시행 안내"
+               ]
+              },
+              {
+               "tag": "time",
+               "attrs": {},
+               "children": [
+                "2026.09.15"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "li",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-haspopup": "dialog",
+              "class": "notice-link",
+              "data-action": "open-notices",
+              "data-notice": "n7"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {},
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "n tag"
+                 },
+                 "children": [
+                  "공지"
+                 ]
+                },
+                "보험사기 예방 및 신고 포상 제도 안내"
+               ]
+              },
+              {
+               "tag": "time",
+               "attrs": {},
+               "children": [
+                "2026.09.01"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "cc panel"
+       },
+       "children": [
+        {
+         "tag": "h2",
+         "attrs": {},
+         "children": [
+          "고객센터"
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "num tel"
+         },
+         "children": [
+          "1588-4770"
+         ]
+        },
+        {
+         "tag": "p",
+         "attrs": {},
+         "children": [
+          "평일 09:00~18:00 · 사고보험금 접수 24시간(모바일)"
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "row"
+         },
+         "children": [
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "btn sm",
+            "data-action": "open",
+            "data-id": "CS-01"
+           },
+           "children": [
+            "청구서류 받기"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
