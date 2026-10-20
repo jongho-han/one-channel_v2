@@ -30,7 +30,7 @@ export default [
       ...reactHooks.configs.recommended.rules,
       eqeqeq: ['error', 'smart'],
       '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
       'no-restricted-globals': ['error', ...RESTRICTED_GLOBALS],
     },
   },

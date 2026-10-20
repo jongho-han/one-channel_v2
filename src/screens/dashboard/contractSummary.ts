@@ -1,5 +1,5 @@
 /* T1 계약종합현황: 계약 요약·바로가기 계산 (화면과 분리한 순수 로직) */
-import { loanAvailable } from '../../features/loan.js';
+import { loanAvailable } from '../../features/loanRules';
 
 export interface Contract {
   no: string;

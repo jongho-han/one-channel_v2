@@ -1,0 +1,558 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "class": "done"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(완료)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep",
+      "tabindex": "-1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mb-14 ok"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M5 12l5 5 9-10"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "b",
+       "attrs": {},
+       "children": [
+        "(무)iM 튼튼치아보험"
+       ]
+      },
+      "청약일 2026.09.20 · 철회 기한 2026.10.20 · 반환 31,200원"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mb-14 ok"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "b",
+       "attrs": {},
+       "children": [
+        "청약철회권(금융소비자보호법)"
+       ]
+      },
+      "보험증권을 받은 날부터 15일, 청약한 날부터 30일 이내에 불이익 없이 철회할 수 있습니다. 낸 보험료는 전액 돌려드립니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "입력하기"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form",
+      "id": "frm"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "why"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "why"
+         },
+         "children": [
+          "철회 사유",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-why",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "why",
+          "name": "why"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "단순 변심"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "보장 내용이 생각과 달라서"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "보험료가 부담돼서"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "기타"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-why",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "acct"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "acct"
+         },
+         "children": [
+          "환불 계좌",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-acct",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "acct",
+          "name": "acct"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "iM뱅크 508-12-****91 (본인)"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "국민은행 123-45-****01 (본인)"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "신한은행 110-***-***882 (본인)"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "다른 본인 계좌 등록"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-acct",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-live": "polite",
+    "class": "mt-14",
+    "id": "calc"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "calc num"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "납입 보험료"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "31,200원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "tot"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "반환 보험료"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "31,200원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "환불 예정일"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "2026.10.06"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "step-prev"
+     },
+     "children": [
+      "이전"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    }
+   ]
+  }
+ ]
+}

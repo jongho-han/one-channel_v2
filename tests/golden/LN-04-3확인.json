@@ -1,0 +1,403 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "class": "done"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(완료)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {
+      "class": "done"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      "입력",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(완료)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep",
+      "tabindex": "-1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "신청 내용을 확인해 주세요"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "상환할 대출"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "보험계약대출 · (무)iM 든든한 종신보험"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "상환 구분"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "일부 상환"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "상환 금액"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "-"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "출금 계좌"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "iM뱅크 508-12-****91 (본인)"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mt-14"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "calc num"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대출 잔액"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "3,000,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "경과 이자"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "10,750원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "상환 원금"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "0원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "tot"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "출금 금액"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "10,750원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "상환 후 잔액"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "3,000,000원"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "step-prev"
+     },
+     "children": [
+      "수정"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "신청 내용이 맞습니다"
+     ]
+    }
+   ]
+  }
+ ]
+}

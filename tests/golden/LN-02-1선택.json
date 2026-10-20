@@ -1,0 +1,947 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "1"
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "dl",
+   "attrs": {
+    "class": "cols tiles",
+    "style": "--cols:2"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "hl tile"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "전체 대출 가능금액"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "29,140,000원"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "tile"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "대출 가능 계약"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "4건"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "대출 신청금액"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "loanAmount"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "loanAmount"
+         },
+         "children": [
+          "대출 신청금액",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "money"
+         },
+         "children": [
+          {
+           "tag": "input",
+           "attrs": {
+            "aria-describedby": "h-loanAmount e-loanAmount",
+            "aria-required": "true",
+            "class": "inp num",
+            "data-max": "29140000",
+            "data-money": "",
+            "id": "loanAmount",
+            "inputmode": "numeric",
+            "name": "loanAmount",
+            "placeholder": "0"
+           },
+           "children": [],
+           "state": {
+            "value": "3,000,000"
+           }
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "u"
+           },
+           "children": [
+            "원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "chips quick-amounts"
+         },
+         "children": [
+          {
+           "tag": "button",
+           "attrs": {
+            "aria-label": "+100만 (100만원 더하기)",
+            "class": "chip",
+            "data-add": "1000000",
+            "data-for": "loanAmount",
+            "type": "button"
+           },
+           "children": [
+            "+100만"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "aria-label": "+500만 (500만원 더하기)",
+            "class": "chip",
+            "data-add": "5000000",
+            "data-for": "loanAmount",
+            "type": "button"
+           },
+           "children": [
+            "+500만"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "aria-label": "+1000만 (1,000만원 더하기)",
+            "class": "chip",
+            "data-add": "10000000",
+            "data-for": "loanAmount",
+            "type": "button"
+           },
+           "children": [
+            "+1000만"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "aria-label": "최대 금액 입력",
+            "class": "chip",
+            "data-add": "max",
+            "data-for": "loanAmount",
+            "type": "button"
+           },
+           "children": [
+            "최대"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "h-loanAmount"
+         },
+         "children": [
+          "대출 가능금액보다 적게 신청하면 이율이 낮은 계약부터 먼저 대출됩니다."
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-loanAmount",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "class": "center split"
+     },
+     "children": [
+      "대출 가능 계약",
+      {
+       "tag": "small",
+       "attrs": {
+        "class": "h-note"
+       },
+       "children": [
+        "이율 낮은 순"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "id": "loanPlan"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "loan-list"
+       },
+       "children": [
+        {
+         "tag": "article",
+         "attrs": {
+          "class": "loan-card on"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lc-head"
+           },
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "lc-rank"
+               },
+               "children": [
+                "1순위"
+               ]
+              },
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "(무)iM 유니버설저축보험"
+               ]
+              },
+              {
+               "tag": "small",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "증권번호 2016-0033190"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "lc-rate num"
+             },
+             "children": [
+              "연 3.95%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "dl",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "대출 가능금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "13,200,000원"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "이번 대출금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num take"
+               },
+               "children": [
+                "3,000,000원"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "예상 월 이자"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "9,875원"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "article",
+         "attrs": {
+          "class": "loan-card unused"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lc-head"
+           },
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "lc-rank"
+               },
+               "children": [
+                "2순위"
+               ]
+              },
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "(무)iM 튼튼 어린이보험"
+               ]
+              },
+              {
+               "tag": "small",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "증권번호 2019-0234567"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "lc-rate num"
+             },
+             "children": [
+              "연 4.10%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "dl",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "대출 가능금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "1,850,000원"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "이번 대출금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num take"
+               },
+               "children": [
+                "-"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "예상 월 이자"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "-"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "article",
+         "attrs": {
+          "class": "loan-card unused"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lc-head"
+           },
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "lc-rank"
+               },
+               "children": [
+                "3순위"
+               ]
+              },
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "(무)iM 든든한 종신보험"
+               ]
+              },
+              {
+               "tag": "small",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "증권번호 2018-0012345 · 기존 대출 3,000,000원"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "lc-rate num"
+             },
+             "children": [
+              "연 4.30%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "dl",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "대출 가능금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "2,890,000원"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "이번 대출금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num take"
+               },
+               "children": [
+                "-"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "예상 월 이자"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "-"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "article",
+         "attrs": {
+          "class": "loan-card unused"
+         },
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "lc-head"
+           },
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "lc-rank"
+               },
+               "children": [
+                "4순위"
+               ]
+              },
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "(무)iM 하이브리드 변액연금보험"
+               ]
+              },
+              {
+               "tag": "small",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "증권번호 2020-0456789"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "lc-rate num"
+             },
+             "children": [
+              "연 4.75%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "dl",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "대출 가능금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "11,200,000원"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "이번 대출금액"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num take"
+               },
+               "children": [
+                "-"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "div",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "dt",
+               "attrs": {},
+               "children": [
+                "예상 월 이자"
+               ]
+              },
+              {
+               "tag": "dd",
+               "attrs": {
+                "class": "num"
+               },
+               "children": [
+                "-"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "sumline"
+       },
+       "children": [
+        "배정 합계",
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "3,000,000원"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+/* T3 단계형 신청 규칙 — 화면과 분리한 순수 로직 */
+import type { FieldSpec, FieldValues } from '../../components/form/fieldSpec';
+import { displayValue, isFieldVisible } from '../../form/display';
+
+export type StepName = '선택' | '입력' | '확인' | '인증' | '완료';
+
+/** 선택 카드 항목 */
+export interface PickItem {
+  key: string;
+  title: string;
+  sub: string;
+  value: string;
+}
+
+export function stepsOf(config: { pick?: unknown; skipConfirm?: boolean }): StepName[] {
+  return [...(config.pick ? ['선택' as const] : []), '입력', ...(config.skipConfirm ? [] : ['확인' as const]), '인증', '완료'];
+}
+
+export const pickedItem = (config: { pick?: { items?: () => PickItem[] } }, pick: string | null | undefined): PickItem | undefined =>
+  config.pick?.items?.().find(item => item.key === pick);
+
+/** 확인 단계 행: 고른 항목('…을 선택하세요' 제외) + 보이는 항목 */
+export function confirmRows(
+  config: { pick?: { label?: string; items?: () => PickItem[] }; fields: readonly FieldSpec[] },
+  flow: { pick: string | null | undefined; values: FieldValues },
+): [string, string][] {
+  const rows: [string, string][] = [];
+  const picked = pickedItem(config, flow.pick);
+  if (picked && config.pick?.label) rows.push([config.pick.label.replace(/을 선택하세요|를 선택하세요/, ''), picked.title]);
+  for (const field of config.fields.filter(item => isFieldVisible(item, config.fields, flow.values))) rows.push([field.label, displayValue(field, flow.values) || '-']);
+  return rows;
+}
+
+/** 완료 제목: 화면 지정 > 지급 업무 > 기본 */
+export const doneTitle = (config: { doneTitle?: (values: FieldValues) => string }, bizType: string, values: FieldValues): string =>
+  config.doneTitle?.(values) || (bizType === '지급' ? '신청이 완료되었습니다' : '처리가 완료되었습니다');

@@ -3,10 +3,10 @@ import { useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { Field } from '../../components/form/Field';
 import type { FieldSpec, FieldValues } from '../../components/form/fieldSpec';
-import { Agreements, CalcBox, InfoBox, type CalcRow } from '../../components/widgets';
-import { focusElement } from '../../core/dom.js';
+import { Agreements, CalcBox, InfoBox, checkedAgreements, type CalcRow } from '../../components/widgets';
 import type { AuthLevel } from '../../data/menu';
-import { readFieldValues } from '../../form/formEngine.js';
+import { focusFirstError } from '../../form/focus';
+import { readFieldValues } from '../../form/fieldValues';
 import { validateValues } from '../../form/validation';
 
 /** 표준 단일폼 설정 (screens/changeForms 중 전용 화면이 아닌 것) */
@@ -36,20 +36,11 @@ interface SingleFormProps {
   onSubmit: () => void;                         // 검증을 통과하면 호출 (전자서명으로 이어짐)
 }
 
-/** 첫 오류 칸으로 스크롤·초점 (KWCAG 25번 오류 정정) */
-function focusFirstError(form: HTMLElement) {
-  const group = form.querySelector('.err:not(:empty)')?.closest('.fld');
-  if (!group) return;
-  group.scrollIntoView?.({ behavior: 'smooth', block: 'center' });
-  focusElement(group.querySelector('input:not([type=hidden]), select, textarea') ?? group);
-}
-
 export function SingleForm({ config, values, agreed: initialAgreed, authLevel, onValuesChange, onAgreedChange, onSubmit }: SingleFormProps) {
   const formRef = useRef<HTMLDivElement>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [agreeError, setAgreeError] = useState('');
   const [calcValues, setCalcValues] = useState<FieldValues | null>(null);
-  const [agreed, setAgreed] = useState<readonly number[]>(initialAgreed);
 
   /** 화면의 입력값을 읽어 알림 */
   const syncValues = (): FieldValues => {
@@ -72,6 +63,8 @@ export function SingleForm({ config, values, agreed: initialAgreed, authLevel, o
       if (formRef.current) focusFirstError(formRef.current);
       return;
     }
+    const agreed = config.agree ? checkedAgreements() : [];
+    if (config.agree) onAgreedChange(agreed);
     if (config.agree && agreed.length < config.agree.length) {
       flushSync(() => setAgreeError('필수 확인 항목에 체크해 주세요.'));
       return;
@@ -92,7 +85,7 @@ export function SingleForm({ config, values, agreed: initialAgreed, authLevel, o
       </div>
       {config.calc && <div className="mt-14" id="calc" aria-live="polite"><CalcBox rows={config.calc(calcSource)} /></div>}
       {config.note && <InfoBox tone="info mt-14" icon="info">{config.note}</InfoBox>}
-      {config.agree && <Agreements items={config.agree} agreed={initialAgreed} error={agreeError} onChange={checked => { setAgreed(checked); onAgreedChange(checked); }} />}
+      {config.agree && <Agreements items={config.agree} agreed={initialAgreed} error={agreeError} onChange={onAgreedChange} />}
       <div className="navrow">
         <button className="btn lg" data-action="back">취소</button>
         <button className="btn pri lg" id="next" onClick={next}>{config.nextLabel ?? (authLevel === 'A2' ? '추가인증 후 변경' : '변경하기')}</button>

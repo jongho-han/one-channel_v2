@@ -1,0 +1,669 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "class": "done"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(완료)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep",
+      "tabindex": "-1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mb-14 ok"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M5 12l5 5 9-10"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "b",
+       "attrs": {},
+       "children": [
+        "(무)iM 든든한 종신보험"
+       ]
+      },
+      "증권번호 2018-0012345 · 피보험자 홍길동 · 예상 9,842,000원"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "입력하기"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form",
+      "id": "frm"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "why"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "why"
+         },
+         "children": [
+          "해지 사유",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-why",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "why",
+          "name": "why"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "보험료 납입이 부담돼서"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "목돈이 필요해서"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "다른 보험으로 바꾸려고"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "보장이 필요 없어져서"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "기타"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-why",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "acct"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "acct"
+         },
+         "children": [
+          "환급금 받을 계좌",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-acct",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "acct",
+          "name": "acct"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "iM뱅크 508-12-****91 (본인)"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "국민은행 123-45-****01 (본인)"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "신한은행 110-***-***882 (본인)"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "다른 본인 계좌 등록"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-acct",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-live": "polite",
+    "class": "mt-14",
+    "id": "calc"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "calc num"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "납입한 보험료 합계"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "12,711,600원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "예상 해지환급금"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "9,842,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "보험계약대출 상계"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "-3,000,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "tot"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "실수령 예상액"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "6,842,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "환급률"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "77.4%"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mt-14 warn"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 7v6M12 16.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "해지하면 모든 보장이 즉시 사라집니다. 같은 보장을 새로 가입할 때 보험료가 오르거나 건강 상태에 따라 가입이 거절될 수 있습니다. 해지환급금은 납입한 보험료보다 적을 수 있습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "agree checks mt-14",
+    "id": "agr"
+   },
+   "children": [
+    {
+     "tag": "label",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "input",
+       "attrs": {
+        "data-agree": "0",
+        "type": "checkbox"
+       },
+       "children": [],
+       "state": {
+        "checked": true,
+        "value": "on"
+       }
+      },
+      {
+       "tag": "span",
+       "attrs": {},
+       "children": [
+        "[필수] 해지 시 불이익(보장 소멸, 재가입 제한, 원금 손실 가능성)을 설명 듣고 이해했습니다."
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "label",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "input",
+       "attrs": {
+        "data-agree": "1",
+        "type": "checkbox"
+       },
+       "children": [],
+       "state": {
+        "checked": true,
+        "value": "on"
+       }
+      },
+      {
+       "tag": "span",
+       "attrs": {},
+       "children": [
+        "[필수] 해지 후에는 계약을 되살릴 수 없음을 확인했습니다."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "span",
+   "attrs": {
+    "class": "agree-err",
+    "id": "agrErr",
+    "role": "alert"
+   },
+   "children": []
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "step-prev"
+     },
+     "children": [
+      "이전"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    }
+   ]
+  }
+ ]
+}

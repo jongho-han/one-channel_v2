@@ -1,0 +1,595 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "1"
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "pickTitle"
+     },
+     "children": [
+      "납입할 계약을 선택하세요"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-labelledby": "pickTitle",
+      "class": "picks",
+      "role": "group"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "true",
+        "class": "on pick",
+        "data-action": "pick",
+        "data-key": "2018-0012345"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든한 종신보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2018-0012345 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "128,400원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "2020-0456789"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2020-0456789 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "300,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "2021-0778812"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 실손의료비보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2021-0778812 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "34,560원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "2016-0033190"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 유니버설저축보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2016-0033190 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "200,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "2017-0091234"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 행복드림 연금보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2017-0091234 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "150,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "2021-0345678"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 변액유니버설 종신보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2021-0345678 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "200,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "2019-0234567"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 튼튼 어린이보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2019-0234567 · 피보험자 홍서연(자녀)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "45,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "2022-0567123"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든 암보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2022-0567123 · 피보험자 김영희(배우자)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "52,300원"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-describedby": "pickHint",
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    },
+    {
+     "tag": "span",
+     "attrs": {
+      "class": "sr-only",
+      "id": "pickHint"
+     },
+     "children": []
+    }
+   ]
+  }
+ ]
+}

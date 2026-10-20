@@ -1,8 +1,8 @@
 import { $, focusElement, scrollToTop } from '../core/dom.js';
 import { MENU_GROUPS, SCREEN_BY_ID } from '../data/menuRepository.js';
-import { STEP_FLOWS } from '../screens/stepFlows.js';
+import { STEP_FLOWS } from '../screens/stepFlows';
 import { freshScreenState, state } from '../state/store';
-import { stepsOf } from '../templates/stepFlow.js';
+import { stepsOf } from '../screens/stepFlow/stepRules';
 import { render } from './render.js';
 
 /* 라우터 ================================================================ */

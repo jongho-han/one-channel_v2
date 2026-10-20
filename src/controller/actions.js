@@ -10,11 +10,11 @@ import { openNoticeBoard } from '../pages/home.js';
 import { rerenderScreen } from '../pages/screen.js';
 import { showFundPhase, startSuitability, submitSuitability } from '../screens/fund/fundFlow';
 import { completeSingleForm } from '../screens/singleForm/completeSingleForm';
+import { goToStep } from '../screens/stepFlow/stepFlowActions';
 import { confirmCancelRequest, submitDocuments } from '../screens/list/listActions';
-import { STEP_FLOWS } from '../screens/stepFlows.js';
+import { STEP_FLOWS } from '../screens/stepFlows';
 import { chooseSignMethod, login, logout } from '../services/auth.js';
 import { state } from '../state/store';
-import { showNextStep } from '../templates/stepFlow.js';
 import { closeModal, copyText, toast } from '../ui/overlay.js';
 
 /** 클릭 가능한 요소는 모두 data-action="이름" 을 갖고, 여기 한 곳에서 처리 */
@@ -82,7 +82,7 @@ const ACTIONS = {
     STEP_FLOWS[state.route.screenId]?.pick.onPick?.(flow, key);
     rerenderScreen();
   },
-  'step-prev':         () => { state.screen.flow.step--; showNextStep(); },
+  'step-prev':         () => goToStep(-1),
   'reset-flow':        () => { state.screen.flow = null; rerenderScreen(); },
 };
 

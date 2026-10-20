@@ -644,3 +644,201 @@ test('T2 계약조회 계약 탭 · 변액 계약 탭 (CT-02 · CT-03)', () => {
   assertMatchesGolden('CT-03-tab2');
   assert.deepEqual(errors, []);
 });
+
+/* ---- T3 단계형 신청 (18개 화면): 각 화면을 끝까지 진행하며 단계마다 기준 화면과 비교 ---- */
+const currentStepName = () => [...($('#currentStep')?.childNodes ?? [])].find(node => node.nodeType === 3 && node.textContent.trim())?.textContent.trim();
+const checkAll = selector => window.document.querySelectorAll(selector).forEach(box => { if (!box.checked) click(box); });
+
+/** 화면별 입력: 선택 단계(맞춤 단계 포함)와 입력 단계에서 필수 값 채우기 */
+const STEP_FLOW_INPUTS = {
+  'MY-05': { input: () => { $('#work').value = '테스트상사'; } },
+  'PY-01': { input: () => { click($('input[name="kind"]')); attachFiles($('#docs'), ['receipt.pdf']); } },
+  'PY-05': { input: () => setInput($('#amt'), '1,000,000') },
+  'CH-05': { pick: () => click($('input[name="annuityPick"]')), input: () => setInput($('#age'), $('#age').options[2].value) },
+  'CH-11': { input: () => setInput($('#age'), $('#age').options[1].value) },
+  'CH-03': { input: () => click($('input[name="riders"]')) },
+  'CH-10': { input: () => { $('#nm').value = '홍서연'; $('#bd').value = '2010-03-04'; $('#tel').value = '010-9876-5432'; } },
+  'LN-02': { pick: () => setInput($('#loanAmount'), '3,000,000') },
+};
+const STEP_FLOW_IDS = ['MY-05', 'PY-01', 'PY-04', 'PY-05', 'PY-07', 'PY-09', 'CH-11', 'PM-01', 'PM-04', 'CH-10', 'CH-05', 'CH-07', 'CH-02', 'CH-03', 'CH-04', 'CH-06', 'LN-02', 'LN-04'];
+
+for (const id of STEP_FLOW_IDS) {
+  test(`T3 ${id} 단계마다 본문이 기준 화면과 같다 (선택 → 입력 → 확인 → 인증 → 완료)`, async () => {
+    fixRandom();
+    fixClock();
+    login();
+    window.App.openScreen(id);
+    const inputs = STEP_FLOW_INPUTS[id] ?? {};
+    const visited = [];
+    for (let guard = 0; guard < 6; guard++) {
+      const step = currentStepName();
+      visited.push(step);
+      if (step === '선택') {
+        if (inputs.pick) inputs.pick(); else click($('[data-action="pick"]'));
+        assertMatchesGolden(`${id}-1선택`);
+        click($('#next'));
+      } else if (step === '입력') {
+        inputs.input?.();
+        checkAll('[data-agree]');
+        assertMatchesGolden(`${id}-2입력`);
+        click($('#next'));
+      } else if (step === '확인') {
+        assertMatchesGolden(`${id}-3확인`);
+        click($('#next'));
+      } else if (step === '인증') {
+        assertMatchesGolden(`${id}-4인증`);
+        click($('[data-auth="간편인증"]'));
+        await wait(1400);
+        if ($('#otp')) { $('#otp').value = '123456'; click($('#otpOk')); }
+      } else {
+        assert.equal(step, '완료');
+        assertMatchesGolden(`${id}-5완료`);
+        break;
+      }
+    }
+    assert.equal(visited.at(-1), '완료', visited.join(' → '));
+    assert.deepEqual(errors, []);
+  });
+}
+
+/* T3 입력 동작 특성 테스트 */
+const goToInput = (id, pick = () => click($('[data-action="pick"]'))) => {
+  login();
+  window.App.openScreen(id);
+  if (currentStepName() === '선택') { pick(); click($('#next')); }
+  assert.equal(currentStepName(), '입력');
+};
+
+test('T3 선택 전에는 다음 버튼이 비활성, 계약을 고르면 피보험자를 미리 선택 (PY-01)', () => {
+  login();
+  window.App.openScreen('PY-01');
+  assert.equal($('#next').disabled, true);
+  assert.equal($('#pickHint').textContent, '먼저 위에서 하나를 선택해야 다음 단계로 갈 수 있습니다.');
+  click($('[data-action="pick"][data-key="2019-0234567"]'));
+  assert.equal($('#next').disabled, false);
+  assert.equal($('[data-action="pick"].on').dataset.key, '2019-0234567');
+  click($('#next'));
+  assert.equal($('input[name="who"]:checked').value, '홍서연(자녀)');
+  attachFiles($('#docs'), ['a.jpg', 'b.pdf']);
+  assert.deepEqual(texts('#fl-docs .fchip'), ['a.jpg', 'b.pdf']);
+  assert.deepEqual(errors, []);
+});
+
+test('T3 필수 입력·필수 확인 검증과 초점 (CH-10 · MY-05)', () => {
+  goToInput('CH-10');
+  click($('#next'));
+  assert.equal($('#e-nm').textContent, '새 수익자 이름을(를) 입력해 주세요.');
+  assert.equal(window.document.activeElement, $('#nm'));
+  assert.equal(currentStepName(), '입력');
+
+  goToInput('MY-05');
+  $('#work').value = '테스트상사';
+  click($('#next'));
+  assert.equal($('#agrErr').textContent, '필수 확인 항목에 모두 체크해 주세요.');
+  assert.equal(window.document.activeElement, $('[data-agree="0"]'));
+  assert.equal(currentStepName(), '입력');
+  assert.deepEqual(errors, []);
+});
+
+test('T3 금액 입력: 숫자만·천 단위, 빠른 금액·최대, 범위 검증, 실시간 계산 (PY-05)', () => {
+  goToInput('PY-05');
+  setInput($('#amt'), '12abc34');
+  assert.equal($('#amt').value, '1,234');
+  click($('[data-add="100000"]'));
+  assert.equal($('#amt').value, '101,234');
+  click($('[data-add="max"]'));
+  assert.equal($('#amt').value, '5,210,000');
+  assert.match($('#calc').textContent, /실지급액5,208,000원/);
+  setInput($('#amt'), '50000');
+  click($('#next'));
+  assert.equal($('#e-amt').textContent, '최소 100,000원 이상 입력해 주세요.');
+  setInput($('#amt'), '6000000');
+  click($('#next'));
+  assert.equal($('#e-amt').textContent, '최대 5,210,000원까지 가능합니다.');
+  assert.deepEqual(errors, []);
+});
+
+test('T3 조건부 항목과 가상계좌 발급 (PM-01)', async () => {
+  fixRandom();
+  fixClock();
+  goToInput('PM-01');
+  assert.equal($('[data-f="acct"]').hidden, false);
+  assert.equal($('[data-f="vbank"]').hidden, true);
+  $('input[name="how"][value="가상계좌로 이체"]').click();
+  assert.equal($('[data-f="acct"]').hidden, true);
+  assert.equal($('[data-f="vbank"]').hidden, false);
+  $('input[name="vbank"][value="농협"]').click();
+  $('input[name="cnt"][value="3개월 선납"]').click();
+  assert.match($('#calc').textContent, /납입할 금액384,173원/);
+  click($('#next'));
+  assertMatchesGolden('PM-01-virtual-3확인');
+  click($('#next'));
+  click($('[data-auth="간편인증"]'));
+  await wait(1400);
+  assertMatchesGolden('PM-01-virtual-5완료');
+  assert.deepEqual(errors, []);
+});
+
+test('T3 연금유형에 따라 항목이 고정·해제된다 (CH-07)', async () => {
+  goToInput('CH-07');
+  const lockedNote = id => $(`[data-f="${id}"] .lock-note`);
+  assert.equal(lockedNote('fixed').textContent, '종신연금 선택 시 고정');
+  $('input[name="type"][value="확정연금"]').click();
+  assert.equal($('input[name="growth"]:checked').value, '정액형');
+  assert.equal($('input[name="growth"]:checked').disabled, true);
+  assert.equal($('[data-f="growth"]').classList.contains('locked'), true);
+  assert.equal($('[data-f="fixed"]').classList.contains('locked'), false);
+  await wait(60);
+  assert.match($('#liveRegion').textContent, /바뀐 항목: /);
+  assertMatchesGolden('CH-07-locked');
+  assert.match($('#calc').textContent, /확정연금/);
+  assert.deepEqual(errors, []);
+});
+
+test('T3 연금개시 변경: 계약 카드 선택 검증, 계약을 바꾸면 고른 나이 초기화 (CH-05)', () => {
+  login();
+  window.App.openScreen('CH-05');
+  click($('#next'));
+  assert.equal($('#pickErr').textContent, '연금개시 나이를 바꿀 계약을 선택해 주세요.');
+  assert.equal(window.document.activeElement, $('input[name="annuityPick"]'));
+  const radios = window.document.querySelectorAll('input[name="annuityPick"]');
+  click(radios[0]);
+  assert.equal($('#pickErr').textContent, '');
+  assert.ok(radios[0].closest('.annuity-card').classList.contains('on'));
+  click($('#next'));
+  setInput($('#age'), $('#age').options[2].value);
+  click($('[data-action="step-prev"]'));
+  click(window.document.querySelectorAll('input[name="annuityPick"]')[1]);
+  click($('#next'));
+  assert.equal($('#age').value, '');
+  assert.deepEqual(errors, []);
+});
+
+test('T3 대출 신청금액에 맞춰 이율 낮은 계약부터 배정 (LN-02)', async () => {
+  login();
+  window.App.openScreen('LN-02');
+  click($('#next'));
+  assert.equal($('#e-loanAmount').textContent, '대출 신청금액을(를) 입력해 주세요.');
+  setInput($('#loanAmount'), '15000000');
+  assert.equal($('#e-loanAmount').textContent, '');
+  assert.equal(window.document.querySelectorAll('.loan-card.on').length, 2);
+  assert.match($('#loanPlan .sumline').textContent, /15,000,000원/);
+  await wait(60);
+  assert.match($('#liveRegion').textContent, /2개 계약에 배정, 배정 합계 15,000,000원/);
+  click($('[data-add="max"]'));
+  assert.match($('#loanPlan .sumline').textContent, /29,140,000원/);
+  assert.deepEqual(errors, []);
+});
+
+test('T3 이전 단계로 돌아가도 입력값 유지 (CH-10)', () => {
+  goToInput('CH-10');
+  $('#nm').value = '홍서연'; $('#bd').value = '2010-03-04'; $('#tel').value = '010-9876-5432';
+  checkAll('[data-agree]');
+  click($('#next'));
+  assert.equal(currentStepName(), '확인');
+  click($('[data-action="step-prev"]'));
+  assert.equal(currentStepName(), '입력');
+  assert.equal($('#nm').value, '홍서연');
+  assert.equal(window.document.activeElement, $('#currentStep'));
+  assert.deepEqual(errors, []);
+});

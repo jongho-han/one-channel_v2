@@ -1,4 +1,4 @@
-/* 입력 검증 규칙 (formEngine.js 와 React 폼 공용) */
+/* 입력 검증 규칙 */
 import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
 import { EMAIL_PATTERN, PHONE_PATTERN, formatWon, withObjectParticle } from '../core/format';
 

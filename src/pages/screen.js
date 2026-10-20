@@ -2,29 +2,23 @@ import { documentTitle } from '../app/router.js';
 import { $, $$, each, escapeHtml } from '../core/dom.js';
 import { SCREEN_SUBTITLES } from '../data/homeContent.js';
 import { MENU_GROUPS, MENU_TREE, SCREEN_BY_ID } from '../data/menuRepository.js';
-import { readFieldValues } from '../form/formEngine.js';
+import { readFieldValues } from '../form/fieldValues';
 import { CERTIFICATES } from '../screens/certificates';
 import { CHANGE_FORMS } from '../screens/changeForms';
 import { mountScreenBody, unmountScreenBody } from '../screens/mountScreenBody';
 import { REACT_TEMPLATES } from '../screens/reactTemplates';
-import { STEP_FLOWS } from '../screens/stepFlows.js';
+import { STEP_FLOWS } from '../screens/stepFlows';
 import { state } from '../state/store';
-import { bindStepFlow, renderStepFlow } from '../templates/stepFlow.js';
 import { applyTableA11y } from '../ui/a11y.js';
 import { icon } from '../ui/icons.js';
 
 /* 업무 화면 ============================================================ */
-/** 화면유형별 템플릿: render()는 HTML을, bind()는 그 화면에만 필요한 입력 동작을 담당
-    React로 전환한 유형(T1·T2·T4·T5)은 screens/reactTemplates 가 본문을 그림 */
-const TEMPLATES = {
-  T3: { render: renderStepFlow,   bind: bindStepFlow   },
-};
+/** 화면 틀(좌측 메뉴·경로·제목)은 여기서, 본문(#sbody)은 화면유형별 React 템플릿(screens/reactTemplates)이 그림 */
 
 /* 화면 틀: 좌측 메뉴 · 경로 · 제목 · 본문 ---------------------------- */
 export function renderScreenPage(screenId) {
   const screen = SCREEN_BY_ID[screenId];
-  const template = TEMPLATES[screen.screenType];
-  const reactBody = REACT_TEMPLATES[screen.screenType]?.(screen) ?? null;
+  const body = REACT_TEMPLATES[screen.screenType]?.(screen) ?? null;
 
   unmountScreenBody();
   $('#main').innerHTML = `
@@ -36,12 +30,11 @@ export function renderScreenPage(screenId) {
         <div><h1>${escapeHtml(screen.depth3)}</h1><p>${screenSubtitle(screen)}</p></div>
         <div class="badges">${screenAuthBadge(screen)}<span class="bdg">이용대상 · ${escapeHtml(screen.target)}</span></div>
       </div>
-      <div id="sbody">${reactBody ? '' : template.render(screen)}</div>
+      <div id="sbody"></div>
     </div>
   </div></div>`;
 
-  if (reactBody) mountScreenBody($('#sbody'), reactBody);
-  else template.bind?.(screen, $('#sbody'));
+  mountScreenBody($('#sbody'), body);
   applyTableA11y($('#main'));
   document.title = documentTitle();
 }

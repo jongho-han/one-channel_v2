@@ -1,4 +1,4 @@
-/* 폼 필드 정의 (formEngine.js 와 React 폼 공용) */
+/* 폼 필드 정의 */
 export type FieldType = 'text' | 'tel' | 'email' | 'date' | 'select' | 'radio' | 'checks' | 'money' | 'account' | 'file' | 'addr';
 
 export interface FieldSpec {
@@ -15,6 +15,9 @@ export interface FieldSpec {
   zip?: string;                   // addr: 우편번호 기본값
   max?: number;                   // money: 최대 금액
   min?: number;                   // money: 최소 금액
+  quick?: readonly (number | 'max')[];   // money: 빠른 금액 버튼
+  inline?: boolean;               // checks: 가로 배치
+  showWhen?: { field: string; value: string };   // 다른 항목 값이 맞을 때만 보이고 검증
 }
 
 /** 입력값: 항목 id → 값 (checks·file 은 배열) */

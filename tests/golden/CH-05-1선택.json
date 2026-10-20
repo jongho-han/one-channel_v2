@@ -1,0 +1,426 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 4단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "1"
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "pickTitle"
+     },
+     "children": [
+      "연금개시 나이를 바꿀 계약을 선택하세요"
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "sub-desc"
+     },
+     "children": [
+      "연금이 아직 개시되지 않은 계약만 보여 드립니다."
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-describedby": "pickErr",
+      "aria-labelledby": "pickTitle",
+      "class": "loan-list",
+      "role": "radiogroup"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "annuity-card loan-card on",
+        "for": "ap-2020-0456789"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "lc-head"
+         },
+         "children": [
+          {
+           "tag": "input",
+           "attrs": {
+            "class": "lc-radio",
+            "id": "ap-2020-0456789",
+            "name": "annuityPick",
+            "type": "radio"
+           },
+           "children": [],
+           "state": {
+            "checked": true,
+            "value": "2020-0456789"
+           }
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "lc-name"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 하이브리드 변액연금보험"
+             ]
+            },
+            {
+             "tag": "small",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "증권번호 2020-0456789 · 피보험자 홍길동"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "dl",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "dt",
+             "attrs": {},
+             "children": [
+              "현재 연금개시"
+             ]
+            },
+            {
+             "tag": "dd",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "65세 (2045.03.02)"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "dt",
+             "attrs": {},
+             "children": [
+              "납입 현황"
+             ]
+            },
+            {
+             "tag": "dd",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "79/120회 (2030.02 완료)"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "dt",
+             "attrs": {},
+             "children": [
+              "적립금(해지환급금)"
+             ]
+            },
+            {
+             "tag": "dd",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "23,710,400원"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "annuity-card loan-card",
+        "for": "ap-2017-0091234"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "lc-head"
+         },
+         "children": [
+          {
+           "tag": "input",
+           "attrs": {
+            "class": "lc-radio",
+            "id": "ap-2017-0091234",
+            "name": "annuityPick",
+            "type": "radio"
+           },
+           "children": [],
+           "state": {
+            "checked": false,
+            "value": "2017-0091234"
+           }
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "lc-name"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 행복드림 연금보험"
+             ]
+            },
+            {
+             "tag": "small",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "증권번호 2017-0091234 · 피보험자 홍길동"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "dl",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "div",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "dt",
+             "attrs": {},
+             "children": [
+              "현재 연금개시"
+             ]
+            },
+            {
+             "tag": "dd",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "60세 (2038.11.20)"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "dt",
+             "attrs": {},
+             "children": [
+              "납입 현황"
+             ]
+            },
+            {
+             "tag": "dd",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "107/120회 (2027.10 완료)"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "dt",
+             "attrs": {},
+             "children": [
+              "적립금(해지환급금)"
+             ]
+            },
+            {
+             "tag": "dd",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "17,820,000원"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "err",
+      "id": "pickErr",
+      "role": "alert"
+     },
+     "children": []
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    }
+   ]
+  }
+ ]
+}

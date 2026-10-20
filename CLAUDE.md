@@ -2,19 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53개 화면). 프레임워크 없는 바닐라 JS(ES 모듈) + Vite. 데이터는 모두 샘플, 인증·거래는 시뮬레이션.
+iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53개 화면). React + TypeScript + Vite (일부 페이지는 아직 JS). 데이터는 모두 샘플, 인증·거래는 시뮬레이션.
 
 ## 언어 / 기술 스택
 - 개발 언어·프레임워크: **React + TypeScript** (빌드 Vite 유지)
 - 신규 코드는 `.tsx`(컴포넌트)·`.ts`(로직) 로 작성. `any` 지양, props·상태·데이터는 타입(interface/type) 정의
-- 현재 소스는 바닐라 JS(ES 모듈) — 전환 전까지 기존 구조·명령을 따르고, 전환은 화면 단위로 점진 진행
+- 남은 JS: 메인·전체메뉴·로그인 페이지, 업무 화면 틀(`pages/screen.js`), 라우터·액션·오버레이 등 — 바꿀 때는 아래 TDD·golden 절차로 점진 전환
 - 전환 완료: `core/format.ts`·`core/config.ts`·`state/store.ts`, 공통 하단 `components/Footer.tsx`, 공통 셸 `components/shell/*`(헤더·메가메뉴·앱바·탭바). JS에서 TS 모듈은 확장자 없이 import
 - 셸은 상태를 직접 읽어 그림: 상태를 바꾼 뒤 `refreshShell()`(= flushSync + `notify`). `render()` 는 자동 호출. 메가메뉴는 `state.ui.mega` + `showMegaMenu`/`hideMegaMenu`
 - 버튼 동작은 React onClick 대신 기존처럼 `data-action` 속성으로 (`controller/actions.js`)
 - TS 컴포넌트에서 메뉴 데이터는 타입이 있는 `data/menu.ts` 로 import
-- 화면유형 템플릿 전환(T1·T2·T4·T5 완료, T3 은 기존 JS): ① 전환 전 `UPDATE_GOLDEN=1 npm run test:smoke` 로 본문 구조 기준(`tests/golden/<id>.json`) 생성 ② 로직·컴포넌트 단위 테스트 작성(RED) ③ `screens/<유형>/` 구현 → `screens/reactTemplates.tsx` 등록 ④ 기존 `templates/*.js` 삭제 ⑤ golden 비교 통과 확인. 기준 파일은 의도한 화면 변경일 때만 다시 생성
+- 화면유형 템플릿 전환(T1~T5 모두 완료). 남은 JS 페이지를 바꿀 때도 같은 절차: ① 전환 전 `UPDATE_GOLDEN=1 npm run test:smoke` 로 본문 구조 기준(`tests/golden/<id>.json`) 생성 ② 로직·컴포넌트 단위 테스트 작성(RED) ③ `screens/<유형>/` 구현 → `screens/reactTemplates.tsx` 등록 ④ 기존 JS 삭제 ⑤ golden 비교 통과 확인. 기준 파일은 의도한 화면 변경일 때만 다시 생성
 - React 폼 입력은 비제어(default*) + 기존 `readFieldValues` 로 읽음 (큰글씨 전환 시 `saveScreenInputs` 와 호환). 화면 상태(useState) 변경은 기존처럼 즉시 반영되도록 `flushSync` 사용
-- 검증 규칙은 `form/validation.ts` 한 곳 (formEngine.js 도 사용). React 컴포넌트는 진행 상태(flow)를 직접 고치지 않고 콜백 → `updateScreenFlow`/`updateScreenValues`(store.ts) 로 반영 (react-hooks 린트 규칙)
+- 폼 공용 모듈은 `form/*.ts` (검증 validation · 값 읽기 fieldValues · 표시값·조건부 display · 고정 규칙 locks).
+  필수 확인(동의)은 제출 시 화면의 체크 상태(`checkedAgreements`)로 다시 확인. React 컴포넌트는 진행 상태(flow)를 직접 고치지 않고 콜백 → `updateScreenFlow`/`updateScreenValues`(store.ts) 로 반영 (react-hooks 린트 규칙)
 - 단계 전환이 data-action 으로 일어나는 화면(펀드변경 등)은 단계·오류를 진행 상태에 두고 `rerenderScreen()` — DOM에 직접 쓰지 않음
 - React 마운트는 `flushSync` 로 동기 렌더 (스모크 테스트가 부팅 직후 DOM을 검사)
 - 전환 후에도 배포물은 `dist/index.html` 단일 파일 유지
@@ -35,9 +36,9 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - 진입 `src/main.js` → React 셸·하단 마운트 → `controller/events.js` 전역 이벤트 바인딩 → `app/render.js` 가 셸 갱신 + `state.route.page`(home·all·login·screen)별 페이지 렌더
 - 상태는 `state/store.ts` 의 전역 `state` 객체 하나. 화면 이동 시 `state.screen` 은 `freshScreenState()` 로 초기화 (`flow`: T3~T5 진행, `list`: T2)
 - 라우팅 `app/router.js`: `openScreen(id)` 는 `authLevel` 이 A0 가 아니고 미로그인이면 로그인으로 보낸 뒤 이어서 연다. 화면 전환 시 h1 초점 이동·문서 제목 갱신 (KWCAG)
-- 렌더링은 HTML 문자열 → `innerHTML`. 사용자 표시값은 `core/dom.js` 의 `escapeHtml` 사용
+- 렌더링: React 영역은 JSX(자동 이스케이프), 남은 JS 페이지는 HTML 문자열 → `innerHTML` + `core/dom.js` 의 `escapeHtml`
 - 클릭은 요소의 `data-action="이름"` + `data-*` 를 `controller/actions.js` 의 `ACTIONS` 맵 한 곳에서 처리. 새 버튼은 onclick 대신 여기에 액션 추가
-- 화면 정의의 원천은 `src/data/menu-spec.json` (메뉴정의서 행: id·depth1~3·screenType·authLevel 등). `pages/screen.js` 가 `screenType`(T1 대시보드·T2 목록·T3 단계형·T4 단일폼·T5 발급)으로 `templates/*` 의 render/bind 를 고르고, 화면별 세부 설정은 `screens/*`(stepFlows·changeForms·certificates·listScreens)에서 화면 id 키로 조회
+- 화면 정의의 원천은 `src/data/menu-spec.json` (메뉴정의서 행: id·depth1~3·screenType·authLevel 등). `pages/screen.js` 가 `screenType`(T1 대시보드·T2 목록·T3 단계형·T4 단일폼·T5 발급)으로 `screens/reactTemplates` 의 React 화면을 고르고, 화면별 세부 설정은 `screens/*`(stepFlows·changeForms·certificates·listScreens)에서 화면 id 키로 조회
 - 큰글씨 전환은 `refresh()` 로 입력값 저장(`saveScreenInputs`) 후 다시 그림. 입력 상태 유실 회귀 주의
 - 화면 추가 순서: 메뉴정의서 → `menu-spec.json` → `screens/*` 설정 → 필요 시 `features/*` 모듈 → 테스트 (README 참조)
 

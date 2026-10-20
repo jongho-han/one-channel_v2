@@ -8,7 +8,7 @@ import { activeFunds } from '../../features/variableContract';
 import { rerenderScreen } from '../../pages/screen.js';
 import { state } from '../../state/store';
 import { announce, openModal, toast } from '../../ui/overlay.js';
-import { infoBox } from '../../ui/widgets.js';
+import { infoBoxHtml } from '../../ui/infoBoxHtml';
 import { canInvest, gradeLabel, hasFundChange, portfolioGrade, scoreToProfile, suitabilityCheck, type Fund } from './fundRules';
 import type { SuitabilityResultData } from './FundViews';
 
@@ -47,7 +47,7 @@ export function submitFundChange(flow: FundFlow): void {
     openModal(`
       <h2>오늘은 적합성진단을 다시 할 수 없습니다</h2>
       <p>오늘 진행한 적합성진단 결과(${SUITABILITY.profile})로는 변경 후 편입비율(${gradeLabel(check.grade)})에 투자할 수 없습니다.</p>
-      ${infoBox('warn', 'alert', `${nextDay(APP.today)}(익일) 이후 적합성진단을 다시 진행해 주세요. 투자성향 범위 안으로 비율을 조정하면 바로 변경할 수 있습니다.`)}
+      ${infoBoxHtml('warn', 'alert', `${nextDay(APP.today)}(익일) 이후 적합성진단을 다시 진행해 주세요. 투자성향 범위 안으로 비율을 조정하면 바로 변경할 수 있습니다.`)}
       <button class="btn pri block mt-16" data-action="close-modal">확인</button>`);
     return;
   }

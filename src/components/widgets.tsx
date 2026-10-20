@@ -1,4 +1,4 @@
-/* 화면 공통 부품 (React) — ui/widgets.js 와 같은 마크업 */
+/* 화면 공통 부품 (React) */
 import type { CSSProperties, ChangeEvent, ReactNode } from 'react';
 import { statusTone } from '../ui/statusTone';
 import { Icon, type IconName } from './Icon';
@@ -34,6 +34,10 @@ export function CalcBox({ rows }: { rows: readonly CalcRow[] }) {
   return <div className="calc num">{rows.map(([label, value, isTotal]) => <div key={label} className={isTotal ? 'tot' : undefined}><span>{label}</span><b>{value}</b></div>)}</div>;
 }
 
+/** 화면에 체크된 필수 확인 순번 (제출 시 화면 상태 기준으로 다시 확인) */
+export const checkedAgreements = (): number[] =>
+  [...document.querySelectorAll<HTMLInputElement>('#agr [data-agree]')].filter(box => box.checked).map(box => Number(box.dataset.agree));
+
 /** 필수 확인(동의) 목록: 체크할 때마다 체크된 순번 목록을 알림 */
 export function Agreements({ items, agreed, error = '', onChange }: { items: readonly string[]; agreed: readonly number[]; error?: string; onChange: (agreed: number[]) => void }) {
   const change = (event: ChangeEvent<HTMLInputElement>) => {
@@ -68,4 +72,26 @@ export function LinkButtons({ links, spacing = 'mt-18', primaryIndex = 0 }: { li
       {links.map(([label, id], index) => <button key={id} className={index === primaryIndex ? 'btn pri' : 'btn'} data-action="open" data-id={id}>{label}</button>)}
     </div>
   );
+}
+
+/** 진행 단계 표시: 완료·현재 단계를 글자로도 알림 */
+export function Stepper({ steps, current }: { steps: readonly string[]; current: number }) {
+  return (
+    <ol className="steps" aria-label={`진행 단계 (전체 ${steps.length}단계)`}>
+      {steps.map((name, index) => {
+        const status = index < current ? 'done' : index === current ? 'on' : '';
+        const spoken = { done: '완료', on: '현재 단계', '': '' }[status];
+        return (
+          <li key={name} className={status || undefined} aria-current={status === 'on' ? 'step' : undefined} id={status === 'on' ? 'currentStep' : undefined}>
+            <span className="n" aria-hidden="true">{index < current ? <Icon name="check" /> : index + 1}</span>{name}{spoken && <span className="sr-only"> ({spoken})</span>}
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+/** 항목 · 값 목록 */
+export function KeyValueList({ rows }: { rows: readonly (readonly [string, string])[] }) {
+  return <dl className="kv">{rows.map(([key, value]) => [<dt key={`${key}-t`}>{key}</dt>, <dd key={`${key}-d`} className="num">{value}</dd>])}</dl>;
 }

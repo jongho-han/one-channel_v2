@@ -1,0 +1,231 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "1"
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "pickTitle"
+     },
+     "children": [
+      "상환할 대출을 선택하세요"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-labelledby": "pickTitle",
+      "class": "picks",
+      "role": "group"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "true",
+        "class": "on pick",
+        "data-action": "pick",
+        "data-key": "l1"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "보험계약대출 · (무)iM 든든한 종신보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "대출일 2025.11.20 · 연 4.30%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "잔액 3,000,000원"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-describedby": "pickHint",
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    },
+    {
+     "tag": "span",
+     "attrs": {
+      "class": "sr-only",
+      "id": "pickHint"
+     },
+     "children": []
+    }
+   ]
+  }
+ ]
+}

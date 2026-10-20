@@ -1,0 +1,283 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "1"
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "pickTitle"
+     },
+     "children": [
+      "받으실 보험금을 선택하세요"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-labelledby": "pickTitle",
+      "class": "picks",
+      "role": "group"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "true",
+        "class": "on pick",
+        "data-action": "pick",
+        "data-key": "a"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "휴면보험금 · (무)iM 유니버설저축보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "발생일 2023.04.15 · 중도보험금"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "412,350원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "b"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "휴면 배당금 · (유)iM 교육보험(소멸)"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "발생일 2021.11.02"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "38,120원"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-describedby": "pickHint",
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    },
+    {
+     "tag": "span",
+     "attrs": {
+      "class": "sr-only",
+      "id": "pickHint"
+     },
+     "children": []
+    }
+   ]
+  }
+ ]
+}
