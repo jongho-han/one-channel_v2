@@ -23,7 +23,7 @@ export function ShortcutGuide({ tab, name, url, iconPng, canInstall }: ShortcutG
         <button className="btn pri" data-action="download-shortcut" data-kind="win">Windows용 바로가기 받기</button>
         <button className="btn" data-action="download-shortcut" data-kind="mac">Mac용 받기</button>
       </div>
-      <ol className="sc-steps"><li>버튼을 누르면 '{name}' 바로가기 파일이 다운로드 폴더에 저장됩니다.</li><li>파일을 바탕화면으로 끌어다 놓으세요.</li><li>바탕화면 아이콘을 두 번 누르면 사이버창구 메인이 바로 열립니다.</li></ol>
+      <ol className="sc-steps"><li><b>Windows</b>: 받은 압축 파일(.zip)을 열어 안에 있는 '{name}' 바로가기를 바탕화면으로 끌어다 놓으세요.</li><li><b>Mac</b>: 받은 '{name}' 파일을 바탕화면으로 끌어다 놓으세요.</li><li>바탕화면 아이콘을 두 번 누르면 사이버창구 메인이 바로 열립니다.</li></ol>
     </>,
     ios: <>
       {appIcon}

@@ -1,5 +1,5 @@
 /* 바로가기 파일이 열 주소: 지금 보고 있는 사이버창구 */
-import { shortcutTarget } from '../../src/features/shortcut';
+import { shortcutFile, shortcutTarget } from '../../src/features/shortcut';
 
 const FALLBACK = 'https://www.imlifeins.co.kr/cyber/main.do';
 
@@ -15,5 +15,21 @@ describe('shortcutTarget', () => {
   test('주소를 알 수 없으면 설정 주소', () => {
     expect(shortcutTarget('about:blank', FALLBACK)).toBe(FALLBACK);
     expect(shortcutTarget('', FALLBACK)).toBe(FALLBACK);
+  });
+});
+
+describe('shortcutFile', () => {
+  test('Windows: .url 을 zip 에 담아 받는다 (크롬·엣지가 .url 을 .download 로 바꾸므로)', () => {
+    const file = shortcutFile('win', '사이버창구', 'https://a.test/');
+    expect(file.name).toBe('사이버창구.zip');
+    expect(file.type).toBe('application/zip');
+    expect(new TextDecoder().decode(file.body as Uint8Array)).toContain('사이버창구.url[InternetShortcut]\r\nURL=https://a.test/\r\n');
+  });
+
+  test('Mac: .webloc 그대로, 사파리가 확장자를 덧붙이지 않게 octet-stream, 주소는 XML 이스케이프', () => {
+    const file = shortcutFile('mac', '사이버창구', 'https://a.test/?a=1&b=2');
+    expect(file.name).toBe('사이버창구.webloc');
+    expect(file.type).toBe('application/octet-stream');
+    expect(file.body).toContain('<string>https://a.test/?a=1&amp;b=2</string>');
   });
 });

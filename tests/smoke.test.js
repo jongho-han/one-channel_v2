@@ -1047,8 +1047,9 @@ test('모달: 공지 게시판 · 바로가기 안내(기기 탭·파일 받기)
   assert.equal(saved.name, 'iM라이프 사이버창구.webloc');
   assert.ok(toasts().includes('바로가기 파일을 내려받았습니다. 바탕화면으로 옮겨 주세요.'));
   click($('[data-action="download-shortcut"][data-kind="win"]'));
-  assert.equal(saved.name, 'iM라이프 사이버창구.url');
-  assert.match(await saved.blob.text(), /^\[InternetShortcut\]\r\nURL=https:\/\/example\.test\/\r\n/);   // 지금 보고 있는 사이버창구를 연다
+  assert.equal(saved.name, 'iM라이프 사이버창구.zip');   // 크롬·엣지가 .url 을 .download 로 바꾸므로 zip 에 담음
+  assert.ok(toasts().includes('바로가기 압축 파일을 내려받았습니다. 압축 파일 안의 바로가기를 바탕화면으로 옮겨 주세요.'));
+  assert.match(await saved.blob.text(), /iM라이프 사이버창구\.url\[InternetShortcut\]\r\nURL=https:\/\/example\.test\/\r\n/);   // 지금 보고 있는 사이버창구를 연다
   click($('#layer [data-action="close-modal"]'));
   click($('#main [data-action="login"][data-method="간편인증"]'));
   layerGolden('login-waiting');
