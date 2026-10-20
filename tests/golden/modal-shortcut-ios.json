@@ -1,0 +1,178 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "홈 화면에 바로가기 추가"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "아이콘을 누르면 사이버창구 메인으로 바로 이동합니다."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-label": "기기 선택",
+        "class": "block mb-4 seg tabs",
+        "role": "group"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "shortcut-tab",
+          "data-tab": "pc"
+         },
+         "children": [
+          "PC"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "true",
+          "class": "on",
+          "data-action": "shortcut-tab",
+          "data-tab": "ios"
+         },
+         "children": [
+          "아이폰"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "shortcut-tab",
+          "data-tab": "and"
+         },
+         "children": [
+          "안드로이드"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "sc-icon"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "iM라이프 사이버창구"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "https://www.imlifeins.co.kr/cyber/main.do"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "ol",
+       "attrs": {
+        "class": "sc-steps"
+       },
+       "children": [
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          "Safari에서 사이버창구를 연 상태로 화면 아래",
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "공유 버튼(□↑)"
+           ]
+          },
+          "을 누르세요."
+         ]
+        },
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          "목록에서",
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "'홈 화면에 추가'"
+           ]
+          },
+          "를 고르세요."
+         ]
+        },
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          "이름이 'iM라이프 사이버창구'인지 확인하고",
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "'추가'"
+           ]
+          },
+          "를 누르세요."
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "block btn mt-16",
+        "data-action": "close-modal"
+       },
+       "children": [
+        "닫기"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

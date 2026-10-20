@@ -1,7 +1,7 @@
 /* 보험기간/연금개시연도 변경(CH-05) 맞춤 선택 단계: 연금 계약 카드를 라디오로 선택 */
 import { useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { focusElement } from '../../core/dom.js';
+import { focusElement } from '../../core/dom';
 import { formatWon } from '../../core/format';
 import { insuredLabel } from '../dashboard/contractSummary';
 

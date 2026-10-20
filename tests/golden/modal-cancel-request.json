@@ -1,0 +1,71 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "신청을 취소할까요?"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "중도인출 신청이 취소됩니다. 취소 후에는 다시 신청해야 합니다."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "inline mt-0 navrow"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn",
+          "data-action": "close-modal"
+         },
+         "children": [
+          "닫기"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri",
+          "id": "cOk"
+         },
+         "children": [
+          "취소하기"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

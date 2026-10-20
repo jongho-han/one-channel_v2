@@ -1,0 +1,62 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle",
+        "tabindex": "-1"
+       },
+       "children": [
+        "전자서명"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "공동인증서(으)로 인증을 요청했습니다. 휴대폰 앱에서 인증을 완료해 주세요."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-label": "인증 대기 중",
+        "class": "spin",
+        "role": "img"
+       },
+       "children": []
+      },
+      {
+       "tag": "p",
+       "attrs": {
+        "class": "hint"
+       },
+       "children": [
+        "프로토타입: 잠시 후 자동으로 인증됩니다."
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

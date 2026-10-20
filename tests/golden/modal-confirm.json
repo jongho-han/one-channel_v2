@@ -1,0 +1,98 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-label": "닫기",
+        "class": "modal-x",
+        "id": "dlgX"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M6 6l12 12M18 6L6 18"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "전자적방법 수신동의 해제"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "전자적방법 수신동의 체크 해제 시 안내장별 수신 방법을 우편으로 선택하셔야 합니다. 해제하시겠습니까?"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "dlg-btns inline mt-0 navrow"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn lg",
+          "id": "dlgNo"
+         },
+         "children": [
+          "아니오"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn lg pri",
+          "id": "dlgYes"
+         },
+         "children": [
+          "예"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

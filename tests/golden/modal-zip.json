@@ -1,0 +1,206 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "우편번호 검색"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "도로명, 건물명 또는 지번을 입력하세요."
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "sr-only",
+        "for": "zq"
+       },
+       "children": [
+        "도로명, 건물명 또는 지번"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "inrow"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "class": "inp",
+          "id": "zq"
+         },
+         "children": [],
+         "state": {
+          "value": "세종대로 110"
+         }
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn navy",
+          "id": "zgo"
+         },
+         "children": [
+          "검색"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-label": "검색 결과",
+        "aria-live": "polite",
+        "class": "mt-12",
+        "id": "zres",
+        "role": "group"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "mb-6 pick",
+          "data-address": "서울특별시 중구 세종대로 110",
+          "data-zip-code": "04524"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "pm"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "04524"
+             ]
+            },
+            {
+             "tag": "small",
+             "attrs": {},
+             "children": [
+              "서울특별시 중구 세종대로 110"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "mb-6 pick",
+          "data-address": "서울특별시 강남구 테헤란로 521",
+          "data-zip-code": "06164"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "pm"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "06164"
+             ]
+            },
+            {
+             "tag": "small",
+             "attrs": {},
+             "children": [
+              "서울특별시 강남구 테헤란로 521"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "mb-6 pick",
+          "data-address": "대구광역시 수성구 달구벌대로 2310",
+          "data-zip-code": "42020"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "pm"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "42020"
+             ]
+            },
+            {
+             "tag": "small",
+             "attrs": {},
+             "children": [
+              "대구광역시 수성구 달구벌대로 2310"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "block btn mt-12",
+        "data-action": "close-modal"
+       },
+       "children": [
+        "닫기"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

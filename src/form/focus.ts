@@ -1,4 +1,4 @@
-import { focusElement } from '../core/dom.js';
+import { focusElement } from '../core/dom';
 
 /** 첫 오류 칸으로 스크롤·초점 (KWCAG 25번 오류 정정) */
 export function focusFirstError(form: HTMLElement): void {

@@ -9,18 +9,6 @@ const RESTRICTED_GLOBALS = ['when', 'name', 'status', 'open', 'find', 'event', '
 export default [
   { ignores: ['dist/', 'node_modules/', '*.html'] },
   js.configs.recommended,
-  {
-    files: ['src/**/*.js'],
-    languageOptions: { ecmaVersion: 2023, sourceType: 'module', globals: globals.browser },
-    rules: {
-      'no-shadow': 'error',
-      'no-unused-expressions': 'error',
-      eqeqeq: ['error', 'smart'],
-      'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-      'no-restricted-globals': ['error', ...RESTRICTED_GLOBALS],
-    },
-  },
   ...tseslint.configs.recommended.map(config => ({ ...config, files: ['src/**/*.{ts,tsx}', 'tests/unit/**/*.{ts,tsx}'] })),
   {
     files: ['src/**/*.{ts,tsx}', 'tests/unit/**/*.{ts,tsx}'],

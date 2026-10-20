@@ -5,7 +5,7 @@ import { Field } from '../../components/form/Field';
 import type { FieldSpec, FieldValues } from '../../components/form/fieldSpec';
 import { Icon } from '../../components/Icon';
 import { Agreements, CalcBox, DoneCard, InfoBox, KeyValueList, checkedAgreements, type CalcRow, type ReceiptRow } from '../../components/widgets';
-import { focusElement } from '../../core/dom.js';
+import { focusElement } from '../../core/dom';
 import { RETENTION_OPTIONS } from '../../data/homeContent';
 import type { AuthLevel } from '../../data/menu';
 import { isFieldVisible, renderedValues } from '../../form/display';
@@ -13,7 +13,7 @@ import { focusFirstError } from '../../form/focus';
 import { readFieldValues } from '../../form/fieldValues';
 import { applyLocks, lockChanges, type LockRules, type Locks } from '../../form/locks';
 import { validateValues } from '../../form/validation';
-import { SIGN_METHODS } from '../../services/auth.js';
+import { SIGN_METHODS } from '../../services/auth';
 import type { PickItem } from './stepRules';
 
 export { Stepper } from '../../components/widgets';
@@ -193,7 +193,6 @@ export function ConfirmStep({ rows, calcRows, summary, onConfirm }: ConfirmStepP
   );
 }
 
-interface SignMethod { name: string; desc: string }
 
 export function SignStep({ authLevel, onSign }: { authLevel: AuthLevel; onSign: (methodName: string) => void }) {
   const needsExtraAuth = authLevel === 'A2';
@@ -204,7 +203,7 @@ export function SignStep({ authLevel, onSign }: { authLevel: AuthLevel; onSign: 
         <h2>{needsExtraAuth ? '전자서명 + 휴대폰 추가인증' : '전자서명'}</h2>
         <p>{needsExtraAuth ? '본인 계좌로 돈이 오가는 업무라 인증서 서명 후 휴대폰 인증을 한 번 더 진행합니다.' : '신청 내용에 인증서로 서명하면 접수가 완료됩니다.'}</p>
         <div className="auth-grid">
-          {(SIGN_METHODS as SignMethod[]).map(method => <button key={method.name} className="auth-opt" data-auth={method.name} onClick={() => onSign(method.name)}><b>{method.name}</b><small>{method.desc}</small></button>)}
+          {SIGN_METHODS.map(method => <button key={method.name} className="auth-opt" data-auth={method.name} onClick={() => onSign(method.name)}><b>{method.name}</b><small>{method.desc}</small></button>)}
         </div>
       </div>
       <div className="navrow"><button className="btn lg" data-action="step-prev">이전</button></div>

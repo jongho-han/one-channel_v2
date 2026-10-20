@@ -3,7 +3,7 @@
 iM라이프 사이버창구 기획 검토용 프로토타입의 구조와 설계 원칙. 명령·폴더 개요는 README, 작업 규칙은 CLAUDE.md 참조.
 
 ## 1. 전제와 제약
-- React 19 + TypeScript + Vite. 모든 화면(셸·메인·전체메뉴·로그인·업무 화면 53개·하단)은 React(TSX). 라우터·액션·모달 등 일부 모듈은 아직 JS. 런타임 의존성은 React 뿐
+- React 19 + TypeScript + Vite. 모든 화면(셸·메인·전체메뉴·로그인·업무 화면 53개·하단)과 모달은 React(TSX), 나머지 모듈도 모두 TS (src 에 JS 없음). 런타임 의존성은 React 뿐
 - 배포물은 `dist/index.html` 한 파일 (CSS·JS 인라인). 서버 없이 더블클릭·GitHub Pages로 열림
 - 데이터·인증·거래는 모두 샘플·시뮬레이션. 외부 API 호출 없음 (하단 회사 홈페이지 링크만 예외)
 - 화면 정의의 원본은 `docs/메뉴정의서.xlsx`, 코드는 이를 옮긴 `src/data/menu-spec.json`을 따른다
@@ -11,10 +11,10 @@ iM라이프 사이버창구 기획 검토용 프로토타입의 구조와 설계
 ## 2. 프로젝트 구조
 ```
 one-channel/
-├── index.html                  # 메인 진입점 (셸 마크업, src/main.js 로드)
+├── index.html                  # 메인 진입점 (셸 마크업, src/main.ts 로드)
 ├── package.json                # 스크립트(dev·build·analyze·test)·개발 의존성
 ├── vite.config.js              # Vite(React 플러그인) + singlefile 빌드, vitest 설정
-├── tsconfig.json               # TypeScript 설정 (allowJs: JS·TS 공존)
+├── tsconfig.json               # TypeScript 설정 (strict)
 ├── eslint.config.js            # 정적 분석 규칙
 ├── README.md                   # 명령·폴더 개요·화면 추가 순서
 ├── ARCHITECTURE.md             # 구조·설계 원칙 (이 문서)
@@ -38,13 +38,14 @@ one-channel/
 │   └── unit/                   # vitest 단위 테스트 (TS 모듈·React 컴포넌트)
 │
 └── src/
-    ├── main.js                 # 부팅, 테스트용 window.App 노출
+    ├── main.ts                 # 부팅(React 루트·모달 레이어 마운트), 테스트용 window.App 노출
     │
-    ├── components/             # React(TSX) 컴포넌트 — 점진 전환 대상
-    │   ├── Icon.tsx            # SVG 선 아이콘 (경로는 ui/icons.js)
+    ├── components/             # React(TSX) 컴포넌트
+    │   ├── Icon.tsx            # SVG 선 아이콘 (경로는 ui/icons.ts)
     │   ├── Footer.tsx          # 공통 하단 이용 안내·회사 정보
     │   ├── mountFooter.tsx     # #footer 에 React 루트 마운트
     │   ├── widgets.tsx         # 상태칩·안내 박스·완료 카드·계산 박스·필수 확인 목록 (React)
+    │   ├── modal/              # 모달 내용 (확인·전자서명 선택·인증 대기·추가인증·공지 게시판·바로가기·우편번호·신청 취소·펀드 진단 안내)
     │   ├── form/               # 폼 필드 (Field.tsx: 텍스트·전화·이메일·날짜·선택·계좌·라디오·주소 + 오류 표시, fieldSpec.ts: 필드 타입·자동완성)
     │   └── shell/              # 공통 셸
     │       ├── Header.tsx      # PC 헤더 (로고·주메뉴·큰글씨·로그인·전체메뉴)
@@ -57,51 +58,50 @@ one-channel/
     │
     ├── core/                   # 기반 유틸 (다른 레이어에 의존하지 않음)
     │   ├── config.ts           # 버전·기준일·하단 링크(FooterLink 타입)·기능 플래그
-    │   ├── dom.js              # 선택자·HTML 조각·이스케이프·초점
+    │   ├── dom.ts              # 선택자·스크롤·초점
     │   ├── format.ts           # 금액·날짜·시간 포맷, 입력 패턴, 접수번호
-    │   ├── storage.js          # 브라우저 저장소 래퍼
-    │   ├── download.js         # 파일 내려받기
-    │   └── pdf.js              # 한글 PDF 생성
+    │   ├── storage.ts          # 브라우저 저장소 래퍼
+    │   ├── download.ts         # 파일 내려받기
+    │   └── pdf.ts              # 한글 PDF 생성
     │
     ├── state/
     │   └── store.ts            # 전역 상태(타입)·화면 진행 상태 초기화·구독(subscribe/notify)
     │
     ├── data/                   # Repository: 샘플 데이터와 조회 함수
     │   ├── menu-spec.json      # 메뉴정의서 행 (화면 정의 원천)
-    │   ├── menuRepository.js   # 메뉴 트리·id 색인·검색 키워드
-    │   ├── menu.ts             # 메뉴 데이터 타입 정의 (TS 컴포넌트용)
+    │   ├── menu.ts             # 메뉴 타입·트리·id 색인·검색 키워드
     │   ├── customerRepository.ts   # 고객·계약·계좌 (InsuranceContract 타입)
-    │   ├── contractDocumentRepository.js  # 계약별 약관·안내장
+    │   ├── contractDocumentRepository.ts  # 계약별 약관·안내장
     │   ├── fundRepository.ts   # 투자성향·적합성진단 (Fund·InvestProfile 타입)
     │   ├── consentRepository.ts    # 안내장 수신·마케팅 동의 현황
-    │   ├── noticeRepository.js # 공지사항
-    │   ├── addressRepository.js    # 우편번호 검색 샘플
-    │   └── homeContent.js      # 메인·화면 부제 문구
+    │   ├── noticeRepository.ts # 공지사항
+    │   ├── addressRepository.ts    # 우편번호 검색 샘플
+    │   └── homeContent.ts      # 메인·화면 부제 문구
     │
     ├── services/
-    │   └── auth.js             # 로그인·전자서명 (시뮬레이션)
+    │   └── auth.tsx            # 로그인·전자서명·추가인증 (시뮬레이션, 모달은 components/modal)
     │
     ├── app/
-    │   ├── router.js           # 페이지·화면 전환, 로그인 가드, 뒤로가기
-    │   └── render.js           # 다시 그리기(redrawMain: 셸 갱신 + 본문 새로 마운트), 큰글씨 전환 시 입력 보존 후 다시 그리기
+    │   ├── router.ts           # 페이지·화면 전환, 로그인 가드, 뒤로가기
+    │   └── render.ts           # 다시 그리기(redrawMain: 셸 갱신 + 본문 새로 마운트), 큰글씨 전환 시 입력 보존 후 다시 그리기
     │
     ├── controller/
-    │   ├── events.js           # 전역 이벤트 위임
-    │   └── actions.js          # data-action → 처리 함수 (ACTIONS)
+    │   ├── events.ts           # 전역 이벤트 위임
+    │   └── actions.ts          # data-action → 처리 함수 (ACTIONS)
     │
     ├── ui/                     # 재사용 UI 위젯
-    │   ├── infoBoxHtml.ts      # 안내 박스 HTML (모달 내용용)
-    │   ├── statusTone.ts       # 처리 상태 → 색 톤 (JS·React 공용)
-    │   ├── overlay.js          # 모달·토스트·화면낭독기 안내
-    │   ├── icons.js            # SVG 아이콘
-    │   └── a11y.js             # 표 접근성 보정
+    │   ├── statusTone.ts       # 처리 상태 → 색 톤
+    │   ├── modal.tsx           # 모달 레이어(#layer React 루트): 열기·닫기·초점 가두기·Esc·초점 복귀
+    │   ├── overlay.tsx         # 토스트·화면낭독기 안내·복사·확인 대화상자
+    │   ├── icons.ts            # SVG 아이콘
+    │   └── a11y.ts             # 표 접근성 보정
     │
     ├── form/
     │   ├── fieldValues.ts      # 화면 입력칸에서 값 읽기 (비제어 폼·큰글씨 전환 보존)
     │   ├── display.ts          # 확인 단계 표시값·조건부 항목·처음 그려질 때의 값
     │   ├── locks.ts            # 고정 규칙 (해당없음·고정값·바뀐 항목 안내)
     │   ├── focus.ts            # 첫 오류 칸으로 초점
-    │   ├── zipSearch.ts        # 우편번호 검색 창
+    │   ├── zipSearch.tsx       # 우편번호 검색 창
     │   └── validation.ts       # 입력 검증 규칙
     │
     ├── pages/
@@ -112,16 +112,16 @@ one-channel/
     │   ├── LoginPage.tsx       # 로그인
     │   ├── ScreenPage.tsx      # 업무 화면 틀 (LNB·경로·제목·배지) + 화면유형 본문
     │   ├── screen.ts           # redrawMain·rerenderScreen, 큰글씨 전환 시 입력 보존
-    │   └── noticeBoard.js      # 공지사항 게시판 모달 (HTML)
+    │   └── noticeBoard.tsx     # 공지사항 게시판 모달 열기
     │
     ├── screens/                # 화면 id별 선언형 설정 + React 전환 템플릿
     │   ├── reactTemplates.tsx  # 화면유형(T1~T5) → 본문 React 요소
-    │   ├── list/               # T2 목록·상세 (listRules.ts 규칙 · ListScreen.tsx · ContractDetail.tsx 계약조회 · ListDetailScreen.tsx 상태 연결 · listActions.ts 취소·보완서류)
+    │   ├── list/               # T2 목록·상세 (listRules.ts 규칙 · ListScreen.tsx · ContractDetail.tsx 계약조회 · ListDetailScreen.tsx 상태 연결 · listActions.tsx 취소·보완서류)
     │   ├── dashboard/          # T1 계약종합현황 (Dashboard.tsx · contractSummary.ts)
     │   ├── issuance/           # T5 발급 (Issuance.tsx 화면 부품 · IssuanceScreen.tsx 상태 연결)
     │   ├── singleForm/         # T4 단일폼 (SingleForm 표준 · CustomForms 안내장·마케팅 · CustomFormScreen 전용 화면 · SingleFormScreen 서명·완료 · completeSingleForm)
     │   ├── stepFlow/           # T3 단계형 (stepRules.ts 규칙 · StepFlow.tsx 단계 부품 · LoanPick·AnnuityPick 맞춤 선택 · VirtualAccountInfo · StepFlowScreen 상태 연결 · stepFlowActions 단계 이동)
-    │   ├── fund/               # 펀드변경 (fundRules.ts 규칙 · FundViews.tsx 편집·진단·결과·비교 · fundFlow.ts 단계 진행)
+    │   ├── fund/               # 펀드변경 (fundRules.ts 규칙 · FundViews.tsx 편집·진단·결과·비교 · fundFlow.tsx 단계 진행)
     │   ├── listScreens.ts      # T2 목록 열·필터·상세 (ListConfig 타입, 행 상태 변경)
     │   ├── stepFlows.tsx       # T3 선택·입력·계산·동의 (설정 타입 StepFlowConfig)
     │   ├── changeForms.ts      # T4 현재값·입력·안내 (설정 타입 ChangeFormConfig)
@@ -133,9 +133,9 @@ one-channel/
     │   ├── annuityConversion.ts    # 연금전환 사전신청 예상액
     │   ├── variableContract.ts # 변액 계약 선택 공유 (CT-03·CH-01)
     │   ├── virtualAccount.ts   # 가상계좌 발급
-    │   ├── contractDocuments.js    # 약관·안내장 PDF 생성·내려받기
-    │   ├── largeText.js        # 큰글씨모드
-    │   └── shortcut.js         # 바탕화면·홈 화면 바로가기
+    │   ├── contractDocuments.ts    # 약관·안내장 PDF 생성·내려받기
+    │   ├── largeText.ts        # 큰글씨모드
+    │   └── shortcut.tsx        # 바탕화면·홈 화면 바로가기
     │
     └── styles/
         └── app.css             # 디자인 토큰·레이아웃·컴포넌트 스타일
@@ -146,7 +146,7 @@ one-channel/
 
 | 레이어 | 폴더 | 책임 |
 |---|---|---|
-| 진입 | `main.js` | 부팅(설정 클래스·큰글씨 복원·이벤트 바인딩·첫 렌더), 테스트용 `window.App` 노출 |
+| 진입 | `main.ts` | 부팅(설정 클래스·큰글씨 복원·이벤트 바인딩·첫 렌더), 테스트용 `window.App` 노출 |
 | 컨트롤러 | `controller` | 전역 이벤트 위임, `data-action` → 처리 함수 매핑(ACTIONS) |
 | 앱 | `app` | 라우팅(페이지·화면 전환, 로그인 가드, 뒤로가기), 셸+페이지 렌더 |
 | 페이지 | `pages` | 메인·전체메뉴·로그인·업무 화면 틀(LNB·제목·템플릿 선택) |
@@ -169,7 +169,7 @@ one-channel/
          │
 ┌────────▼───────────────────────────────────────┐
 │        Application Layer                       │
-│  - main.js (부팅·조립)                         │
+│  - main.ts (부팅·조립)                         │
 │  - controller (이벤트 위임·ACTIONS)            │
 │  - app (라우터·렌더 조정·로그인 가드)          │
 │  - state (전역 상태)                           │
@@ -203,7 +203,7 @@ one-channel/
 - screens·features → `pages/screen`의 화면 다시 그리기, features → `app/render`의 전체 다시 그리기, services → `app/router`의 로그인 후 화면 이동: 상태 변경 후 갱신 요청. 화면 틀까지 React로 옮기고 store 구독으로 바꾸면 해소
 
 ## 5. 런타임 흐름
-- **렌더링**: 화면 전체가 React — 셸(헤더·앱바·탭바)·본문(#main)·하단 루트가 store 를 구독하고 `refreshShell()`(flushSync + notify)로 동기 갱신. 화면 이동·다시 그리기는 `pageKey` 를 올려 본문 페이지를 새로 마운트, 제자리 갱신(전체메뉴 펼치기)은 마운트 없이 갱신. 모달 내용만 HTML 문자열(출력 시 이스케이프)
+- **렌더링**: 화면 전체가 React — 셸(헤더·앱바·탭바)·본문(#main)·하단 루트가 store 를 구독하고 `refreshShell()`(flushSync + notify)로 동기 갱신. 화면 이동·다시 그리기는 `pageKey` 를 올려 본문 페이지를 새로 마운트, 제자리 갱신(전체메뉴 펼치기)은 마운트 없이 갱신. 모달은 `#layer` React 루트(`ui/modal.tsx`)에 `openModal(<내용/>)` 으로 그림 — 열 때마다 새로 마운트, 초점 가두기·Esc·초점 복귀 처리. HTML 문자열 출력 없음(JSX 자동 이스케이프)
 - **페이지 전환**: `state.route.page`(home·all·login·screen)에 따라 `app/render`가 페이지를 고름. 업무 화면 이동 시 h1 초점 이동·문서 제목 갱신(KWCAG)
 - **로그인 가드**: 인증수준이 A0가 아닌 화면을 미로그인 상태로 열면 로그인으로 보낸 뒤, 로그인 완료 시 원래 화면을 이어서 연다
 - **클릭 처리**: 모든 버튼은 `data-action` + `data-*` 속성만 갖고, 처리는 `controller/actions`의 ACTIONS 한 곳에 모은다
@@ -254,7 +254,7 @@ one-channel/
 - 운영 전환 시 교체 지점: `data`(API 연동), `services`(실제 인증·전자서명), `core/config`(URL·기능 플래그)
 
 ## 12. 알려진 부채
-- 일부 모달·폼 내부에 onclick 직접 바인딩이 남아 있음 → ACTIONS로 통일 예정
+- 모달·화면 내부 버튼 일부는 React onClick(콜백)으로 처리 — 화면 간 이동·공통 동작은 ACTIONS, 모달 안 확인 버튼 등 지역 동작은 onClick 으로 구분
 - 샘플 데이터 변경(취소·제출)이 템플릿에 흩어져 있음 → Repository 함수로 일원화 예정
 - T3 전 과정(인증·완료까지) 테스트 범위가 좁음
 - 화면 다시 그리기 요청 등 일부 역방향 참조 (4절) → 콜백 주입·이벤트 방식으로 정리 예정

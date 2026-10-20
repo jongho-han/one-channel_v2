@@ -1,0 +1,107 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "전자서명 + 휴대폰 추가인증"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "본인 계좌로 돈이 오가는 업무라 인증서 서명 후 휴대폰 인증을 한 번 더 진행합니다."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "auth-grid"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "auth-opt",
+          "data-auth": "간편인증"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "간편인증"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "카카오·네이버·PASS·토스"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "auth-opt",
+          "data-auth": "공동인증서"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "공동인증서"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "PC·휴대폰 저장 인증서"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "block btn mt-16",
+        "data-action": "close-modal"
+       },
+       "children": [
+        "취소"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

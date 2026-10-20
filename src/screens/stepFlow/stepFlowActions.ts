@@ -1,5 +1,5 @@
 /* T3 단계 이동 (#next · 인증 완료 · data-action="step-prev") */
-import { $, focusElement, scrollToTop } from '../../core/dom.js';
+import { $, focusElement, scrollToTop } from '../../core/dom';
 import { rerenderScreen } from '../../pages/screen';
 import { state, updateScreenFlow } from '../../state/store';
 

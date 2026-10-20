@@ -1,0 +1,162 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "추가인증"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "계좌·지급 등 금전 거래는 추가인증이 필요합니다. 등록된 휴대폰(010-****-5678)으로 인증번호를 보냈습니다."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "otp"
+         },
+         "children": [
+          "인증번호 6자리"
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "inrow"
+         },
+         "children": [
+          {
+           "tag": "input",
+           "attrs": {
+            "aria-describedby": "otpHelp otpErr",
+            "autocomplete": "one-time-code",
+            "class": "inp num",
+            "id": "otp",
+            "inputmode": "numeric",
+            "maxlength": "6",
+            "placeholder": "숫자 6자리"
+           },
+           "children": [],
+           "state": {
+            "value": ""
+           }
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "btn",
+            "id": "otpResend"
+           },
+           "children": [
+            "재전송"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "otpHelp"
+         },
+         "children": [
+          "프로토타입: 아무 숫자 6자리나 입력하세요. 남은 시간",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "num",
+            "id": "otpTime"
+           },
+           "children": [
+            "03:00"
+           ]
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "link",
+            "id": "otpExtend",
+            "type": "button"
+           },
+           "children": [
+            "시간 연장"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "otpErr",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "inline mt-18 navrow"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn",
+          "data-action": "close-modal"
+         },
+         "children": [
+          "취소"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri",
+          "id": "otpOk"
+         },
+         "children": [
+          "확인"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

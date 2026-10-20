@@ -1,7 +1,7 @@
 /* T4 전용 화면 본문: 안내장 수신설정(MY-02) · 마케팅 동의(MY-03) */
 import { useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { focusElement } from '../../core/dom.js';
+import { focusElement } from '../../core/dom';
 
 /** [안내장, 구분(법정·선택), 현재 수신 방법] */
 export type NoticeSetting = readonly [name: string, type: string, method: string];

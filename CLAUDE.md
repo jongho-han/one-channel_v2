@@ -2,19 +2,19 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53개 화면). React + TypeScript + Vite — 화면은 모두 React (모달 내용·라우터·액션 등 일부 모듈은 아직 JS). 데이터는 모두 샘플, 인증·거래는 시뮬레이션.
+iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53개 화면). React + TypeScript + Vite — 화면·모달 모두 React, src 전체 TS. 데이터는 모두 샘플, 인증·거래는 시뮬레이션.
 
 ## 언어 / 기술 스택
 - 개발 언어·프레임워크: **React + TypeScript** (빌드 Vite 유지)
 - 신규 코드는 `.tsx`(컴포넌트)·`.ts`(로직) 로 작성. `any` 지양, props·상태·데이터는 타입(interface/type) 정의
-- 남은 JS: 라우터(`app/router.js`)·렌더(`app/render.js`)·액션·이벤트(`controller/*`)·모달·토스트(`ui/overlay.js`)와 모달 내용(공지 게시판·바로가기·인증)·메뉴 데이터 — 바꿀 때는 아래 TDD·golden 절차로 점진 전환
-- 화면 React 루트: `#header`·`#appbar`·`#tabbar`(셸) · `#main`(`pages/Main.tsx`) · `#footer`. 모두 store 를 구독하고 `refreshShell()`(flushSync + notify) 로 함께 갱신
+- src 에 JS 없음 (tsconfig allowJs 해제). 새 파일도 .ts/.tsx 로만 작성
+- 화면 React 루트: `#header`·`#appbar`·`#tabbar`(셸) · `#main`(`pages/Main.tsx`) · `#footer` · `#layer`(모달, `ui/modal.tsx`). 모두 store 를 구독하고 `refreshShell()`(flushSync + notify) 로 함께 갱신
 - `#main` 은 `state.ui.pageKey` 가 바뀔 때 페이지를 새로 마운트 (`redrawMain`/`rerenderScreen`/`render`) — 화면 이동·다시 그리기 동작을 기존과 같게. 초점을 유지해야 하는 제자리 갱신(전체메뉴 펼치기 등)은 `refreshShell()` 만
-- 전환 완료: `core/format.ts`·`core/config.ts`·`state/store.ts`, 공통 하단 `components/Footer.tsx`, 공통 셸 `components/shell/*`(헤더·메가메뉴·앱바·탭바). JS에서 TS 모듈은 확장자 없이 import
+- 모달: `openModal(<내용 />, { closable, size, onClose })` / `closeModal()` (`ui/modal.tsx`), 내용 컴포넌트는 `components/modal/*`. 열 때마다 새로 마운트되고 초점 가두기·Esc·초점 복귀는 레이어가 처리. 토스트·화면낭독기 안내·복사·확인 창은 `ui/overlay.tsx`
 - 셸은 상태를 직접 읽어 그림: 상태를 바꾼 뒤 `refreshShell()`(= flushSync + `notify`). `render()` 는 자동 호출. 메가메뉴는 `state.ui.mega` + `showMegaMenu`/`hideMegaMenu`
-- 버튼 동작은 React onClick 대신 기존처럼 `data-action` 속성으로 (`controller/actions.js`)
+- 버튼 동작은 React onClick 대신 기존처럼 `data-action` 속성으로 (`controller/actions.ts`)
 - TS 컴포넌트에서 메뉴 데이터는 타입이 있는 `data/menu.ts` 로 import
-- 화면 전환(T1~T5·메인·전체메뉴·로그인·업무 화면 틀 모두 완료). 남은 JS를 바꿀 때도 같은 절차: ① 전환 전 `UPDATE_GOLDEN=1 npm run test:smoke` 로 본문 구조 기준(`tests/golden/<id>.json`) 생성 ② 로직·컴포넌트 단위 테스트 작성(RED) ③ `screens/<유형>/` 구현 → `screens/reactTemplates.tsx` 등록 ④ 기존 JS 삭제 ⑤ golden 비교 통과 확인. 기준 파일은 의도한 화면 변경일 때만 다시 생성
+- 구조를 크게 바꿀 때 절차: ① 변경 전 `UPDATE_GOLDEN=1 npm run test:smoke` 로 본문 구조 기준(`tests/golden/<id>.json`) 생성 ② 로직·컴포넌트 단위 테스트 작성(RED) ③ 구현 ④ 기존 코드 삭제 ⑤ golden 비교 통과 확인. 기준 파일은 의도한 화면 변경일 때만 다시 생성
 - React 폼 입력은 비제어(default*) + 기존 `readFieldValues` 로 읽음 (큰글씨 전환 시 `saveScreenInputs` 와 호환). 화면 상태(useState) 변경은 기존처럼 즉시 반영되도록 `flushSync` 사용
 - 폼 공용 모듈은 `form/*.ts` (검증 validation · 값 읽기 fieldValues · 표시값·조건부 display · 고정 규칙 locks).
   필수 확인(동의)은 제출 시 화면의 체크 상태(`checkedAgreements`)로 다시 확인. React 컴포넌트는 진행 상태(flow)를 직접 고치지 않고 콜백 → `updateScreenFlow`/`updateScreenValues`(store.ts) 로 반영 (react-hooks 린트 규칙)
@@ -32,14 +32,14 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 ## TDD (변경 시 테스트 우선)
 - 순서: 실패하는 테스트 작성(RED) → 실행해 실패 확인 → 최소 구현(GREEN) → 리팩터링 → 전체 테스트·analyze
 - 컴포넌트·로직은 `tests/unit` 단위 테스트, 화면 연결·회귀는 `tests/smoke.test.js`
-- JS → TS 전환은 기존 동작을 고정하는 특성 테스트를 먼저 작성한 뒤 전환
+- 구조 변경·리팩터링은 기존 동작을 고정하는 특성 테스트를 먼저 작성한 뒤 전환
 
 ## 아키텍처 (흐름)
-- 진입 `src/main.js` → React 셸·본문·하단 마운트 → `controller/events.js` 전역 이벤트 바인딩 → `app/render.js` 가 `redrawMain()` 으로 셸 갱신 + `state.route.page`(home·all·login·screen)별 페이지 다시 마운트
+- 진입 `src/main.ts` → React 셸·본문·하단·모달 레이어 마운트 → `controller/events.ts` 전역 이벤트 바인딩 → `app/render.ts` 가 `redrawMain()` 으로 셸 갱신 + `state.route.page`(home·all·login·screen)별 페이지 다시 마운트
 - 상태는 `state/store.ts` 의 전역 `state` 객체 하나. 화면 이동 시 `state.screen` 은 `freshScreenState()` 로 초기화 (`flow`: T3~T5 진행, `list`: T2)
-- 라우팅 `app/router.js`: `openScreen(id)` 는 `authLevel` 이 A0 가 아니고 미로그인이면 로그인으로 보낸 뒤 이어서 연다. 화면 전환 시 h1 초점 이동·문서 제목 갱신 (KWCAG)
-- 렌더링: 화면은 JSX(자동 이스케이프). 모달 내용 등 남은 HTML 문자열은 `core/dom.js` 의 `escapeHtml` 사용
-- 클릭은 요소의 `data-action="이름"` + `data-*` 를 `controller/actions.js` 의 `ACTIONS` 맵 한 곳에서 처리. 새 버튼은 onclick 대신 여기에 액션 추가
+- 라우팅 `app/router.ts`: `openScreen(id)` 는 `authLevel` 이 A0 가 아니고 미로그인이면 로그인으로 보낸 뒤 이어서 연다. 화면 전환 시 h1 초점 이동·문서 제목 갱신 (KWCAG)
+- 렌더링: 화면·모달 모두 JSX(자동 이스케이프). HTML 문자열로 그리지 않음
+- 클릭은 요소의 `data-action="이름"` + `data-*` 를 `controller/actions.ts` 의 `ACTIONS` 맵 한 곳에서 처리. 새 버튼은 여기에 액션 추가 (모달 안 확인 버튼처럼 콜백이 필요한 지역 동작만 onClick)
 - 화면 정의의 원천은 `src/data/menu-spec.json` (메뉴정의서 행: id·depth1~3·screenType·authLevel 등). `pages/ScreenPage.tsx` 가 `screenType`(T1 대시보드·T2 목록·T3 단계형·T4 단일폼·T5 발급)으로 `screens/reactTemplates` 의 React 화면을 고르고, 화면별 세부 설정은 `screens/*`(stepFlows·changeForms·certificates·listScreens)에서 화면 id 키로 조회
 - 큰글씨 전환은 `refresh()` 로 입력값 저장(`saveScreenInputs`) 후 다시 그림. 입력 상태 유실 회귀 주의
 - 화면 추가 순서: 메뉴정의서 → `menu-spec.json` → `screens/*` 설정 → 필요 시 `features/*` 모듈 → 테스트 (README 참조)

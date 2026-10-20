@@ -2,10 +2,10 @@
    화면 이동·다시 그리기마다 pageKey 가 바뀌어 페이지를 새로 마운트 (입력 초기화·초점 이동이 기존과 같게) */
 import { flushSync } from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import { openScreen } from '../app/router.js';
+import { openScreen } from '../app/router';
 import { useAppState } from '../components/shell/useAppState';
 import { SCREEN_BY_ID, searchScreens } from '../data/menu';
-import { announce } from '../ui/overlay.js';
+import { announce } from '../ui/overlay';
 import { AllMenuPage } from './AllMenuPage';
 import { HomePage } from './HomePage';
 import { LoginPage } from './LoginPage';

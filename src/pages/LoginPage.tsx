@@ -1,9 +1,8 @@
 /* 로그인: 인증수단 선택 (data-action="login") — 로그인이 필요한 화면에서 왔으면 그 화면 이름을 안내 */
-import { Icon, type IconName } from '../components/Icon';
-import { LOGIN_METHODS } from '../services/auth.js';
+import { Icon } from '../components/Icon';
+import { LOGIN_METHODS } from '../services/auth';
 
-interface LoginMethod { name: string; desc: string; icon: IconName }
-const loginMethods = LOGIN_METHODS as LoginMethod[];
+const loginMethods = LOGIN_METHODS;
 
 export function LoginPage({ pendingTitle }: { pendingTitle?: string }) {
   return (

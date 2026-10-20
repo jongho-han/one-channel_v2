@@ -951,3 +951,120 @@ test('로그인: 인증하면 이어서 열 화면으로', async () => {
   assert.equal($('#main h1').textContent, '계약종합현황');
   assert.deepEqual(errors, []);
 });
+
+/* ---- 모달 (#layer): 내용 기준 화면 · 초점 관리 · 인증 · 바로가기 ---- */
+const layerGolden = name => assertMatchesGolden(`modal-${name}`, '#layer');
+const escape = () => window.document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
+const stubDownload = () => {
+  const saved = {};
+  window.URL.createObjectURL = () => 'blob:test';
+  window.URL.revokeObjectURL = () => {};
+  window.HTMLAnchorElement.prototype.click = function () { saved.name = this.download; };
+  return saved;
+};
+
+test('모달: 첫 버튼으로 초점, Esc 닫기 후 연 버튼으로 초점 복귀 (확인 창 · MY-02)', () => {
+  login();
+  window.App.openScreen('MY-02');
+  const opener = $('#eConsent');
+  opener.focus();
+  click(opener);
+  layerGolden('confirm');
+  assert.equal($('#layer .dim').getAttribute('aria-labelledby'), 'modalTitle');
+  assert.equal($('#modalTitle').textContent, '전자적방법 수신동의 해제');
+  assert.equal(window.document.activeElement, $('#dlgX'));
+  escape();
+  assert.equal($('#layer .dim'), null);
+  assert.equal(window.document.activeElement, opener);
+  assert.deepEqual(errors, []);
+});
+
+test('모달: 서명 수단 → 인증 대기(Esc 무시) → 휴대폰 추가인증(오류·연장·재전송) → 완료 (PM-02)', async () => {
+  login();
+  window.App.openScreen('PM-02');
+  $('#no').value = '12345678';
+  click($('[data-agree="0"]'));
+  click($('#next'));
+  layerGolden('sign-A2');
+  click($('#layer [data-auth="공동인증서"]'));
+  layerGolden('auth-waiting');
+  escape();
+  assert.ok($('#layer .spin'), '인증 대기 중에는 Esc로 닫히지 않음');
+  await wait(1400);
+  layerGolden('otp');
+  assert.equal(window.document.activeElement, $('#otp'));
+  $('#otp').value = '12';
+  click($('#otpOk'));
+  assert.equal($('#otpErr').textContent, '인증번호 6자리를 정확히 입력해 주세요.');
+  assert.equal($('#otp').getAttribute('aria-invalid'), 'true');
+  click($('#otpExtend'));
+  await wait(60);
+  assert.match($('#liveRegion').textContent, /남은 시간을 3분으로 연장했습니다/);
+  click($('#otpResend'));
+  assert.equal($('#otpErr').textContent, '');
+  assert.ok(toasts().includes('인증번호를 다시 보냈습니다.'));
+  $('#otp').value = '123456';
+  click($('#otpOk'));
+  assert.equal($('#layer .dim'), null);
+  assert.equal($('#sbody .donebox h2').textContent, '변경이 완료되었습니다');
+  assert.deepEqual(errors, []);
+});
+
+test('모달: 우편번호 검색 · 신청 취소 · 펀드 진단 안내 내용', () => {
+  login();
+  window.App.openScreen('MY-01');
+  click($('[data-zip="addrH"]'));
+  layerGolden('zip');
+  click($('#layer [data-action="close-modal"]'));
+  window.App.openScreen('PY-06');
+  click($('.cell-btn[data-index="0"]'));
+  click($('[data-action="cancel-request"]'));
+  layerGolden('cancel-request');
+  click($('#layer [data-action="close-modal"]'));
+  window.App.openScreen('CH-01');
+  setInput($('#fd0'), '30');
+  setInput($('#fd4'), '10');
+  click($('#next'));
+  layerGolden('suitability-required');
+  click($('#layer [data-action="close-modal"]'));
+  assert.equal($('#layer .dim'), null);
+  assert.deepEqual(errors, []);
+});
+
+test('모달: 공지 게시판 · 바로가기 안내(기기 탭·파일 받기) · 로그인 인증 대기', () => {
+  click($('[data-action="open-notices"][data-notice="n9"]'));
+  layerGolden('notice-board');
+  click($('#layer [data-action="close-modal"]'));
+  click($('[data-action="open-shortcut"]'));
+  layerGolden('shortcut-pc');
+  click($('[data-action="shortcut-tab"][data-tab="ios"]'));
+  layerGolden('shortcut-ios');
+  click($('[data-action="shortcut-tab"][data-tab="and"]'));
+  assert.equal($('[data-action="shortcut-tab"].on').dataset.tab, 'and');
+  click($('[data-action="shortcut-tab"][data-tab="pc"]'));
+  const saved = stubDownload();
+  click($('[data-action="download-shortcut"][data-kind="mac"]'));
+  assert.equal(saved.name, 'iM라이프 사이버창구.webloc');
+  assert.ok(toasts().includes('바로가기 파일을 내려받았습니다. 바탕화면으로 옮겨 주세요.'));
+  click($('#layer [data-action="close-modal"]'));
+  click($('#main [data-action="login"][data-method="간편인증"]'));
+  layerGolden('login-waiting');
+  assert.deepEqual(errors, []);
+});
+
+test('복사 버튼: 가상계좌번호 복사 안내 (PM-01)', async () => {
+  login();
+  window.App.openScreen('PM-01');
+  window.document.execCommand = () => true;
+  click($('[data-action="pick"]'));
+  click($('#next'));
+  $('input[name="how"][value="가상계좌로 이체"]').click();
+  click($('#next'));
+  click($('#next'));
+  click($('[data-auth="간편인증"]'));
+  await wait(1400);
+  click($('[data-action="copy-text"]'));
+  await wait(10);
+  assert.ok(toasts().includes('가상계좌번호를 복사했습니다.'));
+  assert.deepEqual(errors, []);
+});

@@ -1,13 +1,13 @@
 /* T2 화면: 목록 상태(state.screen.list)와 연결 */
 import { CONTRACTS, USER } from '../../data/customerRepository';
-import { contractDocuments } from '../../data/contractDocumentRepository.js';
+import { contractDocuments, type ContractDocument } from '../../data/contractDocumentRepository';
 import type { ScreenSpec } from '../../data/menu';
 import { VARIABLE_CONTRACTS, selectedVariableContract } from '../../features/variableContract';
 import { rerenderScreen } from '../../pages/screen';
 import { state, updateScreenList } from '../../state/store';
 import { VariableContractTabs } from '../fund/FundViews';
 import { LIST_SCREENS } from '../listScreens';
-import { ContractDetail, type ContractDocument, type ContractInfo } from './ContractDetail';
+import { ContractDetail, type ContractInfo } from './ContractDetail';
 import { ListScreen, type ListState } from './ListScreen';
 
 const contracts: readonly ContractInfo[] = CONTRACTS;

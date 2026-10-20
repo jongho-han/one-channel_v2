@@ -12,7 +12,7 @@ export interface MegaMenu {
   index: number;
 }
 
-/* 업무 화면 진행 상태는 아직 JS 템플릿이 다루므로 느슨하게 둠 (화면 전환 시 타입 구체화) */
+/* 업무 화면 진행 상태는 화면유형마다 모양이 달라 느슨하게 둠 (각 화면 모듈이 자기 타입으로 좁혀 사용) */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type FlowState = Record<string, any> | null;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

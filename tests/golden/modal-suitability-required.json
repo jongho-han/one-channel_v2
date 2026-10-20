@@ -1,0 +1,86 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "적합성진단이 필요합니다"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "아래 사유로 펀드를 변경하기 전에 투자자 적합성진단을 먼저 진행합니다."
+       ]
+      },
+      {
+       "tag": "ul",
+       "attrs": {
+        "class": "reason-list"
+       },
+       "children": [
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          "마지막 적합성진단(2023.08.14) 후 3년이 지났습니다."
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "inline mt-16 navrow"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn lg",
+          "data-action": "close-modal"
+         },
+         "children": [
+          "취소"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn lg pri",
+          "data-action": "suit-start"
+         },
+         "children": [
+          "적합성진단 시작"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

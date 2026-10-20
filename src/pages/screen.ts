@@ -1,5 +1,5 @@
 /* 업무 화면 다시 그리기 · 큰글씨 전환 전 입력 보존 (화면 틀과 본문은 ScreenPage.tsx) */
-import { documentTitle } from '../app/router.js';
+import { documentTitle } from '../app/router';
 import { refreshShell } from '../components/shell/mountShell';
 import type { FieldSpec } from '../components/form/fieldSpec';
 import { SCREEN_BY_ID } from '../data/menu';
@@ -8,7 +8,7 @@ import { CERTIFICATES } from '../screens/certificates';
 import { CHANGE_FORMS } from '../screens/changeForms';
 import { STEP_FLOWS } from '../screens/stepFlows';
 import { state } from '../state/store';
-import { applyTableA11y } from '../ui/a11y.js';
+import { applyTableA11y } from '../ui/a11y';
 
 /** 본문을 새로 마운트해 다시 그림 (진행 상태는 유지) */
 export function redrawMain(): void {

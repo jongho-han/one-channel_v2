@@ -3,7 +3,7 @@ import { DoneCard } from '../../components/widgets';
 import { APP } from '../../core/config';
 import { clockTime, receiptNo } from '../../core/format';
 import type { ScreenSpec } from '../../data/menu';
-import { chooseSignMethod } from '../../services/auth.js';
+import { chooseSignMethod } from '../../services/auth';
 import { state } from '../../state/store';
 import type { ChangeFormConfig } from '../changeForms';
 import { completeSingleForm } from './completeSingleForm';

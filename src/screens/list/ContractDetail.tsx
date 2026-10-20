@@ -3,6 +3,7 @@ import { Icon } from '../../components/Icon';
 import { LinkButtons, StatusChip } from '../../components/widgets';
 import { formatWon } from '../../core/format';
 import { insuredLabel } from '../dashboard/contractSummary';
+import type { ContractDocument } from '../../data/contractDocumentRepository';
 
 export interface ContractInfo {
   no: string;
@@ -22,13 +23,6 @@ export interface ContractInfo {
   debitDay: string;
 }
 
-/** 내려받을 서류 { id, kind: 약관·안내장, title, date } */
-export interface ContractDocument {
-  id: string;
-  kind: string;
-  title: string;
-  date: string;
-}
 
 function ContractDocumentsCard({ contract, documents }: { contract: ContractInfo; documents: readonly ContractDocument[] }) {
   return (

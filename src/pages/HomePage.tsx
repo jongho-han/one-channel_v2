@@ -5,7 +5,7 @@ import { CONTRACTS, USER } from '../data/customerRepository';
 import { HOME } from '../data/homeContent';
 import type { ScreenSpec } from '../data/menu';
 import { HOME_NOTICE_COUNT, NOTICES, type Notice } from '../data/noticeRepository';
-import { LOGIN_METHODS } from '../services/auth.js';
+import { LOGIN_METHODS } from '../services/auth';
 import { HomeSearch } from './HomeSearch';
 
 interface HomePageProps {
@@ -15,8 +15,7 @@ interface HomePageProps {
   announce: (message: string) => void;
 }
 
-interface LoginMethod { name: string; desc: string; icon: string }
-const loginMethods = LOGIN_METHODS as LoginMethod[];
+const loginMethods = LOGIN_METHODS;
 
 function MySummaryCard() {
   const monthlyPremium = CONTRACTS.filter(contract => contract.status === '정상').reduce((sum, contract) => sum + contract.premium, 0);

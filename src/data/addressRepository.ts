@@ -1,0 +1,5 @@
+/** 우편번호 검색 결과 [우편번호, 도로명주소] */
+export type ZipSample = readonly [zip: string, address: string];
+
+/** 우편번호 검색 샘플 결과 */
+export const ZIP_SAMPLES: readonly ZipSample[] = [['04524', '서울특별시 중구 세종대로 110'], ['06164', '서울특별시 강남구 테헤란로 521'], ['42020', '대구광역시 수성구 달구벌대로 2310']];
