@@ -1,5 +1,5 @@
 /* 화면 공통 부품 (React) — ui/widgets.js 와 같은 마크업 */
-import type { ChangeEvent, ReactNode } from 'react';
+import type { CSSProperties, ChangeEvent, ReactNode } from 'react';
 import { statusTone } from '../ui/statusTone';
 import { Icon, type IconName } from './Icon';
 
@@ -49,5 +49,14 @@ export function Agreements({ items, agreed, error = '', onChange }: { items: rea
       </div>
       <span className="agree-err" id="agrErr" role="alert">{error}</span>
     </>
+  );
+}
+
+/** 요약 타일 줄: 첫 타일 강조, 열 수는 타일 수 */
+export function SummaryTiles({ tiles }: { tiles: readonly (readonly [label: string, value: string])[] }) {
+  return (
+    <dl className="tiles cols" style={{ '--cols': tiles.length } as CSSProperties}>
+      {tiles.map(([label, value], index) => <div key={label} className={index === 0 ? 'tile hl' : 'tile'}><dt>{label}</dt><dd className="num">{value}</dd></div>)}
+    </dl>
   );
 }

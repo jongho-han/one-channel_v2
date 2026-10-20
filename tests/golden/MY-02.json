@@ -1,0 +1,819 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "안내장 받으실 곳"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "휴대폰"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "010-1234-5678"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "이메일"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "gildong.hong@example.com"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "agree checks e-consent"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "id": "eConsent",
+          "type": "checkbox"
+         },
+         "children": [],
+         "state": {
+          "checked": true,
+          "value": "on"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "보험서비스에 관련된 안내장을 전자적방법(이메일, 모바일 등)으로 수신하는 것에 동의 합니다."
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "note-sm"
+     },
+     "children": [
+      "휴대폰·이메일 주소는",
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "link",
+        "data-action": "open",
+        "data-id": "MY-01"
+       },
+       "children": [
+        "개인정보변경"
+       ]
+      },
+      "에서 바꿀 수 있습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "안내장별 수신 방법"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "안내장별 수신 방법 표 (좌우로 스크롤할 수 있음)",
+      "class": "plain tbl-wrap",
+      "role": "region",
+      "tabindex": "0"
+     },
+     "children": [
+      {
+       "tag": "table",
+       "attrs": {
+        "class": "min-460 tbl"
+       },
+       "children": [
+        {
+         "tag": "caption",
+         "attrs": {
+          "class": "sr-only"
+         },
+         "children": [
+          "안내장별 수신 방법 · 법정 안내장은 받지 않음을 고를 수 없음"
+         ]
+        },
+        {
+         "tag": "thead",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "안내장"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "구분"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "수신 방법"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tbody",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "계약사항 안내"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "b st"
+               },
+               "children": [
+                "법정"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "select",
+               "attrs": {
+                "aria-label": "계약사항 안내 수신 방법",
+                "class": "inp narrow sm",
+                "data-notice-method": "",
+                "id": "nt0"
+               },
+               "children": [
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "모바일"
+                 ],
+                 "state": {
+                  "selected": true
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "이메일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(자택)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(직장)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "변액 운용보고서"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "b st"
+               },
+               "children": [
+                "법정"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "select",
+               "attrs": {
+                "aria-label": "변액 운용보고서 수신 방법",
+                "class": "inp narrow sm",
+                "data-notice-method": "",
+                "id": "nt1"
+               },
+               "children": [
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "모바일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "이메일"
+                 ],
+                 "state": {
+                  "selected": true
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(자택)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(직장)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "보험료 납입 안내"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "n st"
+               },
+               "children": [
+                "선택"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "select",
+               "attrs": {
+                "aria-label": "보험료 납입 안내 수신 방법",
+                "class": "inp narrow sm",
+                "data-notice-method": "",
+                "id": "nt2"
+               },
+               "children": [
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "모바일"
+                 ],
+                 "state": {
+                  "selected": true
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "이메일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(자택)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(직장)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "받지 않음"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "만기·연금 개시 안내"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "b st"
+               },
+               "children": [
+                "법정"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "select",
+               "attrs": {
+                "aria-label": "만기·연금 개시 안내 수신 방법",
+                "class": "inp narrow sm",
+                "data-notice-method": "",
+                "id": "nt3"
+               },
+               "children": [
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "모바일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "이메일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(자택)"
+                 ],
+                 "state": {
+                  "selected": true
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(직장)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "보험계약대출 이자 안내"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "n st"
+               },
+               "children": [
+                "선택"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "select",
+               "attrs": {
+                "aria-label": "보험계약대출 이자 안내 수신 방법",
+                "class": "inp narrow sm",
+                "data-notice-method": "",
+                "id": "nt4"
+               },
+               "children": [
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "모바일"
+                 ],
+                 "state": {
+                  "selected": true
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "이메일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(자택)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(직장)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "받지 않음"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "배당금 안내"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "n st"
+               },
+               "children": [
+                "선택"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "select",
+               "attrs": {
+                "aria-label": "배당금 안내 수신 방법",
+                "class": "inp narrow sm",
+                "data-notice-method": "",
+                "id": "nt5"
+               },
+               "children": [
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "모바일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "이메일"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(자택)"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "우편(직장)"
+                 ],
+                 "state": {
+                  "selected": true
+                 }
+                },
+                {
+                 "tag": "option",
+                 "attrs": {},
+                 "children": [
+                  "받지 않음"
+                 ],
+                 "state": {
+                  "selected": false
+                 }
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "id": "frm"
+   },
+   "children": []
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mt-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "법정 안내장(계약사항 안내, 변액 운용보고서 등)은 받지 않음을 선택할 수 없습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "변경하기"
+     ]
+    }
+   ]
+  }
+ ]
+}

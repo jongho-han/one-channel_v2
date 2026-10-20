@@ -1,0 +1,369 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "마케팅 활용 동의 현황"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "toggle-row"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "상품·서비스 안내(전화)"
+         ]
+        },
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "동의일 2024.03.11"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "tg"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-label": "상품·서비스 안내(전화)",
+          "id": "mk0",
+          "type": "checkbox"
+         },
+         "children": [],
+         "state": {
+          "checked": true,
+          "value": "on"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "toggle-row"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "상품·서비스 안내(문자·알림톡)"
+         ]
+        },
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "동의일 2024.03.11"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "tg"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-label": "상품·서비스 안내(문자·알림톡)",
+          "id": "mk1",
+          "type": "checkbox"
+         },
+         "children": [],
+         "state": {
+          "checked": true,
+          "value": "on"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "toggle-row"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "상품·서비스 안내(이메일)"
+         ]
+        },
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "미동의"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "tg"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-label": "상품·서비스 안내(이메일)",
+          "id": "mk2",
+          "type": "checkbox"
+         },
+         "children": [],
+         "state": {
+          "checked": false,
+          "value": "on"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "toggle-row"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "상품·서비스 안내(우편)"
+         ]
+        },
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "미동의"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "tg"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-label": "상품·서비스 안내(우편)",
+          "id": "mk3",
+          "type": "checkbox"
+         },
+         "children": [],
+         "state": {
+          "checked": false,
+          "value": "on"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "toggle-row"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "제휴사 혜택 정보 제공"
+         ]
+        },
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "미동의"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "tg"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-label": "제휴사 혜택 정보 제공",
+          "id": "mk4",
+          "type": "checkbox"
+         },
+         "children": [],
+         "state": {
+          "checked": false,
+          "value": "on"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "id": "frm"
+   },
+   "children": []
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mt-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "개인정보보호법·신용정보법에 따라 동의는 언제든 철회할 수 있으며, 철회해도 계약 유지에는 영향이 없습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "변경하기"
+     ]
+    }
+   ]
+  }
+ ]
+}

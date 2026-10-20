@@ -1,18 +1,20 @@
-/* T4 단일폼 화면: 진행 상태(state.screen.flow)·전자서명·완료와 연결 */
+/* T4 단일폼 화면: 진행 상태(state.screen.flow)·전자서명·완료와 연결 (전용 화면은 CustomFormScreen) */
 import { DoneCard } from '../../components/widgets';
 import { APP } from '../../core/config';
 import { clockTime, receiptNo } from '../../core/format';
 import type { ScreenSpec } from '../../data/menu';
 import { chooseSignMethod } from '../../services/auth.js';
 import { state } from '../../state/store';
-import { completeSingleForm } from '../../templates/singleForm.js';
+import type { ChangeFormConfig } from '../changeForms';
+import { completeSingleForm } from './completeSingleForm';
+import { CustomFormScreen } from './CustomFormScreen';
 import { SingleForm, type SingleFormConfig, type SingleFormFlow } from './SingleForm';
 
 interface DoneFlow extends SingleFormFlow {
   receiptNo?: string;
 }
 
-function SingleFormDone({ screen, config, flow }: { screen: ScreenSpec & { result: string }; config: SingleFormConfig; flow: DoneFlow }) {
+function SingleFormDone({ screen, config, flow }: { screen: ScreenSpec & { result: string }; config: ChangeFormConfig; flow: DoneFlow }) {
   flow.receiptNo ??= receiptNo('M2610');
   return (
     <>
@@ -26,11 +28,12 @@ function SingleFormDone({ screen, config, flow }: { screen: ScreenSpec & { resul
   );
 }
 
-export function SingleFormScreen({ screen, config }: { screen: ScreenSpec & { result: string }; config: SingleFormConfig }) {
+export function SingleFormScreen({ screen, config }: { screen: ScreenSpec & { result: string }; config: ChangeFormConfig }) {
   const flow = (state.screen.flow ??= { step: 0, values: {}, agreed: [] }) as DoneFlow;
   if (flow.step === 1) return <SingleFormDone screen={screen} config={config} flow={flow} />;
+  if (config.custom) return <CustomFormScreen screen={screen} config={config} />;
   return (
-    <SingleForm config={config} values={flow.values} agreed={flow.agreed} authLevel={screen.authLevel}
+    <SingleForm config={config as SingleFormConfig} values={flow.values} agreed={flow.agreed} authLevel={screen.authLevel}
                 onValuesChange={values => Object.assign(flow.values, values)} onAgreedChange={agreed => { flow.agreed = agreed; }}
                 onSubmit={() => chooseSignMethod(screen, () => completeSingleForm(flow))} />
   );

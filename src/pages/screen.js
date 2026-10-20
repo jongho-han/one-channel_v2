@@ -10,18 +10,16 @@ import { REACT_TEMPLATES } from '../screens/reactTemplates';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
 import { state } from '../state/store';
 import { bindListDetail, renderListDetail } from '../templates/listDetail.js';
-import { bindSingleForm, renderSingleForm } from '../templates/singleForm.js';
 import { bindStepFlow, renderStepFlow } from '../templates/stepFlow.js';
 import { applyTableA11y } from '../ui/a11y.js';
 import { icon } from '../ui/icons.js';
 
 /* 업무 화면 ============================================================ */
 /** 화면유형별 템플릿: render()는 HTML을, bind()는 그 화면에만 필요한 입력 동작을 담당
-    React로 전환한 유형(T1·T5·표준 T4)은 screens/reactTemplates 가 본문을 그림 */
+    React로 전환한 유형(T1·T4·T5)은 screens/reactTemplates 가 본문을 그림 */
 const TEMPLATES = {
   T2: { render: renderListDetail, bind: bindListDetail },
   T3: { render: renderStepFlow,   bind: bindStepFlow   },
-  T4: { render: renderSingleForm, bind: bindSingleForm },
 };
 
 /* 화면 틀: 좌측 메뉴 · 경로 · 제목 · 본문 ---------------------------- */

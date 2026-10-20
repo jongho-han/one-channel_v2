@@ -408,3 +408,143 @@ test('T4 전자서명하면 완료 화면, 다시 보기로 돌아온다 (CH-09)
   assert.ok($('#next'));
   assert.deepEqual(errors, []);
 });
+
+/* ---- T4 전용 화면: 안내장 수신설정(MY-02) · 마케팅 동의(MY-03) · 펀드변경(CH-01) ---- */
+/** 입력값 바꾸고 이벤트 발생 (React가 값 변화를 감지하도록 원래 setter 사용) */
+function setInput(element, value, eventType = element.tagName === 'SELECT' ? 'change' : 'input') {
+  const prototype = element.tagName === 'SELECT' ? window.HTMLSelectElement.prototype : window.HTMLInputElement.prototype;
+  Object.getOwnPropertyDescriptor(prototype, 'value').set.call(element, value);
+  element.dispatchEvent(new window.Event(eventType, { bubbles: true }));
+}
+const toasts = () => texts('#toastRegion .toast');
+
+for (const id of ['MY-02', 'MY-03', 'CH-01']) {
+  test(`T4 ${id} 첫 화면 본문이 기준 화면과 같다`, () => {
+    login();
+    window.App.openScreen(id);
+    assertMatchesGolden(id);
+    assert.deepEqual(errors, []);
+  });
+}
+
+test('MY-02 수신동의 해제: 확인하면 모바일·이메일을 우편(자택)으로, 전자 수신을 고르면 다시 동의', () => {
+  login();
+  window.App.openScreen('MY-02');
+  click($('#eConsent'));
+  assert.equal($('#eConsent').checked, true, '확인 전에는 체크 유지');
+  click($('#dlgNo'));
+  assert.equal($('#eConsent').checked, true);
+
+  click($('#eConsent'));
+  click($('#dlgYes'));
+  assert.equal($('#eConsent').checked, false);
+  assert.deepEqual([...window.document.querySelectorAll('[data-notice-method]')].map(select => select.value),
+    ['우편(자택)', '우편(자택)', '우편(자택)', '우편(자택)', '우편(자택)', '우편(직장)']);
+  assert.ok(toasts().includes('4개 안내장의 수신 방법을 우편(자택)으로 바꿨습니다.'));
+
+  setInput($('#nt5'), '이메일');
+  assert.equal($('#eConsent').checked, true);
+  click($('[data-action="toggle-large-text"]'));
+  assert.equal($('#nt5').value, '이메일');
+  assert.equal($('#nt0').value, '우편(자택)');
+  assert.equal($('#eConsent').checked, true);
+  assert.deepEqual(errors, []);
+});
+
+test('MY-03 동의 설정 후 전자서명하면 완료', async () => {
+  login();
+  window.App.openScreen('MY-03');
+  click($('#mk2'));
+  click($('#next'));
+  click($('#layer [data-auth="간편인증"]'));
+  await wait(1400);
+  assert.equal($('#sbody .donebox h2').textContent, '변경이 완료되었습니다');
+  assert.deepEqual(errors, []);
+});
+
+test('CH-01 편입비율 합계·위험 안내, 변경 없음·합계 오류 안내', () => {
+  login();
+  window.App.openScreen('CH-01');
+  click($('#next'));
+  assert.ok(toasts().includes('변경된 내용이 없습니다. 변경 후 비율이나 자동재배분을 바꿔 주세요.'));
+
+  setInput($('#fd0'), '30');
+  assert.equal($('#fsum').textContent, '90% (100%로 맞춰 주세요)');
+  assert.equal($('#fsum').className, 'num is-invalid');
+  assert.equal($('#riskLine').textContent, '');
+  click($('#next'));
+  assert.ok(toasts().includes('변경 후 비율 합계를 100%로 맞춰 주세요.'));
+
+  setInput($('#fd4'), '10');
+  assert.equal($('#fsum').textContent, '100%');
+  assert.equal($('#fsum').className, 'num is-valid');
+  assert.equal($('#riskLine').className, 'risk-line ok');
+  assert.match($('#riskLine').textContent, /4등급\(보통위험\) \(가중평균 4\.2\) · 현재 투자성향\(위험중립형\) 범위 안입니다\./);
+
+  click($('[data-action="toggle-large-text"]'));
+  assert.equal($('#fd0').value, '30');
+  assert.equal($('#fsum').textContent, '100%');
+  assert.deepEqual(errors, []);
+});
+
+test('CH-01 변액 계약을 바꾸면 그 계약의 펀드로 다시 시작', () => {
+  login();
+  window.App.openScreen('CH-01');
+  setInput($('#fd0'), '30');
+  click($('[data-action="variable-tab"][data-no="2021-0345678"]'));
+  assert.equal(window.document.querySelectorAll('[data-fund]').length, 5);
+  assert.equal($('#fd0').value, '30');   // 아시아주식형 현재 30%
+  assert.equal($('#fsum').textContent, '100%');
+  assert.deepEqual(errors, []);
+});
+
+test('CH-01 적합성진단 → 결과 → 변경 전후 비교 → 전자서명 완료', async () => {
+  fixRandom();
+  fixClock();
+  login();
+  window.App.openScreen('CH-01');
+  setInput($('#fd0'), '30');
+  setInput($('#fd4'), '10');
+  click($('#rebal'));
+  click($('#next'));
+  assert.match($('#layer').textContent, /적합성진단이 필요합니다/);
+  assert.match($('#layer').textContent, /마지막 적합성진단\(2023\.08\.14\) 후 3년이 지났습니다\./);
+  click($('#layer [data-action="suit-start"]'));
+  assertMatchesGolden('CH-01-diagnose');
+
+  click($('[data-action="suit-submit"]'));
+  assert.deepEqual(texts('[id^="sqErr"]'), Array(5).fill('답을 선택해 주세요.'));
+  assert.equal(window.document.activeElement, $('#sq0 input'));
+  window.document.querySelectorAll('.suit-q').forEach(question => {
+    const options = question.querySelectorAll('input[type=radio]');
+    click(options[options.length - 1]);
+  });
+  assert.equal($('#sqErr0').textContent, '');
+  click($('[data-action="suit-submit"]'));
+  assertMatchesGolden('CH-01-result');
+
+  click($('[data-action="fund-compare"]'));
+  assertMatchesGolden('CH-01-compare');
+  click($('[data-action="fund-sign"]'));
+  click($('#layer [data-auth="간편인증"]'));
+  await wait(1400);
+  assertMatchesGolden('CH-01-done');
+  assert.deepEqual(errors, []);
+});
+
+test('CH-01 진단 결과 투자성향이 낮으면 변경 불가·익일 재진행 안내', () => {
+  login();
+  window.App.openScreen('CH-01');
+  setInput($('#fd0'), '30');
+  setInput($('#fd4'), '10');
+  click($('#next'));
+  click($('#layer [data-action="suit-start"]'));
+  window.document.querySelectorAll('.suit-q').forEach(question => click(question.querySelector('input[type=radio]')));
+  click($('[data-action="suit-submit"]'));
+  assertMatchesGolden('CH-01-result-fail');
+
+  click($('[data-action="suit-edit"]'));
+  click($('#next'));
+  assert.match($('#layer').textContent, /오늘은 적합성진단을 다시 할 수 없습니다/);
+  assert.deepEqual(errors, []);
+});

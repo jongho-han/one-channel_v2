@@ -1,0 +1,174 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "phaseTitle",
+      "tabindex": "-1"
+     },
+     "children": [
+      "적합성진단 결과"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "진단일"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "2026.10.02"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "투자성향"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "공격투자형"
+         ]
+        },
+        "(25점)"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "투자 가능 범위"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "1등급(매우높은위험)까지"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "변경 후 포트폴리오"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "4등급(보통위험)"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mt-14"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "box ok"
+     },
+     "children": [
+      {
+       "tag": "svg",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "i",
+        "viewBox": "0 0 24 24"
+       },
+       "children": [
+        {
+         "tag": "path",
+         "attrs": {
+          "d": "M5 12l5 5 9-10"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "변경 후 편입비율로 변경할 수 있습니다"
+         ]
+        },
+        "진단 결과 투자성향(공격투자형)으로 4등급(보통위험) 포트폴리오에 투자할 수 있습니다. 변경 전후 내용을 확인한 뒤 인증하면 변경됩니다."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "suit-edit"
+     },
+     "children": [
+      "비율 다시 보기"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "fund-compare"
+     },
+     "children": [
+      "변경 내용 확인"
+     ]
+    }
+   ]
+  }
+ ]
+}

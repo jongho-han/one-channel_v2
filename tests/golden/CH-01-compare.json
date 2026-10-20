@@ -1,0 +1,1082 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "phaseTitle",
+      "tabindex": "-1"
+     },
+     "children": [
+      "변경 전후 비교"
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "sub-desc"
+     },
+     "children": [
+      "아래 내용으로 펀드 편입비율을 변경합니다. 확인 후 인증해 주세요."
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "alloc-compare"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "alloc-row"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "alloc-lb"
+         },
+         "children": [
+          "변경 전"
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "alloc-bar"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:40%;background:rgb(0,117,74)"
+           },
+           "children": []
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:30%;background:rgb(37,88,196)"
+           },
+           "children": []
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:20%;background:rgb(143,88,0)"
+           },
+           "children": []
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:10%;background:rgb(107,122,140)"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "alloc-row"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "alloc-lb"
+         },
+         "children": [
+          "변경 후"
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "alloc-bar"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:30%;background:rgb(0,117,74)"
+           },
+           "children": []
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:30%;background:rgb(37,88,196)"
+           },
+           "children": []
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:20%;background:rgb(143,88,0)"
+           },
+           "children": []
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:10%;background:rgb(107,122,140)"
+           },
+           "children": []
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "style": "width:10%;background:rgb(122,63,176)"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "ul",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "alloc-legend"
+       },
+       "children": [
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "background:rgb(0,117,74)"
+           },
+           "children": []
+          },
+          "글로벌주식형"
+         ]
+        },
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "background:rgb(37,88,196)"
+           },
+           "children": []
+          },
+          "국내채권형"
+         ]
+        },
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "background:rgb(143,88,0)"
+           },
+           "children": []
+          },
+          "국내주식인덱스형"
+         ]
+        },
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "background:rgb(107,122,140)"
+           },
+           "children": []
+          },
+          "단기채권형(MMF)"
+         ]
+        },
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "background:rgb(122,63,176)"
+           },
+           "children": []
+          },
+          "미국S&P500인덱스형"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "펀드별 변경 전후 편입비율 표 (좌우로 스크롤할 수 있음)",
+      "class": "plain tbl-wrap",
+      "role": "region",
+      "tabindex": "0"
+     },
+     "children": [
+      {
+       "tag": "table",
+       "attrs": {
+        "class": "cmp-tbl tbl"
+       },
+       "children": [
+        {
+         "tag": "caption",
+         "attrs": {
+          "class": "sr-only"
+         },
+         "children": [
+          "펀드별 변경 전후 편입비율"
+         ]
+        },
+        {
+         "tag": "thead",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "펀드 (위험등급)"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "r",
+              "scope": "col"
+             },
+             "children": [
+              "변경 전"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "r",
+              "scope": "col"
+             },
+             "children": [
+              "변경 후"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "dcol r",
+              "scope": "col"
+             },
+             "children": [
+              "증감"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tbody",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {
+            "class": "changed"
+           },
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "글로벌주식형",
+              {
+               "tag": "small",
+               "attrs": {},
+               "children": [
+                "4등급(보통위험)"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "40%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "30%"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "delta-inline"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "delta down"
+                 },
+                 "children": [
+                  "▼ 10%p",
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "sr-only"
+                   },
+                   "children": [
+                    "감소"
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "dcol r"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "delta down"
+               },
+               "children": [
+                "▼ 10%p",
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "sr-only"
+                 },
+                 "children": [
+                  "감소"
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "국내채권형",
+              {
+               "tag": "small",
+               "attrs": {},
+               "children": [
+                "5등급(낮은위험)"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "30%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "30%"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "delta-inline"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "delta same"
+                 },
+                 "children": [
+                  "–"
+                 ]
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "sr-only"
+                 },
+                 "children": [
+                  "변동 없음"
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "dcol r"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "delta same"
+               },
+               "children": [
+                "–"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "변동 없음"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "국내주식인덱스형",
+              {
+               "tag": "small",
+               "attrs": {},
+               "children": [
+                "3등급(다소높은위험)"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "20%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "20%"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "delta-inline"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "delta same"
+                 },
+                 "children": [
+                  "–"
+                 ]
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "sr-only"
+                 },
+                 "children": [
+                  "변동 없음"
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "dcol r"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "delta same"
+               },
+               "children": [
+                "–"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "변동 없음"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "단기채권형(MMF)",
+              {
+               "tag": "small",
+               "attrs": {},
+               "children": [
+                "6등급(매우낮은위험)"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "10%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "10%"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "delta-inline"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "delta same"
+                 },
+                 "children": [
+                  "–"
+                 ]
+                },
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "sr-only"
+                 },
+                 "children": [
+                  "변동 없음"
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "dcol r"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "delta same"
+               },
+               "children": [
+                "–"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "변동 없음"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {
+            "class": "changed"
+           },
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "미국S&P500인덱스형",
+              {
+               "tag": "small",
+               "attrs": {},
+               "children": [
+                "3등급(다소높은위험)"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "0%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "10%"
+               ]
+              },
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "delta-inline"
+               },
+               "children": [
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "delta up"
+                 },
+                 "children": [
+                  "▲ 10%p",
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "sr-only"
+                   },
+                   "children": [
+                    "증가"
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "dcol r"
+             },
+             "children": [
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "delta up"
+               },
+               "children": [
+                "▲ 10%p",
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "sr-only"
+                 },
+                 "children": [
+                  "증가"
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tfoot",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "합계"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "100%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              {
+               "tag": "b",
+               "attrs": {},
+               "children": [
+                "100%"
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "dcol"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "함께 바뀌는 내용"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "cmp-kv kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "포트폴리오 위험등급"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "4등급(보통위험) →",
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "4등급(보통위험)"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "투자성향"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "공격투자형",
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "sub"
+         },
+         "children": [
+          "(진단일 2026.10.02 · 1등급(매우높은위험)까지)"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "자동재배분"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "미신청 →",
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "신청"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "대상 계약"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "(무)iM 하이브리드 변액연금보험"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "올해 남은 변경 횟수"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "11회 →",
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "10회"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "적용 기준가"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "접수일 다음 영업일 기준가"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mt-14 warn"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 7v6M12 16.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "변액보험은 투자 실적에 따라 원금 손실이 발생할 수 있으며, 변경 후 수익률은 보장되지 않습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "suit-edit"
+     },
+     "children": [
+      "이전"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "fund-sign"
+     },
+     "children": [
+      "인증 후 변경"
+     ]
+    }
+   ]
+  }
+ ]
+}

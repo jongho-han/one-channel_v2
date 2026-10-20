@@ -1,0 +1,154 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "donebox"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ck"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "h2",
+       "attrs": {},
+       "children": [
+        "변경이 완료되었습니다"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "펀드 변경이 접수되었습니다. 접수일 다음 영업일 기준가로 적용됩니다."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "receipt"
+       },
+       "children": [
+        {
+         "tag": "dl",
+         "attrs": {
+          "class": "kv"
+         },
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "처리번호"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "M2610-55000"
+           ]
+          },
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "처리일시"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2026.10.02 09:30"
+           ]
+          },
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "안내"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "변경 전후 비교 확인 후 인증 → 변경 접수·적용일 안내 / 진단 결과 불가 시 변경 불가·익일 재진행 안내"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "inline navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "nav",
+      "data-page": "home"
+     },
+     "children": [
+      "홈으로"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "reset-flow"
+     },
+     "children": [
+      "다시 보기"
+     ]
+    }
+   ]
+  }
+ ]
+}

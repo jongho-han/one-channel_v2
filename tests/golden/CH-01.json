@@ -1,0 +1,845 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "변액 계약 선택",
+    "class": "block mb-14 seg",
+    "role": "group"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "true",
+      "class": "on",
+      "data-action": "variable-tab",
+      "data-no": "2020-0456789"
+     },
+     "children": [
+      "하이브리드 변액연금보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "variable-tab",
+      "data-no": "2021-0345678"
+     },
+     "children": [
+      "변액유니버설 종신보험"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "dl",
+   "attrs": {
+    "class": "cols tiles",
+    "style": "--cols:3"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "hl tile"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "적립금"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "23,710,400원"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "tile"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "올해 남은 변경"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "11회"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "tile"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "투자성향"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "위험중립형"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "p",
+   "attrs": {
+    "class": "suit-meta"
+   },
+   "children": [
+    "최근 적합성진단",
+    {
+     "tag": "b",
+     "attrs": {
+      "class": "num"
+     },
+     "children": [
+      "2023.08.14"
+     ]
+    },
+    "· 투자 가능 범위",
+    {
+     "tag": "b",
+     "attrs": {},
+     "children": [
+      "4등급(보통위험)까지"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "펀드 편입비율 변경"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "펀드 편입비율 변경 표 (좌우로 스크롤할 수 있음)",
+      "class": "fundtbl plain tbl-wrap",
+      "role": "region",
+      "tabindex": "0"
+     },
+     "children": [
+      {
+       "tag": "table",
+       "attrs": {
+        "class": "min-520 tbl"
+       },
+       "children": [
+        {
+         "tag": "thead",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "펀드"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "위험등급"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "r",
+              "scope": "col"
+             },
+             "children": [
+              "1년 수익률"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "r",
+              "scope": "col"
+             },
+             "children": [
+              "현재"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "r",
+              "scope": "col"
+             },
+             "children": [
+              "변경 후"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tbody",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "글로벌주식형"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "sub"
+             },
+             "children": [
+              "4등급(보통위험)"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "+14.2%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "40%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "aria-label": "글로벌주식형 변경 후 비율",
+                "class": "inp num",
+                "data-fund": "",
+                "id": "fd0",
+                "inputmode": "numeric"
+               },
+               "children": [],
+               "state": {
+                "value": "40"
+               }
+              },
+              "%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "국내채권형"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "sub"
+             },
+             "children": [
+              "5등급(낮은위험)"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "+3.1%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "30%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "aria-label": "국내채권형 변경 후 비율",
+                "class": "inp num",
+                "data-fund": "",
+                "id": "fd1",
+                "inputmode": "numeric"
+               },
+               "children": [],
+               "state": {
+                "value": "30"
+               }
+              },
+              "%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "국내주식인덱스형"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "sub"
+             },
+             "children": [
+              "3등급(다소높은위험)"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "+8.4%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "20%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "aria-label": "국내주식인덱스형 변경 후 비율",
+                "class": "inp num",
+                "data-fund": "",
+                "id": "fd2",
+                "inputmode": "numeric"
+               },
+               "children": [],
+               "state": {
+                "value": "20"
+               }
+              },
+              "%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "단기채권형(MMF)"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "sub"
+             },
+             "children": [
+              "6등급(매우낮은위험)"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "+2.9%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "10%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "aria-label": "단기채권형(MMF) 변경 후 비율",
+                "class": "inp num",
+                "data-fund": "",
+                "id": "fd3",
+                "inputmode": "numeric"
+               },
+               "children": [],
+               "state": {
+                "value": "10"
+               }
+              },
+              "%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "미국S&P500인덱스형"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "sub"
+             },
+             "children": [
+              "3등급(다소높은위험)"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "+19.6%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "0%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "aria-label": "미국S&P500인덱스형 변경 후 비율",
+                "class": "inp num",
+                "data-fund": "",
+                "id": "fd4",
+                "inputmode": "numeric"
+               },
+               "children": [],
+               "state": {
+                "value": "0"
+               }
+              },
+              "%"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "ESG혼합형"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "sub"
+             },
+             "children": [
+              "4등급(보통위험)"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "+6.7%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "0%"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "aria-label": "ESG혼합형 변경 후 비율",
+                "class": "inp num",
+                "data-fund": "",
+                "id": "fd5",
+                "inputmode": "numeric"
+               },
+               "children": [],
+               "state": {
+                "value": "0"
+               }
+              },
+              "%"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-live": "polite",
+      "class": "sumline"
+     },
+     "children": [
+      "합계",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "is-valid num",
+        "id": "fsum"
+       },
+       "children": [
+        "100%"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-live": "polite",
+      "class": "ok risk-line",
+      "id": "riskLine"
+     },
+     "children": [
+      "변경 후 포트폴리오 위험",
+      {
+       "tag": "b",
+       "attrs": {},
+       "children": [
+        "4등급(보통위험)"
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "(가중평균 4.3)"
+       ]
+      },
+      "· 현재 투자성향(위험중립형) 범위 안입니다."
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "divided toggle-row"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "자동재배분"
+         ]
+        },
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "3개월마다 지정한 비율로 자동 조정합니다."
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "label",
+       "attrs": {
+        "class": "tg"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-label": "자동재배분",
+          "id": "rebal",
+          "type": "checkbox"
+         },
+         "children": [],
+         "state": {
+          "checked": false,
+          "value": "on"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mt-14 warn"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 7v6M12 16.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "변액보험은 투자 실적에 따라 원금 손실이 발생할 수 있습니다. 마지막 적합성진단 후 3년이 지났거나, 변경 후 편입비율이 투자성향보다 위험하면 적합성진단을 먼저 진행합니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "id": "frm"
+   },
+   "children": []
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mt-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "펀드 변경은 연 12회까지 무료입니다. 적합성진단 결과로 변경할 수 없으면 당일에는 다시 진단할 수 없고, 다음 날 다시 진행할 수 있습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,799 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "phaseTitle",
+      "tabindex": "-1"
+     },
+     "children": [
+      "투자자 적합성진단"
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "sub-desc"
+     },
+     "children": [
+      "모든 문항에 답하면 투자성향이 정해집니다. 진단 결과는 오늘부터 3년간 적용됩니다."
+     ]
+    },
+    {
+     "tag": "ol",
+     "attrs": {
+      "class": "suit-qs"
+     },
+     "children": [
+      {
+       "tag": "li",
+       "attrs": {
+        "class": "suit-q",
+        "id": "sq0"
+       },
+       "children": [
+        {
+         "tag": "fieldset",
+         "attrs": {
+          "aria-describedby": "sqErr0"
+         },
+         "children": [
+          {
+           "tag": "legend",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "1."
+             ]
+            },
+            "이 보험의 투자 기간은 얼마나 생각하시나요?"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "col radios"
+           },
+           "children": [
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "0",
+                "data-q": "0",
+                "name": "sq0",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "1"
+               }
+              },
+              "1년 미만"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "1",
+                "data-q": "0",
+                "name": "sq0",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "2"
+               }
+              },
+              "1년 ~ 3년"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "2",
+                "data-q": "0",
+                "name": "sq0",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "3"
+               }
+              },
+              "3년 ~ 5년"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "3",
+                "data-q": "0",
+                "name": "sq0",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "4"
+               }
+              },
+              "5년 ~ 10년"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "4",
+                "data-q": "0",
+                "name": "sq0",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "5"
+               }
+              },
+              "10년 이상"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {
+            "class": "err",
+            "id": "sqErr0"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {
+        "class": "suit-q",
+        "id": "sq1"
+       },
+       "children": [
+        {
+         "tag": "fieldset",
+         "attrs": {
+          "aria-describedby": "sqErr1"
+         },
+         "children": [
+          {
+           "tag": "legend",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "2."
+             ]
+            },
+            "투자해 본 경험이 있는 금융상품은 무엇인가요? (가장 위험한 것 기준)"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "col radios"
+           },
+           "children": [
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "0",
+                "data-q": "1",
+                "name": "sq1",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "1"
+               }
+              },
+              "예·적금만"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "1",
+                "data-q": "1",
+                "name": "sq1",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "2"
+               }
+              },
+              "채권·채권형 펀드"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "2",
+                "data-q": "1",
+                "name": "sq1",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "3"
+               }
+              },
+              "혼합형 펀드"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "3",
+                "data-q": "1",
+                "name": "sq1",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "4"
+               }
+              },
+              "주식·주식형 펀드"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "4",
+                "data-q": "1",
+                "name": "sq1",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "5"
+               }
+              },
+              "ELS·파생상품 등"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {
+            "class": "err",
+            "id": "sqErr1"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {
+        "class": "suit-q",
+        "id": "sq2"
+       },
+       "children": [
+        {
+         "tag": "fieldset",
+         "attrs": {
+          "aria-describedby": "sqErr2"
+         },
+         "children": [
+          {
+           "tag": "legend",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "3."
+             ]
+            },
+            "금융상품에 대한 이해 수준은 어느 정도인가요?"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "col radios"
+           },
+           "children": [
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "0",
+                "data-q": "2",
+                "name": "sq2",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "1"
+               }
+              },
+              "잘 모름"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "1",
+                "data-q": "2",
+                "name": "sq2",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "2"
+               }
+              },
+              "예·적금 등 기본 상품 정도"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "2",
+                "data-q": "2",
+                "name": "sq2",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "4"
+               }
+              },
+              "펀드·주식의 구조를 이해함"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "3",
+                "data-q": "2",
+                "name": "sq2",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "5"
+               }
+              },
+              "파생상품까지 충분히 이해함"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {
+            "class": "err",
+            "id": "sqErr2"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {
+        "class": "suit-q",
+        "id": "sq3"
+       },
+       "children": [
+        {
+         "tag": "fieldset",
+         "attrs": {
+          "aria-describedby": "sqErr3"
+         },
+         "children": [
+          {
+           "tag": "legend",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "4."
+             ]
+            },
+            "투자 원금에서 어느 정도 손실까지 감내할 수 있나요?"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "col radios"
+           },
+           "children": [
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "0",
+                "data-q": "3",
+                "name": "sq3",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "1"
+               }
+              },
+              "원금 손실은 원하지 않음"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "1",
+                "data-q": "3",
+                "name": "sq3",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "2"
+               }
+              },
+              "10% 이내"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "2",
+                "data-q": "3",
+                "name": "sq3",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "3"
+               }
+              },
+              "20% 이내"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "3",
+                "data-q": "3",
+                "name": "sq3",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "4"
+               }
+              },
+              "30% 이내"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "4",
+                "data-q": "3",
+                "name": "sq3",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "5"
+               }
+              },
+              "높은 수익을 위해 큰 손실도 감수"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {
+            "class": "err",
+            "id": "sqErr3"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {
+        "class": "suit-q",
+        "id": "sq4"
+       },
+       "children": [
+        {
+         "tag": "fieldset",
+         "attrs": {
+          "aria-describedby": "sqErr4"
+         },
+         "children": [
+          {
+           "tag": "legend",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "5."
+             ]
+            },
+            "현재 소득 상황은 어떤가요?"
+           ]
+          },
+          {
+           "tag": "div",
+           "attrs": {
+            "class": "col radios"
+           },
+           "children": [
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "0",
+                "data-q": "4",
+                "name": "sq4",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "1"
+               }
+              },
+              "소득이 없거나 불안정함"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "1",
+                "data-q": "4",
+                "name": "sq4",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "2"
+               }
+              },
+              "일정하지만 줄어들 것 같음"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "2",
+                "data-q": "4",
+                "name": "sq4",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "3"
+               }
+              },
+              "일정하고 유지될 것 같음"
+             ]
+            },
+            {
+             "tag": "label",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "input",
+               "attrs": {
+                "data-o": "3",
+                "data-q": "4",
+                "name": "sq4",
+                "type": "radio"
+               },
+               "children": [],
+               "state": {
+                "checked": false,
+                "value": "5"
+               }
+              },
+              "일정하고 늘어날 것 같음"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "p",
+           "attrs": {
+            "class": "err",
+            "id": "sqErr4"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "suit-edit"
+     },
+     "children": [
+      "이전"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "suit-submit"
+     },
+     "children": [
+      "진단 결과 보기"
+     ]
+    }
+   ]
+  }
+ ]
+}

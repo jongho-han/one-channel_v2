@@ -1,0 +1,194 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "phaseTitle",
+      "tabindex": "-1"
+     },
+     "children": [
+      "적합성진단 결과"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "진단일"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "2026.10.02"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "투자성향"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "안정형"
+         ]
+        },
+        "(5점)"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "투자 가능 범위"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "6등급(매우낮은위험)까지"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "변경 후 포트폴리오"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "4등급(보통위험)"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mt-14"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "box warn"
+     },
+     "children": [
+      {
+       "tag": "svg",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "i",
+        "viewBox": "0 0 24 24"
+       },
+       "children": [
+        {
+         "tag": "circle",
+         "attrs": {
+          "cx": "12",
+          "cy": "12",
+          "r": "9"
+         },
+         "children": []
+        },
+        {
+         "tag": "path",
+         "attrs": {
+          "d": "M12 7v6M12 16.5v.5"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "변경 후 편입비율로 변경할 수 없습니다"
+         ]
+        },
+        "진단 결과 투자성향(안정형)으로는 4등급(보통위험) 포트폴리오에 투자할 수 없습니다. 오늘은 적합성진단을 다시 할 수 없으며,",
+        {
+         "tag": "b",
+         "attrs": {
+          "class": "inl"
+         },
+         "children": [
+          "2026.10.03(익일) 이후 다시 진행"
+         ]
+        },
+        "해 주세요."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "nav",
+      "data-page": "home"
+     },
+     "children": [
+      "홈으로"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "suit-edit"
+     },
+     "children": [
+      "편입비율 다시 조정"
+     ]
+    }
+   ]
+  }
+ ]
+}

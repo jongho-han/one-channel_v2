@@ -6,17 +6,11 @@ import type { ScreenSpec } from '../data/menu';
 import { Dashboard } from './dashboard/Dashboard';
 import { CHANGE_FORMS } from './changeForms';
 import { IssuanceScreen } from './issuance/IssuanceScreen';
-import type { SingleFormConfig } from './singleForm/SingleForm';
 import { SingleFormScreen } from './singleForm/SingleFormScreen';
 import type { Contract } from './dashboard/contractSummary';
 
 export const REACT_TEMPLATES: Partial<Record<string, (screen: ScreenSpec) => ReactNode | null>> = {
   T1: () => <Dashboard contracts={CONTRACTS as Contract[]} today={APP.today} />,
   T5: screen => <IssuanceScreen screen={screen} />,
-  /* 전용 화면(안내장·마케팅·펀드변경)은 아직 기존 템플릿 */
-  T4: screen => {
-    const config = CHANGE_FORMS[screen.id];
-    if (config.custom) return null;
-    return <SingleFormScreen screen={screen as ScreenSpec & { result: string }} config={config as SingleFormConfig} />;   // 표준 폼은 current·fields 가 있음
-  },
+  T4: screen => <SingleFormScreen screen={screen as ScreenSpec & { result: string }} config={CHANGE_FORMS[screen.id]} />,
 };

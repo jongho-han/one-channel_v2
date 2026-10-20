@@ -60,3 +60,12 @@ export function notify(): void {
   version++;
   listeners.forEach(listener => listener());
 }
+
+/* 업무 화면 진행 상태 갱신 — React 컴포넌트는 넘겨받은 상태를 직접 고치지 않고 이 함수로 반영 */
+export function updateScreenFlow(patch: Record<string, unknown>): void {
+  if (state.screen.flow) Object.assign(state.screen.flow, patch);
+}
+
+export function updateScreenValues(patch: Record<string, unknown>): void {
+  if (state.screen.flow) Object.assign(state.screen.flow.values ??= {}, patch);
+}

@@ -3,17 +3,17 @@ import { showMegaMenu } from '../components/shell/mountShell';
 import { $, focusElement } from '../core/dom.js';
 import { MENU_TREE, SCREEN_BY_ID } from '../data/menuRepository.js';
 import { downloadContractDocument } from '../features/contractDocuments.js';
-import { showFundPhase, submitSuitability } from '../features/fund.js';
 import { setLargeText } from '../features/largeText.js';
 import { downloadShortcut, openShortcutGuide, shortcut } from '../features/shortcut.js';
 import { setMenuSectionOpen } from '../pages/allMenu.js';
 import { openNoticeBoard } from '../pages/home.js';
 import { rerenderScreen } from '../pages/screen.js';
+import { showFundPhase, startSuitability, submitSuitability } from '../screens/fund/fundFlow';
+import { completeSingleForm } from '../screens/singleForm/completeSingleForm';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
 import { chooseSignMethod, login, logout } from '../services/auth.js';
 import { state } from '../state/store';
 import { confirmCancelRequest, submitDocuments } from '../templates/listDetail.js';
-import { completeSingleForm } from '../templates/singleForm.js';
 import { showNextStep } from '../templates/stepFlow.js';
 import { closeModal, copyText, toast } from '../ui/overlay.js';
 
@@ -41,7 +41,7 @@ const ACTIONS = {
   'logout':            () => logout(),
   'toggle-large-text': () => setLargeText(!state.ui.largeText, { notify: true }),
   /* 펀드변경 적합성진단 */
-  'suit-start':        () => { closeModal(); state.screen.flow.suitAnswers = {}; showFundPhase('diagnose'); },
+  'suit-start':        () => { closeModal(); startSuitability(state.screen.flow); },
   'suit-edit':         () => showFundPhase('edit'),
   'suit-submit':       () => submitSuitability(),
   'fund-compare':      () => showFundPhase('compare'),

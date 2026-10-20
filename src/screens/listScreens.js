@@ -1,5 +1,5 @@
 import { formatWon } from '../core/format';
-import { selectedVariableContract, variableContractTabs } from '../features/variableContract.js';
+import { selectedVariableContract, variableContractTabs } from '../features/variableContract';
 
 /* T2 목록 화면 (filters: 'period' 또는 { label, options } / filterColumns: 필터 → 비교할 열) */
 export const LIST_SCREENS = {
