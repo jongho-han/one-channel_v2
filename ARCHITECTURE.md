@@ -34,7 +34,7 @@ one-channel/
 ├── tests/
 │   ├── smoke.test.js           # 빌드본(dist) jsdom 스모크·회귀 테스트
 │   ├── domShape.js             # DOM 구조 정규화 (golden 비교용)
-│   ├── golden/                 # 전환 전 업무 화면 본문 구조 기준 (CT-01 …)
+│   ├── golden/                 # 전환 전 업무 화면 본문 구조 기준 (CT-01, CF-01~06, CS-01~02 …)
 │   └── unit/                   # vitest 단위 테스트 (TS 모듈·React 컴포넌트)
 │
 └── src/
@@ -45,6 +45,7 @@ one-channel/
     │   ├── Footer.tsx          # 공통 하단 이용 안내·회사 정보
     │   ├── mountFooter.tsx     # #footer 에 React 루트 마운트
     │   ├── widgets.tsx         # 상태칩·안내 박스 (React)
+    │   ├── form/               # 폼 필드 (Field.tsx: 선택·라디오·날짜·텍스트, fieldSpec.ts: 필드 타입·자동완성)
     │   └── shell/              # 공통 셸
     │       ├── Header.tsx      # PC 헤더 (로고·주메뉴·큰글씨·로그인·전체메뉴)
     │       ├── MegaMenu.tsx    # 주메뉴 2Depth·3Depth 메가메뉴
@@ -108,16 +109,16 @@ one-channel/
     │   ├── listDetail.js       # T2 목록+상세 (계약조회 포함)
     │   ├── stepFlow.js         # T3 단계형 신청
     │   ├── singleForm.js       # T4 단일폼 변경
-    │   └── issuance.js         # T5 발급
     │
     ├── screens/                # 화면 id별 선언형 설정 + React 전환 템플릿
-    │   ├── reactTemplates.tsx  # React로 전환한 화면유형 → 본문 요소 (현재 T1)
+    │   ├── reactTemplates.tsx  # React로 전환한 화면유형 → 본문 요소 (현재 T1·T5)
     │   ├── mountScreenBody.tsx # #sbody React 루트 마운트·해제
     │   ├── dashboard/          # T1 계약종합현황 (Dashboard.tsx · contractSummary.ts)
+    │   ├── issuance/           # T5 발급 (Issuance.tsx 화면 부품 · IssuanceScreen.tsx 상태 연결)
     │   ├── listScreens.js      # T2 목록 열·필터·상세
     │   ├── stepFlows.js        # T3 선택·입력·계산·동의
     │   ├── changeForms.js      # T4 현재값·입력·안내
-    │   └── certificates.js     # T5 증명서·서류
+    │   └── certificates.tsx    # T5 증명서·서류 (설정 타입 CertificateConfig)
     │
     ├── features/               # 업무 전용 로직
     │   ├── loan.js             # 보험계약대출 계약 배정

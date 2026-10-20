@@ -4,8 +4,10 @@ import { APP } from '../core/config';
 import { CONTRACTS } from '../data/customerRepository.js';
 import type { ScreenSpec } from '../data/menu';
 import { Dashboard } from './dashboard/Dashboard';
+import { IssuanceScreen } from './issuance/IssuanceScreen';
 import type { Contract } from './dashboard/contractSummary';
 
 export const REACT_TEMPLATES: Partial<Record<string, (screen: ScreenSpec) => ReactNode>> = {
   T1: () => <Dashboard contracts={CONTRACTS as Contract[]} today={APP.today} />,
+  T5: screen => <IssuanceScreen screen={screen} />,
 };

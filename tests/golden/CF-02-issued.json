@@ -1,0 +1,270 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mb-14 ok"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M5 12l5 5 9-10"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "b",
+       "attrs": {},
+       "children": [
+        "발급이 완료되었습니다"
+       ]
+      },
+      "test@example.com(으)로 보냈습니다. 문서확인번호로 진위를 확인할 수 있습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "cert"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "issuer"
+     },
+     "children": [
+      "iM라이프생명보험"
+     ]
+    },
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "보험료납입증명서"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "no num"
+     },
+     "children": [
+      "No. 20261002-550000 · 문서확인번호 I-I"
+     ]
+    },
+    {
+     "tag": "table",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "tbody",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "계약자"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "홍길동 (1978.**.**)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "계약"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "(무)iM 실손의료비보험"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "납입 기간"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2026.02.01 ~ 2026.09.30"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "납입 금액 합계"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "1,155,600원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "용도"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "개인 보관용"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "attest"
+     },
+     "children": [
+      "위와 같이 증명합니다."
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "num sign"
+     },
+     "children": [
+      "2026.10.02",
+      {
+       "tag": "br",
+       "attrs": {},
+       "children": []
+      },
+      "iM라이프생명보험주식회사",
+      {
+       "tag": "small",
+       "attrs": {},
+       "children": [
+        "본 문서는 기획 검토용 견본이며 효력이 없습니다."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "reset-flow"
+     },
+     "children": [
+      "다시 발급"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "nav",
+      "data-page": "home"
+     },
+     "children": [
+      "완료"
+     ]
+    }
+   ]
+  }
+ ]
+}

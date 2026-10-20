@@ -1,3 +1,4 @@
+import { AUTOCOMPLETE } from '../components/form/fieldSpec';
 import { $, $$, each, escapeHtml, focusElement, when } from '../core/dom.js';
 import { EMAIL_PATTERN, PHONE_PATTERN, formatWon, toNumber, withObjectParticle } from '../core/format';
 import { ZIP_SAMPLES } from '../data/addressRepository.js';
@@ -12,8 +13,6 @@ import { calcBox } from '../ui/widgets.js';
     type: text(기본) · tel · email · date · select · radio · checks · money · account · file · addr
     optional: true 이면 필수 아님                                                         */
 
-/** 본인 정보 입력칸의 자동완성 값 (KWCAG 28번 반복 입력 정보) */
-const AUTOCOMPLETE = { mob: 'tel', telH: 'tel', telW: 'work tel', mail: 'email' };
 
 /** 입력칸 하나: 레이블 · 필수 표시(별표 + 글자) · 도움말 · 오류 문구를 서로 연결 (KWCAG 25 · 26번) */
 /** 조건부 항목: showWhen { field, value } — 다른 항목 값이 맞을 때만 보이고 검증함 */

@@ -12,7 +12,8 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - 셸은 상태를 직접 읽어 그림: 상태를 바꾼 뒤 `refreshShell()`(= flushSync + `notify`). `render()` 는 자동 호출. 메가메뉴는 `state.ui.mega` + `showMegaMenu`/`hideMegaMenu`
 - 버튼 동작은 React onClick 대신 기존처럼 `data-action` 속성으로 (`controller/actions.js`)
 - TS 컴포넌트에서 메뉴 데이터는 타입이 있는 `data/menu.ts` 로 import
-- 화면유형 템플릿 전환(T1 완료): ① 전환 전 `UPDATE_GOLDEN=1 npm run test:smoke` 로 본문 구조 기준(`tests/golden/<id>.json`) 생성 ② 로직·컴포넌트 단위 테스트 작성(RED) ③ `screens/<유형>/` 구현 → `screens/reactTemplates.tsx` 등록 ④ 기존 `templates/*.js` 삭제 ⑤ golden 비교 통과 확인. 기준 파일은 의도한 화면 변경일 때만 다시 생성
+- 화면유형 템플릿 전환(T1·T5 완료): ① 전환 전 `UPDATE_GOLDEN=1 npm run test:smoke` 로 본문 구조 기준(`tests/golden/<id>.json`) 생성 ② 로직·컴포넌트 단위 테스트 작성(RED) ③ `screens/<유형>/` 구현 → `screens/reactTemplates.tsx` 등록 ④ 기존 `templates/*.js` 삭제 ⑤ golden 비교 통과 확인. 기준 파일은 의도한 화면 변경일 때만 다시 생성
+- React 폼 입력은 비제어(default*) + 기존 `readFieldValues` 로 읽음 (큰글씨 전환 시 `saveScreenInputs` 와 호환). 화면 상태(useState) 변경은 기존처럼 즉시 반영되도록 `flushSync` 사용
 - React 마운트는 `flushSync` 로 동기 렌더 (스모크 테스트가 부팅 직후 DOM을 검사)
 - 전환 후에도 배포물은 `dist/index.html` 단일 파일 유지
 

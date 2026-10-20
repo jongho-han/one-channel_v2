@@ -250,3 +250,74 @@ test('T1 계약종합현황(CT-01) 본문이 기준 화면과 같다', () => {
   assertMatchesGolden('CT-01');
   assert.deepEqual(errors, []);
 });
+
+/* ---- T5 발급 (CF-01~06 로그인 발급, CS-01~02 비로그인 서류) ---- */
+const ISSUANCE_IDS = ['CF-01', 'CF-02', 'CF-03', 'CF-04', 'CF-05', 'CF-06', 'CS-01', 'CS-02'];
+const fixRandom = () => { window.Math.random = () => 0.5; };   // 발급번호·문서확인번호 고정
+
+for (const id of ISSUANCE_IDS) {
+  test(`T5 ${id} 첫 화면 본문이 기준 화면과 같다`, () => {
+    login();
+    window.App.openScreen(id);
+    assertMatchesGolden(id);
+    assert.deepEqual(errors, []);
+  });
+}
+
+test('T5 받는 방법에 따라 이메일·팩스 입력칸이 보인다 (CF-02)', () => {
+  login();
+  window.App.openScreen('CF-02');
+  const choose = value => {
+    const radio = $(`input[name="recv"][value="${value}"]`);
+    radio.click();
+  };
+  assert.equal($('#emailF').hidden, true);
+  assert.equal($('#faxF').hidden, true);
+  choose('이메일로 받기');
+  assert.equal($('#emailF').hidden, false);
+  assert.equal($('#email').value, 'gildong.hong@example.com');
+  choose('팩스로 받기');
+  assert.equal($('#emailF').hidden, true);
+  assert.equal($('#faxF').hidden, false);
+  assert.deepEqual(errors, []);
+});
+
+test('T5 팩스번호가 틀리면 발급하지 않는다 (CF-02)', () => {
+  login();
+  window.App.openScreen('CF-02');
+  $('input[name="recv"][value="팩스로 받기"]').click();
+  $('#fax').value = '12';
+  click($('#issue'));
+  assert.equal($('#faxErr').textContent, '팩스번호를 확인해 주세요.');
+  assert.equal(window.App.state.screen.flow.step, 0);
+  assert.deepEqual(errors, []);
+});
+
+test('T5 발급하면 입력값으로 견본 증명서를 보여준다 (CF-02)', () => {
+  fixRandom();
+  login();
+  window.App.openScreen('CF-02');
+  const select = $('#ct');
+  select.value = select.options[2].value;
+  $('#from').value = '2026-02-01';
+  $('input[name="recv"][value="이메일로 받기"]').click();
+  $('#email').value = 'test@example.com';
+  click($('#issue'));
+  assert.equal(window.App.state.screen.flow.step, 1);
+  assertMatchesGolden('CF-02-issued');
+  assert.match($('#sbody').textContent, /test@example\.com\(으\)로 보냈습니다/);
+  assert.match($('#sbody .cert').textContent, /2026\.02\.01 ~ 2026\.09\.30/);
+
+  click($('#sbody [data-action="reset-flow"]'));
+  assert.ok($('#issue'));
+  assert.deepEqual(errors, []);
+});
+
+test('T5 발급 조건 입력값은 큰글씨 전환 후에도 유지된다 (CF-04)', () => {
+  login();
+  window.App.openScreen('CF-04');
+  $('#base').value = '2026-09-15';
+  click($('[data-action="toggle-large-text"]'));
+  assert.equal($('#base').value, '2026-09-15');
+  assert.deepEqual(errors, []);
+});

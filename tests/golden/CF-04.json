@@ -1,0 +1,471 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "발급 조건"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form",
+      "id": "frm"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "ct"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "ct"
+         },
+         "children": [
+          "계약",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-ct",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "ct",
+          "name": "ct"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든한 종신보험"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 유니버설저축보험"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 행복드림 연금보험"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 변액유니버설 종신보험"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 튼튼 어린이보험"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든 암보험"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-ct",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "base"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "base"
+         },
+         "children": [
+          "기준일",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-base",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "base",
+          "name": "base",
+          "placeholder": "",
+          "type": "date"
+         },
+         "children": [],
+         "state": {
+          "value": "2026-10-02"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-base",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "recv"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-recv"
+         },
+         "children": [
+          "받는 방법",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "e-recv",
+          "aria-labelledby": "lb-recv",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "recv",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "화면에서 보기"
+             }
+            },
+            "화면에서 보기"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "recv",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "PDF로 저장"
+             }
+            },
+            "PDF로 저장"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "recv",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "이메일로 받기"
+             }
+            },
+            "이메일로 받기"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "recv",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "팩스로 받기"
+             }
+            },
+            "팩스로 받기"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-recv",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "hidden": "",
+        "id": "emailF"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "email"
+         },
+         "children": [
+          "받을 이메일"
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "class": "inp",
+          "id": "email",
+          "type": "email"
+         },
+         "children": [],
+         "state": {
+          "value": "gildong.hong@example.com"
+         }
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "hidden": "",
+        "id": "faxF"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fax"
+         },
+         "children": [
+          "받을 팩스번호"
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "class": "inp num",
+          "id": "fax",
+          "placeholder": "02-000-0000",
+          "type": "tel"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "faxErr"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "issue"
+     },
+     "children": [
+      "발급하기"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,613 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mb-14 ok"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "b",
+       "attrs": {},
+       "children": [
+        "로그인하지 않아도 받을 수 있습니다"
+       ]
+      },
+      "서류를 출력해 작성한 뒤, 사이버창구·모바일 청구 또는 우편·팩스로 제출하세요."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "사고보험금 청구서류"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "picks"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "pick static"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "doc-ic ic"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M6 3h12v18H6z"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 8h6M9 12h6M9 16h3"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "보험금 청구서"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "모든 청구 공통"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "r st"
+         },
+         "children": [
+          "필수"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "보험금 청구서 PDF 받기",
+          "class": "btn sm",
+          "data-action": "toast",
+          "data-message": "보험금 청구서 PDF는 실제 서비스에서 내려받습니다."
+         },
+         "children": [
+          "PDF 받기"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "pick static"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "doc-ic ic"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M6 3h12v18H6z"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 8h6M9 12h6M9 16h3"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "개인(신용)정보 처리 동의서"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "모든 청구 공통"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "r st"
+         },
+         "children": [
+          "필수"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "개인(신용)정보 처리 동의서 PDF 받기",
+          "class": "btn sm",
+          "data-action": "toast",
+          "data-message": "개인(신용)정보 처리 동의서 PDF는 실제 서비스에서 내려받습니다."
+         },
+         "children": [
+          "PDF 받기"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "pick static"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "doc-ic ic"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M6 3h12v18H6z"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 8h6M9 12h6M9 16h3"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "통원 청구 안내"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "진료비 영수증 + 진료비 세부내역서"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "b st"
+         },
+         "children": [
+          "안내"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "통원 청구 안내 PDF 받기",
+          "class": "btn sm",
+          "data-action": "toast",
+          "data-message": "통원 청구 안내 PDF는 실제 서비스에서 내려받습니다."
+         },
+         "children": [
+          "PDF 받기"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "pick static"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "doc-ic ic"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M6 3h12v18H6z"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 8h6M9 12h6M9 16h3"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "입원·수술 청구 안내"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "진단서(또는 입퇴원확인서) + 수술확인서 + 영수증"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "b st"
+         },
+         "children": [
+          "안내"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "입원·수술 청구 안내 PDF 받기",
+          "class": "btn sm",
+          "data-action": "toast",
+          "data-message": "입원·수술 청구 안내 PDF는 실제 서비스에서 내려받습니다."
+         },
+         "children": [
+          "PDF 받기"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "pick static"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "doc-ic ic"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M6 3h12v18H6z"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 8h6M9 12h6M9 16h3"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "사망보험금 청구 안내"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "사망진단서 + 기본증명서 + 가족관계증명서"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "b st"
+         },
+         "children": [
+          "안내"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "사망보험금 청구 안내 PDF 받기",
+          "class": "btn sm",
+          "data-action": "toast",
+          "data-message": "사망보험금 청구 안내 PDF는 실제 서비스에서 내려받습니다."
+         },
+         "children": [
+          "PDF 받기"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "pick static"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "doc-ic ic"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M6 3h12v18H6z"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M9 8h6M9 12h6M9 16h3"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "위임장(대리 청구)"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "가족·대리인이 청구할 때"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "n st"
+         },
+         "children": [
+          "선택"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "위임장(대리 청구) PDF 받기",
+          "class": "btn sm",
+          "data-action": "toast",
+          "data-message": "위임장(대리 청구) PDF는 실제 서비스에서 내려받습니다."
+         },
+         "children": [
+          "PDF 받기"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "nav",
+      "data-page": "home"
+     },
+     "children": [
+      "홈으로"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "open",
+      "data-id": "PY-01"
+     },
+     "children": [
+      "모바일로 바로 청구하기"
+     ]
+    }
+   ]
+  }
+ ]
+}
