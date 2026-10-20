@@ -321,3 +321,90 @@ test('T5 발급 조건 입력값은 큰글씨 전환 후에도 유지된다 (CF-
   assert.equal($('#base').value, '2026-09-15');
   assert.deepEqual(errors, []);
 });
+
+/* ---- T4 단일폼 변경 (표준 8개 화면; MY-02·MY-03·CH-01 전용 화면은 별도) ---- */
+const SINGLE_FORM_IDS = ['MY-01', 'PY-08', 'PM-02', 'PM-03', 'CH-09', 'CH-08', 'LN-05', 'LN-06'];
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+const fixClock = () => { window.Date.prototype.toTimeString = () => '09:30:00 GMT+0900'; };   // 처리일시 고정
+
+for (const id of SINGLE_FORM_IDS) {
+  test(`T4 ${id} 첫 화면 본문이 기준 화면과 같다`, () => {
+    login();
+    window.App.openScreen(id);
+    assertMatchesGolden(id);
+    assert.deepEqual(errors, []);
+  });
+}
+
+test('T4 필수 항목이 비면 오류를 알리고 첫 오류 칸으로 초점 (CH-09)', () => {
+  login();
+  window.App.openScreen('CH-09');
+  click($('#next'));
+  assert.equal($('#e-nm').textContent, '대리청구인 이름을(를) 입력해 주세요.');
+  assert.equal($('#nm').getAttribute('aria-invalid'), 'true');
+  assert.ok($('#nm').classList.contains('bad'));
+  assert.equal($('#e-tel').textContent, '전화번호 형식을 확인해 주세요. 예: 010-1234-5678');
+  assert.equal(window.document.activeElement, $('#nm'));
+  assert.equal($('#layer .dim'), null, '서명 창이 열리지 않음');
+
+  $('#nm').value = '홍서연';
+  click($('#next'));
+  assert.equal($('#e-nm').textContent, '');
+  assert.equal($('#nm').getAttribute('aria-invalid'), null);
+  assert.deepEqual(errors, []);
+});
+
+test('T4 필수 확인 항목에 체크하지 않으면 진행하지 않는다 (PM-02)', () => {
+  login();
+  window.App.openScreen('PM-02');
+  $('#no').value = '12345678';
+  click($('#next'));
+  assert.equal($('#agrErr').textContent, '필수 확인 항목에 체크해 주세요.');
+  assert.equal($('#layer .dim'), null);
+  click($('[data-agree="0"]'));
+  click($('#next'));
+  assert.ok($('#layer [data-auth]'), '서명 수단 선택');
+  assert.deepEqual(errors, []);
+});
+
+test('T4 선택에 따라 상환 계산이 바뀐다 (LN-05)', () => {
+  login();
+  window.App.openScreen('LN-05');
+  assert.match($('#calc').textContent, /상환 완료까지30개월/);
+  $('input[name="m"][value="300,000원"]').click();
+  assert.match($('#calc').textContent, /월 상환 원금300,000원/);
+  assert.match($('#calc').textContent, /상환 완료까지10개월/);
+  assert.deepEqual(errors, []);
+});
+
+test('T4 우편번호 검색 결과를 주소 칸에 넣는다 (MY-01)', () => {
+  login();
+  window.App.openScreen('MY-01');
+  click($('[data-zip="addrW"]'));
+  const result = $('#layer [data-zip-code]');
+  click(result);
+  assert.equal($('#addrW_zip').value, result.dataset.zipCode);
+  assert.equal($('#addrW').value, result.dataset.address);
+  assert.equal($('#layer .dim'), null);
+  assert.deepEqual(errors, []);
+});
+
+test('T4 전자서명하면 완료 화면, 다시 보기로 돌아온다 (CH-09)', async () => {
+  fixRandom();
+  fixClock();
+  login();
+  window.App.openScreen('CH-09');
+  $('#nm').value = '홍서연';
+  $('#bd').value = '2010-03-04';
+  $('#tel').value = '010-9876-5432';
+  click($('#next'));
+  click($('#layer [data-auth="간편인증"]'));
+  await wait(1400);
+  assert.equal(window.App.state.screen.flow.step, 1);
+  assertMatchesGolden('CH-09-done');
+  assert.deepEqual(window.App.state.screen.flow.values.nm, '홍서연');
+
+  click($('#sbody [data-action="reset-flow"]'));
+  assert.ok($('#next'));
+  assert.deepEqual(errors, []);
+});

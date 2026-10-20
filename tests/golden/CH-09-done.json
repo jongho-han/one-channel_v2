@@ -1,0 +1,154 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "donebox"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ck"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "h2",
+       "attrs": {},
+       "children": [
+        "변경이 완료되었습니다"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "대리청구인 지정이 완료되었습니다."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "receipt"
+       },
+       "children": [
+        {
+         "tag": "dl",
+         "attrs": {
+          "class": "kv"
+         },
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "처리번호"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "M2610-55000"
+           ]
+          },
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "처리일시"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2026.10.02 09:30"
+           ]
+          },
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "안내"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "등록 완료 안내"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "inline navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "nav",
+      "data-page": "home"
+     },
+     "children": [
+      "홈으로"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "data-action": "reset-flow"
+     },
+     "children": [
+      "다시 보기"
+     ]
+    }
+   ]
+  }
+ ]
+}

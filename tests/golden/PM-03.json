@@ -1,0 +1,326 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "현재 등록된 정보"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "(무)iM 든든한 종신보험"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "미신청 · 대출가능 2,890,000원 · 연 4.30%"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "(무)iM 하이브리드 변액연금보험"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "미신청 · 대출가능 11,200,000원 · 연 4.75%"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "변경할 내용"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form",
+      "id": "frm"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "ct"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "ct"
+         },
+         "children": [
+          "계약",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-ct",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "ct",
+          "name": "ct"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든한 종신보험"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-ct",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "mode"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-mode"
+         },
+         "children": [
+          "처리 구분",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "e-mode",
+          "aria-labelledby": "lb-mode",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "mode",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "자동대출납입 신청"
+             }
+            },
+            "자동대출납입 신청"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "mode",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "자동대출납입 취소"
+             }
+            },
+            "자동대출납입 취소"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-mode",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mt-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "보험료가 납입되지 않으면 해지환급금 범위에서 자동으로 대출해 보험료를 냅니다. 대출 이자가 발생하며 대출금이 늘어날수록 해지환급금이 줄어듭니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "변경하기"
+     ]
+    }
+   ]
+  }
+ ]
+}

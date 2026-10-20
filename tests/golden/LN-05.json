@@ -1,0 +1,612 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "현재 등록된 정보"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "분할상환 가능 대출"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "보험계약대출 · (무)iM 든든한 종신보험"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "대출 잔액"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "3,000,000원"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "현재 상환 방식"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "만기 일시상환"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "변경할 내용"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form",
+      "id": "frm"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "m"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-m"
+         },
+         "children": [
+          "월 상환 원금",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "e-m",
+          "aria-labelledby": "lb-m",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "m",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "100,000원"
+             }
+            },
+            "100,000원"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "m",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "200,000원"
+             }
+            },
+            "200,000원"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "m",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "300,000원"
+             }
+            },
+            "300,000원"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "m",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "500,000원"
+             }
+            },
+            "500,000원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-m",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "day"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-day"
+         },
+         "children": [
+          "이체일",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "e-day",
+          "aria-labelledby": "lb-day",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "day",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "5일"
+             }
+            },
+            "5일"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "day",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "10일"
+             }
+            },
+            "10일"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "day",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "20일"
+             }
+            },
+            "20일"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "day",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "25일"
+             }
+            },
+            "25일"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-day",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "acct"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "acct"
+         },
+         "children": [
+          "출금 계좌",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-acct",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "acct",
+          "name": "acct"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "iM뱅크 508-12-****91 (본인)"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "국민은행 123-45-****01 (본인)"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "신한은행 110-***-***882 (본인)"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "다른 본인 계좌 등록"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-acct",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-live": "polite",
+    "class": "mt-14",
+    "id": "calc"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "calc num"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "월 상환 원금"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "100,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "첫 달 이자(예상)"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "10,750원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "tot"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "상환 완료까지"
+         ]
+        },
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "30개월"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mt-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "정액분할상환 중에도 언제든 추가·전액 상환할 수 있습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "변경하기"
+     ]
+    }
+   ]
+  }
+ ]
+}

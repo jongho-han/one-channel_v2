@@ -12,6 +12,9 @@ export interface FieldSpec {
   optional?: boolean;             // true 이면 필수 아님
   numeric?: boolean;              // 숫자 글꼴(.num)
   wide?: boolean;
+  zip?: string;                   // addr: 우편번호 기본값
+  max?: number;                   // money: 최대 금액
+  min?: number;                   // money: 최소 금액
 }
 
 /** 입력값: 항목 id → 값 (checks·file 은 배열) */

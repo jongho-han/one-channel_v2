@@ -1,18 +1,18 @@
 import { APP } from '../core/config';
-import { $, each, escapeHtml, scrollToTop, when } from '../core/dom.js';
+import { $, escapeHtml, scrollToTop, when } from '../core/dom.js';
 import { clockTime, receiptNo } from '../core/format';
 import { bindFundExtras, bindFundTotal, fundAllocationBody, fundTotal, submitFundChange } from '../features/fund.js';
 import { marketingConsentBody } from '../features/marketing.js';
 import { bindNoticeSettings, noticeSettingsBody } from '../features/noticeSettings.js';
-import { bindFormBehaviors, readFieldValues, renderField, validateFields } from '../form/formEngine.js';
+import { bindFormBehaviors, readFieldValues, validateFields } from '../form/formEngine.js';
 import { rerenderScreen } from '../pages/screen.js';
-import { CHANGE_FORMS } from '../screens/changeForms.js';
+import { CHANGE_FORMS } from '../screens/changeForms';
 import { chooseSignMethod } from '../services/auth.js';
 import { state } from '../state/store';
 import { toast } from '../ui/overlay.js';
 import { agreementList, doneCard, infoBox } from '../ui/widgets.js';
 
-/* T4 단일폼 변경: 현재값 확인 → 변경 → 전자서명 ------------------------ */
+/* T4 단일폼 — 전용 화면(안내장·마케팅·펀드변경)만 담당. 표준 단일폼은 screens/singleForm (React) */
 export function renderSingleForm(screen) {
   const config = CHANGE_FORMS[screen.id];
   const flow = state.screen.flow ??= { step: 0, values: {}, agreed: [] };
@@ -22,7 +22,7 @@ export function renderSingleForm(screen) {
     notice: () => noticeSettingsBody(flow),
     marketing: marketingConsentBody,
     fund: () => fundAllocationBody(flow),
-  }[config.custom] || (() => standardChangeBody(config, flow));
+  }[config.custom];
 
   if (config.custom === 'fund' && flow.phase && flow.phase !== 'edit') return body();   // 진단·결과 화면은 자체 버튼 사용
 
@@ -35,17 +35,6 @@ export function renderSingleForm(screen) {
     <button class="btn pri lg" id="next">${config.nextLabel || (screen.authLevel === 'A2' ? '추가인증 후 변경' : '변경하기')}</button>
   </div>`;
 }
-
-function standardChangeBody(config, flow) {
-  return `
-  <div class="card"><h2>현재 등록된 정보</h2>
-    <dl class="kv">${each(config.current, ([key, value]) => `<dt>${escapeHtml(key)}</dt><dd>${escapeHtml(value)}</dd>`)}</dl>
-  </div>
-  <div class="card"><h2>변경할 내용</h2><div class="form" id="frm">${each(config.fields, field => renderField(field, flow.values))}</div></div>
-  ${when(config.calc, '<div class="mt-14" id="calc" aria-live="polite"></div>')}`;
-}
-
-
 
 function singleFormDone(screen, config, flow) {
   flow.receiptNo ??= receiptNo('M2610');

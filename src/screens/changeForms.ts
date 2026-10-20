@@ -1,9 +1,24 @@
+import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
+import type { CalcRow } from '../components/widgets';
 import { formatWon, toNumber } from '../core/format';
 import { USER, activeContracts } from '../data/customerRepository.js';
 
 /* T4 단일폼 변경 (current: 현재 등록값 / custom: 전용 화면 notice · marketing · fund) */
+export interface ChangeFormConfig {
+  custom?: 'notice' | 'marketing' | 'fund';   // 전용 화면 (current·fields 없음)
+  current?: (readonly [string, string])[];
+  fields?: FieldSpec[];
+  calc?: (values: FieldValues) => CalcRow[];
+  agree?: string[];
+  note?: string;
+  nextLabel?: string;
+  done: string;
+}
 
-export const CHANGE_FORMS = {
+interface SampleContract { name: string; account: string; debitDay: string }
+const contracts = activeContracts as SampleContract[];
+
+export const CHANGE_FORMS: Record<string, ChangeFormConfig> = {
   'MY-01': {
     current: [['자택 주소', `(${USER.homeZip}) ${USER.homeAddress}`], ['직장 주소', `(${USER.workZip}) ${USER.workAddress}`], ['휴대폰', USER.phone], ['이메일', USER.email]],
     fields: [
@@ -22,9 +37,9 @@ export const CHANGE_FORMS = {
     fields: [{ id: 'mode', label: '처리 구분', type: 'radio', options: ['계좌 변경', '자동송금 해지'] }, { id: 'acct', label: '새 입금 계좌', type: 'account' }],
     note: '자동송금은 본인 명의 계좌로만 신청할 수 있습니다.', done: '자동송금 설정이 변경되었습니다.' },
   'PM-02': {
-    current: activeContracts.map(c => [c.name, `${c.account} · 매월 ${c.debitDay}`]),
+    current: contracts.map(c => [c.name, `${c.account} · 매월 ${c.debitDay}`] as const),
     fields: [
-      { id: 'ct', label: '변경할 계약', type: 'select', options: activeContracts.map(c => c.name) },
+      { id: 'ct', label: '변경할 계약', type: 'select', options: contracts.map(c => c.name) },
       { id: 'bank', label: '은행', type: 'select', options: ['iM뱅크', '국민은행', '신한은행', '우리은행', '하나은행', '농협은행', '기업은행', '카카오뱅크', '토스뱅크'] },
       { id: 'no', label: '계좌번호', placeholder: '- 없이 숫자만', numeric: true },
       { id: 'day', label: '이체일', type: 'radio', options: ['5일', '10일', '15일', '20일', '25일', '말일'], value: '25일' }],

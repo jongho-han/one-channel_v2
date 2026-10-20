@@ -1,12 +1,13 @@
 import { AUTOCOMPLETE } from '../components/form/fieldSpec';
 import { $, $$, each, escapeHtml, focusElement, when } from '../core/dom.js';
-import { EMAIL_PATTERN, PHONE_PATTERN, formatWon, toNumber, withObjectParticle } from '../core/format';
+import { formatWon, toNumber } from '../core/format';
 import { ZIP_SAMPLES } from '../data/addressRepository.js';
 import { ACCOUNTS } from '../data/customerRepository.js';
 import { NOT_APPLICABLE } from '../features/annuity.js';
 import { icon } from '../ui/icons.js';
 import { announce, closeModal, openModal } from '../ui/overlay.js';
 import { calcBox } from '../ui/widgets.js';
+import { validationMessage } from './validation';
 
 /* 폼 엔진 ============================================================= */
 /*  필드 정의 예: { id:'amt', label:'인출 금액', type:'money', max:5210000, min:100000, quick:[100000,'max'] }
@@ -147,23 +148,6 @@ export function validateFields(root, fields, values) {
 
 
 
-function validationMessage(field, value) {
-  switch (field.type) {
-    case 'money':
-      if (!value) return `${field.label}을(를) 입력해 주세요.`;
-      if (field.max && value > field.max) return `최대 ${formatWon(field.max)}까지 가능합니다.`;
-      if (field.min && value < field.min) return `최소 ${formatWon(field.min)} 이상 입력해 주세요.`;
-      return '';
-    case 'checks': return value.length ? '' : '한 개 이상 선택해 주세요.';
-    case 'file':   return value.length ? '' : '증빙서류를 1장 이상 올려 주세요.';
-    case 'tel':    return PHONE_PATTERN.test(value) ? '' : '전화번호 형식을 확인해 주세요. 예: 010-1234-5678';
-    case 'email':  return EMAIL_PATTERN.test(value) ? '' : '이메일 주소 형식을 확인해 주세요.';
-    case 'select': return field.placeholder && !value ? `${withObjectParticle(field.label)} 선택해 주세요.` : '';
-    case 'radio': case 'account': case 'addr': return '';
-    default:       return String(value).trim() ? '' : `${field.label}을(를) 입력해 주세요.`;
-  }
-}
-
 /** 폼 공통 동작: 금액 입력 · 빠른 금액 · 파일 목록 · 우편번호 · 실시간 계산 · 동의 체크 */
 export function bindFormBehaviors(root, config, flow) {
   const fields = config.fields || [];
@@ -238,7 +222,7 @@ export function bindFileList(root) {
   }));
 }
 
-function openZipSearch(root, fieldId) {
+export function openZipSearch(root, fieldId) {
   const modal = openModal(`
     <h2>우편번호 검색</h2>
     <p>도로명, 건물명 또는 지번을 입력하세요.</p>
