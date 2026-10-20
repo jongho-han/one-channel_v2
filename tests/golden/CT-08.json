@@ -1,0 +1,966 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "filters"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "lb",
+        "id": "periodLabel"
+       },
+       "children": [
+        "조회기간"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-labelledby": "periodLabel",
+        "class": "seg",
+        "role": "group"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "1개월"
+         },
+         "children": [
+          "1개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "true",
+          "class": "on",
+          "data-action": "set-period",
+          "data-period": "3개월"
+         },
+         "children": [
+          "3개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "6개월"
+         },
+         "children": [
+          "6개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "1년"
+         },
+         "children": [
+          "1년"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "f-거래구분"
+       },
+       "children": [
+        "거래구분"
+       ]
+      },
+      {
+       "tag": "select",
+       "attrs": {
+        "class": "inp sm",
+        "data-filter": "거래구분",
+        "id": "f-거래구분"
+       },
+       "children": [
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "전체"
+         ],
+         "state": {
+          "selected": true
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "납입"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "지급"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "대출"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "상환"
+         ],
+         "state": {
+          "selected": false
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "end f"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn navy sm",
+        "data-action": "toast",
+        "data-message": "조회했습니다."
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "circle",
+           "attrs": {
+            "cx": "11",
+            "cy": "11",
+            "r": "7"
+           },
+           "children": []
+          },
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M20 20l-4-4"
+           },
+           "children": []
+          }
+         ]
+        },
+        "조회"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "거래내역조회 목록 표 (좌우로 스크롤할 수 있음)",
+    "class": "has-m tbl-wrap",
+    "role": "region",
+    "tabindex": "0"
+   },
+   "children": [
+    {
+     "tag": "table",
+     "attrs": {
+      "class": "tbl"
+     },
+     "children": [
+      {
+       "tag": "caption",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "거래내역조회 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다"
+       ]
+      },
+      {
+       "tag": "thead",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "거래일"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "거래구분"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "class": "r",
+            "scope": "col"
+           },
+           "children": [
+            "금액"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "계좌"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "채널"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "tbody",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "0"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "0"
+             },
+             "children": [
+              "2026.09.25",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "납입"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "128,400원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "iM뱅크 ****91"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "자동이체"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "1"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "1"
+             },
+             "children": [
+              "2026.09.10",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "납입"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "300,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "국민은행 ****01"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "자동이체"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "2"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "2"
+             },
+             "children": [
+              "2026.08.20",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "상환"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "12,890원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "iM뱅크 ****91"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "사이버창구"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "3"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "3"
+             },
+             "children": [
+              "2026.08.03",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "지급"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "1,284,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "iM뱅크 ****91"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "보험금 청구"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "4"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "4"
+             },
+             "children": [
+              "2025.11.20",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "대출"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "3,000,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "iM뱅크 ****91"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "모바일"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mlist"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "0"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "납입"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "128,400원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "거래일 · 2026.09.25"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계좌 · iM뱅크 ****91"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "채널 · 자동이체"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "납입"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "300,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "거래일 · 2026.09.10"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계좌 · 국민은행 ****01"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "채널 · 자동이체"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "2"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "상환"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "12,890원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "거래일 · 2026.08.20"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계좌 · iM뱅크 ****91"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "채널 · 사이버창구"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "3"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "지급"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "1,284,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "거래일 · 2026.08.03"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계좌 · iM뱅크 ****91"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "채널 · 보험금 청구"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "4"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대출"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "3,000,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "거래일 · 2025.11.20"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계좌 · iM뱅크 ****91"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "채널 · 모바일"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

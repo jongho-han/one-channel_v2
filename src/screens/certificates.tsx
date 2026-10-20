@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
 import { formatWon } from '../core/format';
-import { CONTRACTS, USER } from '../data/customerRepository.js';
+import { CONTRACTS, USER } from '../data/customerRepository';
 
 /* T5 발급 (document(values) → [[항목, 값]] · 첫 줄은 증명서 이름) */
 export interface CertificateConfig {

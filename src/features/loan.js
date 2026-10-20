@@ -1,6 +1,6 @@
 import { $, $$, each, escapeHtml, when } from '../core/dom.js';
 import { formatWon, toNumber } from '../core/format';
-import { CONTRACTS } from '../data/customerRepository.js';
+import { CONTRACTS } from '../data/customerRepository';
 import { renderField, validateFields } from '../form/formEngine.js';
 import { announce } from '../ui/overlay.js';
 import { summaryTiles } from '../ui/widgets.js';

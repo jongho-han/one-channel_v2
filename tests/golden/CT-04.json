@@ -1,0 +1,393 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mb-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "휴면보험금은 소멸시효(3년)가 지난 보험금으로, 지금 신청해도 받으실 수 있습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "휴면보험금 조회 목록 표 (좌우로 스크롤할 수 있음)",
+    "class": "has-m tbl-wrap",
+    "role": "region",
+    "tabindex": "0"
+   },
+   "children": [
+    {
+     "tag": "table",
+     "attrs": {
+      "class": "tbl"
+     },
+     "children": [
+      {
+       "tag": "caption",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "휴면보험금 조회 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다"
+       ]
+      },
+      {
+       "tag": "thead",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "발생일"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "보험금 종류"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "계약"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "class": "r",
+            "scope": "col"
+           },
+           "children": [
+            "금액"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "tbody",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "0"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "0"
+             },
+             "children": [
+              "2023.04.15",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "중도보험금"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 유니버설저축보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "412,350원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "1"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "1"
+             },
+             "children": [
+              "2021.11.02",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "배당금"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(유)iM 교육보험(소멸)"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "38,120원"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mlist"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "0"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "중도보험금"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "412,350원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "발생일 · 2023.04.15"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계약 · (무)iM 유니버설저축보험"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "배당금"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "38,120원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "발생일 · 2021.11.02"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계약 · (유)iM 교육보험(소멸)"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "inline mt-18 navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn pri",
+      "data-action": "open",
+      "data-id": "PY-07"
+     },
+     "children": [
+      "미수령보험금 신청"
+     ]
+    }
+   ]
+  }
+ ]
+}

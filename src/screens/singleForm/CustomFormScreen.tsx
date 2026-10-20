@@ -4,7 +4,7 @@ import type { FieldValues } from '../../components/form/fieldSpec';
 import { InfoBox } from '../../components/widgets';
 import { APP } from '../../core/config';
 import { MARKETING_CONSENTS, NOTICE_E_CONSENT_DEFAULT, NOTICE_SETTINGS } from '../../data/consentRepository';
-import { USER } from '../../data/customerRepository.js';
+import { USER } from '../../data/customerRepository';
 import { SUITABILITY, SUITABILITY_QUESTIONS } from '../../data/fundRepository';
 import type { ScreenSpec } from '../../data/menu';
 import { VARIABLE_CONTRACTS, selectedVariableContract } from '../../features/variableContract';

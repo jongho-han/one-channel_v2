@@ -1,0 +1,755 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box mb-14 warn"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 7v6M12 16.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "예시금액이며 확정된 금액이 아닙니다. 공시이율·펀드 수익률 변동에 따라 달라집니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "filters"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "f-연금개시나이"
+       },
+       "children": [
+        "연금개시나이"
+       ]
+      },
+      {
+       "tag": "select",
+       "attrs": {
+        "class": "inp sm",
+        "data-filter": "연금개시나이",
+        "id": "f-연금개시나이"
+       },
+       "children": [
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "65세"
+         ],
+         "state": {
+          "selected": true
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "60세"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "70세"
+         ],
+         "state": {
+          "selected": false
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "f-적용이율"
+       },
+       "children": [
+        "적용이율"
+       ]
+      },
+      {
+       "tag": "select",
+       "attrs": {
+        "class": "inp sm",
+        "data-filter": "적용이율",
+        "id": "f-적용이율"
+       },
+       "children": [
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "현재 공시이율 연 2.75%"
+         ],
+         "state": {
+          "selected": true
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "최저보증이율 연 1.0%"
+         ],
+         "state": {
+          "selected": false
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "f-연금유형"
+       },
+       "children": [
+        "연금유형"
+       ]
+      },
+      {
+       "tag": "select",
+       "attrs": {
+        "class": "inp sm",
+        "data-filter": "연금유형",
+        "id": "f-연금유형"
+       },
+       "children": [
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "전체"
+         ],
+         "state": {
+          "selected": true
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "종신연금형"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "확정기간형(20년)"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "상속연금형"
+         ],
+         "state": {
+          "selected": false
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "end f"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn navy sm",
+        "data-action": "toast",
+        "data-message": "조회했습니다."
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "circle",
+           "attrs": {
+            "cx": "11",
+            "cy": "11",
+            "r": "7"
+           },
+           "children": []
+          },
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M20 20l-4-4"
+           },
+           "children": []
+          }
+         ]
+        },
+        "조회"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "미래예상연금액 조회 목록 표 (좌우로 스크롤할 수 있음)",
+    "class": "has-m tbl-wrap",
+    "role": "region",
+    "tabindex": "0"
+   },
+   "children": [
+    {
+     "tag": "table",
+     "attrs": {
+      "class": "tbl"
+     },
+     "children": [
+      {
+       "tag": "caption",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "미래예상연금액 조회 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다"
+       ]
+      },
+      {
+       "tag": "thead",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "연금유형"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "class": "r",
+            "scope": "col"
+           },
+           "children": [
+            "연간 예상액"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "월 환산"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "보증기간"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "tbody",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "0"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "0"
+             },
+             "children": [
+              "종신연금형",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "12,384,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "1,032,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "20년 보증"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "1"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "1"
+             },
+             "children": [
+              "확정기간형(20년)",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "14,016,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "1,168,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "20년"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "2"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "2"
+             },
+             "children": [
+              "상속연금형",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "8,952,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "746,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "-"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mlist"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "0"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "12,384,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "12,384,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "연금유형 · 종신연금형"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "월 환산 · 1,032,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "보증기간 · 20년 보증"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "14,016,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "14,016,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "연금유형 · 확정기간형(20년)"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "월 환산 · 1,168,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "보증기간 · 20년"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "2"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "8,952,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num"
+         },
+         "children": [
+          "8,952,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "연금유형 · 상속연금형"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "월 환산 · 746,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "보증기간 · -"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "inline mt-18 navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn pri",
+      "data-action": "open",
+      "data-id": "CH-07"
+     },
+     "children": [
+      "연금개시유형 변경"
+     ]
+    }
+   ]
+  }
+ ]
+}

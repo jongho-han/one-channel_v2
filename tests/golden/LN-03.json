@@ -1,0 +1,516 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mb-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      "대출계약 철회권(금융소비자보호법): 대출 실행일로부터 14일 이내에 원금과 이자를 상환하고 철회할 수 있습니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "filters"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "lb",
+        "id": "periodLabel"
+       },
+       "children": [
+        "조회기간"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-labelledby": "periodLabel",
+        "class": "seg",
+        "role": "group"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "1개월"
+         },
+         "children": [
+          "1개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "true",
+          "class": "on",
+          "data-action": "set-period",
+          "data-period": "3개월"
+         },
+         "children": [
+          "3개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "6개월"
+         },
+         "children": [
+          "6개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "1년"
+         },
+         "children": [
+          "1년"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "end f"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn navy sm",
+        "data-action": "toast",
+        "data-message": "조회했습니다."
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "circle",
+           "attrs": {
+            "cx": "11",
+            "cy": "11",
+            "r": "7"
+           },
+           "children": []
+          },
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M20 20l-4-4"
+           },
+           "children": []
+          }
+         ]
+        },
+        "조회"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "보험계약대출 신청 현황 조회/취소 목록 표 (좌우로 스크롤할 수 있음)",
+    "class": "has-m tbl-wrap",
+    "role": "region",
+    "tabindex": "0"
+   },
+   "children": [
+    {
+     "tag": "table",
+     "attrs": {
+      "class": "tbl"
+     },
+     "children": [
+      {
+       "tag": "caption",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "보험계약대출 신청 현황 조회/취소 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다"
+       ]
+      },
+      {
+       "tag": "thead",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "신청일"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "class": "r",
+            "scope": "col"
+           },
+           "children": [
+            "신청금액"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "대상 계약"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "처리상태"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "tbody",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "0"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "0"
+             },
+             "children": [
+              "2026.10.02",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "2,000,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "b st"
+             },
+             "children": [
+              "심사중"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "1"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "1"
+             },
+             "children": [
+              "2025.11.20",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {
+            "class": "num r"
+           },
+           "children": [
+            "3,000,000원"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든한 종신보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "g st"
+             },
+             "children": [
+              "실행완료"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mlist"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "0"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "2,000,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "b st"
+         },
+         "children": [
+          "심사중"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "신청일 · 2026.10.02"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대상 계약 · (무)iM 하이브리드 변액연금보험"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "3,000,000원"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "g st"
+         },
+         "children": [
+          "실행완료"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "신청일 · 2025.11.20"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대상 계약 · (무)iM 든든한 종신보험"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

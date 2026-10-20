@@ -1,8 +1,23 @@
 import { formatWon } from '../core/format';
-import { selectedVariableContract, variableContractTabs } from '../features/variableContract';
+import { selectedVariableContract } from '../features/variableContract';
+import { isStatusColumn } from './list/listRules';
 
 /* T2 목록 화면 (filters: 'period' 또는 { label, options } / filterColumns: 필터 → 비교할 열) */
-export const LIST_SCREENS = {
+export type ListFilter = 'period' | { label: string; options: readonly string[] };
+
+export interface ListConfig {
+  filters: readonly ListFilter[];
+  filterColumns?: Readonly<Record<string, number>>;
+  columns: readonly string[];
+  rows: string[][];
+  top?: 'variable-contracts';                        // 목록 위 변액 계약 탭 (CT-03)
+  tiles?: readonly (readonly [string, string])[];
+  info?: string;
+  warn?: string;
+  links?: readonly (readonly [string, string])[];   // [버튼 이름, 화면 id]
+}
+
+export const LIST_SCREENS: Record<string, ListConfig> = {
   'MY-04': { filters: ['period'], columns: ['일자', '이용·제공 주체', '목적', '내용', '보유기간'], rows: [
     ['2026.09.18', '한국신용정보원', '보험계약 정보 집중', '계약·보장 정보', '거래 종료 후 5년'],
     ['2026.08.02', 'iM뱅크(모집 대리점)', '계약 유지·관리', '연락처·계약정보', '계약 종료 시까지'],
@@ -13,11 +28,11 @@ export const LIST_SCREENS = {
     ['2026.07.01', '계약사항 안내', '(무)iM 든든한 종신보험', '이메일', 'PDF 보기'],
     ['2026.04.20', '만기 안내', '(무)iM 유니버설저축보험', '우편(자택)', 'PDF 보기'],
     ['2026.03.25', '보험료 납입 안내', '(무)iM 유니버설저축보험', '모바일', 'PDF 보기']] },
-  'CT-03': { filters: ['period'], top: variableContractTabs,
+  'CT-03': { filters: ['period'], top: 'variable-contracts',
     get tiles() {
       const { reserve, principal } = selectedVariableContract().variable;
       const rate = ((reserve / principal - 1) * 100).toFixed(2);
-      return [['적립금', formatWon(reserve)], ['누적 수익률', `${rate >= 0 ? '+' : ''}${rate}%`], ['납입 원금', formatWon(principal)]];
+      return [['적립금', formatWon(reserve)], ['누적 수익률', `${Number(rate) >= 0 ? '+' : ''}${rate}%`], ['납입 원금', formatWon(principal)]] as const;
     },
     columns: ['펀드명', '편입비율', '수익률(1년)', '평가금액'],
     get rows() {
@@ -70,10 +85,8 @@ export const LIST_SCREENS = {
     info: '대출계약 철회권(금융소비자보호법): 대출 실행일로부터 14일 이내에 원금과 이자를 상환하고 철회할 수 있습니다.' },
 };
 
-export const isStatusColumn = column => /상태|단계/.test(column);
-
 /** 목록 행의 상태 값을 바꿈 (신청 취소 · 보완서류 제출 후 샘플 데이터 갱신) */
-export function setRowStatus(screenId, rowIndex, status) {
+export function setRowStatus(screenId: string, rowIndex: number, status: string): void {
   const { columns, rows } = LIST_SCREENS[screenId];
   const column = columns.findIndex(isStatusColumn);
   if (column >= 0 && rows[rowIndex]) rows[rowIndex][column] = status;

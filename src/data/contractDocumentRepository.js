@@ -1,4 +1,4 @@
-import { contractByNo } from './customerRepository.js';
+import { contractByNo } from './customerRepository';
 
 /* 계약별 내려받을 수 있는 서류 (약관 · 보험상품안내장, 모두 가입 당시 기준) — 샘플 */
 

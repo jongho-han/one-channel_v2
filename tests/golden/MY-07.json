@@ -1,0 +1,958 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "filters"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "lb",
+        "id": "periodLabel"
+       },
+       "children": [
+        "조회기간"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-labelledby": "periodLabel",
+        "class": "seg",
+        "role": "group"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "1개월"
+         },
+         "children": [
+          "1개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "true",
+          "class": "on",
+          "data-action": "set-period",
+          "data-period": "3개월"
+         },
+         "children": [
+          "3개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "6개월"
+         },
+         "children": [
+          "6개월"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-pressed": "false",
+          "data-action": "set-period",
+          "data-period": "1년"
+         },
+         "children": [
+          "1년"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "f-안내장 종류"
+       },
+       "children": [
+        "안내장 종류"
+       ]
+      },
+      {
+       "tag": "select",
+       "attrs": {
+        "class": "inp sm",
+        "data-filter": "안내장 종류",
+        "id": "f-안내장 종류"
+       },
+       "children": [
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "전체"
+         ],
+         "state": {
+          "selected": true
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "계약사항 안내"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "보험료 납입 안내"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "변액 운용보고서"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "만기 안내"
+         ],
+         "state": {
+          "selected": false
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "end f"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn navy sm",
+        "data-action": "toast",
+        "data-message": "조회했습니다."
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "circle",
+           "attrs": {
+            "cx": "11",
+            "cy": "11",
+            "r": "7"
+           },
+           "children": []
+          },
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M20 20l-4-4"
+           },
+           "children": []
+          }
+         ]
+        },
+        "조회"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "안내장 수신내역조회 목록 표 (좌우로 스크롤할 수 있음)",
+    "class": "has-m tbl-wrap",
+    "role": "region",
+    "tabindex": "0"
+   },
+   "children": [
+    {
+     "tag": "table",
+     "attrs": {
+      "class": "tbl"
+     },
+     "children": [
+      {
+       "tag": "caption",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "안내장 수신내역조회 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다"
+       ]
+      },
+      {
+       "tag": "thead",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "발송일"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "안내장명"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "대상 계약"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "수신방법"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "열람"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "tbody",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "0"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "0"
+             },
+             "children": [
+              "2026.09.10",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "변액 운용보고서"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "모바일"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2026.09.10 변액 운용보고서 PDF 보기",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF 보기"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "1"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "1"
+             },
+             "children": [
+              "2026.07.01",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "계약사항 안내"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든한 종신보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "이메일"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2026.07.01 계약사항 안내 PDF 보기",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF 보기"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "2"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "2"
+             },
+             "children": [
+              "2026.04.20",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "만기 안내"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 유니버설저축보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "우편(자택)"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2026.04.20 만기 안내 PDF 보기",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF 보기"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "3"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "3"
+             },
+             "children": [
+              "2026.03.25",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "보험료 납입 안내"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 유니버설저축보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "모바일"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2026.03.25 보험료 납입 안내 PDF 보기",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF 보기"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mlist"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "0"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "변액 운용보고서"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "발송일 · 2026.09.10"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대상 계약 · (무)iM 하이브리드 변액연금보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "수신방법 · 모바일"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "열람 · PDF 보기"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계약사항 안내"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "발송일 · 2026.07.01"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대상 계약 · (무)iM 든든한 종신보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "수신방법 · 이메일"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "열람 · PDF 보기"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "2"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "만기 안내"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "발송일 · 2026.04.20"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대상 계약 · (무)iM 유니버설저축보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "수신방법 · 우편(자택)"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "열람 · PDF 보기"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "3"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "보험료 납입 안내"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "발송일 · 2026.03.25"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "대상 계약 · (무)iM 유니버설저축보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "수신방법 · 모바일"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "열람 · PDF 보기"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

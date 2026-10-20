@@ -1,7 +1,7 @@
 import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
 import type { CalcRow } from '../components/widgets';
 import { formatWon, toNumber } from '../core/format';
-import { USER, activeContracts } from '../data/customerRepository.js';
+import { USER, activeContracts } from '../data/customerRepository';
 
 /* T4 단일폼 변경 (current: 현재 등록값 / custom: 전용 화면 notice · marketing · fund) */
 export interface ChangeFormConfig {

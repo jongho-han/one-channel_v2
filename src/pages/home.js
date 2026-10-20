@@ -1,7 +1,7 @@
 import { openScreen } from '../app/router.js';
 import { APP } from '../core/config';
 import { $, $$, each, escapeHtml, when } from '../core/dom.js';
-import { CONTRACTS, USER } from '../data/customerRepository.js';
+import { CONTRACTS, USER } from '../data/customerRepository';
 import { HOME } from '../data/homeContent.js';
 import { MENU_GROUPS, searchScreens } from '../data/menuRepository.js';
 import { HOME_NOTICE_COUNT, NOTICES } from '../data/noticeRepository.js';

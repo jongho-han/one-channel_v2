@@ -1,11 +1,46 @@
 /* 샘플 고객 · 계약 · 계좌 */
+import type { Fund } from './fundRepository';
+
+/** [구분, 보장, 가입금액] */
+export type Coverage = readonly [type: string, description: string, amount: string];
+
+export interface InsuranceContract {
+  no: string;
+  name: string;
+  kind: string;
+  status: string;
+  premium: number;
+  paidCount: number;
+  totalCount: number | string;   // 갱신형은 문자열
+  startDate: string;
+  endDate: string;
+  payEnd: string;
+  surrender: number;
+  paidSum: number;
+  loan: number;
+  loanLimit: number;
+  loanRate: number;
+  insured: string;
+  insuredRelation?: string;      // 피보험자가 계약자가 아닐 때 관계
+  beneficiary: string;
+  account: string;
+  debitDay: string;
+  coverage: readonly Coverage[];
+  isVariable?: boolean;
+  isAnnuity?: boolean;
+  isUniversal?: boolean;
+  annuityAge?: number;
+  annuityDate?: string;
+  variable?: { reserve: number; principal: number; fundChangesLeft: number; funds: readonly Fund[] };
+}
+
 export const USER = {
   name: '홍길동', birth: '1978.05.12', phone: '010-1234-5678', email: 'gildong.hong@example.com',
   homeZip: '04524', homeAddress: '서울특별시 중구 세종대로 110, 101동 1203호', homeTel: '02-123-4567',
   workZip: '42020', workAddress: '대구광역시 수성구 달구벌대로 2310, 8층',   workTel: '053-740-0000',
 };
 
-export const CONTRACTS = [
+export const CONTRACTS: InsuranceContract[] = [
   { no: '2018-0012345', name: '(무)iM 든든한 종신보험', kind: '종신', status: '정상',
     premium: 128400, paidCount: 99, totalCount: 240, startDate: '2018.07.15', endDate: '종신', payEnd: '2038.06',
     surrender: 9842000, paidSum: 12711600, loan: 3000000, loanLimit: 5890000, loanRate: 0.043,
@@ -62,11 +97,11 @@ export const CONTRACTS = [
 ];
 
 /** 피보험자 표시: 본인은 이름만, 타인은 '홍서연(자녀)'처럼 관계를 붙임 */
-export const insuredLabel = contract => (contract.insuredRelation ? `${contract.insured}(${contract.insuredRelation})` : contract.insured);
-export const isInsuredOther = contract => Boolean(contract.insuredRelation);
+export const insuredLabel = (contract: Pick<InsuranceContract, 'insured' | 'insuredRelation'>): string => (contract.insuredRelation ? `${contract.insured}(${contract.insuredRelation})` : contract.insured);
+export const isInsuredOther = (contract: Pick<InsuranceContract, 'insuredRelation'>): boolean => Boolean(contract.insuredRelation);
 
-export const ACCOUNTS = ['iM뱅크 508-12-****91 (본인)', '국민은행 123-45-****01 (본인)', '신한은행 110-***-***882 (본인)'];
+export const ACCOUNTS: readonly string[] = ['iM뱅크 508-12-****91 (본인)', '국민은행 123-45-****01 (본인)', '신한은행 110-***-***882 (본인)'];
 
-export const contractByNo = no => CONTRACTS.find(contract => contract.no === no) || CONTRACTS[0];
+export const contractByNo = (no: string): InsuranceContract => CONTRACTS.find(contract => contract.no === no) || CONTRACTS[0];
 
 export const activeContracts = CONTRACTS.filter(contract => contract.status === '정상');

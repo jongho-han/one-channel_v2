@@ -1,7 +1,7 @@
 import { showNewPage } from '../app/router.js';
 import { $, $$, each, escapeHtml } from '../core/dom.js';
 import { formatClock, maskPhone } from '../core/format';
-import { USER } from '../data/customerRepository.js';
+import { USER } from '../data/customerRepository';
 import { freshScreenState, state } from '../state/store';
 import { announce, closeModal, onModalClose, openModal, toast } from '../ui/overlay.js';
 

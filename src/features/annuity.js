@@ -1,6 +1,6 @@
 import { $, $$, each, escapeHtml, focusElement } from '../core/dom.js';
 import { formatWon } from '../core/format';
-import { CONTRACTS, insuredLabel } from '../data/customerRepository.js';
+import { CONTRACTS, insuredLabel } from '../data/customerRepository';
 import { state } from '../state/store';
 
 /* 보험기간/연금개시연도 변경 (CH-05): 연금 계약 카드를 라디오로 선택 ------ */

@@ -10,10 +10,10 @@ import { openNoticeBoard } from '../pages/home.js';
 import { rerenderScreen } from '../pages/screen.js';
 import { showFundPhase, startSuitability, submitSuitability } from '../screens/fund/fundFlow';
 import { completeSingleForm } from '../screens/singleForm/completeSingleForm';
+import { confirmCancelRequest, submitDocuments } from '../screens/list/listActions';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
 import { chooseSignMethod, login, logout } from '../services/auth.js';
 import { state } from '../state/store';
-import { confirmCancelRequest, submitDocuments } from '../templates/listDetail.js';
 import { showNextStep } from '../templates/stepFlow.js';
 import { closeModal, copyText, toast } from '../ui/overlay.js';
 

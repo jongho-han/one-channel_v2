@@ -1,6 +1,6 @@
 import { flushSync } from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import { USER } from '../../data/customerRepository.js';
+import { USER } from '../../data/customerRepository';
 import { SCREEN_BY_ID } from '../../data/menu';
 import { notify, state } from '../../state/store';
 import { AppBar } from './AppBar';

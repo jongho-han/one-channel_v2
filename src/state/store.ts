@@ -69,3 +69,7 @@ export function updateScreenFlow(patch: Record<string, unknown>): void {
 export function updateScreenValues(patch: Record<string, unknown>): void {
   if (state.screen.flow) Object.assign(state.screen.flow.values ??= {}, patch);
 }
+
+export function updateScreenList(patch: Record<string, unknown>): void {
+  Object.assign(state.screen.list, patch);
+}

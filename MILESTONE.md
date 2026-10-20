@@ -37,9 +37,12 @@
 - [x] React 전환 3단계-4: T4 전용 화면(안내장 수신설정·마케팅 동의·펀드변경) → T4 전체 React (TDD) — 2026-10-20
   - 기준 화면 8종(펀드 진단·결과·불가·비교·완료 포함) + 동작 특성 테스트 6건 선작성, 펀드 규칙 순수 로직 분리(fundRules.ts)
   - 펀드·동의 데이터와 변액 계약 선택 TS 전환, templates/singleForm.js·features/fund·notice·marketing 삭제
+- [x] React 전환 3단계-5: T2 목록·상세 15개 화면 (TDD) — 2026-10-20
+  - 기준 화면 23종(첫 화면 15 + 행 선택·필터·탭 상태 8) + 동작 특성 테스트 6건 선작성, 목록 규칙 분리(listRules.ts)
+  - 보완서류 오류를 DOM 대신 목록 상태로, 고객·계약 샘플 데이터·목록 설정 TS 전환, templates/listDetail.js 삭제
 
 ## 다음 후보
-- [ ] React 전환 3단계 계속: T2 목록·상세 → T3 단계형 (금액·체크·파일 필드, formEngine.js 정리)
+- [ ] React 전환 3단계 마지막: T3 단계형 (금액·체크·파일 필드, 계약 선택·계산·동의·인증 단계) → formEngine.js·widgets.js 정리
 - [ ] 모달·폼 내부 onclick 직접 바인딩을 액션(data-action) 방식으로 통일
 - [ ] 화면별 단계 진행(T3 전 과정) 테스트 확대
 - [ ] 샘플 데이터 변경(취소·제출)을 Repository 함수로 일원화

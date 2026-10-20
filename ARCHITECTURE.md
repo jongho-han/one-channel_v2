@@ -70,7 +70,7 @@ one-channel/
     │   ├── menu-spec.json      # 메뉴정의서 행 (화면 정의 원천)
     │   ├── menuRepository.js   # 메뉴 트리·id 색인·검색 키워드
     │   ├── menu.ts             # 메뉴 데이터 타입 정의 (TS 컴포넌트용)
-    │   ├── customerRepository.js   # 고객·계약·계좌
+    │   ├── customerRepository.ts   # 고객·계약·계좌 (InsuranceContract 타입)
     │   ├── contractDocumentRepository.js  # 계약별 약관·안내장
     │   ├── fundRepository.ts   # 투자성향·적합성진단 (Fund·InvestProfile 타입)
     │   ├── consentRepository.ts    # 안내장 수신·마케팅 동의 현황
@@ -107,17 +107,17 @@ one-channel/
     │   └── screen.js           # 업무 화면 틀(LNB·제목), 화면유형별 템플릿 선택
     │
     ├── templates/              # 화면유형 공통 렌더·바인딩
-    │   ├── listDetail.js       # T2 목록+상세 (계약조회 포함)
     │   ├── stepFlow.js         # T3 단계형 신청
     │
     ├── screens/                # 화면 id별 선언형 설정 + React 전환 템플릿
-    │   ├── reactTemplates.tsx  # React로 전환한 화면유형 → 본문 요소 (T1·T4·T5, null 이면 기존 템플릿)
+    │   ├── reactTemplates.tsx  # React로 전환한 화면유형 → 본문 요소 (T1·T2·T4·T5, null 이면 기존 템플릿)
+    │   ├── list/               # T2 목록·상세 (listRules.ts 규칙 · ListScreen.tsx · ContractDetail.tsx 계약조회 · ListDetailScreen.tsx 상태 연결 · listActions.ts 취소·보완서류)
     │   ├── mountScreenBody.tsx # #sbody React 루트 마운트·해제
     │   ├── dashboard/          # T1 계약종합현황 (Dashboard.tsx · contractSummary.ts)
     │   ├── issuance/           # T5 발급 (Issuance.tsx 화면 부품 · IssuanceScreen.tsx 상태 연결)
     │   ├── singleForm/         # T4 단일폼 (SingleForm 표준 · CustomForms 안내장·마케팅 · CustomFormScreen 전용 화면 · SingleFormScreen 서명·완료 · completeSingleForm)
     │   ├── fund/               # 펀드변경 (fundRules.ts 규칙 · FundViews.tsx 편집·진단·결과·비교 · fundFlow.ts 단계 진행)
-    │   ├── listScreens.js      # T2 목록 열·필터·상세
+    │   ├── listScreens.ts      # T2 목록 열·필터·상세 (ListConfig 타입, 행 상태 변경)
     │   ├── stepFlows.js        # T3 선택·입력·계산·동의
     │   ├── changeForms.ts      # T4 현재값·입력·안내 (설정 타입 ChangeFormConfig)
     │   └── certificates.tsx    # T5 증명서·서류 (설정 타입 CertificateConfig)
@@ -128,7 +128,7 @@ one-channel/
     │   ├── annuityConversion.js    # 연금전환 사전신청 예상액
     │   ├── variableContract.ts # 변액 계약 선택 공유 (CT-03·CH-01)
     │   ├── virtualAccount.js   # 가상계좌 발급
-    │   ├── contractDocuments.js    # 약관·안내장 PDF 내려받기
+    │   ├── contractDocuments.js    # 약관·안내장 PDF 생성·내려받기
     │   ├── largeText.js        # 큰글씨모드
     │   └── shortcut.js         # 바탕화면·홈 화면 바로가기
     │
@@ -213,7 +213,7 @@ one-channel/
 | 화면유형 | 템플릿 | 화면별 설정 |
 |---|---|---|
 | T1 대시보드 | dashboard | - |
-| T2 목록+상세 | listDetail | `screens/listScreens` |
+| T2 목록+상세 | screens/list (React) | `screens/listScreens` |
 | T3 단계형 신청 | stepFlow | `screens/stepFlows` |
 | T4 단일폼 변경 | screens/singleForm (React) | `screens/changeForms` |
 | T5 발급 | issuance | `screens/certificates` |

@@ -41,7 +41,7 @@ export function summarizeContracts(contracts: readonly Contract[]): ContractsSum
 export const paymentProgress = (contract: Contract): number | null =>
   (typeof contract.totalCount === 'number' ? Math.round(contract.paidCount / contract.totalCount * 100) : null);
 
-export const insuredLabel = (contract: Contract): string =>
+export const insuredLabel = (contract: Pick<Contract, 'insured' | 'insuredRelation'>): string =>
   (contract.insuredRelation ? `${contract.insured}(${contract.insuredRelation})` : contract.insured);
 
 /** 바로가기 버튼 [이름, 화면 id] — 계약 성격에 맞는 것만 */

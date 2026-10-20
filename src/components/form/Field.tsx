@@ -1,6 +1,6 @@
 /* 입력칸 하나 (React): 레이블 · 필수 표시(별표 + 글자) · 도움말 · 오류 문구 연결 (KWCAG 25 · 26번)
    formEngine.js renderField 와 같은 마크업. 값은 비제어(default*)로 두고 readFieldValues 로 읽음 */
-import { ACCOUNTS } from '../../data/customerRepository.js';
+import { ACCOUNTS } from '../../data/customerRepository';
 import { openZipSearch } from '../../form/formEngine.js';
 import { AUTOCOMPLETE, type FieldSpec, type FieldValues } from './fieldSpec';
 

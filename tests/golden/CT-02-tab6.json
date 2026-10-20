@@ -1,0 +1,791 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "조회할 계약",
+    "class": "block mb-14 seg",
+    "role": "group"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "contract-tab",
+      "data-index": "0"
+     },
+     "children": [
+      "든든한 종신보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "contract-tab",
+      "data-index": "1"
+     },
+     "children": [
+      "하이브리드 변액연금보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "contract-tab",
+      "data-index": "2"
+     },
+     "children": [
+      "실손의료비보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "contract-tab",
+      "data-index": "3"
+     },
+     "children": [
+      "유니버설저축보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "contract-tab",
+      "data-index": "4"
+     },
+     "children": [
+      "행복드림 연금보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "contract-tab",
+      "data-index": "5"
+     },
+     "children": [
+      "변액유니버설 종신보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "true",
+      "class": "on",
+      "data-action": "contract-tab",
+      "data-index": "6"
+     },
+     "children": [
+      "튼튼 어린이보험"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "data-action": "contract-tab",
+      "data-index": "7"
+     },
+     "children": [
+      "든든 암보험"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "class": "split"
+     },
+     "children": [
+      "(무)iM 튼튼 어린이보험",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "g st"
+       },
+       "children": [
+        "정상"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "증권번호"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "2019-0234567"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "계약일"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "2019.07.10"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "보험기간"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "2049.07.10 만기"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "납입기간"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "2039.06까지"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "보장내용"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "보장내용 표 (좌우로 스크롤할 수 있음)",
+      "class": "tbl-wrap",
+      "role": "region",
+      "tabindex": "0"
+     },
+     "children": [
+      {
+       "tag": "table",
+       "attrs": {
+        "class": "min-420 tbl"
+       },
+       "children": [
+        {
+         "tag": "thead",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "구분"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "보장"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "r",
+              "scope": "col"
+             },
+             "children": [
+              "가입금액"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tbody",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "주계약"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "질병·상해 입원 1일당"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "30,000원"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "골절진단특약"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "골절 진단 시"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "300,000원"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "어린이실손특약"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "입원·통원 의료비"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num r"
+             },
+             "children": [
+              "본인부담 80% 보상"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "계약관계자 · 납입정보"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "계약자"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "홍길동"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "피보험자"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "홍서연(자녀)"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "수익자"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "홍길동(계약자)"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "월 보험료"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "45,000원"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "납입 회차"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "87회 / 240회"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "자동이체"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {},
+       "children": [
+        "iM뱅크 508-12-****91 · 매월 25일"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "inline mt-16 navrow"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn",
+        "data-action": "open",
+        "data-id": "CH-10"
+       },
+       "children": [
+        "계약관계자 변경"
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn",
+        "data-action": "open",
+        "data-id": "PM-02"
+       },
+       "children": [
+        "자동이체 변경"
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn pri",
+        "data-action": "open",
+        "data-id": "CF-03"
+       },
+       "children": [
+        "보험증권 재발급"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "약관 · 안내장"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "(무)iM 튼튼 어린이보험 약관 표 (좌우로 스크롤할 수 있음)",
+      "class": "tbl-wrap",
+      "role": "region",
+      "tabindex": "0"
+     },
+     "children": [
+      {
+       "tag": "table",
+       "attrs": {
+        "class": "min-420 tbl"
+       },
+       "children": [
+        {
+         "tag": "caption",
+         "attrs": {
+          "class": "sr-only"
+         },
+         "children": [
+          "(무)iM 튼튼 어린이보험 약관·안내장 목록"
+         ]
+        },
+        {
+         "tag": "thead",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "구분"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "서류명"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "col"
+             },
+             "children": [
+              "기준일"
+             ]
+            },
+            {
+             "tag": "th",
+             "attrs": {
+              "class": "r",
+              "scope": "col"
+             },
+             "children": [
+              "내려받기"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tbody",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "약관"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "보험약관"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "2019.07.10"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "button",
+               "attrs": {
+                "class": "btn sm",
+                "data-action": "download-contract-doc",
+                "data-doc": "terms",
+                "data-no": "2019-0234567"
+               },
+               "children": [
+                {
+                 "tag": "svg",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "i",
+                  "viewBox": "0 0 24 24"
+                 },
+                 "children": [
+                  {
+                   "tag": "path",
+                   "attrs": {
+                    "d": "M6 3h12v18H6z"
+                   },
+                   "children": []
+                  },
+                  {
+                   "tag": "path",
+                   "attrs": {
+                    "d": "M9 8h6M9 12h6M9 16h3"
+                   },
+                   "children": []
+                  }
+                 ]
+                },
+                "PDF",
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "sr-only"
+                 },
+                 "children": [
+                  "보험약관 내려받기"
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "안내장"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              "보험상품안내장"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "num"
+             },
+             "children": [
+              "2019.07.10"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {
+              "class": "r"
+             },
+             "children": [
+              {
+               "tag": "button",
+               "attrs": {
+                "class": "btn sm",
+                "data-action": "download-contract-doc",
+                "data-doc": "product-notice",
+                "data-no": "2019-0234567"
+               },
+               "children": [
+                {
+                 "tag": "svg",
+                 "attrs": {
+                  "aria-hidden": "true",
+                  "class": "i",
+                  "viewBox": "0 0 24 24"
+                 },
+                 "children": [
+                  {
+                   "tag": "path",
+                   "attrs": {
+                    "d": "M6 3h12v18H6z"
+                   },
+                   "children": []
+                  },
+                  {
+                   "tag": "path",
+                   "attrs": {
+                    "d": "M9 8h6M9 12h6M9 16h3"
+                   },
+                   "children": []
+                  }
+                 ]
+                },
+                "PDF",
+                {
+                 "tag": "span",
+                 "attrs": {
+                  "class": "sr-only"
+                 },
+                 "children": [
+                  "보험상품안내장 내려받기"
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "note-sm"
+     },
+     "children": [
+      "약관과 보험상품안내장은 가입 당시 기준입니다."
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -2,7 +2,7 @@ import { AUTOCOMPLETE } from '../components/form/fieldSpec';
 import { $, $$, each, escapeHtml, focusElement, when } from '../core/dom.js';
 import { formatWon, toNumber } from '../core/format';
 import { ZIP_SAMPLES } from '../data/addressRepository.js';
-import { ACCOUNTS } from '../data/customerRepository.js';
+import { ACCOUNTS } from '../data/customerRepository';
 import { NOT_APPLICABLE } from '../features/annuity.js';
 import { icon } from '../ui/icons.js';
 import { announce, closeModal, openModal } from '../ui/overlay.js';

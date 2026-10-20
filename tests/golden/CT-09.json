@@ -1,0 +1,800 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "filters"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "f"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "f-계약"
+       },
+       "children": [
+        "계약"
+       ]
+      },
+      {
+       "tag": "select",
+       "attrs": {
+        "class": "inp sm",
+        "data-filter": "계약",
+        "id": "f-계약"
+       },
+       "children": [
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "전체"
+         ],
+         "state": {
+          "selected": true
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "(무)iM 든든한 종신보험"
+         ],
+         "state": {
+          "selected": false
+         }
+        },
+        {
+         "tag": "option",
+         "attrs": {},
+         "children": [
+          "(무)iM 하이브리드 변액연금보험"
+         ],
+         "state": {
+          "selected": false
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "end f"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "class": "btn navy sm",
+        "data-action": "toast",
+        "data-message": "조회했습니다."
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "circle",
+           "attrs": {
+            "cx": "11",
+            "cy": "11",
+            "r": "7"
+           },
+           "children": []
+          },
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M20 20l-4-4"
+           },
+           "children": []
+          }
+         ]
+        },
+        "조회"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-label": "전자서명계약서류 조회 목록 표 (좌우로 스크롤할 수 있음)",
+    "class": "has-m tbl-wrap",
+    "role": "region",
+    "tabindex": "0"
+   },
+   "children": [
+    {
+     "tag": "table",
+     "attrs": {
+      "class": "tbl"
+     },
+     "children": [
+      {
+       "tag": "caption",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "전자서명계약서류 조회 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다"
+       ]
+      },
+      {
+       "tag": "thead",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "서명일시"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "서류명"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "계약"
+           ]
+          },
+          {
+           "tag": "th",
+           "attrs": {
+            "scope": "col"
+           },
+           "children": [
+            "파일"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "tbody",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "0"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "0"
+             },
+             "children": [
+              "2020.03.02 14:21",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "전자청약서"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2020.03.02 14:21 전자청약서 PDF",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "1"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "1"
+             },
+             "children": [
+              "2020.03.02 14:21",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "상품설명서"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2020.03.02 14:21 상품설명서 PDF",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "2"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "2"
+             },
+             "children": [
+              "2020.03.02 14:22",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "보험약관"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2020.03.02 14:22 보험약관 PDF",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "tr",
+         "attrs": {
+          "class": "clk",
+          "data-action": "select-row",
+          "data-index": "3"
+         },
+         "children": [
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-pressed": "false",
+              "class": "cell-btn",
+              "data-action": "select-row",
+              "data-index": "3"
+             },
+             "children": [
+              "2018.07.15 10:05",
+              {
+               "tag": "span",
+               "attrs": {
+                "class": "sr-only"
+               },
+               "children": [
+                "상세 보기"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "전자청약서"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든한 종신보험"
+           ]
+          },
+          {
+           "tag": "td",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "button",
+             "attrs": {
+              "aria-label": "2018.07.15 10:05 전자청약서 PDF",
+              "class": "btn sm",
+              "data-action": "toast",
+              "data-message": "PDF 열람은 실제 서비스에서 제공됩니다."
+             },
+             "children": [
+              {
+               "tag": "svg",
+               "attrs": {
+                "aria-hidden": "true",
+                "class": "i",
+                "viewBox": "0 0 24 24"
+               },
+               "children": [
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M6 3h12v18H6z"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "path",
+                 "attrs": {
+                  "d": "M9 8h6M9 12h6M9 16h3"
+                 },
+                 "children": []
+                }
+               ]
+              },
+              "PDF"
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "mlist"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "0"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "전자청약서"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "서명일시 · 2020.03.02 14:21"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계약 · (무)iM 하이브리드 변액연금보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "파일 · PDF"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "상품설명서"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "서명일시 · 2020.03.02 14:21"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계약 · (무)iM 하이브리드 변액연금보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "파일 · PDF"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "2"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "보험약관"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "서명일시 · 2020.03.02 14:22"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계약 · (무)iM 하이브리드 변액연금보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "파일 · PDF"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "aria-pressed": "false",
+      "class": "mrow",
+      "data-action": "select-row",
+      "data-index": "3"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "t"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "전자청약서"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "s"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "서명일시 · 2018.07.15 10:05"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "계약 · (무)iM 든든한 종신보험"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "파일 · PDF"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

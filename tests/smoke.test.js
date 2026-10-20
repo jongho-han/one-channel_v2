@@ -548,3 +548,99 @@ test('CH-01 진단 결과 투자성향이 낮으면 변경 불가·익일 재진
   assert.match($('#layer').textContent, /오늘은 적합성진단을 다시 할 수 없습니다/);
   assert.deepEqual(errors, []);
 });
+
+/* ---- T2 목록·상세 (15개 화면) ---- */
+const LIST_IDS = ['MY-04', 'MY-07', 'CT-02', 'CT-03', 'CT-04', 'CT-05', 'CT-06', 'CT-07', 'CT-08', 'CT-09', 'PY-02', 'PY-03', 'PY-06', 'LN-01', 'LN-03'];
+const attachFiles = (input, names) => {
+  Object.defineProperty(input, 'files', { configurable: true, value: names.map(name => new window.File(['x'], name, { type: 'application/pdf' })) });
+  input.dispatchEvent(new window.Event('change', { bubbles: true }));
+};
+
+for (const id of LIST_IDS) {
+  test(`T2 ${id} 첫 화면 본문이 기준 화면과 같다`, () => {
+    login();
+    window.App.openScreen(id);
+    assertMatchesGolden(id);
+    assert.deepEqual(errors, []);
+  });
+}
+
+test('T2 행을 고르면 상세와 이어서 할 일 (PY-02 보완서류 · 지급완료 재심사)', () => {
+  login();
+  window.App.openScreen('PY-02');
+  click($('.cell-btn[data-index="0"]'));
+  assertMatchesGolden('PY-02-row0');
+  assert.equal(window.document.querySelectorAll('tr.sel').length, 1);
+  click($('.mrow[data-index="1"]'));
+  assertMatchesGolden('PY-02-row1');
+  click($('[data-action="close-row"]'));
+  assert.equal($('#rowDetail'), null);
+  assert.deepEqual(errors, []);
+});
+
+test('T2 보완서류를 올리면 파일 이름을 보여주고 제출하면 처리중 (PY-02)', () => {
+  login();
+  window.App.openScreen('PY-02');
+  click($('.cell-btn[data-index="0"]'));
+  click($('[data-action="submit-documents"]'));
+  assert.equal($('#uplErr').textContent, '보완서류를 1장 이상 올려 주세요.');
+  assert.equal(window.document.activeElement, $('#upl'));
+  attachFiles($('#upl'), ['세부내역서.pdf', '영수증.jpg']);
+  assert.deepEqual(texts('#fl-upl .fchip'), ['세부내역서.pdf', '영수증.jpg']);
+  click($('[data-action="submit-documents"]'));
+  assert.equal($('#rowDetail'), null);
+  assert.equal($('tbody tr .st').textContent, '처리중');
+  assert.ok(toasts().includes('보완서류를 제출했습니다. 알림톡으로 결과를 알려드립니다.'));
+  assert.deepEqual(errors, []);
+});
+
+test('T2 처리 전 신청은 취소할 수 있다 (PY-06 · LN-03)', () => {
+  login();
+  window.App.openScreen('PY-06');
+  click($('.cell-btn[data-index="0"]'));
+  assertMatchesGolden('PY-06-row0');
+  click($('[data-action="cancel-request"]'));
+  assert.match($('#layer').textContent, /중도인출 신청이 취소됩니다/);
+  click($('#cOk'));
+  assert.equal($('#rowDetail'), null);
+  assert.equal($('tbody tr .st').textContent, '취소');
+  assert.ok(toasts().includes('신청을 취소했습니다.'));
+
+  window.App.openScreen('LN-03');
+  click($('.cell-btn[data-index="0"]'));
+  assertMatchesGolden('LN-03-row0');
+  assert.deepEqual(errors, []);
+});
+
+test('T2 보험금 찾기는 종류에 맞는 신청 화면으로 (PY-03)', () => {
+  login();
+  window.App.openScreen('PY-03');
+  click($('.cell-btn[data-index="1"]'));
+  assertMatchesGolden('PY-03-row1');
+  click($('#rowDetail [data-action="open"]'));
+  assert.equal(window.App.state.route.screenId, 'PY-04');
+  assert.deepEqual(errors, []);
+});
+
+test('T2 조회기간·필터에 맞는 행만 보여준다 (CT-08)', () => {
+  login();
+  window.App.openScreen('CT-08');
+  click($('[data-action="set-period"][data-period="1년"]'));
+  assert.equal($('[data-action="set-period"].on').dataset.period, '1년');
+  click($('.cell-btn[data-index="0"]'));
+  setInput($('#f-거래구분'), '지급');
+  assert.equal($('#rowDetail'), null, '필터를 바꾸면 상세 닫힘');
+  assertMatchesGolden('CT-08-filter');
+  assert.deepEqual(errors, []);
+});
+
+test('T2 계약조회 계약 탭 · 변액 계약 탭 (CT-02 · CT-03)', () => {
+  login();
+  window.App.openScreen('CT-02');
+  click($('[data-action="contract-tab"][data-index="6"]'));
+  assertMatchesGolden('CT-02-tab6');
+  window.App.openScreen('CT-03');
+  click($('[data-action="variable-tab"][data-no="2021-0345678"]'));
+  assertMatchesGolden('CT-03-tab2');
+  assert.deepEqual(errors, []);
+});

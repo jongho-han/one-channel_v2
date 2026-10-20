@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { FieldValues } from '../../components/form/fieldSpec';
 import { APP } from '../../core/config';
 import { scrollToTop } from '../../core/dom.js';
-import { USER } from '../../data/customerRepository.js';
+import { USER } from '../../data/customerRepository';
 import type { ScreenSpec } from '../../data/menu';
 import { rerenderScreen } from '../../pages/screen.js';
 import { state } from '../../state/store';

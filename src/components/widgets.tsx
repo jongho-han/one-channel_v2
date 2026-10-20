@@ -60,3 +60,12 @@ export function SummaryTiles({ tiles }: { tiles: readonly (readonly [label: stri
     </dl>
   );
 }
+
+/** 다른 화면으로 가는 버튼 줄 (primaryIndex 번째 버튼을 강조) */
+export function LinkButtons({ links, spacing = 'mt-18', primaryIndex = 0 }: { links: readonly (readonly [label: string, screenId: string])[]; spacing?: string; primaryIndex?: number }) {
+  return (
+    <div className={`navrow inline ${spacing}`}>
+      {links.map(([label, id], index) => <button key={id} className={index === primaryIndex ? 'btn pri' : 'btn'} data-action="open" data-id={id}>{label}</button>)}
+    </div>
+  );
+}
