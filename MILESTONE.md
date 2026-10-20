@@ -26,9 +26,12 @@
 - [x] React + TypeScript 전환 2단계 (TDD) — 2026-10-20
   - 공통 셸(헤더·메가메뉴·앱바·탭바) React 전환, store TS 전환·구독(subscribe/notify), 메뉴 데이터 타입(menu.ts)
   - 셸 특성 테스트 5건 선작성 — 메가메뉴 Esc 후 초점 복귀 시 다시 열리던 버그 발견·수정
+- [x] React 전환 3단계-1: T1 대시보드(계약종합현황) (TDD) — 2026-10-20
+  - 업무 화면 본문 React 마운트 기반(mountScreenBody·reactTemplates), 상태칩·안내 박스 React 부품
+  - 전환 전 화면 구조를 기준(golden)으로 저장해 전환 후 동일성 비교하는 테스트 도입
 
 ## 다음 후보
-- [ ] React 전환 3단계: 화면 템플릿(T1~T5) → 업무 화면 단위 전환
+- [ ] React 전환 3단계 계속: T5 발급 → T4 단일폼 → T2 목록 → T3 단계형 (폼 엔진 포함)
 - [ ] 모달·폼 내부 onclick 직접 바인딩을 액션(data-action) 방식으로 통일
 - [ ] 화면별 단계 진행(T3 전 과정) 테스트 확대
 - [ ] 샘플 데이터 변경(취소·제출)을 Repository 함수로 일원화

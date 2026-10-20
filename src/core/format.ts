@@ -1,4 +1,9 @@
-export const formatWon  = <T,>(value: number | T): string | T => (typeof value === 'number' ? value.toLocaleString('ko-KR') + '원' : value);
+/** 금액 표시: 숫자는 '1,234원', 숫자가 아니면(예: '-') 그대로 */
+export function formatWon(value: number): string;
+export function formatWon<T>(value: T): T | string;
+export function formatWon(value: unknown) {
+  return typeof value === 'number' ? value.toLocaleString('ko-KR') + '원' : value;
+}
 export const toNumber   = (text: unknown): number => Number(String(text).replace(/[^\d]/g, '')) || 0;
 export const maskPhone  = (phone: string): string => phone.replace(/(\d{3})-(\d{4})-(\d{4})/, '$1-****-$3');
 export const clockTime  = (): string => new Date().toTimeString().slice(0, 5);

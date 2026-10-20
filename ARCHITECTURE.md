@@ -33,6 +33,8 @@ one-channel/
 │
 ├── tests/
 │   ├── smoke.test.js           # 빌드본(dist) jsdom 스모크·회귀 테스트
+│   ├── domShape.js             # DOM 구조 정규화 (golden 비교용)
+│   ├── golden/                 # 전환 전 업무 화면 본문 구조 기준 (CT-01 …)
 │   └── unit/                   # vitest 단위 테스트 (TS 모듈·React 컴포넌트)
 │
 └── src/
@@ -42,6 +44,7 @@ one-channel/
     │   ├── Icon.tsx            # SVG 선 아이콘 (경로는 ui/icons.js)
     │   ├── Footer.tsx          # 공통 하단 이용 안내·회사 정보
     │   ├── mountFooter.tsx     # #footer 에 React 루트 마운트
+    │   ├── widgets.tsx         # 상태칩·안내 박스 (React)
     │   └── shell/              # 공통 셸
     │       ├── Header.tsx      # PC 헤더 (로고·주메뉴·큰글씨·로그인·전체메뉴)
     │       ├── MegaMenu.tsx    # 주메뉴 2Depth·3Depth 메가메뉴
@@ -87,6 +90,7 @@ one-channel/
     │
     ├── ui/                     # 재사용 UI 위젯
     │   ├── widgets.js          # 안내 박스·버튼 줄·요약 타일·완료 카드
+    │   ├── statusTone.ts       # 처리 상태 → 색 톤 (JS·React 공용)
     │   ├── overlay.js          # 모달·토스트·화면낭독기 안내
     │   ├── icons.js            # SVG 아이콘
     │   └── a11y.js             # 표 접근성 보정
@@ -101,13 +105,15 @@ one-channel/
     │   └── screen.js           # 업무 화면 틀(LNB·제목), 화면유형별 템플릿 선택
     │
     ├── templates/              # 화면유형 공통 렌더·바인딩
-    │   ├── dashboard.js        # T1 대시보드
     │   ├── listDetail.js       # T2 목록+상세 (계약조회 포함)
     │   ├── stepFlow.js         # T3 단계형 신청
     │   ├── singleForm.js       # T4 단일폼 변경
     │   └── issuance.js         # T5 발급
     │
-    ├── screens/                # 화면 id별 선언형 설정
+    ├── screens/                # 화면 id별 선언형 설정 + React 전환 템플릿
+    │   ├── reactTemplates.tsx  # React로 전환한 화면유형 → 본문 요소 (현재 T1)
+    │   ├── mountScreenBody.tsx # #sbody React 루트 마운트·해제
+    │   ├── dashboard/          # T1 계약종합현황 (Dashboard.tsx · contractSummary.ts)
     │   ├── listScreens.js      # T2 목록 열·필터·상세
     │   ├── stepFlows.js        # T3 선택·입력·계산·동의
     │   ├── changeForms.js      # T4 현재값·입력·안내

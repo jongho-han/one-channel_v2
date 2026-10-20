@@ -1,8 +1,9 @@
 /* 빌드 결과(dist/index.html)를 jsdom에 올려 전 화면 렌더링과 주요 회귀 버그를 확인 */
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
+import { domShape } from './domShape.js';
 
 const html = readFileSync(new URL('../dist/index.html', import.meta.url), 'utf8');
 const SCRIPT = /<script type="module"[^>]*>([\s\S]*?)<\/script>/;
@@ -232,5 +233,20 @@ test('셸은 React가 유지해 화면 이동 시 요소를 다시 만들지 않
   window.App.navigate('home');
   assert.equal($('#header .logo'), logo);
   assert.equal($('#tabbar button'), homeTab);
+  assert.deepEqual(errors, []);
+});
+
+/* ---- 업무 화면 본문 golden 비교: 기준 파일은 전환 전(JS) 화면에서 UPDATE_GOLDEN=1 로 생성 ---- */
+function assertMatchesGolden(name) {
+  const file = new URL(`./golden/${name}.json`, import.meta.url);
+  const shape = domShape($('#sbody'));
+  if (process.env.UPDATE_GOLDEN) writeFileSync(file, JSON.stringify(shape, null, 1) + '\n');
+  assert.deepEqual(shape, JSON.parse(readFileSync(file, 'utf8')));
+}
+
+test('T1 계약종합현황(CT-01) 본문이 기준 화면과 같다', () => {
+  login();
+  window.App.openScreen('CT-01');
+  assertMatchesGolden('CT-01');
   assert.deepEqual(errors, []);
 });

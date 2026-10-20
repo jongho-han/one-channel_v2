@@ -1,5 +1,6 @@
 import { refreshShell } from '../components/shell/mountShell';
 import { $ } from '../core/dom.js';
+import { unmountScreenBody } from '../screens/mountScreenBody';
 import { renderAllMenuPage } from '../pages/allMenu.js';
 import { renderHomePage } from '../pages/home.js';
 import { renderLoginPage } from '../pages/login.js';
@@ -24,6 +25,7 @@ export function refresh() {
 export function render() {
   state.ui.mega = null;   // 화면을 다시 그리면 메가메뉴는 닫힘
   refreshShell();
+  unmountScreenBody();   // 업무 화면을 떠나면 React 본문 해제 (업무 화면이면 다시 마운트)
   PAGES[state.route.page]();
   applyTableA11y($('#main'));
   document.title = documentTitle();

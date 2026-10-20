@@ -1,15 +1,9 @@
 import { each, escapeHtml, when } from '../core/dom.js';
 import { icon } from './icons.js';
+import { statusTone } from './statusTone';
 
 /* 화면 공통 부품 ---------------------------------------------------- */
-const STATUS_TONE = {
-  '정상': 'g', '완료': 'g', '지급완료': 'g', '실행완료': 'g',
-  '납입유예': 'a',
-  '보완서류 요청': 'r', '연체': 'r', '미납': 'r',
-  '접수': 'b', '심사중': 'b', '처리중': 'b',
-  '취소': 'n',
-};
-export const statusChip = status => `<span class="st ${STATUS_TONE[status] || 'n'}">${escapeHtml(status)}</span>`;
+export const statusChip = status => `<span class="st ${statusTone(status)}">${escapeHtml(status)}</span>`;
 
 export const infoBox = (tone, iconName, html, spacing = '') => `<div class="box ${tone} ${spacing}">${icon(iconName)}<div>${html}</div></div>`;
 

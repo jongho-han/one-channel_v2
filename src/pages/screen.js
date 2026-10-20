@@ -5,9 +5,10 @@ import { MENU_GROUPS, MENU_TREE, SCREEN_BY_ID } from '../data/menuRepository.js'
 import { readFieldValues } from '../form/formEngine.js';
 import { CERTIFICATES } from '../screens/certificates.js';
 import { CHANGE_FORMS } from '../screens/changeForms.js';
+import { mountScreenBody, unmountScreenBody } from '../screens/mountScreenBody';
+import { REACT_TEMPLATES } from '../screens/reactTemplates';
 import { STEP_FLOWS } from '../screens/stepFlows.js';
 import { state } from '../state/store';
-import { renderDashboard } from '../templates/dashboard.js';
 import { bindIssuance, renderIssuance } from '../templates/issuance.js';
 import { bindListDetail, renderListDetail } from '../templates/listDetail.js';
 import { bindSingleForm, renderSingleForm } from '../templates/singleForm.js';
@@ -16,9 +17,9 @@ import { applyTableA11y } from '../ui/a11y.js';
 import { icon } from '../ui/icons.js';
 
 /* 업무 화면 ============================================================ */
-/** 화면유형별 템플릿: render()는 HTML을, bind()는 그 화면에만 필요한 입력 동작을 담당 */
+/** 화면유형별 템플릿: render()는 HTML을, bind()는 그 화면에만 필요한 입력 동작을 담당
+    React로 전환한 유형(T1)은 screens/reactTemplates 가 본문을 그림 */
 const TEMPLATES = {
-  T1: { render: renderDashboard },
   T2: { render: renderListDetail, bind: bindListDetail },
   T3: { render: renderStepFlow,   bind: bindStepFlow   },
   T4: { render: renderSingleForm, bind: bindSingleForm },
@@ -29,7 +30,9 @@ const TEMPLATES = {
 export function renderScreenPage(screenId) {
   const screen = SCREEN_BY_ID[screenId];
   const template = TEMPLATES[screen.screenType];
+  const reactBody = REACT_TEMPLATES[screen.screenType];
 
+  unmountScreenBody();
   $('#main').innerHTML = `
   <div class="page"><div class="wrap sub-layout">
     ${screenSideMenu(screen)}
@@ -39,11 +42,12 @@ export function renderScreenPage(screenId) {
         <div><h1>${escapeHtml(screen.depth3)}</h1><p>${screenSubtitle(screen)}</p></div>
         <div class="badges">${screenAuthBadge(screen)}<span class="bdg">이용대상 · ${escapeHtml(screen.target)}</span></div>
       </div>
-      <div id="sbody">${template.render(screen)}</div>
+      <div id="sbody">${reactBody ? '' : template.render(screen)}</div>
     </div>
   </div></div>`;
 
-  template.bind?.(screen, $('#sbody'));
+  if (reactBody) mountScreenBody($('#sbody'), reactBody(screen));
+  else template.bind?.(screen, $('#sbody'));
   applyTableA11y($('#main'));
   document.title = documentTitle();
 }
