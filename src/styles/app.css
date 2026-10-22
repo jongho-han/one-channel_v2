@@ -17,6 +17,7 @@
   /* Starbucks 영감 테마(DESIGN.md): Green Accent·Starbucks Green·House Green 4단계 그린 + 웜 크림 캔버스 */
   --brand: #00754A;  --brand-fill: #00754A;  --brand-ink: #006241;  --brand-deep: #1E3932;
   --brand-soft: #E3F0EB;  --brand-line: #B5D6C9;  --brand-hover: #006241;
+  --logo-teal: #00C4A6;  --logo-mid: #61D687;  --logo-lime: #DFEE5F;   /* iM 심볼 (iM_symbol.ai) 전용 */
   --gold: #CBA258;  --gold-soft: #F4EBDD;
   /* 글자 · 선 · 배경 */
   --navy: #1E3932;  --ink: #212121;  --sub: #5E5E5E;  --mute: #626262;
@@ -83,7 +84,9 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; 
 .top > .wrap { display: flex; align-items: center; gap: 28px; height: 68px; }
 .top .actions { display: flex; align-items: center; gap: 8px; }
 .logo { display: flex; align-items: center; gap: 10px; padding: 0; border: 0; background: none; }
-.logo .mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--brand-fill); color: #fff; font-size: 15px; font-weight: 800; letter-spacing: -.5px; }
+.logo .mark { flex: none; width: 44px; height: 22px; }
+.logo .mark .solid { fill: var(--logo-teal); }
+.logo .mark .s0 { stop-color: var(--logo-teal); }  .logo .mark .s1 { stop-color: var(--logo-mid); }  .logo .mark .s2 { stop-color: var(--logo-lime); }
 .logo .text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
 .logo .text b { font-size: 17px; font-weight: 800; color: var(--navy); letter-spacing: -.3px; }
 .logo .text small { font-size: 11.5px; font-weight: 600; color: var(--brand-ink); letter-spacing: .5px; }
