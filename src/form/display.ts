@@ -1,7 +1,7 @@
 /* 폼 값 표시·조건부 항목·처음 그려질 때의 값 */
 import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
 import { formatWon, toNumber } from '../core/format';
-import { ACCOUNTS } from '../data/customerRepository';
+import { accountOptions } from '../data/accountRepository';
 
 type Value = FieldValues[string];
 
@@ -37,7 +37,7 @@ export function renderedValues(fields: readonly FieldSpec[], values: FieldValues
     switch (field.type) {
       case 'radio':   result[id] = String(value || field.options?.[0] || ''); break;
       case 'select':  result[id] = firstOrPick(field.options ?? [], String(value), field.placeholder); break;
-      case 'account': result[id] = firstOrPick([...ACCOUNTS, '다른 본인 계좌 등록'], String(value)); break;
+      case 'account': result[id] = firstOrPick(accountOptions(), String(value)); break;
       case 'checks':  result[id] = Array.isArray(value) ? value : []; break;
       case 'money':   result[id] = toNumber(value); break;
       case 'file':    result[id] = []; break;

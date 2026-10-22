@@ -1008,6 +1008,38 @@ const stubDownload = () => {
   return saved;
 };
 
+test('출금 계좌 「다른 본인 계좌 등록」: 계좌 확인(은행) 후 등록하면 선택됨, 취소하면 원래 계좌 (PM-01)', async () => {
+  goToInput('PM-01');
+  $('input[name="cnt"][value="2개월 선납"]').click();
+  setInput($('#acct'), '국민은행 123-45-****01 (본인)');
+  setInput($('#acct'), '다른 본인 계좌 등록');
+  layerGolden('account-register');
+  escape();
+  assert.equal($('#layer .dim'), null);
+  assert.equal($('#acct').value, '국민은행 123-45-****01 (본인)', '취소하면 원래 고른 계좌로');
+  assert.equal(window.document.activeElement, $('#acct'));
+
+  setInput($('#acct'), '다른 본인 계좌 등록');
+  click($('#nbRegister'));
+  assert.equal($('#layer [role="alert"]').textContent, '계좌 확인을 먼저 해 주세요.');
+  setInput($('#nbBank'), 'NH농협은행');
+  setInput($('#nbNo'), '352-0123-4567-89');
+  click($('#nbCheck'));
+  assert.match($('#nbCheck').textContent, /확인 중/);
+  await wait(1000);
+  assert.match($('#layer').textContent, /예금주 홍길동 · 본인 계좌 확인 완료/);
+  click($('#nbRegister'));
+  assert.equal($('#layer .dim'), null);
+  assert.equal($('#acct').value, 'NH농협은행 352-****-789 (본인)', '등록한 계좌가 선택됨');
+  assert.equal(window.document.activeElement, $('#acct'));
+  assert.ok(toasts().includes('계좌를 등록했습니다.'));
+  assert.equal($('input[name="cnt"][value="2개월 선납"]').checked, true, '다른 입력값 유지');
+  click($('#next'));
+  assert.equal(currentStepName(), '확인');
+  assert.match($('#sbody').textContent, /NH농협은행 352-\*\*\*\*-789 \(본인\)/);
+  assert.deepEqual(errors, []);
+});
+
 test('모달: 첫 버튼으로 초점, Esc 닫기 후 연 버튼으로 초점 복귀 (확인 창 · MY-02)', () => {
   login();
   window.App.openScreen('MY-02');

@@ -490,6 +490,8 @@ table.tbl.min-520 { min-width: 520px; }
 .fld .req { margin-left: 2px; color: var(--red); }
 .fld .help { font-size: 12.5px; color: var(--mute); }
 .fld .err { font-size: 12.5px; color: var(--red); }
+.modal p.err { margin-bottom: 0; font-size: 13px; color: var(--red); }
+.modal .fld + .fld { margin-top: 14px; }
 .agree-err { display: block; margin-top: 6px; font-size: 12.5px; color: var(--red); }
 .inp { width: 100%; min-height: 48px; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; outline: 0; background: #fff; font-size: 15.5px; transition: border-color .15s; }
 .inp.sm { min-height: 40px; padding: 7px 12px; }

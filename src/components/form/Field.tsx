@@ -1,10 +1,11 @@
 /* 입력칸 하나 (React): 레이블 · 필수 표시(별표 + 글자) · 도움말 · 오류 문구 연결 (KWCAG 25 · 26번)
    값은 비제어(default*)로 두고 form/fieldValues 의 readFieldValues 로 읽음
    (고정 규칙이 걸린 라디오만 제어 — 고정값을 화면이 바로 따라가게) */
-import { useState, type FormEvent, type MouseEvent } from 'react';
+import { useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from 'react';
 import { flushSync } from 'react-dom';
 import { toNumber } from '../../core/format';
-import { ACCOUNTS } from '../../data/customerRepository';
+import { NEW_ACCOUNT, accountOptions } from '../../data/accountRepository';
+import { openAccountRegister } from '../../features/accountRegister';
 import { openZipSearch } from '../../form/zipSearch';
 import { NOT_APPLICABLE } from '../../form/locks';
 import { Icon } from '../Icon';
@@ -133,13 +134,31 @@ function RadioControl({ field, value, lock, onChange }: ControlProps) {
   );
 }
 
+/** 계좌 선택: 「다른 본인 계좌 등록」을 고르면 등록 창 (취소하면 직전 계좌로 되돌림) */
+function AccountControl({ field, value, invalid, onChange }: ControlProps) {
+  const options = accountOptions();
+  const previous = useRef(value || options[0]);
+  const change = (event: ChangeEvent<HTMLSelectElement>) => {
+    const select = event.currentTarget;
+    if (select.value === NEW_ACCOUNT) { openAccountRegister(select, previous.current); return; }
+    previous.current = select.value;
+    onChange?.(select.value);
+  };
+  return (
+    <select className={inputClass('inp', invalid)} id={field.id} name={field.id} defaultValue={value || undefined} onChange={change} {...inputAttributes(field, invalid)}>
+      {options.map(option => <option key={option}>{option}</option>)}
+    </select>
+  );
+}
+
 function Control(props: ControlProps) {
   const { field, value, values, invalid, onChange } = props;
   const { id } = field;
   switch (field.type) {
-    case 'select':
-    case 'account': {
-      const options = field.type === 'account' ? [...ACCOUNTS, '다른 본인 계좌 등록'] : field.options ?? [];
+    case 'account':
+      return <AccountControl {...props} />;
+    case 'select': {
+      const options = field.options ?? [];
       return (
         <select className={inputClass('inp', invalid)} id={id} name={id} defaultValue={value || undefined} onChange={event => onChange?.(event.target.value)} {...inputAttributes(field, invalid)}>
           {field.placeholder && <option value="">{field.placeholder}</option>}

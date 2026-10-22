@@ -100,8 +100,6 @@ export const CONTRACTS: InsuranceContract[] = [
 export const insuredLabel = (contract: Pick<InsuranceContract, 'insured' | 'insuredRelation'>): string => (contract.insuredRelation ? `${contract.insured}(${contract.insuredRelation})` : contract.insured);
 export const isInsuredOther = (contract: Pick<InsuranceContract, 'insuredRelation'>): boolean => Boolean(contract.insuredRelation);
 
-export const ACCOUNTS: readonly string[] = ['iM뱅크 508-12-****91 (본인)', '국민은행 123-45-****01 (본인)', '신한은행 110-***-***882 (본인)'];
-
 export const contractByNo = (no: string): InsuranceContract => CONTRACTS.find(contract => contract.no === no) || CONTRACTS[0];
 
 export const activeContracts = CONTRACTS.filter(contract => contract.status === '정상');

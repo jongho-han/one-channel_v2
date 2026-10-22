@@ -28,3 +28,8 @@ describe('validateValues', () => {
     expect(validateValues(fields, { nm: '', memo: '', tel: '010-1234-5678' })).toEqual({ nm: '이름을(를) 입력해 주세요.' });
   });
 });
+
+test('계좌: 「다른 본인 계좌 등록」을 고른 채로는 진행하지 않음', () => {
+  expect(validationMessage({ label: '출금 계좌', type: 'account' }, '다른 본인 계좌 등록')).toBe('출금 계좌를 선택하거나 새 계좌를 등록해 주세요.');
+  expect(validationMessage({ label: '출금 계좌', type: 'account' }, 'iM뱅크 508-12-****91 (본인)')).toBe('');
+});

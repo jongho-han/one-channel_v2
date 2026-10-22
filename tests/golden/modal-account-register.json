@@ -1,0 +1,325 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "다른 본인 계좌 등록"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {},
+       "children": [
+        "본인 명의 계좌만 등록할 수 있습니다.",
+        {
+         "tag": "b",
+         "attrs": {},
+         "children": [
+          "계좌 확인"
+         ]
+        },
+        "으로 은행에서 예금주를 확인한 뒤 등록하세요."
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "nbHolder"
+         },
+         "children": [
+          "예금주"
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "class": "inp",
+          "id": "nbHolder",
+          "readonly": ""
+         },
+         "children": [],
+         "state": {
+          "value": "홍길동"
+         }
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "nbBank"
+         },
+         "children": [
+          "은행"
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-required": "true",
+          "class": "inp",
+          "id": "nbBank"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "은행을 선택하세요"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "iM뱅크"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "KB국민은행"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "신한은행"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "우리은행"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "하나은행"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "NH농협은행"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "IBK기업은행"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "카카오뱅크"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "토스뱅크"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "케이뱅크"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "우체국"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "nbNo"
+         },
+         "children": [
+          "계좌번호"
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "inrow"
+         },
+         "children": [
+          {
+           "tag": "input",
+           "attrs": {
+            "aria-describedby": "nbNoHelp",
+            "aria-required": "true",
+            "class": "inp num",
+            "id": "nbNo",
+            "inputmode": "numeric",
+            "placeholder": "- 없이 숫자만"
+           },
+           "children": [],
+           "state": {
+            "value": ""
+           }
+          },
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "btn navy",
+            "id": "nbCheck",
+            "type": "button"
+           },
+           "children": [
+            "계좌 확인"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "nbNoHelp"
+         },
+         "children": [
+          "숫자 10~14자리 · 시연: 끝자리 000은 없는 계좌, 999는 타인 명의로 확인됩니다."
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-live": "polite"
+       },
+       "children": []
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "inline mt-16 navrow"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn",
+          "data-action": "close-modal",
+          "type": "button"
+         },
+         "children": [
+          "취소"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri",
+          "id": "nbRegister",
+          "type": "button"
+         },
+         "children": [
+          "등록"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

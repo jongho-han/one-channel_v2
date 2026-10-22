@@ -70,7 +70,8 @@ one-channel/
     ├── data/                   # Repository: 샘플 데이터와 조회 함수
     │   ├── menu-spec.json      # 메뉴정의서 행 (화면 정의 원천)
     │   ├── menu.ts             # 메뉴 타입·트리·id 색인·검색 키워드
-    │   ├── customerRepository.ts   # 고객·계약·계좌 (InsuranceContract 타입)
+    │   ├── customerRepository.ts   # 고객·계약 (InsuranceContract 타입)
+    │   ├── accountRepository.ts    # 본인 계좌 목록·새 계좌 등록·은행 계좌 확인(시뮬레이션)
     │   ├── contractDocumentRepository.ts  # 계약별 약관·안내장
     │   ├── fundRepository.ts   # 투자성향·적합성진단 (Fund·InvestProfile 타입)
     │   ├── consentRepository.ts    # 안내장 수신·마케팅 동의 현황
