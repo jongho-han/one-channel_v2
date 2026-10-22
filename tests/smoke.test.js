@@ -718,7 +718,10 @@ for (const id of STEP_FLOW_IDS) {
     for (let guard = 0; guard < 6; guard++) {
       const step = currentStepName();
       visited.push(step);
-      if (step === '선택') {
+      if (step === '안내') {
+        assertMatchesGolden(`${id}-1안내`);
+        click($('#next'));
+      } else if (step === '선택') {
         if (inputs.pick) inputs.pick(); else click($('[data-action="pick"]'));
         assertMatchesGolden(`${id}-1선택`);
         click($('#next'));
@@ -750,22 +753,39 @@ for (const id of STEP_FLOW_IDS) {
 const goToInput = (id, pick = () => click($('[data-action="pick"]'))) => {
   login();
   window.App.openScreen(id);
+  if (currentStepName() === '안내') click($('#next'));
   if (currentStepName() === '선택') { pick(); click($('#next')); }
   assert.equal(currentStepName(), '입력');
 };
 
-test('T3 선택 전에는 다음 버튼이 비활성, 계약을 고르면 피보험자를 미리 선택 (PY-01)', () => {
+test('보험금 청구: 계약 선택 없이 안내 → 청구 종류에 맞는 피보험자 (PY-01)', () => {
   login();
   window.App.openScreen('PY-01');
-  assert.equal($('#next').disabled, true);
-  assert.equal($('#pickHint').textContent, '먼저 위에서 하나를 선택해야 다음 단계로 갈 수 있습니다.');
-  click($('[data-action="pick"][data-key="2019-0234567"]'));
-  assert.equal($('#next').disabled, false);
-  assert.equal($('[data-action="pick"].on').dataset.key, '2019-0234567');
+  assert.equal(currentStepName(), '안내');
+  assert.equal($('[data-action="pick"]'), null, '계약 선택 없음');
+  assert.equal($('[data-claim-type].on').dataset.claimType, 'self', '처음에는 본인보험금 접수');
+  click($('[data-claim-type="child"]'));
+  assert.equal($('[data-claim-type].on').dataset.claimType, 'child');
+  assert.equal($('#claimTypeTitle').textContent, '자녀보험금 접수');
   click($('#next'));
+  assert.equal(currentStepName(), '입력');
+  assert.deepEqual([...window.document.querySelectorAll('input[name="who"]')].map(input => input.value), ['홍서연(자녀)']);
   assert.equal($('input[name="who"]:checked').value, '홍서연(자녀)');
   attachFiles($('#docs'), ['a.jpg', 'b.pdf']);
   assert.deepEqual(texts('#fl-docs .fchip'), ['a.jpg', 'b.pdf']);
+
+  click($('[data-action="step-prev"]'));
+  assert.equal(currentStepName(), '안내');
+  assert.equal($('[data-claim-type].on').dataset.claimType, 'child', '이전으로 돌아와도 고른 종류 유지');
+  click($('[data-claim-type="beneficiary"]'));
+  click($('#next'));
+  assert.deepEqual([...window.document.querySelectorAll('input[name="who"]')].map(input => input.value), ['김영희(배우자)', '홍서연(자녀)']);
+  click($('input[name="kind"]'));
+  attachFiles($('#docs'), ['death.pdf']);
+  checkAll('[data-agree]');
+  click($('#next'));
+  assert.equal(currentStepName(), '확인');
+  assert.match($('#sbody').textContent, /청구 종류수익자 청구/);
   assert.deepEqual(errors, []);
 });
 

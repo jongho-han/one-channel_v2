@@ -2,7 +2,7 @@
 import type { FieldSpec, FieldValues } from '../../components/form/fieldSpec';
 import { displayValue, isFieldVisible } from '../../form/display';
 
-export type StepName = '선택' | '입력' | '확인' | '인증' | '완료';
+export type StepName = '안내' | '선택' | '입력' | '확인' | '인증' | '완료';
 
 /** 선택 카드 항목 */
 export interface PickItem {
@@ -12,19 +12,21 @@ export interface PickItem {
   value: string;
 }
 
-export function stepsOf(config: { pick?: unknown; skipConfirm?: boolean }): StepName[] {
-  return [...(config.pick ? ['선택' as const] : []), '입력', ...(config.skipConfirm ? [] : ['확인' as const]), '인증', '완료'];
+/** 단계: 안내(guide) 또는 선택(pick) · 입력 · 확인(생략 가능) · 인증 · 완료 */
+export function stepsOf(config: { guide?: unknown; pick?: unknown; skipConfirm?: boolean }): StepName[] {
+  const first: StepName[] = config.guide ? ['안내'] : config.pick ? ['선택'] : [];
+  return [...first, '입력', ...(config.skipConfirm ? [] : ['확인' as const]), '인증', '완료'];
 }
 
 export const pickedItem = (config: { pick?: { items?: () => PickItem[] } }, pick: string | null | undefined): PickItem | undefined =>
   config.pick?.items?.().find(item => item.key === pick);
 
-/** 확인 단계 행: 고른 항목('…을 선택하세요' 제외) + 보이는 항목 */
+/** 확인 단계 행: 안내 단계에서 고른 것(guideRow) + 고른 항목('…을 선택하세요' 제외) + 보이는 항목 */
 export function confirmRows(
-  config: { pick?: { label?: string; items?: () => PickItem[] }; fields: readonly FieldSpec[] },
+  config: { pick?: { label?: string; items?: () => PickItem[] }; guideRow?: (values: FieldValues) => [string, string]; fields: readonly FieldSpec[] },
   flow: { pick: string | null | undefined; values: FieldValues },
 ): [string, string][] {
-  const rows: [string, string][] = [];
+  const rows: [string, string][] = config.guideRow ? [config.guideRow(flow.values)] : [];
   const picked = pickedItem(config, flow.pick);
   if (picked && config.pick?.label) rows.push([config.pick.label.replace(/을 선택하세요|를 선택하세요/, ''), picked.title]);
   for (const field of config.fields.filter(item => isFieldVisible(item, config.fields, flow.values))) rows.push([field.label, displayValue(field, flow.values) || '-']);

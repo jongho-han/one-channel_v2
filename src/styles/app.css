@@ -235,6 +235,21 @@ table.tbl.min-520 { min-width: 520px; }
 .tbl tbody tr.clk:hover td { background: var(--brand-soft); }
 .tbl tbody tr.sel td { background: var(--brand-soft); }
 .tbl td.r, .tbl th.r { text-align: right; }
+/* 보험금 청구 안내 (PY-01 안내 단계) */
+table.tbl.claim-guide { min-width: 0; table-layout: fixed; }
+.tbl.claim-guide col.label { width: 150px; }
+.tbl.claim-guide th { vertical-align: top; white-space: normal; color: var(--ink); }
+.tbl.claim-guide td { word-break: keep-all; overflow-wrap: anywhere; }
+.tbl.claim-guide td p { margin: 0; }
+.tbl.claim-guide td p.sub { margin-top: 2px; font-size: 13px; color: var(--sub); }
+ul.dots { margin: 0; padding-left: 16px; }
+ul.dots li { margin: 2px 0; }
+ul.dots li::marker { color: var(--brand); }
+.claim-proc { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: none; }
+.claim-proc li { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; aspect-ratio: 1; padding: 8px;
+  border: 1.5px solid var(--brand-line); border-radius: 50%; background: var(--card); text-align: center; font-size: 13.5px; font-weight: 650; line-height: 1.3; }
+.claim-proc li small { padding-bottom: 4px; border-bottom: 1px solid var(--brand-line); font-size: 11.5px; font-weight: 700; color: var(--brand-ink); letter-spacing: .3px; }
+.claim-proc li + li::before { content: ''; position: absolute; left: -9px; top: 50%; width: 8px; height: 8px; border-top: 2px solid var(--brand-line); border-right: 2px solid var(--brand-line); transform: translate(-50%, -50%) rotate(45deg); }
 .kv { display: grid; grid-template-columns: 160px 1fr; margin: 0; border-top: 1px solid var(--line2); }
 .kv dt, .kv dd { margin: 0; padding: 11px 0; border-bottom: 1px solid var(--line2); font-size: 14.5px; }
 .kv dt { color: var(--sub); }
@@ -739,6 +754,11 @@ html.big .inp { border-width: 2px; }
   .tiles, .tiles.cols { grid-template-columns: 1fr 1fr; }
   .tile dd { font-size: 19px; }
   .ct-list, .retain { grid-template-columns: 1fr; }
+  .claim-proc { grid-template-columns: repeat(3, 1fr); row-gap: 14px; }
+  .claim-proc li:nth-child(4)::before { display: none; }
+  .tbl.claim-guide col.label { width: 84px; }
+  .tbl.claim-guide th { padding: 12px 10px; }
+  .tbl.claim-guide td { padding: 12px 10px; font-size: 13.5px; }
   .ct dl, .loan-card dl { grid-template-columns: 1fr 1fr; }
   .kv { grid-template-columns: 110px 1fr; }
   .pick { flex-wrap: wrap; }

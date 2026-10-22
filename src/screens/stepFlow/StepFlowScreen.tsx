@@ -11,6 +11,8 @@ import { state, updateScreenFlow, updateScreenValues } from '../../state/store';
 import { announce } from '../../ui/overlay';
 import { STEP_FLOWS, type StepFlowConfig, type StepFlowState } from '../stepFlows';
 import { AnnuityPick } from './AnnuityPick';
+import { ClaimGuide } from './ClaimGuide';
+import { claimTypeOf } from '../../data/claimGuide';
 import { LoanPick } from './LoanPick';
 import { ConfirmStep, DoneStep, InputStep, PickStep, SignStep, Stepper } from './StepFlow';
 import { goToStep } from './stepFlowActions';
@@ -50,8 +52,16 @@ function DoneStage({ screen, config, flow }: { screen: Screen; config: StepFlowC
   );
 }
 
-function Stage({ screen, config, flow, step }: { screen: Screen; config: StepFlowConfig; flow: StepFlowState; step: string }): ReactNode {
+/** 청구 종류를 바꾸면 피보험자는 그 종류의 첫 선택지로 */
+function changeClaimType(key: string) {
+  updateScreenValues({ claimType: key, who: claimTypeOf(key).who[0] });
+}
+
+function Stage({ screen, config: baseConfig, flow, step }: { screen: Screen; config: StepFlowConfig; flow: StepFlowState; step: string }): ReactNode {
+  const config = baseConfig.fieldsFor ? { ...baseConfig, fields: baseConfig.fieldsFor(flow.values) } : baseConfig;
   switch (step) {
+    case '안내':
+      return <ClaimGuide claimType={String(flow.values.claimType ?? '')} onChange={changeClaimType} onNext={next} />;
     case '선택':
       return <PickStage config={config} flow={flow} />;
     case '입력':

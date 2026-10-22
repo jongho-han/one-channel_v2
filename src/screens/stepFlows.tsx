@@ -2,7 +2,8 @@ import type { ReactNode } from 'react';
 import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
 import { APP } from '../core/config';
 import { formatWon } from '../core/format';
-import { CONTRACTS, contractByNo, insuredLabel, isInsuredOther, type InsuranceContract } from '../data/customerRepository';
+import { claimTypeOf, withClaimType } from '../data/claimGuide';
+import { CONTRACTS, contractByNo, insuredLabel, type InsuranceContract } from '../data/customerRepository';
 import { ANNUITY_AGE_RANGE, ANNUITY_OPTION_FIELDS, annuityAgeOptions, annuityLockRules, annuityOptionCalc, pickedAnnuityContract } from '../features/annuity';
 import { ANNUITY_CONVERSION_FIELDS, annuityConversionCalc, isConvertible } from '../features/annuityConversion';
 import { loanCalcRows } from '../features/loanRules';
@@ -15,7 +16,8 @@ import { VirtualAccountInfo } from './stepFlow/VirtualAccountInfo';
 /* T3 단계형 신청
    pick: 선택 단계 (items() → { key, title, sub, value }, custom: 맞춤 선택 단계 annuity · loan) · intro: 입력 단계 상단 안내
    calc(values, pickedKey) → [[항목, 값, 합계여부]] · agree: 필수 동의 · receiptPrefix: 접수번호 앞자리
-   pick.describe(flow): 입력 단계 상단 안내 · pick.summary(flow, 'confirm' | 'done'): 확인·완료 단계 카드 · doneNext: 완료 화면 주 버튼 [이름, 화면ID] */
+   pick.describe(flow): 입력 단계 상단 안내 · pick.summary(flow, 'confirm' | 'done'): 확인·완료 단계 카드 · doneNext: 완료 화면 주 버튼 [이름, 화면ID]
+   guide: 선택 대신 첫 단계 '안내'(claim: 보험금 청구 안내·청구 종류) · fieldsFor(values): 진행 값에 맞춘 입력 항목 · guideRow(values): 확인 단계 첫 행 */
 export interface StepFlowState {
   step: number;
   pick: string | null;
@@ -34,6 +36,9 @@ export interface StepFlowConfig extends InputStepConfig {
     describe?: (flow: StepFlowState) => ReactNode;
     summary?: (flow: StepFlowState, step: 'confirm' | 'done') => ReactNode;
   };
+  guide?: 'claim';                                          // 첫 단계 '안내' (보험금 청구)
+  fieldsFor?: (values: FieldValues) => FieldSpec[];         // 진행 값에 맞춘 입력 항목 (청구 종류별 피보험자)
+  guideRow?: (values: FieldValues) => [string, string];     // 확인 단계 첫 행 (안내 단계에서 고른 것)
   retain?: boolean;                                         // 해지 전 대안 안내
   skipConfirm?: boolean;
   fields: FieldSpec[];
@@ -64,18 +69,13 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     agree: ['입력한 정보가 사실과 다르지 않음을 확인합니다.'],
     done: '고객확인이 완료되었습니다. 다음 재확인 기한은 2029.10.02입니다.' },
 
-  'PY-01': {
-    pick: {
-      label: '청구할 계약을 선택하세요',
-      onPick: (flow, contractNo) => {   // 고른 계약의 피보험자를 입력 단계에서 미리 선택
-        const contract = contractByNo(contractNo);
-        flow.values.who = isInsuredOther(contract) ? insuredLabel(contract) : `${contract.insured}(본인)`;
-      },
-      items: () => contractChoices(c => ['실손', '종신', '어린이', '암'].includes(c.kind), c => ({ '실손': '실손 보장', '어린이': '입원·실손 보장', '암': '암 진단·수술 보장' } as Record<string, string>)[c.kind] || '진단·입원 보장') },
+  'PY-01': {   // 계약을 고르지 않고 청구 — 안내 단계에서 청구 종류(본인·자녀·수익자)만 고름
+    guide: 'claim',
+    fieldsFor: values => withClaimType(STEP_FLOWS['PY-01'].fields, values.claimType),
+    guideRow: values => ['청구 종류', claimTypeOf(values.claimType).label],
     intro: { tone: 'info', title: '청구 전에 준비하세요', desc: '통원: 진료비 영수증 + 진료비 세부내역서 · 입원/수술: 진단서 또는 입·퇴원확인서 + 영수증 · 100만원 이하는 진단서 대신 처방전도 가능' },
     fields: [
-      { id: 'who', label: '피보험자', type: 'radio', options: ['홍길동(본인)', '홍서연(자녀)', '김영희(배우자)'],
-        help: '피보험자가 본인이 아니면 피보험자 동의서(미성년 자녀는 법정대리인 확인서)를 함께 올려 주세요.' },
+      { id: 'who', label: '피보험자', type: 'radio', options: ['홍길동(본인)', '홍서연(자녀)', '김영희(배우자)'] },   // 청구 종류에 맞게 바뀜 (withClaimType)
       { id: 'acc', label: '사고 유형', type: 'radio', options: ['질병', '상해(사고)', '교통사고'] },
       { id: 'kind', label: '청구 내용', type: 'checks', inline: true, options: ['통원치료', '입원', '수술', '진단(암·뇌·심장 등)', '장해'] },
       { id: 'date1', label: '사고일(발병일)', type: 'date', value: '2026-09-20' },

@@ -7,6 +7,7 @@ test('단계: 선택(있으면) · 입력 · 확인(생략 가능) · 인증 · 
   expect(stepsOf({ pick: {} })).toEqual(['선택', '입력', '확인', '인증', '완료']);
   expect(stepsOf({})).toEqual(['입력', '확인', '인증', '완료']);
   expect(stepsOf({ pick: {}, skipConfirm: true })).toEqual(['선택', '입력', '인증', '완료']);
+  expect(stepsOf({ guide: 'claim' })).toEqual(['안내', '입력', '확인', '인증', '완료']);
 });
 
 test('확인 단계 표시값: 금액·주소·여러 선택·빈 값', () => {
@@ -32,6 +33,8 @@ test('확인 행: 고른 항목(선택 문구 제외) + 보이는 항목', () =>
   };
   expect(confirmRows(config, { pick: 'k', values: { nm: '홍길동' } })).toEqual([['청구할 계약', '종신보험'], ['이름', '홍길동']]);
   expect(confirmRows({ fields: [{ id: 'nm', label: '이름' }] }, { pick: null, values: { nm: '' } })).toEqual([['이름', '-']]);
+  expect(confirmRows({ guideRow: () => ['청구 종류', '자녀보험금 접수'] as [string, string], fields: [{ id: 'nm', label: '이름' }] }, { pick: null, values: { nm: '홍서연' } }))
+    .toEqual([['청구 종류', '자녀보험금 접수'], ['이름', '홍서연']]);
 });
 
 test('완료 제목: 화면 지정 > 지급 업무 > 기본', () => {

@@ -98,7 +98,6 @@ export const CONTRACTS: InsuranceContract[] = [
 
 /** 피보험자 표시: 본인은 이름만, 타인은 '홍서연(자녀)'처럼 관계를 붙임 */
 export const insuredLabel = (contract: Pick<InsuranceContract, 'insured' | 'insuredRelation'>): string => (contract.insuredRelation ? `${contract.insured}(${contract.insuredRelation})` : contract.insured);
-export const isInsuredOther = (contract: Pick<InsuranceContract, 'insuredRelation'>): boolean => Boolean(contract.insuredRelation);
 
 export const contractByNo = (no: string): InsuranceContract => CONTRACTS.find(contract => contract.no === no) || CONTRACTS[0];
 

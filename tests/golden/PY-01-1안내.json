@@ -1,0 +1,666 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 5단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "1"
+       ]
+      },
+      "안내",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "2"
+       ]
+      },
+      "입력"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "보험금 청구사항 안내"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "보험금 청구사항 안내 표 (좌우로 스크롤할 수 있음)",
+      "class": "tbl-wrap",
+      "role": "region",
+      "tabindex": "0"
+     },
+     "children": [
+      {
+       "tag": "table",
+       "attrs": {
+        "class": "claim-guide tbl"
+       },
+       "children": [
+        {
+         "tag": "caption",
+         "attrs": {
+          "class": "sr-only"
+         },
+         "children": [
+          "보험금 청구사항 안내"
+         ]
+        },
+        {
+         "tag": "colgroup",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "col",
+           "attrs": {
+            "class": "label"
+           },
+           "children": []
+          },
+          {
+           "tag": "col",
+           "attrs": {},
+           "children": []
+          }
+         ]
+        },
+        {
+         "tag": "tbody",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "보험금 청구 대상"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "p",
+               "attrs": {},
+               "children": [
+                "피보험자(보험대상자)별 청구금액 1,000만원 이하인 건"
+               ]
+              },
+              {
+               "tag": "p",
+               "attrs": {
+                "class": "sub"
+               },
+               "children": [
+                "금액을 넘으면 창구 방문 또는 우편으로 접수할 수 있습니다."
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "이용 가능 시간"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "p",
+               "attrs": {},
+               "children": [
+                "보험금 청구사항 입력 및 첨부파일 저장: 08:00 ~ 23:00"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "확인할 사항"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "ul",
+               "attrs": {
+                "class": "dots"
+               },
+               "children": [
+                {
+                 "tag": "li",
+                 "attrs": {},
+                 "children": [
+                  "인터넷 청구는 반드시 서류를 파일로 첨부해야 합니다."
+                 ]
+                },
+                {
+                 "tag": "li",
+                 "attrs": {},
+                 "children": [
+                  "심사·사고조사를 위해 제출하신 서류 외에 추가 서류가 필요할 수 있습니다."
+                 ]
+                },
+                {
+                 "tag": "li",
+                 "attrs": {},
+                 "children": [
+                  "영업시간 외(17:00 이후) 접수 건은 다음 영업일에 접수되며, 다음 영업일이 접수일이 됩니다."
+                 ]
+                },
+                {
+                 "tag": "li",
+                 "attrs": {},
+                 "children": [
+                  "구비서류가 모두 갖추어져야 담당자가 보험금 접수를 완료합니다."
+                 ]
+                },
+                {
+                 "tag": "li",
+                 "attrs": {},
+                 "children": [
+                  "보험금 접수가 완료되면 문자(SMS)로 알려드립니다."
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "tr",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "th",
+             "attrs": {
+              "scope": "row"
+             },
+             "children": [
+              "기타 사항"
+             ]
+            },
+            {
+             "tag": "td",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "ul",
+               "attrs": {
+                "class": "dots"
+               },
+               "children": [
+                {
+                 "tag": "li",
+                 "attrs": {},
+                 "children": [
+                  "피보험자(보험대상자)별 청구금액 300만원 이하인 건은 팩스(0505-083-5420)로도 청구할 수 있습니다."
+                 ]
+                },
+                {
+                 "tag": "li",
+                 "attrs": {},
+                 "children": [
+                  "기타 문의는 iM라이프 콜센터(1588-4770)로 연락해 주세요."
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "box info mt-14"
+     },
+     "children": [
+      {
+       "tag": "svg",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "i",
+        "viewBox": "0 0 24 24"
+       },
+       "children": [
+        {
+         "tag": "circle",
+         "attrs": {
+          "cx": "12",
+          "cy": "12",
+          "r": "9"
+         },
+         "children": []
+        },
+        {
+         "tag": "path",
+         "attrs": {
+          "d": "M12 11v6M12 7.5v.5"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        "보험금 청구 구비서류는 「사고보험금 청구서류」를 참고해 주세요.",
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "mt-8"
+         },
+         "children": [
+          {
+           "tag": "button",
+           "attrs": {
+            "class": "btn sm",
+            "data-action": "open",
+            "data-id": "CS-01"
+           },
+           "children": [
+            "사고보험금 청구서류 보기",
+            {
+             "tag": "svg",
+             "attrs": {
+              "aria-hidden": "true",
+              "class": "i",
+              "viewBox": "0 0 24 24"
+             },
+             "children": [
+              {
+               "tag": "path",
+               "attrs": {
+                "d": "M9 6l6 6-6 6"
+               },
+               "children": []
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "id": "claimProcTitle"
+     },
+     "children": [
+      "보험금 청구 및 지급 절차"
+     ]
+    },
+    {
+     "tag": "ol",
+     "attrs": {
+      "aria-labelledby": "claimProcTitle",
+      "class": "claim-proc"
+     },
+     "children": [
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "STEP 01"
+         ]
+        },
+        "계약사항 조회"
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "STEP 02"
+         ]
+        },
+        "청구사항 입력"
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "STEP 03"
+         ]
+        },
+        "구비서류 제출"
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "STEP 04"
+         ]
+        },
+        "보험금 접수(SMS)"
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "STEP 05"
+         ]
+        },
+        "서류심사 및 현장심사"
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "small",
+         "attrs": {},
+         "children": [
+          "STEP 06"
+         ]
+        },
+        "보험금 지급"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "청구 종류 선택"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "청구 종류 선택",
+      "class": "block mb-14 seg tabs",
+      "role": "group"
+     },
+     "children": [
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "true",
+        "class": "on",
+        "data-claim-type": "self"
+       },
+       "children": [
+        "본인보험금 접수"
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "data-claim-type": "child"
+       },
+       "children": [
+        "자녀보험금 접수"
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "data-claim-type": "beneficiary"
+       },
+       "children": [
+        "수익자 청구"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "h3",
+     "attrs": {
+      "aria-live": "polite",
+      "id": "claimTypeTitle"
+     },
+     "children": [
+      "본인보험금 접수"
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "sub"
+     },
+     "children": [
+      "본인이 피보험자(보험대상자)인 보험금을 청구합니다."
+     ]
+    },
+    {
+     "tag": "ul",
+     "attrs": {
+      "class": "dots mt-12 note-sm"
+     },
+     "children": [
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        "필요 시 추가 서류 제출을 요청드릴 수 있습니다."
+       ]
+      },
+      {
+       "tag": "li",
+       "attrs": {},
+       "children": [
+        "단체보험 보험금 청구 시에는 재직증명서 제출을 요청드릴 수 있습니다."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "back"
+     },
+     "children": [
+      "취소"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    }
+   ]
+  }
+ ]
+}
