@@ -99,3 +99,4 @@
 | 2026-10-23 08:31:50 | main 병합 후 배포 | 보험금 청구 안내 화면·CLAUDE.md 테스트 규칙 커밋 main fast-forward 병합·push(3701941), GitHub Pages 배포 실행(#17). 이전 배포 #16 성공 확인 |
 | 2026-10-23 08:42:30 | <p class="sub">자녀가 피보험자인 보험금을 부모(법정대리인)가 청구합니다.</p> 문구를 ※ 자녀보험금 접수는 피보험자 자녀가 미성년자일 때에만 가능합니다. 로 변경 | 단위 테스트(자녀보험금 설명 문구) 추가(RED) 후 data/claimGuide.ts 문구 변경. 메뉴정의서 PY-01 비고·개정이력, menu-spec.json 동기화. 영향 테스트만 실행: 단위 7건(claimGuide·ClaimGuide)·스모크 PY-01 2건 통과, analyze 0 |
 | 2026-10-23 08:44:25 | 보험금 청구 및 지급 절차 블록(div.card claimProcTitle) 삭제 | 단위 테스트를 '절차 블록 없음'으로 변경(RED) 후 ClaimGuide 절차 카드·CLAIM_PROCEDURE 데이터·.claim-proc 스타일 삭제, 기준 화면 PY-01-1안내 갱신(절차 블록만 제거). 메뉴정의서 PY-01 표시·비고·개정이력, menu-spec.json, MILESTONE 갱신. 영향 테스트만: 단위 7건·스모크 PY-01 2건 통과, analyze 0 |
+| 2026-10-23 08:44:52 | main 병합 후 배포 | 자녀보험금 문구·청구 절차 블록 삭제 커밋 main fast-forward 병합·push(52d1f30), GitHub Pages 배포 실행(#18). 이전 배포 #17 성공 확인 |
