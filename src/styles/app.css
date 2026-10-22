@@ -85,8 +85,8 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; 
 .top .actions { display: flex; align-items: center; gap: 8px; }
 .logo { display: flex; align-items: center; gap: 10px; padding: 0; border: 0; background: none; }
 .logo .mark { flex: none; width: 44px; height: 22px; }
-.logo .mark .solid { fill: var(--logo-teal); }
-.logo .mark .s0 { stop-color: var(--logo-teal); }  .logo .mark .s1 { stop-color: var(--logo-mid); }  .logo .mark .s2 { stop-color: var(--logo-lime); }
+.logo-symbol .solid { fill: var(--logo-teal); }
+.logo-symbol .s0 { stop-color: var(--logo-teal); }  .logo-symbol .s1 { stop-color: var(--logo-mid); }  .logo-symbol .s2 { stop-color: var(--logo-lime); }
 .logo .text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
 .logo .text b { font-size: 17px; font-weight: 800; color: var(--navy); letter-spacing: -.3px; }
 .logo .text small { font-size: 11.5px; font-weight: 600; color: var(--brand-ink); letter-spacing: .5px; }
@@ -671,8 +671,9 @@ html.big .inp { border-width: 2px; }
 /* 9-2. 바탕화면·홈 화면 바로가기 */
 .shortbar { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: -8px; }
 .shortbar span { font-size: 13.5px; color: var(--sub); }
-.shortbtn { display: inline-flex; align-items: center; min-height: 40px; padding: 7px 16px; border: 1.5px solid var(--brand); border-radius: 999px; background: var(--card); font-size: 14px; font-weight: 700; color: var(--brand-deep); }
+.shortbtn { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 7px 16px 7px 14px; border: 1.5px solid var(--brand); border-radius: 999px; background: var(--card); font-size: 14px; font-weight: 700; color: var(--brand-deep); }
 .shortbtn:hover { background: var(--brand-soft); }
+.shortbtn .logo-symbol { flex: none; width: 28px; height: 14px; }
 .sc-icon { display: flex; align-items: center; gap: 12px; margin: 12px 0; padding: 12px; border-radius: 12px; background: var(--bg); }
 .sc-icon img { width: 48px; height: 48px; border-radius: 12px; }
 .sc-icon b { display: block; }
@@ -768,7 +769,8 @@ html.big .inp { border-width: 2px; }
   .feat-hide-life-guide .life-guide { display: none; }          /* v3.5: 모바일 메인 '이럴 땐 이렇게' 숨김 */
   .feat-compact-shortcut .shortbar { flex-wrap: nowrap; gap: 8px; margin-bottom: -4px; }
   .feat-compact-shortcut .shortbar span { min-width: 0; font-size: 12.5px; line-height: 1.4; }
-  .feat-compact-shortcut .shortbtn { flex: none; min-height: 30px; padding: 3px 12px; border-width: 1px; font-size: 12.5px; }
+  .feat-compact-shortcut .shortbtn { flex: none; gap: 6px; min-height: 30px; padding: 3px 12px 3px 10px; border-width: 1px; font-size: 12.5px; }
+  .feat-compact-shortcut .shortbtn .logo-symbol { width: 24px; height: 12px; }
 }
 
 @media (max-width: 420px) {

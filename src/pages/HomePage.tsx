@@ -1,5 +1,6 @@
 /* 메인: 검색·로그인/내 보험 요약 · 할 일(로그인) · 자주 찾는 업무 · 이럴 땐 이렇게 · 공지·고객센터 */
 import { Icon } from '../components/Icon';
+import { LogoSymbol } from '../components/shell/common';
 import { APP } from '../core/config';
 import { CONTRACTS, USER } from '../data/customerRepository';
 import { HOME } from '../data/homeContent';
@@ -51,7 +52,7 @@ function Hero({ isLoggedIn, search, onOpen, announce }: HomePageProps) {
     <section className="hero"><div className="wrap">
       <div className="shortbar">
         <span>자주 이용하신다면 바로가기를 만들어 두세요.</span>
-        <button className="shortbtn" data-action="open-shortcut">바로가기 추가</button>
+        <button className="shortbtn" data-action="open-shortcut"><LogoSymbol className="logo-symbol" />바로가기 추가</button>
       </div>
       <div>
         <div className="eyebrow">iM라이프 사이버창구</div>

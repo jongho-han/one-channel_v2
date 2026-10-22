@@ -3,10 +3,10 @@ import { useId } from 'react';
 import { LOGO_SYMBOL } from '../../ui/logoSymbol';
 
 /** iM 심볼 — 왼쪽 막대·가운데 그라데이션 호·오른쪽 호 (도형은 ui/logoSymbol, 색은 app.css 로고 토큰) */
-function LogoSymbol() {
+export function LogoSymbol({ className = 'logo-symbol mark' }: { className?: string }) {
   const gradientId = `logo-grad-${useId().replace(/:/g, '')}`;   // 헤더·앱바에 함께 있어도 겹치지 않게
   return (
-    <svg className="mark" viewBox={`0 0 ${LOGO_SYMBOL.width} ${LOGO_SYMBOL.height}`} aria-hidden="true" focusable="false">
+    <svg className={className} viewBox={`0 0 ${LOGO_SYMBOL.width} ${LOGO_SYMBOL.height}`} aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id={gradientId} gradientUnits="userSpaceOnUse" x1={LOGO_SYMBOL.gradient.x1} y1="0" x2={LOGO_SYMBOL.gradient.x2} y2="0">
           <stop offset="0" className="s0" /><stop offset=".5" className="s1" /><stop offset="1" className="s2" />

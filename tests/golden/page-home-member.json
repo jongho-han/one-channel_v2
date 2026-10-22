@@ -37,6 +37,84 @@
           "data-action": "open-shortcut"
          },
          "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "logo-symbol",
+            "focusable": "false",
+            "viewBox": "0 0 258.9 129.45"
+           },
+           "children": [
+            {
+             "tag": "defs",
+             "attrs": {},
+             "children": [
+              {
+               "tag": "lineargradient",
+               "attrs": {
+                "gradientUnits": "userSpaceOnUse",
+                "id": "logo-grad-_r_5_",
+                "x1": "45.94",
+                "x2": "175.39",
+                "y1": "0",
+                "y2": "0"
+               },
+               "children": [
+                {
+                 "tag": "stop",
+                 "attrs": {
+                  "class": "s0",
+                  "offset": "0"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "stop",
+                 "attrs": {
+                  "class": "s1",
+                  "offset": ".5"
+                 },
+                 "children": []
+                },
+                {
+                 "tag": "stop",
+                 "attrs": {
+                  "class": "s2",
+                  "offset": "1"
+                 },
+                 "children": []
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "class": "solid",
+              "d": "M45.94 129.45H0V45.94h45.94z"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M45.94 45.94c46.05 0 83.51 37.46 83.51 83.51h45.94C175.39 57.96 117.43 0 45.94 0z",
+              "fill": "url(#logo-grad-_r_5_)"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "class": "solid",
+              "d": "M258.89 0v45.94c-46.04 0-83.5 37.46-83.5 83.51h-45.94C129.45 57.96 187.4 0 258.89 0z"
+             },
+             "children": []
+            }
+           ]
+          },
           "바로가기 추가"
          ]
         }

@@ -22,12 +22,15 @@ describe('HomePage', () => {
     expect(screen.getAllByRole('button', { name: /공지|안내/ }).some(button => button.dataset.notice === 'n10')).toBe(true);
   });
 
-  test('바로가기 추가 버튼: 심볼 없이 글자만', () => {
+  test('바로가기 추가 버튼: 앞에 iM 심볼(장식) + 글자', () => {
     render(<HomePage isLoggedIn={false} search={() => []} onOpen={noop} announce={noop} />);
     const button = screen.getByRole('button', { name: '바로가기 추가' });
     expect(button.dataset.action).toBe('open-shortcut');
     expect(button.textContent).toBe('바로가기 추가');
-    expect(button.querySelector('.ap')).toBeNull();
+    const symbol = button.firstElementChild;
+    expect(symbol?.tagName.toLowerCase()).toBe('svg');
+    expect(symbol?.classList.contains('logo-symbol')).toBe(true);
+    expect(symbol?.getAttribute('aria-hidden')).toBe('true');
   });
 });
 
