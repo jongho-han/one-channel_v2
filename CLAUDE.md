@@ -26,11 +26,12 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - `npm run dev` 개발 서버 / `npm run build` → `dist/index.html` 단일 파일 (vite-plugin-singlefile, CSS·JS 인라인. 더블클릭으로 열려야 함)
 - `npm run analyze` ESLint + 타입검사(tsc) / `npm test` = 단위(vitest) → 빌드 → 스모크(`node --test`)
 - `npm run test:unit` 단위만(`tests/unit/*.test.ts(x)`, jsdom + Testing Library) / `npm run test:smoke` 빌드+스모크만
-- 테스트 하나만: `npm run build && node --test --test-name-pattern="CT-02" tests/smoke.test.js`
+- 테스트 하나만: `npm run build && node --test --test-name-pattern="CT-02" tests/smoke.test.js` / 단위 일부: `npx vitest run <파일 경로>`
 - 테스트는 소스가 아닌 **빌드 결과 `dist/index.html`** 을 jsdom에 올려 검사하므로 소스 수정 후 반드시 재빌드. 테스트에서는 `window.App`(state·render·openScreen 등)으로 화면을 연다
 
 ## TDD (변경 시 테스트 우선)
-- 순서: 실패하는 테스트 작성(RED) → 실행해 실패 확인 → 최소 구현(GREEN) → 리팩터링 → 전체 테스트·analyze
+- 순서: 실패하는 테스트 작성(RED) → 실행해 실패 확인 → 최소 구현(GREEN) → 리팩터링 → **영향 있는 테스트만** 실행·analyze
+- 수정·추가 시 테스트는 변경과 관련된 것만 실행: 바꾼 모듈의 단위 테스트 파일(`npx vitest run <파일>`) + 해당 화면 스모크(`--test-name-pattern`). 전체(`npm test`)는 사용자가 따로 요청할 때만 (main 배포 시에는 GitHub Actions 가 전체 실행)
 - 컴포넌트·로직은 `tests/unit` 단위 테스트, 화면 연결·회귀는 `tests/smoke.test.js`
 - 구조 변경·리팩터링은 기존 동작을 고정하는 특성 테스트를 먼저 작성한 뒤 전환
 
@@ -57,7 +58,7 @@ iM라이프 사이버창구 기획 검토용 프로토타입 (메뉴정의서 53
 - UI 작성·수정 전 @DESIGN.md (Starbucks 영감 디자인 시스템) 참조. 색·반경·그림자는 `src/styles/app.css` 1절 토큰으로만 지정
 
 ## 코드 품질
-- 변경후 analyze 실행하여 에러 없는지 확인 (`npm run analyze`, 테스트는 `npm test`)
+- 변경후 analyze 실행하여 에러 없는지 확인 (`npm run analyze`, 테스트는 영향 있는 것만 — TDD 절 참조)
 - fix all major linting and avoid minor via analysis options
 - avoid all the cSpell via settings json of .vscode
 - 사용을 완료한 로그 및 디버그 코드는 가급적 제거. 재확인 가능성 높은 경우 주석처리
