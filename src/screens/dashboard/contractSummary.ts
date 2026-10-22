@@ -38,7 +38,7 @@ export function summarizeContracts(contracts: readonly Contract[]): ContractsSum
 }
 
 /** 납입 진행률(%) — 갱신형처럼 총 회차가 없으면 null */
-export const paymentProgress = (contract: Contract): number | null =>
+export const paymentProgress = (contract: Pick<Contract, 'paidCount' | 'totalCount'>): number | null =>
   (typeof contract.totalCount === 'number' ? Math.round(contract.paidCount / contract.totalCount * 100) : null);
 
 export const insuredLabel = (contract: Pick<Contract, 'insured' | 'insuredRelation'>): string =>

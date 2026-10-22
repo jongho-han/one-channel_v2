@@ -1,8 +1,8 @@
-/* 계약조회(CT-02): 계약 탭 + 기본정보 + 보장내용 + 계약관계자·납입정보 + 약관·안내장 */
+/* 계약조회(CT-02): 보유계약 카드 목록 → 고른 계약의 기본정보 + 보장내용 + 계약관계자·납입정보 + 약관·안내장 */
 import { Icon } from '../../components/Icon';
 import { LinkButtons, StatusChip } from '../../components/widgets';
 import { formatWon } from '../../core/format';
-import { insuredLabel } from '../dashboard/contractSummary';
+import { insuredLabel, paymentProgress } from '../dashboard/contractSummary';
 import type { ContractDocument } from '../../data/contractDocumentRepository';
 
 export interface ContractInfo {
@@ -43,25 +43,54 @@ function ContractDocumentsCard({ contract, documents }: { contract: ContractInfo
   );
 }
 
+function ContractCard({ contract, index }: { contract: ContractInfo; index: number }) {
+  const progress = paymentProgress(contract);
+  return (
+    <article className="ct">
+      <div className="ct-head">
+        <div><h2>{contract.name}</h2><small className="num">증권번호 {contract.no} · 피보험자 {insuredLabel(contract)}</small></div>
+        <div className="badges"><StatusChip status={contract.status} /></div>
+      </div>
+      <dl>
+        <div><dt>월 보험료</dt><dd className="num">{formatWon(contract.premium)}</dd></div>
+        <div><dt>계약일</dt><dd className="num">{contract.startDate}</dd></div>
+        <div><dt>보험기간</dt><dd>{contract.endDate}</dd></div>
+      </dl>
+      {progress !== null
+        ? <div>
+            <div className="bar-l"><span>납입 {contract.paidCount}/{contract.totalCount}회</span><span>{progress}%</span></div>
+            <div className="bar"><i style={{ width: `${progress}%` }} /></div>
+          </div>
+        : <div className="bar-l"><span>갱신형</span></div>}
+      <div className="acts">
+        <button className="btn sm pri" data-action="contract-open" data-index={index}>상세 보기<span className="sr-only"> {contract.name}</span></button>
+      </div>
+    </article>
+  );
+}
+
+/** 계약조회 첫 화면: 보유계약 카드 (계약종합현황과 같은 카드 형식) */
+export function ContractCards({ contracts }: { contracts: readonly ContractInfo[] }) {
+  return (
+    <>
+      <p className="footnote">조회할 계약을 고르면 보장내용 · 계약관계자 · 납입정보 · 약관을 볼 수 있습니다.</p>
+      <div className="ct-list">{contracts.map((contract, index) => <ContractCard key={contract.no} contract={contract} index={index} />)}</div>
+    </>
+  );
+}
+
 interface ContractDetailProps {
-  contracts: readonly ContractInfo[];
-  selected: number;
+  contract: ContractInfo;
   userName: string;
   documents: readonly ContractDocument[];
 }
 
-export function ContractDetail({ contracts, selected, userName, documents }: ContractDetailProps) {
-  const contract = contracts[selected];
+export function ContractDetail({ contract, userName, documents }: ContractDetailProps) {
   return (
     <>
-      <div className="seg block mb-14" role="group" aria-label="조회할 계약">
-        {contracts.map((item, index) => (
-          <button key={item.no} className={index === selected ? 'on' : undefined} aria-pressed={index === selected} data-action="contract-tab" data-index={index}>{item.name.replace('(무)iM ', '')}</button>
-        ))}
-      </div>
+      <button className="btn sm mb-14" data-action="contract-list"><Icon name="back" />계약 목록</button>
       <div className="card">
-        <h2 className="split">{contract.name} <StatusChip status={contract.status} /></h2>
-        <dl className="kv">
+        <h2 className="split" id="contractTitle">{contract.name} <StatusChip status={contract.status} /></h2>        <dl className="kv">
           <dt>증권번호</dt><dd className="num">{contract.no}</dd>
           <dt>계약일</dt><dd className="num">{contract.startDate}</dd>
           <dt>보험기간</dt><dd>{contract.endDate}</dd>

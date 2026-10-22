@@ -14,6 +14,7 @@ export interface ListState {
   filters?: Record<string, string>;
   selectedRow?: number | null;
   uploadError?: string;   // 보완서류 제출 오류 (PY-02)
+  contractIndex?: number; // 계약조회(CT-02)에서 상세를 연 계약 (없으면 카드 목록)
 }
 
 const PERIODS = ['1개월', '3개월', '6개월', '1년'];

@@ -5,102 +5,30 @@
  },
  "children": [
   {
-   "tag": "div",
+   "tag": "button",
    "attrs": {
-    "aria-label": "조회할 계약",
-    "class": "block mb-14 seg",
-    "role": "group"
+    "class": "btn mb-14 sm",
+    "data-action": "contract-list"
    },
    "children": [
     {
-     "tag": "button",
+     "tag": "svg",
      "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "0"
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
      },
      "children": [
-      "든든한 종신보험"
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M15 6l-6 6 6 6"
+       },
+       "children": []
+      }
      ]
     },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "1"
-     },
-     "children": [
-      "하이브리드 변액연금보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "2"
-     },
-     "children": [
-      "실손의료비보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "3"
-     },
-     "children": [
-      "유니버설저축보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "4"
-     },
-     "children": [
-      "행복드림 연금보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "5"
-     },
-     "children": [
-      "변액유니버설 종신보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "true",
-      "class": "on",
-      "data-action": "contract-tab",
-      "data-index": "6"
-     },
-     "children": [
-      "튼튼 어린이보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "7"
-     },
-     "children": [
-      "든든 암보험"
-     ]
-    }
+    "계약 목록"
    ]
   },
   {
@@ -112,7 +40,9 @@
     {
      "tag": "h2",
      "attrs": {
-      "class": "split"
+      "class": "split",
+      "id": "contractTitle",
+      "tabindex": "-1"
      },
      "children": [
       "(무)iM 튼튼 어린이보험",

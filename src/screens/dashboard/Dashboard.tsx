@@ -41,7 +41,7 @@ function ContractCard({ contract }: { contract: Contract }) {
       {contract.status === '납입유예' && <InfoBox tone="warn compact" icon="alert">납입유예 중입니다. 월대체보험료가 적립금에서 차감됩니다.</InfoBox>}
       <div className="acts">
         {contractShortcuts(contract).map(([label, id]) => (
-          <button key={id} className="btn sm" data-action="open" data-id={id} data-variable={contract.isVariable ? contract.no : undefined}>{label}</button>
+          <button key={id} className="btn sm" data-action="open" data-id={id} data-variable={contract.isVariable ? contract.no : undefined} data-contract={id === 'CT-02' ? contract.no : undefined}>{label}</button>
         ))}
       </div>
     </article>

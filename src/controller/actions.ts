@@ -9,7 +9,7 @@ import type { ShortcutTab } from '../components/modal/ShortcutGuide';
 import { openNoticeBoard } from '../pages/noticeBoard';
 import { rerenderScreen } from '../pages/screen';
 import { showFundPhase, startSuitability, submitSuitability, type FundFlow } from '../screens/fund/fundFlow';
-import { confirmCancelRequest, submitDocuments } from '../screens/list/listActions';
+import { confirmCancelRequest, openContractDetail, openContractDetailByNo, showContractCards, submitDocuments } from '../screens/list/listActions';
 import { completeSingleForm } from '../screens/singleForm/completeSingleForm';
 import { goToStep } from '../screens/stepFlow/stepFlowActions';
 import { STEP_FLOWS, type StepFlowState } from '../screens/stepFlows';
@@ -27,7 +27,11 @@ const currentScreen = () => SCREEN_BY_ID[state.route.screenId ?? ''];
 const ACTIONS: Record<string, ActionHandler> = {
   /* 이동 */
   'nav':               ({ page }) => navigate(page as Page),
-  'open':              ({ id = '', variable }) => { if (variable) state.variableNo = variable; openScreen(id); },
+  'open':              ({ id = '', variable, contract }) => {
+    if (variable) state.variableNo = variable;
+    openScreen(id);
+    if (contract && id === 'CT-02' && state.route.screenId === id) openContractDetailByNo(contract);
+  },
   'open-group':        ({ group = '' }) => openScreen(Object.values(MENU_TREE[group])[0][0].id),
   'back':              () => goBack(),
   'toggle-all-menu':   () => toggleAllMenu(),
@@ -70,7 +74,8 @@ const ACTIONS: Record<string, ActionHandler> = {
   'set-period':        ({ period }) => { state.screen.list.period = period; rerenderScreen(); },
   'select-row':        ({ index }) => { state.screen.list.selectedRow = Number(index); rerenderScreen(); },
   'close-row':         () => { state.screen.list.selectedRow = null; rerenderScreen(); },
-  'contract-tab':      ({ index }) => { state.screen.list.contractTab = Number(index); rerenderScreen(); },
+  'contract-open':     ({ index }) => openContractDetail(Number(index)),
+  'contract-list':     () => showContractCards(),
   'download-contract-doc': ({ no = '', doc = '' }) => downloadContractDocument(no, doc),
   'variable-tab':      ({ no = '' }) => {
     state.variableNo = no;

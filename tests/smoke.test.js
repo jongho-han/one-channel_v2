@@ -106,7 +106,7 @@ test('계약조회에서 계약별 약관·안내장 PDF를 내려받는다 (CT-
   window.URL.revokeObjectURL = () => {};
   window.HTMLAnchorElement.prototype.click = function () { saved.name = this.download; };
 
-  click($('[data-action="contract-tab"][data-index="1"]'));   // 변액연금도 약관 · 보험상품안내장 각 1건
+  click($('[data-action="contract-open"][data-index="1"]'));   // 변액연금도 약관 · 보험상품안내장 각 1건
   const buttons = [...window.document.querySelectorAll('[data-action="download-contract-doc"]')];
   assert.deepEqual(buttons.map(button => button.dataset.doc), ['terms', 'product-notice']);
 
@@ -634,11 +634,33 @@ test('T2 조회기간·필터에 맞는 행만 보여준다 (CT-08)', () => {
   assert.deepEqual(errors, []);
 });
 
-test('T2 계약조회 계약 탭 · 변액 계약 탭 (CT-02 · CT-03)', () => {
+test('T2 계약조회 카드 → 계약 상세 · 변액 계약 탭 (CT-02 · CT-03)', () => {
   login();
   window.App.openScreen('CT-02');
-  click($('[data-action="contract-tab"][data-index="6"]'));
-  assertMatchesGolden('CT-02-tab6');
+  assert.equal(window.document.querySelectorAll('#sbody article.ct').length, 8, '보유계약마다 카드');
+  assert.equal($('[data-action="download-contract-doc"]'), null, '처음에는 상세 없이 카드 목록');
+  click($('[data-action="contract-open"][data-index="6"]'));
+  assertMatchesGolden('CT-02-detail6');
+  assert.equal(window.document.activeElement, $('#contractTitle'), '상세를 열면 계약 이름으로 초점');
+  assert.equal($('#sbody article.ct'), null);
+  click($('[data-action="contract-list"]'));
+  assert.equal(window.document.querySelectorAll('#sbody article.ct').length, 8);
+  assert.equal(window.document.activeElement, $('[data-action="contract-open"][data-index="6"]'), '목록으로 돌아오면 보던 계약 카드로 초점');
+  window.App.openScreen('CT-03');
+  click($('[data-action="variable-tab"][data-no="2021-0345678"]'));
+  assertMatchesGolden('CT-03-tab2');
+  assert.deepEqual(errors, []);
+});
+
+test('계약종합현황의 계약상세는 그 계약의 상세를 바로 연다 (CT-01 → CT-02)', () => {
+  login();
+  window.App.openScreen('CT-01');
+  click($('[data-action="open"][data-id="CT-02"][data-contract="2020-0456789"]'));
+  assert.equal(window.App.state.route.screenId, 'CT-02');
+  assert.match($('#contractTitle').textContent, /하이브리드 변액연금보험/);
+  assert.equal(window.document.activeElement, $('#contractTitle'));
+  click($('[data-action="contract-list"]'));
+  assert.equal(window.document.querySelectorAll('#sbody article.ct').length, 8);
   window.App.openScreen('CT-03');
   click($('[data-action="variable-tab"][data-no="2021-0345678"]'));
   assertMatchesGolden('CT-03-tab2');

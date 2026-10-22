@@ -330,6 +330,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2018-0012345",
           "data-id": "CT-02"
          },
          "children": [
@@ -541,6 +542,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2020-0456789",
           "data-id": "CT-02",
           "data-variable": "2020-0456789"
          },
@@ -739,6 +741,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2021-0778812",
           "data-id": "CT-02"
          },
          "children": [
@@ -991,6 +994,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2016-0033190",
           "data-id": "CT-02"
          },
          "children": [
@@ -1213,6 +1217,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2017-0091234",
           "data-id": "CT-02"
          },
          "children": [
@@ -1413,6 +1418,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2021-0345678",
           "data-id": "CT-02",
           "data-variable": "2021-0345678"
          },
@@ -1636,6 +1642,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2019-0234567",
           "data-id": "CT-02"
          },
          "children": [
@@ -1867,6 +1874,7 @@
          "attrs": {
           "class": "btn sm",
           "data-action": "open",
+          "data-contract": "2022-0567123",
           "data-id": "CT-02"
          },
          "children": [

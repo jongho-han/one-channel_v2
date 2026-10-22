@@ -5,798 +5,208 @@
  },
  "children": [
   {
-   "tag": "div",
+   "tag": "p",
    "attrs": {
-    "aria-label": "조회할 계약",
-    "class": "block mb-14 seg",
-    "role": "group"
+    "class": "footnote"
    },
    "children": [
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "true",
-      "class": "on",
-      "data-action": "contract-tab",
-      "data-index": "0"
-     },
-     "children": [
-      "든든한 종신보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "1"
-     },
-     "children": [
-      "하이브리드 변액연금보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "2"
-     },
-     "children": [
-      "실손의료비보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "3"
-     },
-     "children": [
-      "유니버설저축보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "4"
-     },
-     "children": [
-      "행복드림 연금보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "5"
-     },
-     "children": [
-      "변액유니버설 종신보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "6"
-     },
-     "children": [
-      "튼튼 어린이보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "contract-tab",
-      "data-index": "7"
-     },
-     "children": [
-      "든든 암보험"
-     ]
-    }
+    "조회할 계약을 고르면 보장내용 · 계약관계자 · 납입정보 · 약관을 볼 수 있습니다."
    ]
   },
   {
    "tag": "div",
    "attrs": {
-    "class": "card"
+    "class": "ct-list"
    },
    "children": [
     {
-     "tag": "h2",
+     "tag": "article",
      "attrs": {
-      "class": "split"
-     },
-     "children": [
-      "(무)iM 든든한 종신보험",
-      {
-       "tag": "span",
-       "attrs": {
-        "class": "g st"
-       },
-       "children": [
-        "정상"
-       ]
-      }
-     ]
-    },
-    {
-     "tag": "dl",
-     "attrs": {
-      "class": "kv"
+      "class": "ct"
      },
      "children": [
       {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "증권번호"
-       ]
-      },
-      {
-       "tag": "dd",
+       "tag": "div",
        "attrs": {
-        "class": "num"
-       },
-       "children": [
-        "2018-0012345"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "계약일"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {
-        "class": "num"
-       },
-       "children": [
-        "2018.07.15"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "보험기간"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "종신"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "납입기간"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "2038.06까지"
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "tag": "div",
-   "attrs": {
-    "class": "card"
-   },
-   "children": [
-    {
-     "tag": "h2",
-     "attrs": {},
-     "children": [
-      "보장내용"
-     ]
-    },
-    {
-     "tag": "div",
-     "attrs": {
-      "aria-label": "보장내용 표 (좌우로 스크롤할 수 있음)",
-      "class": "tbl-wrap",
-      "role": "region",
-      "tabindex": "0"
-     },
-     "children": [
-      {
-       "tag": "table",
-       "attrs": {
-        "class": "min-420 tbl"
+        "class": "ct-head"
        },
        "children": [
         {
-         "tag": "thead",
+         "tag": "div",
          "attrs": {},
          "children": [
           {
-           "tag": "tr",
+           "tag": "h2",
            "attrs": {},
            "children": [
-            {
-             "tag": "th",
-             "attrs": {
-              "scope": "col"
-             },
-             "children": [
-              "구분"
-             ]
-            },
-            {
-             "tag": "th",
-             "attrs": {
-              "scope": "col"
-             },
-             "children": [
-              "보장"
-             ]
-            },
-            {
-             "tag": "th",
-             "attrs": {
-              "class": "r",
-              "scope": "col"
-             },
-             "children": [
-              "가입금액"
-             ]
-            }
+            "(무)iM 든든한 종신보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2018-0012345 · 피보험자 홍길동"
            ]
           }
          ]
         },
         {
-         "tag": "tbody",
-         "attrs": {},
-         "children": [
-          {
-           "tag": "tr",
-           "attrs": {},
-           "children": [
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "주계약"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "사망보험금"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "num r"
-             },
-             "children": [
-              "100,000,000원"
-             ]
-            }
-           ]
-          },
-          {
-           "tag": "tr",
-           "attrs": {},
-           "children": [
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "재해사망특약"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "재해 사망 시"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "num r"
-             },
-             "children": [
-              "50,000,000원"
-             ]
-            }
-           ]
-          },
-          {
-           "tag": "tr",
-           "attrs": {},
-           "children": [
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "암진단특약"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "암 진단 확정 시"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "num r"
-             },
-             "children": [
-              "30,000,000원"
-             ]
-            }
-           ]
-          },
-          {
-           "tag": "tr",
-           "attrs": {},
-           "children": [
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "입원일당특약"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "입원 1일당(4일 이상)"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "num r"
-             },
-             "children": [
-              "30,000원"
-             ]
-            }
-           ]
-          }
-         ]
-        }
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "tag": "div",
-   "attrs": {
-    "class": "card"
-   },
-   "children": [
-    {
-     "tag": "h2",
-     "attrs": {},
-     "children": [
-      "계약관계자 · 납입정보"
-     ]
-    },
-    {
-     "tag": "dl",
-     "attrs": {
-      "class": "kv"
-     },
-     "children": [
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "계약자"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "홍길동"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "피보험자"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "홍길동"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "수익자"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "김영희(배우자)"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "월 보험료"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {
-        "class": "num"
-       },
-       "children": [
-        "128,400원"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "납입 회차"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {
-        "class": "num"
-       },
-       "children": [
-        "99회 / 240회"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "자동이체"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "iM뱅크 508-12-****91 · 매월 25일"
-       ]
-      }
-     ]
-    },
-    {
-     "tag": "div",
-     "attrs": {
-      "class": "inline mt-16 navrow"
-     },
-     "children": [
-      {
-       "tag": "button",
-       "attrs": {
-        "class": "btn",
-        "data-action": "open",
-        "data-id": "CH-10"
-       },
-       "children": [
-        "계약관계자 변경"
-       ]
-      },
-      {
-       "tag": "button",
-       "attrs": {
-        "class": "btn",
-        "data-action": "open",
-        "data-id": "PM-02"
-       },
-       "children": [
-        "자동이체 변경"
-       ]
-      },
-      {
-       "tag": "button",
-       "attrs": {
-        "class": "btn pri",
-        "data-action": "open",
-        "data-id": "CF-03"
-       },
-       "children": [
-        "보험증권 재발급"
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "tag": "div",
-   "attrs": {
-    "class": "card"
-   },
-   "children": [
-    {
-     "tag": "h2",
-     "attrs": {},
-     "children": [
-      "약관 · 안내장"
-     ]
-    },
-    {
-     "tag": "div",
-     "attrs": {
-      "aria-label": "(무)iM 든든한 종신보험 약관 표 (좌우로 스크롤할 수 있음)",
-      "class": "tbl-wrap",
-      "role": "region",
-      "tabindex": "0"
-     },
-     "children": [
-      {
-       "tag": "table",
-       "attrs": {
-        "class": "min-420 tbl"
-       },
-       "children": [
-        {
-         "tag": "caption",
+         "tag": "div",
          "attrs": {
-          "class": "sr-only"
+          "class": "badges"
          },
          "children": [
-          "(무)iM 든든한 종신보험 약관·안내장 목록"
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "g st"
+           },
+           "children": [
+            "정상"
+           ]
+          }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
         {
-         "tag": "thead",
+         "tag": "div",
          "attrs": {},
          "children": [
           {
-           "tag": "tr",
+           "tag": "dt",
            "attrs": {},
            "children": [
-            {
-             "tag": "th",
-             "attrs": {
-              "scope": "col"
-             },
-             "children": [
-              "구분"
-             ]
-            },
-            {
-             "tag": "th",
-             "attrs": {
-              "scope": "col"
-             },
-             "children": [
-              "서류명"
-             ]
-            },
-            {
-             "tag": "th",
-             "attrs": {
-              "scope": "col"
-             },
-             "children": [
-              "기준일"
-             ]
-            },
-            {
-             "tag": "th",
-             "attrs": {
-              "class": "r",
-              "scope": "col"
-             },
-             "children": [
-              "내려받기"
-             ]
-            }
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "128,400원"
            ]
           }
          ]
         },
         {
-         "tag": "tbody",
+         "tag": "div",
          "attrs": {},
          "children": [
           {
-           "tag": "tr",
+           "tag": "dt",
            "attrs": {},
            "children": [
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "약관"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "보험약관"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "num"
-             },
-             "children": [
-              "2018.07.15"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
-             "children": [
-              {
-               "tag": "button",
-               "attrs": {
-                "class": "btn sm",
-                "data-action": "download-contract-doc",
-                "data-doc": "terms",
-                "data-no": "2018-0012345"
-               },
-               "children": [
-                {
-                 "tag": "svg",
-                 "attrs": {
-                  "aria-hidden": "true",
-                  "class": "i",
-                  "viewBox": "0 0 24 24"
-                 },
-                 "children": [
-                  {
-                   "tag": "path",
-                   "attrs": {
-                    "d": "M6 3h12v18H6z"
-                   },
-                   "children": []
-                  },
-                  {
-                   "tag": "path",
-                   "attrs": {
-                    "d": "M9 8h6M9 12h6M9 16h3"
-                   },
-                   "children": []
-                  }
-                 ]
-                },
-                "PDF",
-                {
-                 "tag": "span",
-                 "attrs": {
-                  "class": "sr-only"
-                 },
-                 "children": [
-                  "보험약관 내려받기"
-                 ]
-                }
-               ]
-              }
-             ]
-            }
+            "계약일"
            ]
           },
           {
-           "tag": "tr",
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2018.07.15"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
            "attrs": {},
            "children": [
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "안내장"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {},
-             "children": [
-              "보험상품안내장"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "num"
-             },
-             "children": [
-              "2018.07.15"
-             ]
-            },
-            {
-             "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
-             "children": [
-              {
-               "tag": "button",
-               "attrs": {
-                "class": "btn sm",
-                "data-action": "download-contract-doc",
-                "data-doc": "product-notice",
-                "data-no": "2018-0012345"
-               },
-               "children": [
-                {
-                 "tag": "svg",
-                 "attrs": {
-                  "aria-hidden": "true",
-                  "class": "i",
-                  "viewBox": "0 0 24 24"
-                 },
-                 "children": [
-                  {
-                   "tag": "path",
-                   "attrs": {
-                    "d": "M6 3h12v18H6z"
-                   },
-                   "children": []
-                  },
-                  {
-                   "tag": "path",
-                   "attrs": {
-                    "d": "M9 8h6M9 12h6M9 16h3"
-                   },
-                   "children": []
-                  }
-                 ]
-                },
-                "PDF",
-                {
-                 "tag": "span",
-                 "attrs": {
-                  "class": "sr-only"
-                 },
-                 "children": [
-                  "보험상품안내장 내려받기"
-                 ]
-                }
-               ]
-              }
-             ]
-            }
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "종신"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar-l"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "납입 99/240회"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "41%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar"
+         },
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "width:41%"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "0"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 든든한 종신보험"
            ]
           }
          ]
@@ -806,12 +216,1347 @@
      ]
     },
     {
-     "tag": "p",
+     "tag": "article",
      "attrs": {
-      "class": "note-sm"
+      "class": "ct"
      },
      "children": [
-      "약관과 보험상품안내장은 가입 당시 기준입니다."
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ct-head"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2020-0456789 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "badges"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "g st"
+           },
+           "children": [
+            "정상"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "300,000원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "계약일"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2020.03.02"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "2045.03.02 연금개시"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar-l"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "납입 79/120회"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "66%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar"
+         },
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "width:66%"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "1"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 하이브리드 변액연금보험"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "article",
+     "attrs": {
+      "class": "ct"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ct-head"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "(무)iM 실손의료비보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2021-0778812 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "badges"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "g st"
+           },
+           "children": [
+            "정상"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "34,560원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "계약일"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2021.07.01"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "2026.12.31 (갱신)"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "bar-l"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {},
+         "children": [
+          "갱신형"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "2"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 실손의료비보험"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "article",
+     "attrs": {
+      "class": "ct"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ct-head"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "(무)iM 유니버설저축보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2016-0033190 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "badges"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "a st"
+           },
+           "children": [
+            "납입유예"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "200,000원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "계약일"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2016.04.20"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "2031.04.20 만기"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar-l"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "납입 120/120회"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "100%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar"
+         },
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "width:100%"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "3"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 유니버설저축보험"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "article",
+     "attrs": {
+      "class": "ct"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ct-head"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "(무)iM 행복드림 연금보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2017-0091234 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "badges"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "g st"
+           },
+           "children": [
+            "정상"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "150,000원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "계약일"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2017.11.20"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "2038.11.20 연금개시"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar-l"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "납입 107/120회"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "89%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar"
+         },
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "width:89%"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "4"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 행복드림 연금보험"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "article",
+     "attrs": {
+      "class": "ct"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ct-head"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "(무)iM 변액유니버설 종신보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2021-0345678 · 피보험자 홍길동"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "badges"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "g st"
+           },
+           "children": [
+            "정상"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "200,000원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "계약일"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2021.04.15"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "종신"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar-l"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "납입 66/240회"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "28%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar"
+         },
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "width:28%"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "5"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 변액유니버설 종신보험"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "article",
+     "attrs": {
+      "class": "ct"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ct-head"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "(무)iM 튼튼 어린이보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2019-0234567 · 피보험자 홍서연(자녀)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "badges"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "g st"
+           },
+           "children": [
+            "정상"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "45,000원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "계약일"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2019.07.10"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "2049.07.10 만기"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar-l"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "납입 87/240회"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "36%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar"
+         },
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "width:36%"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "6"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 튼튼 어린이보험"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "article",
+     "attrs": {
+      "class": "ct"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "ct-head"
+       },
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "h2",
+           "attrs": {},
+           "children": [
+            "(무)iM 든든 암보험"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "증권번호 2022-0567123 · 피보험자 김영희(배우자)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "badges"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "g st"
+           },
+           "children": [
+            "정상"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "dl",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "월 보험료"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "52,300원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "계약일"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "2022.08.05"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {},
+         "children": [
+          {
+           "tag": "dt",
+           "attrs": {},
+           "children": [
+            "보험기간"
+           ]
+          },
+          {
+           "tag": "dd",
+           "attrs": {},
+           "children": [
+            "2062.08.05 만기"
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {},
+       "children": [
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar-l"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "납입 50/240회"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {},
+           "children": [
+            "21%"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "class": "bar"
+         },
+         "children": [
+          {
+           "tag": "i",
+           "attrs": {
+            "style": "width:21%"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "acts"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri sm",
+          "data-action": "contract-open",
+          "data-index": "7"
+         },
+         "children": [
+          "상세 보기",
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(무)iM 든든 암보험"
+           ]
+          }
+         ]
+        }
+       ]
+      }
      ]
     }
    ]

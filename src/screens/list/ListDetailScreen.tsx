@@ -7,7 +7,7 @@ import { rerenderScreen } from '../../pages/screen';
 import { state, updateScreenList } from '../../state/store';
 import { VariableContractTabs } from '../fund/FundViews';
 import { LIST_SCREENS } from '../listScreens';
-import { ContractDetail, type ContractInfo } from './ContractDetail';
+import { ContractCards, ContractDetail, type ContractInfo } from './ContractDetail';
 import { ListScreen, type ListState } from './ListScreen';
 
 const contracts: readonly ContractInfo[] = CONTRACTS;
@@ -20,11 +20,12 @@ function changeFilter(label: string, value: string) {
 }
 
 export function ListDetailScreen({ screen }: { screen: ScreenSpec }) {
-  const list = state.screen.list as ListState & { contractTab?: number };
+  const list = state.screen.list as ListState;
   if (screen.id === 'CT-02') {
-    const selected = list.contractTab ?? 0;
-    const documents: ContractDocument[] = contractDocuments(contracts[selected]);
-    return <ContractDetail contracts={contracts} selected={selected} userName={USER.name} documents={documents} />;
+    const contract = list.contractIndex === undefined ? null : contracts[list.contractIndex];
+    if (!contract) return <ContractCards contracts={contracts} />;
+    const documents: ContractDocument[] = contractDocuments(contract);
+    return <ContractDetail contract={contract} userName={USER.name} documents={documents} />;
   }
   const config = LIST_SCREENS[screen.id];
   const top = config.top === 'variable-contracts' ? <VariableContractTabs contracts={VARIABLE_CONTRACTS} selected={selectedVariableContract()} /> : null;
