@@ -1,5 +1,5 @@
 /* 폼 필드 정의 */
-export type FieldType = 'text' | 'tel' | 'email' | 'date' | 'select' | 'radio' | 'checks' | 'money' | 'account' | 'file' | 'addr';
+export type FieldType = 'text' | 'tel' | 'email' | 'date' | 'select' | 'radio' | 'checks' | 'money' | 'account' | 'file' | 'addr' | 'textarea';
 
 export interface FieldSpec {
   id: string;

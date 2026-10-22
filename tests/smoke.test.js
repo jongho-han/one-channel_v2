@@ -697,7 +697,7 @@ const checkAll = selector => window.document.querySelectorAll(selector).forEach(
 /** 화면별 입력: 선택 단계(맞춤 단계 포함)와 입력 단계에서 필수 값 채우기 */
 const STEP_FLOW_INPUTS = {
   'MY-05': { input: () => { $('#work').value = '테스트상사'; } },
-  'PY-01': { input: () => { click($('input[name="kind"]')); attachFiles($('#docs'), ['receipt.pdf']); } },
+  'PY-01': { input: () => { click($('input[name="kind"]')); $('#place').value = '서울 중구 하나내과의원'; $('#story').value = '계단을 급하게 내려가다 발목을 접지름'; attachFiles($('#docs'), ['receipt.pdf']); } },
   'PY-05': { input: () => setInput($('#amt'), '1,000,000') },
   'CH-05': { pick: () => click($('input[name="annuityPick"]')), input: () => setInput($('#age'), $('#age').options[2].value) },
   'CH-11': { input: () => setInput($('#age'), $('#age').options[1].value) },
@@ -782,6 +782,10 @@ test('보험금 청구: 계약 선택 없이 안내 → 청구 종류에 맞는 
   assert.deepEqual([...window.document.querySelectorAll('input[name="who"]')].map(input => input.value), ['김영희(배우자)', '홍서연(자녀)']);
   click($('input[name="kind"]'));
   attachFiles($('#docs'), ['death.pdf']);
+  click($('#next'));
+  assert.equal($('#e-place').textContent, '사고장소(초진병원)을(를) 입력해 주세요.', '사고장소는 필수');
+  assert.equal(window.document.activeElement, $('#place'));
+  $('#place').value = '서울 중구 하나내과의원';
   checkAll('[data-agree]');
   click($('#next'));
   assert.equal(currentStepName(), '확인');

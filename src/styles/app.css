@@ -507,6 +507,7 @@ ul.dots li::marker { color: var(--brand); }
 .modal .fld + .fld { margin-top: 14px; }
 .agree-err { display: block; margin-top: 6px; font-size: 12.5px; color: var(--red); }
 .inp { width: 100%; min-height: 48px; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; outline: 0; background: #fff; font-size: 15.5px; transition: border-color .15s; }
+textarea.inp.area { min-height: 104px; line-height: 1.55; resize: vertical; font-family: inherit; }
 .inp.sm { min-height: 40px; padding: 7px 12px; }
 .inp.sm.narrow { max-width: 180px; padding-inline: 10px; }
 .inp.zip { max-width: 120px; }

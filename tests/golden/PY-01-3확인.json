@@ -269,6 +269,38 @@
        "tag": "dt",
        "attrs": {},
        "children": [
+        "사고장소(초진병원)"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "서울 중구 하나내과의원"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "사고(발생경위)"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "계단을 급하게 내려가다 발목을 접지름"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
         "초진일"
        ]
       },
@@ -279,22 +311,6 @@
        },
        "children": [
         "2026-09-20"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "병원명"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {
-        "class": "num"
-       },
-       "children": [
-        "-"
        ]
       },
       {

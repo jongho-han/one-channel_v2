@@ -371,10 +371,10 @@
              "children": [],
              "state": {
               "checked": false,
-              "value": "상해(사고)"
+              "value": "재해"
              }
             },
-            "상해(사고)"
+            "재해"
            ]
           },
           {
@@ -390,10 +390,10 @@
              "children": [],
              "state": {
               "checked": false,
-              "value": "교통사고"
+              "value": "기타"
              }
             },
-            "교통사고"
+            "기타"
            ]
           }
          ]
@@ -658,6 +658,119 @@
        "tag": "div",
        "attrs": {
         "class": "fld",
+        "data-f": "place"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "place"
+         },
+         "children": [
+          "사고장소(초진병원)",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-place",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "place",
+          "name": "place",
+          "placeholder": "예: 서울 중구 ○○내과의원",
+          "type": "text"
+         },
+         "children": [],
+         "state": {
+          "value": "서울 중구 하나내과의원"
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-place",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld wide",
+        "data-f": "story"
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "story"
+         },
+         "children": [
+          "사고(발생경위)"
+         ]
+        },
+        {
+         "tag": "textarea",
+         "attrs": {
+          "aria-describedby": "h-story e-story",
+          "class": "area inp",
+          "id": "story",
+          "name": "story",
+          "placeholder": "예) 오늘 계단을 급하게 내려가다 발목을 접지름",
+          "rows": "4"
+         },
+         "children": [
+          "계단을 급하게 내려가다 발목을 접지름"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "h-story"
+         },
+         "children": [
+          "누가·언제·어디서·무엇을·어떻게·왜(육하원칙)에 맞춰 작성해 주세요."
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-story",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
         "data-f": "date2"
        },
        "children": [
@@ -710,48 +823,6 @@
          "attrs": {
           "class": "err",
           "id": "e-date2",
-          "role": "alert"
-         },
-         "children": []
-        }
-       ]
-      },
-      {
-       "tag": "div",
-       "attrs": {
-        "class": "fld",
-        "data-f": "hosp"
-       },
-       "children": [
-        {
-         "tag": "label",
-         "attrs": {
-          "for": "hosp"
-         },
-         "children": [
-          "병원명"
-         ]
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-describedby": "e-hosp",
-          "class": "inp",
-          "id": "hosp",
-          "name": "hosp",
-          "placeholder": "예: ○○내과의원",
-          "type": "text"
-         },
-         "children": [],
-         "state": {
-          "value": ""
-         }
-        },
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "err",
-          "id": "e-hosp",
           "role": "alert"
          },
          "children": []

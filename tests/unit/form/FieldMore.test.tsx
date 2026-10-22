@@ -3,6 +3,16 @@ import { render, screen } from '@testing-library/react';
 import { Field } from '../../../src/components/form/Field';
 
 describe('Field (추가 유형)', () => {
+  test('여러 줄 입력(textarea): 레이블·안내·예시·필수·입력값 유지', () => {
+    render(<Field field={{ id: 'story', label: '사고 발생경위', type: 'textarea', placeholder: '예) 오늘 계단을 급하게 내려가다 발목을 접지름', help: '육하원칙으로 작성해 주세요.' }} values={{ story: '계단에서 넘어짐' }} />);
+    const area = screen.getByLabelText(/사고 발생경위/) as HTMLTextAreaElement;
+    expect(area.tagName.toLowerCase()).toBe('textarea');
+    expect(area.value).toBe('계단에서 넘어짐');
+    expect(area.placeholder).toBe('예) 오늘 계단을 급하게 내려가다 발목을 접지름');
+    expect(area.getAttribute('aria-required')).toBe('true');
+    expect(area.getAttribute('aria-describedby')).toContain('h-story');
+  });
+
   test('주소: 우편번호(읽기 전용)·검색 버튼·기본주소·상세주소', () => {
     const { container } = render(<Field field={{ id: 'addrH', label: '자택 주소', type: 'addr', zip: '04524', value: '세종대로 110' }} values={{ addrH_d: '101호' }} />);
     expect(container.querySelector('#lb-addrH')?.textContent).toContain('자택 주소');

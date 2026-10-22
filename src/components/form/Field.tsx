@@ -197,6 +197,11 @@ function Control(props: ControlProps) {
                  aria-label={`${field.label} 상세주소`} autoComplete="address-line2" />
         </>
       );
+    case 'textarea':
+      return (
+        <textarea className={inputClass('inp area', invalid)} id={id} name={id} rows={4} defaultValue={value} placeholder={field.placeholder ?? ''}
+                  onChange={event => onChange?.(event.target.value)} {...inputAttributes(field, invalid)} />
+      );
     default:
       return (
         <input className={inputClass(field.numeric ? 'inp num' : 'inp', invalid)} type={field.type ?? 'text'} id={id} name={id} defaultValue={value}
