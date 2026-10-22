@@ -16,9 +16,6 @@ export const CLAIM_GUIDE: readonly (readonly [label: string, lines: readonly str
     '기타 문의는 iM라이프 콜센터(1588-4770)로 연락해 주세요.']],
 ];
 
-/** 보험금 청구 및 지급 절차 */
-export const CLAIM_PROCEDURE: readonly string[] = ['계약사항 조회', '청구사항 입력', '구비서류 제출', '보험금 접수(SMS)', '서류심사 및 현장심사', '보험금 지급'];
-
 export const CLAIM_NOTES: readonly string[] = ['필요 시 추가 서류 제출을 요청드릴 수 있습니다.', '단체보험 보험금 청구 시에는 재직증명서 제출을 요청드릴 수 있습니다.'];
 
 export interface ClaimType {

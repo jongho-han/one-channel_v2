@@ -18,11 +18,10 @@ test('청구사항 안내 표: 청구 대상 · 이용 가능 시간 · 확인�
   expect(screen.getByRole('button', { name: /사고보험금 청구서류/ }).dataset).toMatchObject({ action: 'open', id: 'CS-01' });
 });
 
-test('청구·지급 절차 6단계 (순서 목록)', () => {
+test('청구·지급 절차 블록 없음', () => {
   setup();
-  const list = screen.getByRole('list', { name: '보험금 청구 및 지급 절차' });
-  expect(within(list).getAllByRole('listitem').map(item => item.textContent)).toEqual([
-    'STEP 01계약사항 조회', 'STEP 02청구사항 입력', 'STEP 03구비서류 제출', 'STEP 04보험금 접수(SMS)', 'STEP 05서류심사 및 현장심사', 'STEP 06보험금 지급']);
+  expect(screen.queryByRole('heading', { name: '보험금 청구 및 지급 절차' })).toBeNull();
+  expect(screen.queryByRole('list', { name: '보험금 청구 및 지급 절차' })).toBeNull();
 });
 
 test('청구 종류 탭: 고른 종류 표시·바꾸기·다음', () => {
