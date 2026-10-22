@@ -51,7 +51,7 @@ function Hero({ isLoggedIn, search, onOpen, announce }: HomePageProps) {
     <section className="hero"><div className="wrap">
       <div className="shortbar">
         <span>자주 이용하신다면 바로가기를 만들어 두세요.</span>
-        <button className="shortbtn" data-action="open-shortcut"><span className="ap" aria-hidden="true">iM</span><span className="sl">바로가기 추가</span></button>
+        <button className="shortbtn" data-action="open-shortcut">바로가기 추가</button>
       </div>
       <div>
         <div className="eyebrow">iM라이프 사이버창구</div>

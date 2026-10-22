@@ -4,6 +4,7 @@ import { APP } from '../core/config';
 import { isNarrowScreen } from '../core/dom';
 import { saveFile } from '../core/download';
 import { zipFiles } from '../core/zip';
+import { drawAppIcon } from '../ui/appIcon';
 import { openModal } from '../ui/modal';
 import { toast } from '../ui/overlay';
 
@@ -19,23 +20,15 @@ export const shortcut: { iconPng: string; installPrompt: InstallPromptEvent | nu
   installPrompt: null,   // 운영(HTTPS + 웹앱 매니페스트)에서 크롬·엣지·안드로이드 설치 창 호출용
 };
 
-/** 홈 화면 아이콘(PNG)을 그려 apple-touch-icon · favicon으로 등록 */
+/** 홈 화면 아이콘(PNG)을 그려 apple-touch-icon · favicon으로 등록 (iM 심볼, 색은 app.css 로고 토큰) */
 export function registerAppIcon(): void {
   try {
     const canvas = document.createElement('canvas');
     canvas.width = canvas.height = 180;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    ctx.fillStyle = '#00754A';
-    ctx.beginPath();
-    if (typeof ctx.roundRect === 'function') ctx.roundRect(0, 0, 180, 180, 40);
-    else ctx.rect(0, 0, 180, 180);
-    ctx.fill();
-    ctx.fillStyle = '#fff';
-    ctx.font = '800 78px "Pretendard Variable",Pretendard,"Apple SD Gothic Neo",sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('iM', 90, 94);
+    const token = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    drawAppIcon(ctx, 180, { teal: token('--logo-teal'), mid: token('--logo-mid'), lime: token('--logo-lime'), background: token('--card') });
     shortcut.iconPng = canvas.toDataURL('image/png');
 
     for (const rel of ['apple-touch-icon', 'icon']) {

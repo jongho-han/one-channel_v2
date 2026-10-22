@@ -22,3 +22,10 @@ test('Logo: 헤더·앱바에 함께 있어도 그라데이션 id 가 겹치지 
     expect(mark.querySelector('[fill^="url("]')?.getAttribute('fill')).toBe(`url(#${ids[index]})`);
   });
 });
+
+test('Logo: 탭·홈 화면 아이콘과 같은 심볼 도형(LOGO_SYMBOL)', async () => {
+  const { LOGO_SYMBOL } = await import('../../../src/ui/logoSymbol');
+  const { container } = render(<Logo />);
+  expect([...container.querySelectorAll('.mark path')].map(path => path.getAttribute('d'))).toEqual([LOGO_SYMBOL.bar, LOGO_SYMBOL.arc, LOGO_SYMBOL.curve]);
+  expect(container.querySelector('.mark')?.getAttribute('viewBox')).toBe(`0 0 ${LOGO_SYMBOL.width} ${LOGO_SYMBOL.height}`);
+});

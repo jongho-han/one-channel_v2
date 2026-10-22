@@ -95,6 +95,8 @@ one-channel/
     │   ├── modal.tsx           # 모달 레이어(#layer React 루트): 열기·닫기·초점 가두기·Esc·초점 복귀
     │   ├── overlay.tsx         # 토스트·화면낭독기 안내·복사·확인 대화상자
     │   ├── icons.ts            # SVG 아이콘
+    │   ├── logoSymbol.ts       # iM 심볼 도형 (헤더 로고·탭/홈 화면 아이콘 공용)
+    │   ├── appIcon.ts          # 탭·홈 화면 아이콘 그리기 (흰 바탕 + iM 심볼)
     │   └── a11y.ts             # 표 접근성 보정
     │
     ├── form/

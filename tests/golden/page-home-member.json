@@ -37,25 +37,7 @@
           "data-action": "open-shortcut"
          },
          "children": [
-          {
-           "tag": "span",
-           "attrs": {
-            "aria-hidden": "true",
-            "class": "ap"
-           },
-           "children": [
-            "iM"
-           ]
-          },
-          {
-           "tag": "span",
-           "attrs": {
-            "class": "sl"
-           },
-           "children": [
-            "바로가기 추가"
-           ]
-          }
+          "바로가기 추가"
          ]
         }
        ]

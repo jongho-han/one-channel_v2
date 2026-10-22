@@ -21,6 +21,14 @@ describe('HomePage', () => {
     expect(screen.getByRole('heading', { name: '지금 확인이 필요해요' })).toBeTruthy();
     expect(screen.getAllByRole('button', { name: /공지|안내/ }).some(button => button.dataset.notice === 'n10')).toBe(true);
   });
+
+  test('바로가기 추가 버튼: 심볼 없이 글자만', () => {
+    render(<HomePage isLoggedIn={false} search={() => []} onOpen={noop} announce={noop} />);
+    const button = screen.getByRole('button', { name: '바로가기 추가' });
+    expect(button.dataset.action).toBe('open-shortcut');
+    expect(button.textContent).toBe('바로가기 추가');
+    expect(button.querySelector('.ap')).toBeNull();
+  });
 });
 
 describe('AllMenuPage', () => {
