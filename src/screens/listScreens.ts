@@ -1,5 +1,5 @@
 import { formatWon } from '../core/format';
-import { selectedVariableContract } from '../features/variableContract';
+import { cumulativeReturn, selectedVariableContract } from '../features/variableContract';
 import { isStatusColumn } from './list/listRules';
 
 /* T2 목록 화면 (filters: 'period' 또는 { label, options } / filterColumns: 필터 → 비교할 열) */
@@ -31,8 +31,7 @@ export const LIST_SCREENS: Record<string, ListConfig> = {
   'CT-03': { filters: ['period'], top: 'variable-contracts',
     get tiles() {
       const { reserve, principal } = selectedVariableContract().variable;
-      const rate = ((reserve / principal - 1) * 100).toFixed(2);
-      return [['적립금', formatWon(reserve)], ['누적 수익률', `${Number(rate) >= 0 ? '+' : ''}${rate}%`], ['납입 원금', formatWon(principal)]] as const;
+      return [['적립금', formatWon(reserve)], ['누적 수익률', cumulativeReturn(reserve, principal)], ['납입 원금', formatWon(principal)]] as const;
     },
     columns: ['펀드명', '편입비율', '수익률(1년)', '평가금액'],
     get rows() {

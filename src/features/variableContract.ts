@@ -10,7 +10,14 @@ export interface VariableContract {
 }
 
 /** 샘플 계약 중 변액 계약 (isVariable 이면 variable 정보가 있음) */
-export const VARIABLE_CONTRACTS: readonly VariableContract[] = CONTRACTS.filter((contract): contract is InsuranceContract & VariableContract => Boolean(contract.isVariable && contract.variable));
-export const selectedVariableContract = (): VariableContract => VARIABLE_CONTRACTS.find(contract => contract.no === state.variableNo) ?? VARIABLE_CONTRACTS[0];
+export type VariableInsuranceContract = InsuranceContract & VariableContract;
+export const VARIABLE_CONTRACTS: readonly VariableInsuranceContract[] = CONTRACTS.filter((contract): contract is VariableInsuranceContract => Boolean(contract.isVariable && contract.variable));
+export const selectedVariableContract = (): VariableInsuranceContract => VARIABLE_CONTRACTS.find(contract => contract.no === state.variableNo) ?? VARIABLE_CONTRACTS[0];
 export const activeFunds = (): readonly Fund[] => selectedVariableContract().variable.funds;
 
+
+/** 누적 수익률 = 적립금 ÷ 납입 원금 − 1 (소수 둘째 자리, 이익이면 +) */
+export function cumulativeReturn(reserve: number, principal: number): string {
+  const rate = ((reserve / principal - 1) * 100).toFixed(2);
+  return `${Number(rate) >= 0 ? '+' : ''}${rate}%`;
+}

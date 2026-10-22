@@ -5,8 +5,8 @@ import type { ScreenSpec } from '../../data/menu';
 import { VARIABLE_CONTRACTS, selectedVariableContract } from '../../features/variableContract';
 import { rerenderScreen } from '../../pages/screen';
 import { state, updateScreenList } from '../../state/store';
-import { VariableContractTabs } from '../fund/FundViews';
 import { LIST_SCREENS } from '../listScreens';
+import { VariableCards, VariableDetailTop } from './VariableCards';
 import { ContractCards, ContractDetail, type ContractInfo } from './ContractDetail';
 import { ListScreen, type ListState } from './ListScreen';
 
@@ -28,6 +28,7 @@ export function ListDetailScreen({ screen }: { screen: ScreenSpec }) {
     return <ContractDetail contract={contract} userName={USER.name} documents={documents} />;
   }
   const config = LIST_SCREENS[screen.id];
-  const top = config.top === 'variable-contracts' ? <VariableContractTabs contracts={VARIABLE_CONTRACTS} selected={selectedVariableContract()} /> : null;
+  if (config.top === 'variable-contracts' && !list.variableDetail) return <VariableCards contracts={VARIABLE_CONTRACTS} />;
+  const top = config.top === 'variable-contracts' ? <VariableDetailTop contract={selectedVariableContract()} /> : null;
   return <ListScreen screenId={screen.id} title={screen.depth3} config={config} list={list} top={top} onFilterChange={changeFilter} />;
 }

@@ -60,3 +60,18 @@ export function openContractDetailByNo(no: string): void {
   const index = CONTRACTS.findIndex(contract => contract.no === no);
   if (index >= 0) openContractDetail(index);
 }
+
+/** 변액보험 조회(CT-03): 카드에서 고른 변액 계약의 상세를 열고 계약 이름으로 초점 (펀드변경과 선택 공유) */
+export function openVariableDetail(no: string): void {
+  state.variableNo = no;
+  listState().variableDetail = true;
+  rerenderScreen();
+  focusElement($('#contractTitle'));
+}
+
+/** 변액보험 조회(CT-03): 카드 목록으로 돌아가 보던 계약 카드로 초점 */
+export function showVariableCards(): void {
+  listState().variableDetail = false;
+  rerenderScreen();
+  focusElement($(`[data-action="variable-open"][data-no="${state.variableNo}"]`));
+}

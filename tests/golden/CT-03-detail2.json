@@ -5,6 +5,70 @@
  },
  "children": [
   {
+   "tag": "button",
+   "attrs": {
+    "class": "btn mb-14 sm",
+    "data-action": "variable-list"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M15 6l-6 6 6 6"
+       },
+       "children": []
+      }
+     ]
+    },
+    "계약 목록"
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card mb-14"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {
+      "class": "split",
+      "id": "contractTitle",
+      "tabindex": "-1"
+     },
+     "children": [
+      "(무)iM 변액유니버설 종신보험",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "g st"
+       },
+       "children": [
+        "정상"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "note-sm"
+     },
+     "children": [
+      "증권번호 2021-0345678 · 피보험자 홍길동"
+     ]
+    }
+   ]
+  },
+  {
    "tag": "div",
    "attrs": {
     "class": "box mb-14 warn"
@@ -41,39 +105,6 @@
      "attrs": {},
      "children": [
       "변액보험은 펀드 운용 실적에 따라 적립금이 변동하며, 원금 손실이 발생할 수 있습니다. 예금자보호법에 따라 보호되지 않습니다(최저보증 부분 제외)."
-     ]
-    }
-   ]
-  },
-  {
-   "tag": "div",
-   "attrs": {
-    "aria-label": "변액 계약 선택",
-    "class": "block mb-14 seg",
-    "role": "group"
-   },
-   "children": [
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "false",
-      "data-action": "variable-tab",
-      "data-no": "2020-0456789"
-     },
-     "children": [
-      "하이브리드 변액연금보험"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
-      "aria-pressed": "true",
-      "class": "on",
-      "data-action": "variable-tab",
-      "data-no": "2021-0345678"
-     },
-     "children": [
-      "변액유니버설 종신보험"
      ]
     }
    ]

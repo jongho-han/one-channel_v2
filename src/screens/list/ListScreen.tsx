@@ -15,6 +15,7 @@ export interface ListState {
   selectedRow?: number | null;
   uploadError?: string;   // 보완서류 제출 오류 (PY-02)
   contractIndex?: number; // 계약조회(CT-02)에서 상세를 연 계약 (없으면 카드 목록)
+  variableDetail?: boolean; // 변액보험 조회(CT-03)에서 상세를 열었는지 (계약은 state.variableNo)
 }
 
 const PERIODS = ['1개월', '3개월', '6개월', '1년'];
@@ -24,7 +25,7 @@ interface ListScreenProps {
   title: string;                // 표 제목 (화면 이름)
   config: ListConfig;
   list: ListState;
-  top?: ReactNode;              // 목록 위 추가 영역 (변액 계약 탭)
+  top?: ReactNode;              // 목록 위 추가 영역 (변액 계약 이름·목록 버튼)
   onFilterChange: (label: string, value: string) => void;
 }
 
@@ -155,8 +156,8 @@ export function ListScreen({ screenId, title, config, list, top, onFilterChange 
   return (
     <>
       {config.info && <InfoBox tone="info mb-14" icon="info">{config.info}</InfoBox>}
-      {config.warn && <InfoBox tone="warn mb-14" icon="alert">{config.warn}</InfoBox>}
       {top}
+      {config.warn && <InfoBox tone="warn mb-14" icon="alert">{config.warn}</InfoBox>}
       {config.tiles && <SummaryTiles tiles={config.tiles} />}
       <Filters filters={config.filters} period={list.period ?? '3개월'} values={filters} onFilterChange={onFilterChange} />
       <Rows title={title} config={config} rows={visibleRows(config.rows, config.filterColumns, filters)} selectedRow={selectedRow} />

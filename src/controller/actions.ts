@@ -9,7 +9,7 @@ import type { ShortcutTab } from '../components/modal/ShortcutGuide';
 import { openNoticeBoard } from '../pages/noticeBoard';
 import { rerenderScreen } from '../pages/screen';
 import { showFundPhase, startSuitability, submitSuitability, type FundFlow } from '../screens/fund/fundFlow';
-import { confirmCancelRequest, openContractDetail, openContractDetailByNo, showContractCards, submitDocuments } from '../screens/list/listActions';
+import { confirmCancelRequest, openContractDetail, openContractDetailByNo, openVariableDetail, showContractCards, showVariableCards, submitDocuments } from '../screens/list/listActions';
 import { completeSingleForm } from '../screens/singleForm/completeSingleForm';
 import { goToStep } from '../screens/stepFlow/stepFlowActions';
 import { STEP_FLOWS, type StepFlowState } from '../screens/stepFlows';
@@ -31,6 +31,7 @@ const ACTIONS: Record<string, ActionHandler> = {
     if (variable) state.variableNo = variable;
     openScreen(id);
     if (contract && id === 'CT-02' && state.route.screenId === id) openContractDetailByNo(contract);
+    if (variable && id === 'CT-03' && state.route.screenId === id) openVariableDetail(variable);
   },
   'open-group':        ({ group = '' }) => openScreen(Object.values(MENU_TREE[group])[0][0].id),
   'back':              () => goBack(),
@@ -76,6 +77,8 @@ const ACTIONS: Record<string, ActionHandler> = {
   'close-row':         () => { state.screen.list.selectedRow = null; rerenderScreen(); },
   'contract-open':     ({ index }) => openContractDetail(Number(index)),
   'contract-list':     () => showContractCards(),
+  'variable-open':     ({ no = '' }) => openVariableDetail(no),
+  'variable-list':     () => showVariableCards(),
   'download-contract-doc': ({ no = '', doc = '' }) => downloadContractDocument(no, doc),
   'variable-tab':      ({ no = '' }) => {
     state.variableNo = no;
