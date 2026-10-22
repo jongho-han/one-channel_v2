@@ -27,3 +27,7 @@ test('withClaimType: 피보험자 선택지·안내만 종류에 맞게, 다른 
   expect(beneficiary[0].options).toEqual(['김영희(배우자)', '홍서연(자녀)']);
   expect(beneficiary[0].help).toMatch(/수익자/);
 });
+
+test('자녀보험금 접수 설명: 미성년 자녀만 가능', () => {
+  expect(claimTypeOf('child').desc).toBe('※ 자녀보험금 접수는 피보험자 자녀가 미성년자일 때에만 가능합니다.');
+});
