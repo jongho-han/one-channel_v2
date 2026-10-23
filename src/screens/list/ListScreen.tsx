@@ -63,6 +63,8 @@ function Rows({ title, config, rows, selectedRow }: { title: string; config: Lis
   const { columns } = config;
   const statusIndex = columns.findIndex(isStatusColumn);
   const numericIndex = columns.findIndex(isNumericColumn);
+  // 카드 제목은 두 번째 열 값 — 그 열이 머리 금액과 같은 열이면 금액이 겹치므로 열 이름으로
+  const titleIsHeadline = statusIndex < 0 && numericIndex === 1;
   const headline = (cells: Row) => (statusIndex >= 0 ? <StatusChip status={cells[statusIndex]} /> : numericIndex >= 0 ? <span className="num">{cells[numericIndex]}</span> : null);
 
   return (
@@ -88,7 +90,7 @@ function Rows({ title, config, rows, selectedRow }: { title: string; config: Lis
       <div className="mlist">
         {rows.map(({ cells, index }) => (
           <button key={index} className={selectedRow === index ? 'mrow sel' : 'mrow'} data-action="select-row" data-index={index} aria-pressed={selectedRow === index}>
-            <span className="t"><span>{cells[1]}</span>{headline(cells)}</span>
+            <span className="t"><span>{titleIsHeadline ? columns[1] : cells[1]}</span>{headline(cells)}</span>
             <span className="s">{cells.map((value, column) => (column === 1 || column === statusIndex || column === numericIndex ? null : <span key={column}>{columns[column]} · {value}</span>))}</span>
           </button>
         ))}

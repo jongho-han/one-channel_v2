@@ -38,6 +38,13 @@ describe('ListScreen', () => {
     expect(amount.className).toBe('r num');
   });
 
+  test('모바일 카드: 두 번째 열이 머리 금액과 같은 열이면 제목은 열 이름(금액 중복 없음)', () => {
+    const { container } = setup({}, 'CT-05', { ...CONFIG, filters: [], filterColumns: {}, columns: ['지급일', '지급금액', '실수령액'], rows: [['2026.09.25', '1,032,000원', '975,240원']] });
+    const title = container.querySelector('.mlist .mrow .t');
+    expect(title?.firstElementChild?.textContent).toBe('지급금액');
+    expect(title?.querySelector('.num')?.textContent).toBe('1,032,000원');
+  });
+
   test('필터를 바꾸면 알림, 선택값에 맞는 행만', () => {
     const { onFilterChange } = setup({ filters: { 거래구분: '지급' } });
     expect(screen.getAllByRole('row')).toHaveLength(2);   // 머리글 + 1행
