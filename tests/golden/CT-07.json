@@ -304,7 +304,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "c",
             "scope": "col"
            },
            "children": [
@@ -314,7 +313,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "c",
             "scope": "col"
            },
            "children": [
@@ -324,7 +322,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "c",
             "scope": "col"
            },
            "children": [
@@ -334,7 +331,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "c",
             "scope": "col"
            },
            "children": [
@@ -395,7 +391,9 @@
           },
           {
            "tag": "td",
-           "attrs": {},
+           "attrs": {
+            "class": "num r"
+           },
            "children": [
             "1,032,000원"
            ]
@@ -455,7 +453,9 @@
           },
           {
            "tag": "td",
-           "attrs": {},
+           "attrs": {
+            "class": "num r"
+           },
            "children": [
             "1,168,000원"
            ]
@@ -515,7 +515,9 @@
           },
           {
            "tag": "td",
-           "attrs": {},
+           "attrs": {
+            "class": "num r"
+           },
            "children": [
             "746,000원"
            ]

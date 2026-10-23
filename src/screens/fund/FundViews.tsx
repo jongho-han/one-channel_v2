@@ -65,11 +65,11 @@ export function FundEdit({ contracts, contract, ratios: initialRatios, rebalance
       <p className="suit-meta">최근 적합성진단 <b className="num">{suitability.diagnosedAt}</b> · 투자 가능 범위 <b>{investableRange(suitability.profile)}</b></p>
       <div className="card"><h2>펀드 편입비율 변경</h2>
         <div className="tbl-wrap plain fundtbl"><table className="tbl min-520">
-          <thead><tr><th>펀드</th><th>위험등급</th><th className="r">1년 수익률</th><th className="r">현재</th><th className="r">변경 후</th></tr></thead>
+          <thead><tr><th>펀드</th><th>위험등급</th><th>1년 수익률</th><th>현재</th><th>변경 후</th></tr></thead>
           <tbody>
             {funds.map(([name, ratio, yieldRate, risk], index) => (
-              <tr key={name}><td>{name}</td><td className="sub">{risk}</td><td className="r num">{yieldRate}</td><td className="r num">{ratio}%</td>
-                <td className="r"><input className="inp num" id={`fd${index}`} data-fund="" inputMode="numeric" defaultValue={initialRatios[index]}
+              <tr key={name}><td>{name}</td><td className="sub">{risk}</td><td className="num">{yieldRate}</td><td className="num">{ratio}%</td>
+                <td><input className="inp num" id={`fd${index}`} data-fund="" inputMode="numeric" defaultValue={initialRatios[index]}
                                          aria-label={`${name} 변경 후 비율`} onInput={event => changeRatio(index, event.currentTarget.value)} /> %</td></tr>
             ))}
           </tbody>
@@ -206,15 +206,15 @@ export function FundCompare({ contract, after, rebalance, suitability }: { contr
         </div>
         <div className="tbl-wrap plain"><table className="tbl cmp-tbl">
           <caption className="sr-only">펀드별 변경 전후 편입비율</caption>
-          <thead><tr><th scope="col">펀드 (위험등급)</th><th scope="col" className="r">변경 전</th><th scope="col" className="r">변경 후</th><th scope="col" className="r dcol">증감</th></tr></thead>
+          <thead><tr><th scope="col">펀드 (위험등급)</th><th scope="col">변경 전</th><th scope="col">변경 후</th><th scope="col" className="dcol">증감</th></tr></thead>
           <tbody>
             {rows.map(row => (
               <tr key={row.name} className={row.delta ? 'changed' : ''}><th scope="row">{row.name}<small>{row.risk}</small></th>
-                <td className="r num">{row.before}%</td><td className="r num"><b>{row.after}%</b><span className="delta-inline"><ChangeBadge delta={row.delta} /></span></td>
-                <td className="r dcol"><ChangeBadge delta={row.delta} /></td></tr>
+                <td className="num">{row.before}%</td><td className="num"><b>{row.after}%</b><span className="delta-inline"><ChangeBadge delta={row.delta} /></span></td>
+                <td className="dcol"><ChangeBadge delta={row.delta} /></td></tr>
             ))}
           </tbody>
-          <tfoot><tr><th scope="row">합계</th><td className="r num">100%</td><td className="r num"><b>100%</b></td><td className="dcol" /></tr></tfoot>
+          <tfoot><tr><th scope="row">합계</th><td className="num">100%</td><td className="num"><b>100%</b></td><td className="dcol" /></tr></tfoot>
         </table></div>
       </div>
       <div className="card">

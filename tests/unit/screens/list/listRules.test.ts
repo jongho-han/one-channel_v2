@@ -31,7 +31,8 @@ test('행 상태별 이어서 할 일', () => {
   expect(followUpFor('CT-08', '')).toBeNull();
 });
 
-test('미래예상연금액 조회(CT-07) 표 머리글은 가운데 정렬', async () => {
-  const { LIST_SCREENS } = await import('../../../../src/screens/listScreens');
-  expect(LIST_SCREENS['CT-07'].headAlign).toBe('center');
+test('isMoneyColumn: 그 열에 금액(…원)이 하나라도 있으면 금액 열', async () => {
+  const { isMoneyColumn } = await import('../../../../src/screens/list/listRules');
+  const rows = [['종신', '12,384,000원', '+3.1%', '20년'], ['상속', '-', '2.0%', '-']];
+  expect([0, 1, 2, 3].map(index => isMoneyColumn(rows, index))).toEqual([false, true, false, false]);
 });

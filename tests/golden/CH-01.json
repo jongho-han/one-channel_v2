@@ -201,7 +201,6 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "r",
               "scope": "col"
              },
              "children": [
@@ -211,7 +210,6 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "r",
               "scope": "col"
              },
              "children": [
@@ -221,7 +219,6 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "r",
               "scope": "col"
              },
              "children": [
@@ -259,7 +256,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "+14.2%"
@@ -268,7 +265,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "40%"
@@ -276,9 +273,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "input",
@@ -322,7 +317,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "+3.1%"
@@ -331,7 +326,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "30%"
@@ -339,9 +334,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "input",
@@ -385,7 +378,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "+8.4%"
@@ -394,7 +387,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "20%"
@@ -402,9 +395,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "input",
@@ -448,7 +439,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "+2.9%"
@@ -457,7 +448,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "10%"
@@ -465,9 +456,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "input",
@@ -511,7 +500,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "+19.6%"
@@ -520,7 +509,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "0%"
@@ -528,9 +517,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "input",
@@ -574,7 +561,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "+6.7%"
@@ -583,7 +570,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "0%"
@@ -591,9 +578,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "input",

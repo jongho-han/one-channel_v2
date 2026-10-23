@@ -260,7 +260,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "r",
             "scope": "col"
            },
            "children": [

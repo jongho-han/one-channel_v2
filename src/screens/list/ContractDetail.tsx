@@ -30,11 +30,11 @@ function ContractDocumentsCard({ contract, documents }: { contract: ContractInfo
       <h2>약관 · 안내장</h2>
       <div className="tbl-wrap"><table className="tbl min-420">
         <caption className="sr-only">{contract.name} 약관·안내장 목록</caption>
-        <thead><tr><th>구분</th><th>서류명</th><th>기준일</th><th className="r">내려받기</th></tr></thead>
+        <thead><tr><th>구분</th><th>서류명</th><th>기준일</th><th>내려받기</th></tr></thead>
         <tbody>{documents.map(doc => (
           <tr key={doc.id}>
             <td>{doc.kind}</td><td>{doc.title}</td><td className="num">{doc.date}</td>
-            <td className="r"><button className="btn sm" data-action="download-contract-doc" data-no={contract.no} data-doc={doc.id}><Icon name="doc" />PDF<span className="sr-only"> {doc.title} 내려받기</span></button></td>
+            <td><button className="btn sm" data-action="download-contract-doc" data-no={contract.no} data-doc={doc.id}><Icon name="doc" />PDF<span className="sr-only"> {doc.title} 내려받기</span></button></td>
           </tr>
         ))}</tbody>
       </table></div>
@@ -100,7 +100,7 @@ export function ContractDetail({ contract, userName, documents }: ContractDetail
       <div className="card">
         <h2>보장내용</h2>
         <div className="tbl-wrap"><table className="tbl min-420">
-          <thead><tr><th>구분</th><th>보장</th><th className="r">가입금액</th></tr></thead>
+          <thead><tr><th>구분</th><th>보장</th><th>가입금액</th></tr></thead>
           <tbody>{contract.coverage.map(([type, description, amount]) => <tr key={type}><td>{type}</td><td>{description}</td><td className="r num">{amount}</td></tr>)}</tbody>
         </table></div>
       </div>

@@ -554,6 +554,7 @@ test('CH-01 적합성진단 → 결과 → 변경 전후 비교 → 전자서명
 
   click($('[data-action="fund-compare"]'));
   assertMatchesGolden('CH-01-compare');
+  assertTableAlign('CH-01 변경 전후 비교');
   click($('[data-action="fund-sign"]'));
   click($('#layer [data-auth="간편인증"]'));
   await wait(1400);
@@ -579,6 +580,25 @@ test('CH-01 진단 결과 투자성향이 낮으면 변경 불가·익일 재진
 });
 
 /* ---- T2 목록·상세 (15개 화면) ---- */
+
+/* 표 정렬: 머리글은 모두 가운데(r 없음), 금액 칸만 오른쪽(r) — 행 머리글만 있는 안내 표(claim-guide)는 제외 */
+const MONEY = /^[-+]?[\d,]+원$/;
+const assertTableAlign = label => {
+  const tables = [...window.document.querySelectorAll('#sbody table.tbl:not(.claim-guide)')];
+  assert.ok(tables.length, `${label}: 표가 있어야 함`);
+  for (const table of tables) {
+    for (const th of table.querySelectorAll('thead th')) assert.ok(!th.classList.contains('r'), `${label}: 머리글 ${th.textContent} 가운데`);
+    const heads = [...table.querySelectorAll('thead th')];
+    for (const row of table.querySelectorAll('tbody tr')) {
+      [...row.children].forEach((cell, index) => {
+        const text = cell.textContent.trim();
+        if (MONEY.test(text)) assert.ok(cell.classList.contains('r'), `${label}: 금액 ${text} 오른쪽`);
+        if (cell.classList.contains('r')) assert.ok(MONEY.test(text) || !/\d/.test(text) || /원$/.test(text), `${label}: ${heads[index]?.textContent} 열 ${text} 은 금액이 아니면 가운데`);
+      });
+    }
+  }
+};
+
 const LIST_IDS = ['MY-04', 'MY-07', 'CT-02', 'CT-03', 'CT-04', 'CT-05', 'CT-06', 'CT-07', 'CT-08', 'CT-09', 'PY-02', 'PY-03', 'PY-06', 'LN-01', 'LN-03'];
 const attachFiles = (input, names) => {
   Object.defineProperty(input, 'files', { configurable: true, value: names.map(name => new window.File(['x'], name, { type: 'application/pdf' })) });
@@ -1256,5 +1276,24 @@ test('복사 버튼: 가상계좌번호 복사 안내 (PM-01)', async () => {
   click($('[data-action="copy-text"]'));
   await wait(10);
   assert.ok(toasts().includes('가상계좌번호를 복사했습니다.'));
+  assert.deepEqual(errors, []);
+});
+
+test('표 정렬: 머리글 가운데, 금액은 오른쪽, 그 외 가운데 (표가 있는 모든 화면)', () => {
+  login();
+  for (const id of LIST_IDS.filter(id => !['CT-02', 'CT-03'].includes(id))) {
+    window.App.openScreen(id);
+    assertTableAlign(id);
+  }
+  window.App.openScreen('CT-02');
+  click($('[data-action="contract-open"][data-index="0"]'));
+  assertTableAlign('CT-02 상세');
+  window.App.openScreen('CT-03');
+  click($('[data-action="variable-open"]'));
+  assertTableAlign('CT-03 상세');
+  for (const id of ['CF-01', 'MY-02', 'CH-01']) {
+    window.App.openScreen(id);
+    assertTableAlign(id);
+  }
   assert.deepEqual(errors, []);
 });

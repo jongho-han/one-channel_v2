@@ -184,7 +184,6 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "r",
               "scope": "col"
              },
              "children": [
@@ -521,7 +520,6 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "r",
               "scope": "col"
              },
              "children": [
@@ -565,9 +563,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "button",
@@ -647,9 +643,7 @@
             },
             {
              "tag": "td",
-             "attrs": {
-              "class": "r"
-             },
+             "attrs": {},
              "children": [
               {
                "tag": "button",

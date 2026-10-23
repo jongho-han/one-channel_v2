@@ -215,7 +215,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "r",
             "scope": "col"
            },
            "children": [
@@ -225,7 +224,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "r",
             "scope": "col"
            },
            "children": [
@@ -235,7 +233,6 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "r",
             "scope": "col"
            },
            "children": [

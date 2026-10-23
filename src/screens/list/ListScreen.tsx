@@ -5,7 +5,7 @@ import { flushSync } from 'react-dom';
 import { Icon } from '../../components/Icon';
 import { InfoBox, LinkButtons, StatusChip, SummaryTiles } from '../../components/widgets';
 import type { ListConfig, ListFilter } from '../listScreens';
-import { claimScreenFor, followUpFor, isNumericColumn, isStatusColumn, visibleRows, type Row } from './listRules';
+import { claimScreenFor, followUpFor, isMoneyColumn, isNumericColumn, isStatusColumn, visibleRows, type Row } from './listRules';
 
 export type { ListConfig };
 
@@ -69,12 +69,12 @@ function Rows({ title, config, rows, selectedRow }: { title: string; config: Lis
     <>
       <div className="tbl-wrap has-m"><table className="tbl">
         <caption className="sr-only">{title} 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다</caption>
-        <thead><tr>{columns.map(column => <th key={column} scope="col" className={config.headAlign === 'center' ? 'c' : isNumericColumn(column) ? 'r' : undefined}>{column}</th>)}</tr></thead>
+        <thead><tr>{columns.map(column => <th key={column} scope="col">{column}</th>)}</tr></thead>
         <tbody>
           {rows.map(({ cells, index }) => (
             <tr key={index} className={selectedRow === index ? 'clk sel' : 'clk'} data-action="select-row" data-index={index}>
               {cells.map((value, column) => (
-                <td key={columns[column]} className={isNumericColumn(columns[column]) ? 'r num' : undefined}>
+                <td key={columns[column]} className={isMoneyColumn(config.rows, column) ? 'r num' : isNumericColumn(columns[column]) ? 'num' : undefined}>
                   {column === 0
                     /* 행 전체를 눌러도 되지만, 키보드·화면낭독기 사용자는 첫 칸의 버튼으로 상세를 엶 */
                     ? <button className="cell-btn" data-action="select-row" data-index={index} aria-pressed={selectedRow === index}>{value}<span className="sr-only"> 상세 보기</span></button>

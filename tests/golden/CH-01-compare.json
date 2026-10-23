@@ -275,7 +275,6 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "r",
               "scope": "col"
              },
              "children": [
@@ -285,7 +284,6 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "r",
               "scope": "col"
              },
              "children": [
@@ -295,7 +293,7 @@
             {
              "tag": "th",
              "attrs": {
-              "class": "dcol r",
+              "class": "dcol",
               "scope": "col"
              },
              "children": [
@@ -335,7 +333,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "40%"
@@ -344,7 +342,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               {
@@ -385,7 +383,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "dcol r"
+              "class": "dcol"
              },
              "children": [
               {
@@ -433,7 +431,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "30%"
@@ -442,7 +440,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               {
@@ -484,7 +482,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "dcol r"
+              "class": "dcol"
              },
              "children": [
               {
@@ -533,7 +531,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "20%"
@@ -542,7 +540,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               {
@@ -584,7 +582,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "dcol r"
+              "class": "dcol"
              },
              "children": [
               {
@@ -633,7 +631,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "10%"
@@ -642,7 +640,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               {
@@ -684,7 +682,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "dcol r"
+              "class": "dcol"
              },
              "children": [
               {
@@ -735,7 +733,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "0%"
@@ -744,7 +742,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               {
@@ -785,7 +783,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "dcol r"
+              "class": "dcol"
              },
              "children": [
               {
@@ -832,7 +830,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               "100%"
@@ -841,7 +839,7 @@
             {
              "tag": "td",
              "attrs": {
-              "class": "num r"
+              "class": "num"
              },
              "children": [
               {

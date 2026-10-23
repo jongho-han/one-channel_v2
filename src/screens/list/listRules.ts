@@ -1,6 +1,8 @@
 /* T2 목록 규칙 — 화면과 분리한 순수 로직 */
 
 export const isNumericColumn = (column: string): boolean => /금액|잔액|액|이자|세$|수익률|비율/.test(column);
+/** 금액 열: 그 열 값 중 하나라도 '…원' 금액이면 (표에서 오른쪽 정렬) */
+export const isMoneyColumn = (rows: readonly (readonly string[])[], index: number): boolean => rows.some(row => /^[-+]?[\d,]+원$/.test(row[index] ?? ''));
 export const isStatusColumn = (column: string): boolean => /상태|단계/.test(column);
 
 /** 보험금 찾기(PY-03)의 '신청' 열 → 이어서 열 신청 화면 */

@@ -30,14 +30,12 @@ describe('ListScreen', () => {
     expect(screen.getByRole('button', { name: '펀드 변경하기' }).className).toBe('btn pri');
   });
 
-  test('headAlign: center 면 표 머리글 가운데 정렬(c), 기본은 그대로', () => {
-    setup({}, 'CT-07', { ...CONFIG, headAlign: 'center' });
-    expect(screen.getAllByRole('columnheader').map(th => th.className)).toEqual(['c', 'c', 'c', 'c']);
-  });
-
-  test('headAlign 이 없으면 숫자 열만 오른쪽(r)', () => {
-    setup();
-    expect(screen.getAllByRole('columnheader').map(th => th.className)).toEqual(['', '', 'r', '']);
+  test('표 정렬: 머리글은 모두 가운데(클래스 없음), 금액 칸만 오른쪽(r num), 금액 아닌 숫자는 가운데(num)', () => {
+    setup({}, 'CT-04', { ...CONFIG, columns: ['펀드', '수익률', '금액', '처리상태'], rows: [['A', '+3.1%', '128,400원', '접수']] });
+    expect(screen.getAllByRole('columnheader').map(th => th.className)).toEqual(['', '', '', '']);
+    const [, rate, amount] = screen.getAllByRole('cell');
+    expect(rate.className).toBe('num');
+    expect(amount.className).toBe('r num');
   });
 
   test('필터를 바꾸면 알림, 선택값에 맞는 행만', () => {

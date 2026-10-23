@@ -20,7 +20,7 @@ export const CERTIFICATES: Record<string, CertificateConfig> = {
     fields: [{ id: 'yr', label: '귀속 연도', type: 'radio' as const, options: ['2025년', '2024년', '2023년'] }],
     preview: () => <>
       <div className="tbl-wrap plain"><table className="tbl min-460">
-        <thead><tr><th>계약</th><th>공제 구분</th><th className="r">공제대상 납입액</th></tr></thead>
+        <thead><tr><th>계약</th><th>공제 구분</th><th>공제대상 납입액</th></tr></thead>
         <tbody>
           <tr><td>(무)iM 든든한 종신보험</td><td>보장성보험료</td><td className="r num">1,540,800원</td></tr>
           <tr><td>(무)iM 실손의료비보험</td><td>보장성보험료</td><td className="r num">414,720원</td></tr>
