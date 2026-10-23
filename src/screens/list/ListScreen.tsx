@@ -48,10 +48,13 @@ function Filters({ filters, period, values, onFilterChange }: { filters: readonl
   );
 }
 
+/** 열람·파일 열: PDF 버튼 (표·상세 내용 공통) */
+const isFileColumn = (column: string) => column === '열람' || column === '파일';
+
 function Cell({ column, value, cells }: { column: string; value: string; cells: Row }) {
   if (isStatusColumn(column)) return <StatusChip status={value} />;
   if (column === '신청') return <button className="btn sm pri" data-action="open" data-id={claimScreenFor(value)}>{value}</button>;
-  if (column === '열람' || column === '파일') {
+  if (isFileColumn(column)) {
     return <button className="btn sm" data-action="toast" data-message="PDF 열람은 실제 서비스에서 제공됩니다." aria-label={`${cells[0]} ${cells[1]} ${value}`}><Icon name="doc" />{value}</button>;
   }
   return <>{value}</>;
@@ -145,7 +148,7 @@ function Detail({ screenId, config, rowIndex, uploadError }: { screenId: string;
       <h2 className="split center"><span id="rowDetailTitle">상세 내용</span><button className="icon-btn" data-action="close-row" aria-label="상세 내용 닫기"><Icon name="x" /></button></h2>
       <dl className="kv">{config.columns.map((column, index) => [
         <dt key={`${column}-t`}>{column}</dt>,
-        <dd key={`${column}-d`} className="num">{isStatusColumn(column) ? <StatusChip status={cells[index]} /> : cells[index]}</dd>,
+        <dd key={`${column}-d`} className="num">{isStatusColumn(column) || isFileColumn(column) ? <Cell column={column} value={cells[index]} cells={cells} /> : cells[index]}</dd>,
       ])}</dl>
       <FollowUp screenId={screenId} config={config} rowIndex={rowIndex} uploadError={uploadError} />
     </div>

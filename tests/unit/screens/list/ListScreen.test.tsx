@@ -45,6 +45,13 @@ describe('ListScreen', () => {
     expect(title?.querySelector('.num')?.textContent).toBe('1,032,000원');
   });
 
+  test('상세 내용: 파일·열람 항목은 글자가 아닌 PDF 버튼 (모바일에서도 내려받기)', () => {
+    setup({ selectedRow: 0 }, 'CT-09', { ...CONFIG, filters: [], filterColumns: {}, columns: ['서명일시', '서류명', '계약', '파일'], rows: [['2020.03.02 14:21', '전자청약서', '변액연금', 'PDF']] });
+    const detail = screen.getByRole('region', { name: '상세 내용' });
+    const button = within(detail).getByRole('button', { name: '2020.03.02 14:21 전자청약서 PDF' });
+    expect(button.dataset.action).toBe('toast');
+  });
+
   test('필터를 바꾸면 알림, 선택값에 맞는 행만', () => {
     const { onFilterChange } = setup({ filters: { 거래구분: '지급' } });
     expect(screen.getAllByRole('row')).toHaveLength(2);   // 머리글 + 1행
