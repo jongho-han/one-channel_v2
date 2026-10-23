@@ -854,6 +854,30 @@ test('T3 금액 입력: 숫자만·천 단위, 빠른 금액·최대, 범위 검
   assert.deepEqual(errors, []);
 });
 
+test('보험료 납입: 계약 전체선택·해제, 고른 계약 보험료 합계로 납입 (PM-01)', () => {
+  login();
+  window.App.openScreen('PM-01');
+  const cards = () => [...window.document.querySelectorAll('[data-action="pick"]')];
+  click($('[data-action="pick-all"]'));
+  assert.ok(cards().length > 1);
+  assert.ok(cards().every(card => card.getAttribute('aria-pressed') === 'true'), '전체선택');
+  assert.equal($('[data-action="pick-all"]').textContent, '전체해제');
+  click($('[data-action="pick-all"]'));
+  assert.ok(cards().every(card => card.getAttribute('aria-pressed') === 'false'), '전체해제');
+  assert.equal($('#next').disabled, true);
+  click(cards()[0]);
+  click(cards()[1]);
+  assert.equal(cards().filter(card => card.getAttribute('aria-pressed') === 'true').length, 2, '여러 개 고르기');
+  click($('[data-action="pick-all"]'));
+  const total = cards().reduce((sum, card) => sum + Number(card.querySelector('.pv').textContent.replace(/[^0-9]/g, '')), 0);
+  const count = cards().length;
+  click($('#next'));
+  assert.equal(currentStepName(), '입력');
+  assert.match($('#sbody').textContent, new RegExp(`납입할 계약 ${count}건`), '입력 단계 위에 고른 계약 수');
+  assert.match($('#calc').textContent, new RegExp(`납입 보험료${total.toLocaleString()}원`));
+  assert.deepEqual(errors, []);
+});
+
 test('T3 조건부 항목과 가상계좌 발급 (PM-01)', async () => {
   fixRandom();
   fixClock();

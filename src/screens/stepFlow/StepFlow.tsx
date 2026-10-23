@@ -36,17 +36,28 @@ interface PickStepProps {
   label: string;
   items: readonly PickItem[];
   picked: string | null;
+  multiple?: boolean;                   // 여러 개 고르기 (전체선택, 카드는 체크 표시)
+  pickedKeys?: readonly string[];       // 여러 개 고르기에서 고른 키
   retain?: boolean;
   onNext: () => void;
 }
 
-/** 카드 하나 고르기 — 카드는 data-action="pick" (고르면 화면을 다시 그림) */
-export function PickStep({ label, items, picked, retain, onNext }: PickStepProps) {
+/** 카드 고르기 — 카드는 data-action="pick", 여러 개 고르기면 전체선택은 data-action="pick-all" (고르면 화면을 다시 그림) */
+export function PickStep({ label, items, picked, multiple = false, pickedKeys = [], retain, onNext }: PickStepProps) {
+  const isOn = (key: string) => (multiple ? pickedKeys.includes(key) : picked === key);
+  const allOn = multiple && items.length > 0 && items.every(item => pickedKeys.includes(item.key));
+  const hasPick = multiple ? pickedKeys.length > 0 : Boolean(picked);
   return (
     <>
-      <div className="card"><h2 id="pickTitle">{label}</h2><div className="picks" role="group" aria-labelledby="pickTitle">
+      <div className="card">
+        {multiple
+          ? <div className="pick-head"><h2 id="pickTitle">{label}</h2>
+              <button className="btn sm" data-action="pick-all" aria-pressed={allOn}>{allOn ? '전체해제' : '전체선택'}</button></div>
+          : <h2 id="pickTitle">{label}</h2>}
+        {multiple && <p className="note-sm" aria-live="polite">{pickedKeys.length}건 선택</p>}
+        <div className="picks" role="group" aria-labelledby="pickTitle">
         {items.map(item => (
-          <button key={item.key} className={picked === item.key ? 'pick on' : 'pick'} aria-pressed={picked === item.key} data-action="pick" data-key={item.key}>
+          <button key={item.key} className={['pick', multiple && 'multi', isOn(item.key) && 'on'].filter(Boolean).join(' ')} aria-pressed={isOn(item.key)} data-action="pick" data-key={item.key}>
             <span className="rd" aria-hidden="true" />
             <span className="pm"><b>{item.title}</b><small className="num">{item.sub}</small></span>
             <span className="pv num">{item.value}</span>
@@ -56,8 +67,8 @@ export function PickStep({ label, items, picked, retain, onNext }: PickStepProps
       {retain && <RetentionOptions />}
       <div className="navrow">
         <button className="btn lg" data-action="back">취소</button>
-        <button className="btn pri lg" id="next" disabled={!picked} aria-describedby="pickHint" onClick={onNext}>다음</button>
-        <span className="sr-only" id="pickHint">{picked ? '' : '먼저 위에서 하나를 선택해야 다음 단계로 갈 수 있습니다.'}</span>
+        <button className="btn pri lg" id="next" disabled={!hasPick} aria-describedby="pickHint" onClick={onNext}>다음</button>
+        <span className="sr-only" id="pickHint">{hasPick ? '' : '먼저 위에서 하나를 선택해야 다음 단계로 갈 수 있습니다.'}</span>
       </div>
     </>
   );

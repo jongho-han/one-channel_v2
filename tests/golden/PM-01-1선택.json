@@ -118,12 +118,41 @@
    },
    "children": [
     {
-     "tag": "h2",
+     "tag": "div",
      "attrs": {
-      "id": "pickTitle"
+      "class": "pick-head"
      },
      "children": [
-      "납입할 계약을 선택하세요"
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "pickTitle"
+       },
+       "children": [
+        "납입할 계약을 선택하세요"
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "btn sm",
+        "data-action": "pick-all"
+       },
+       "children": [
+        "전체선택"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "aria-live": "polite",
+      "class": "note-sm"
+     },
+     "children": [
+      "1건 선택"
      ]
     },
     {
@@ -138,7 +167,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "true",
-        "class": "on pick",
+        "class": "multi on pick",
         "data-action": "pick",
         "data-key": "2018-0012345"
        },
@@ -190,7 +219,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "false",
-        "class": "pick",
+        "class": "multi pick",
         "data-action": "pick",
         "data-key": "2020-0456789"
        },
@@ -242,7 +271,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "false",
-        "class": "pick",
+        "class": "multi pick",
         "data-action": "pick",
         "data-key": "2021-0778812"
        },
@@ -294,7 +323,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "false",
-        "class": "pick",
+        "class": "multi pick",
         "data-action": "pick",
         "data-key": "2016-0033190"
        },
@@ -346,7 +375,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "false",
-        "class": "pick",
+        "class": "multi pick",
         "data-action": "pick",
         "data-key": "2017-0091234"
        },
@@ -398,7 +427,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "false",
-        "class": "pick",
+        "class": "multi pick",
         "data-action": "pick",
         "data-key": "2021-0345678"
        },
@@ -450,7 +479,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "false",
-        "class": "pick",
+        "class": "multi pick",
         "data-action": "pick",
         "data-key": "2019-0234567"
        },
@@ -502,7 +531,7 @@
        "tag": "button",
        "attrs": {
         "aria-pressed": "false",
-        "class": "pick",
+        "class": "multi pick",
         "data-action": "pick",
         "data-key": "2022-0567123"
        },

@@ -21,14 +21,26 @@ export function stepsOf(config: { guide?: unknown; pick?: unknown; skipConfirm?:
 export const pickedItem = (config: { pick?: { items?: () => PickItem[] } }, pick: string | null | undefined): PickItem | undefined =>
   config.pick?.items?.().find(item => item.key === pick);
 
+/** 고른 항목 키 목록 (여러 개 고르기면 picks, 아니면 pick 하나) */
+export const pickedKeys = (flow: { pick: string | null | undefined; picks?: readonly string[] }): string[] =>
+  (flow.picks ? [...flow.picks] : flow.pick ? [flow.pick] : []);
+
+/** 선택 문구에서 항목 이름만 — '납입할 계약을 선택하세요' → '납입할 계약' */
+export const pickLabelName = (label = ''): string => label.replace(/을 선택하세요|를 선택하세요/, '');
+
 /** 확인 단계 행: 안내 단계에서 고른 것(guideRow) + 고른 항목('…을 선택하세요' 제외) + 보이는 항목 */
 export function confirmRows(
-  config: { pick?: { label?: string; items?: () => PickItem[] }; guideRow?: (values: FieldValues) => [string, string]; fields: readonly FieldSpec[] },
-  flow: { pick: string | null | undefined; values: FieldValues },
+  config: { pick?: { label?: string; multiple?: boolean; items?: () => PickItem[] }; guideRow?: (values: FieldValues) => [string, string]; fields: readonly FieldSpec[] },
+  flow: { pick: string | null | undefined; picks?: readonly string[]; values: FieldValues },
 ): [string, string][] {
   const rows: [string, string][] = config.guideRow ? [config.guideRow(flow.values)] : [];
-  const picked = pickedItem(config, flow.pick);
-  if (picked && config.pick?.label) rows.push([config.pick.label.replace(/을 선택하세요|를 선택하세요/, ''), picked.title]);
+  if (config.pick?.multiple) {
+    const keys = pickedKeys(flow);
+    const titles = (config.pick.items?.() ?? []).filter(item => keys.includes(item.key)).map(item => item.title);
+    if (titles.length) rows.push([pickLabelName(config.pick.label), `${titles.join(', ')} (${titles.length}건)`]);
+  }
+  const picked = config.pick?.multiple ? undefined : pickedItem(config, flow.pick);
+  if (picked && config.pick?.label) rows.push([pickLabelName(config.pick.label), picked.title]);
   for (const field of config.fields.filter(item => isFieldVisible(item, config.fields, flow.values))) rows.push([field.label, displayValue(field, flow.values) || '-']);
   return rows;
 }

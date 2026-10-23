@@ -452,6 +452,13 @@ ul.dots li::marker { color: var(--brand); }
 .pick .rd { display: grid; place-items: center; flex: none; width: 22px; height: 22px; border: 2px solid #c3ccd5; border-radius: 50%; background: #fff; }
 .pick.on .rd { border-color: var(--brand); }
 .pick.on .rd::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--brand); }
+/* 여러 개 고르기: 네모 체크 + 전체선택 */
+.pick.multi .rd { border-radius: 6px; }
+.pick.multi.on .rd { background: var(--brand); }
+.pick.multi.on .rd::after { width: 10px; height: 5px; border-radius: 0; background: none; border: 2px solid #fff; border-top: 0; border-right: 0; transform: translateY(-1px) rotate(-45deg); }
+.pick-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.pick-head h2 { margin-bottom: 0; }
+.pick-head + .note-sm { margin: 4px 0 12px; }
 .pick .pm { flex: 1; min-width: 0; }
 .pick .pm b { display: block; font-size: 15.5px; }
 .pick .pm small { font-size: 13px; color: var(--sub); }

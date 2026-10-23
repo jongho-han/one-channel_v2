@@ -21,6 +21,7 @@ import { VirtualAccountInfo } from './stepFlow/VirtualAccountInfo';
 export interface StepFlowState {
   step: number;
   pick: string | null;
+  picks?: string[];                 // 여러 개 고르기(pick.multiple)에서 고른 키
   values: FieldValues;
   agreed: number[];
   receiptNo?: string;
@@ -32,6 +33,7 @@ export interface StepFlowConfig extends InputStepConfig {
     label?: string;
     items?: () => PickItem[];
     onPick?: (flow: StepFlowState, key: string) => void;   // 카드를 고를 때 (data-action="pick")
+    multiple?: boolean;                                     // 여러 개 고르기 + 전체선택 (calc 에는 고른 키를 쉼표로 이어 전달)
     custom?: 'annuity' | 'loan';                            // 맞춤 선택 단계
     describe?: (flow: StepFlowState) => ReactNode;
     summary?: (flow: StepFlowState, step: 'confirm' | 'done') => ReactNode;
@@ -142,19 +144,19 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     done: '연금 지급 신청이 완료되었습니다. 첫 연금은 연금개시일에 입금됩니다.', receiptPrefix: 'A2610' },
 
   'PM-01': {
-    pick: { label: '납입할 계약을 선택하세요', items: () => contractChoices(c => c.status === '정상' || c.status === '납입유예', c => formatWon(c.premium)) },
+    pick: { label: '납입할 계약을 선택하세요', multiple: true, items: () => contractChoices(c => c.status === '정상' || c.status === '납입유예', c => formatWon(c.premium)) },
     fields: [
       { id: 'cnt', label: '납입 회차', type: 'radio', options: ['이번 회차(10월분)', '2개월 선납', '3개월 선납'] },
       { id: 'how', label: '납입 방법', type: 'radio', options: [PAY_BY_ACCOUNT, PAY_BY_VIRTUAL] },
       { id: 'acct', label: '출금 계좌', type: 'account', showWhen: { field: 'how', value: PAY_BY_ACCOUNT } },
       { id: 'vbank', label: '가상계좌 발급 은행', type: 'radio', options: Object.keys(VIRTUAL_ACCOUNT_BANKS), showWhen: { field: 'how', value: PAY_BY_VIRTUAL },
         help: '선택한 은행의 가상계좌가 인증을 마친 뒤 발급됩니다.' }],
-    calc: (values, picked) => {
-      const contract = contractByNo(picked ?? '');
+    calc: (values, picked) => {   // 고른 계약(쉼표로 이은 증권번호) 보험료 합계 기준
+      const premium = (picked ?? '').split(',').filter(Boolean).reduce((sum, no) => sum + contractByNo(no).premium, 0);
       const count = String(values.cnt ?? '');
       const months = count.startsWith('2') ? 2 : count.startsWith('3') ? 3 : 1;
-      const discount = months > 1 ? Math.round(contract.premium * (months - 1) * 0.004) : 0;
-      return [['납입 보험료', formatWon(contract.premium * months)], ['선납 할인', formatWon(discount)], ['납입할 금액', formatWon(contract.premium * months - discount), true]];
+      const discount = months > 1 ? Math.round(premium * (months - 1) * 0.004) : 0;
+      return [['납입 보험료', formatWon(premium * months)], ['선납 할인', formatWon(discount)], ['납입할 금액', formatWon(premium * months - discount), true]];
     },
     doneTitle: values => (isVirtualPayment(values) ? '가상계좌가 발급되었습니다' : ''),
     done: values => (isVirtualPayment(values) ? '아래 가상계좌로 입금하시면 보험료 납입이 완료됩니다.' : '보험료 납입이 완료되었습니다.'),

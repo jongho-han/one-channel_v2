@@ -16,7 +16,7 @@ import { claimTypeOf } from '../../data/claimGuide';
 import { LoanPick } from './LoanPick';
 import { ConfirmStep, DoneStep, InputStep, PickStep, SignStep, Stepper } from './StepFlow';
 import { goToStep } from './stepFlowActions';
-import { confirmRows, doneTitle, pickedItem, stepsOf } from './stepRules';
+import { confirmRows, doneTitle, pickLabelName, pickedItem, pickedKeys, stepsOf } from './stepRules';
 
 type Screen = ScreenSpec & { bizType: string; result: string };
 
@@ -38,12 +38,23 @@ function PickStage({ config, flow }: { config: StepFlowConfig; flow: StepFlowSta
     return <LoanPick contracts={CONTRACTS} amount={Number(flow.values.loanAmount) || 0} announce={announce}
                      onNext={amount => { updateScreenValues({ loanAmount: amount }); next(); }} />;
   }
-  return <PickStep label={pick.label ?? ''} items={pick.items?.() ?? []} picked={flow.pick} retain={config.retain} onNext={next} />;
+  return <PickStep label={pick.label ?? ''} items={pick.items?.() ?? []} picked={flow.pick} multiple={pick.multiple} pickedKeys={pickedKeys(flow)} retain={config.retain} onNext={next} />;
+}
+
+/** 계산에 넘길 고른 값: 여러 개 고르기면 키를 쉼표로 이음 */
+const calcPick = (config: StepFlowConfig, flow: StepFlowState): string | null => (config.pick?.multiple ? pickedKeys(flow).join(',') : flow.pick);
+
+/** 입력 단계 위 안내: 여러 개 고르기면 '납입할 계약 N건 · 이름들' */
+function pickDescribe(config: StepFlowConfig, flow: StepFlowState): ReactNode {
+  if (!config.pick?.multiple) return config.pick?.describe?.(flow);
+  const keys = pickedKeys(flow);
+  const titles = (config.pick.items?.() ?? []).filter(item => keys.includes(item.key)).map(item => item.title);
+  return <><b>{pickLabelName(config.pick.label)} {titles.length}건</b>{titles.join(' · ')}</>;
 }
 
 function DoneStage({ screen, config, flow }: { screen: Screen; config: StepFlowConfig; flow: StepFlowState }) {
   flow.receiptNo ??= receiptNo(config.receiptPrefix || 'R2610');
-  const totals: ReceiptRow[] = config.calc ? config.calc(flow.values, flow.pick).filter(([, , isTotal]) => isTotal).map(([label, value]) => [label, value]) : [];
+  const totals: ReceiptRow[] = config.calc ? config.calc(flow.values, calcPick(config, flow)).filter(([, , isTotal]) => isTotal).map(([label, value]) => [label, value]) : [];
   const message = typeof config.done === 'function' ? config.done(flow.values) : config.done;
   const rows: ReceiptRow[] = [['접수번호', flow.receiptNo], ['접수일시', `${APP.today} ${clockTime()}`], ...totals, ['안내', config.doneGuide?.(flow.values) || screen.result, true]];
   return (
@@ -66,13 +77,13 @@ function Stage({ screen, config: baseConfig, flow, step }: { screen: Screen; con
       return <PickStage config={config} flow={flow} />;
     case '입력':
       return (
-        <InputStep config={config} values={flow.values} agreed={flow.agreed} pick={flow.pick} picked={pickedItem(config, flow.pick)}
-                   describe={config.pick?.describe?.(flow)} announce={announce}
+        <InputStep config={config} values={flow.values} agreed={flow.agreed} pick={calcPick(config, flow)} picked={config.pick?.multiple ? undefined : pickedItem(config, flow.pick)}
+                   describe={pickDescribe(config, flow)} announce={announce}
                    onValuesChange={values => updateScreenValues(values)} onAgreedChange={agreed => updateScreenFlow({ agreed })}
                    onSubmit={(values, agreed) => { updateScreenFlow({ values: { ...flow.values, ...values }, agreed }); next(); }} />
       );
     case '확인': {
-      const calcRows: readonly CalcRow[] | undefined = config.calc?.(flow.values, flow.pick);
+      const calcRows: readonly CalcRow[] | undefined = config.calc?.(flow.values, calcPick(config, flow));
       return <ConfirmStep rows={confirmRows(config, flow)} calcRows={calcRows} summary={config.pick?.summary?.(flow, 'confirm')} onConfirm={next} />;
     }
     case '인증':

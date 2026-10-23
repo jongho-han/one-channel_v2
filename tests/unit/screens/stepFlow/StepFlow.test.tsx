@@ -23,6 +23,22 @@ test('PickStep: 고르기 전에는 다음 비활성·안내, 해지 전 대안'
   expect(onNext).toHaveBeenCalled();
 });
 
+test('PickStep 여러 개 고르기: 체크 표시·전체선택/전체해제·하나 이상 골라야 다음', () => {
+  const onNext = vi.fn();
+  const items = [{ key: 'a', title: '종신', sub: '', value: '1원' }, { key: 'b', title: '연금', sub: '', value: '2원' }];
+  const { rerender } = render(<PickStep label="납입할 계약을 선택하세요" items={items} picked={null} multiple pickedKeys={[]} onNext={onNext} />);
+  const all = screen.getByRole('button', { name: '전체선택' });
+  expect(all.dataset.action).toBe('pick-all');
+  expect(all.getAttribute('aria-pressed')).toBe('false');
+  expect(screen.getByRole('group', { name: '납입할 계약을 선택하세요' }).querySelectorAll('.pick.multi')).toHaveLength(2);
+  expect((screen.getByRole('button', { name: '다음' }) as HTMLButtonElement).disabled).toBe(true);
+  rerender(<PickStep label="납입할 계약을 선택하세요" items={items} picked={null} multiple pickedKeys={['a', 'b']} onNext={onNext} />);
+  expect(screen.getByRole('button', { name: '전체해제' }).getAttribute('aria-pressed')).toBe('true');
+  expect(screen.getAllByRole('button', { pressed: true }).map(button => button.dataset.key ?? 'all')).toEqual(['all', 'a', 'b']);
+  expect((screen.getByRole('button', { name: '다음' }) as HTMLButtonElement).disabled).toBe(false);
+  expect(screen.getByText('2건 선택')).toBeTruthy();
+});
+
 describe('InputStep', () => {
   const config = {
     fields: [{ id: 'nm', label: '이름' }, { id: 'amt', label: '금액', type: 'money' as const, max: 1000 }],

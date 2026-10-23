@@ -93,8 +93,22 @@ const ACTIONS: Record<string, ActionHandler> = {
   'pick':              ({ key = '' }) => {
     const flow = state.screen.flow;
     if (!flow) return;
+    const config = STEP_FLOWS[state.route.screenId ?? ''];
+    if (config?.pick?.multiple) {   // 여러 개 고르기: 누를 때마다 넣고 빼기
+      const picks = (flow as StepFlowState).picks ?? [];
+      (flow as StepFlowState).picks = picks.includes(key) ? picks.filter(item => item !== key) : [...picks, key];
+      return rerenderScreen();
+    }
     flow.pick = key;
     STEP_FLOWS[state.route.screenId ?? '']?.pick?.onPick?.(flow as StepFlowState, key);
+    rerenderScreen();
+  },
+  'pick-all':          () => {   // 여러 개 고르기: 모두 골라져 있으면 전체해제, 아니면 전체선택
+    const flow = state.screen.flow as StepFlowState | null;
+    const items = STEP_FLOWS[state.route.screenId ?? '']?.pick?.items?.() ?? [];
+    if (!flow) return;
+    const all = items.length > 0 && items.every(item => flow.picks?.includes(item.key));
+    flow.picks = all ? [] : items.map(item => item.key);
     rerenderScreen();
   },
   'step-prev':         () => goToStep(-1),

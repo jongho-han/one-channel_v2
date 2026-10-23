@@ -1,7 +1,7 @@
 /* T3 단계형 규칙 */
 import { applyLocks, NOT_APPLICABLE, type LockRules, type Locks } from '../../../../src/form/locks';
 import { displayValue, isFieldVisible } from '../../../../src/form/display';
-import { confirmRows, doneTitle, stepsOf } from '../../../../src/screens/stepFlow/stepRules';
+import { confirmRows, doneTitle, pickedKeys, stepsOf } from '../../../../src/screens/stepFlow/stepRules';
 
 test('단계: 선택(있으면) · 입력 · 확인(생략 가능) · 인증 · 완료', () => {
   expect(stepsOf({ pick: {} })).toEqual(['선택', '입력', '확인', '인증', '완료']);
@@ -35,6 +35,17 @@ test('확인 행: 고른 항목(선택 문구 제외) + 보이는 항목', () =>
   expect(confirmRows({ fields: [{ id: 'nm', label: '이름' }] }, { pick: null, values: { nm: '' } })).toEqual([['이름', '-']]);
   expect(confirmRows({ guideRow: () => ['청구 종류', '자녀보험금 접수'] as [string, string], fields: [{ id: 'nm', label: '이름' }] }, { pick: null, values: { nm: '홍서연' } }))
     .toEqual([['청구 종류', '자녀보험금 접수'], ['이름', '홍서연']]);
+});
+
+test('여러 개 고른 항목: 고른 키 목록 · 확인 행은 이름을 이어서', () => {
+  const config = {
+    pick: { label: '납입할 계약을 선택하세요', multiple: true, items: () => [{ key: 'a', title: '종신', sub: '', value: '' }, { key: 'b', title: '연금', sub: '', value: '' }] },
+    fields: [{ id: 'nm', label: '이름' }],
+  };
+  expect(pickedKeys({ pick: null, picks: ['a', 'b'] })).toEqual(['a', 'b']);
+  expect(pickedKeys({ pick: 'a' })).toEqual(['a']);
+  expect(pickedKeys({ pick: null })).toEqual([]);
+  expect(confirmRows(config, { pick: null, picks: ['a', 'b'], values: { nm: '홍' } })).toEqual([['납입할 계약', '종신, 연금 (2건)'], ['이름', '홍']]);
 });
 
 test('완료 제목: 화면 지정 > 지급 업무 > 기본', () => {
