@@ -219,9 +219,23 @@
          ]
         },
         {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-email",
+          "aria-label": "이메일 도메인",
+          "class": "inp",
+          "id": "emailDomainText",
+          "readonly": ""
+         },
+         "children": [],
+         "state": {
+          "value": "example.com"
+         }
+        },
+        {
          "tag": "select",
          "attrs": {
-          "aria-label": "이메일 도메인",
+          "aria-label": "이메일 도메인 선택",
           "class": "inp",
           "id": "emailDomain"
          },
@@ -230,10 +244,20 @@
            "tag": "option",
            "attrs": {},
            "children": [
-            "example.com"
+            "선택"
            ],
            "state": {
             "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "example.com"
+           ],
+           "state": {
+            "selected": false
            }
           },
           {
@@ -291,6 +315,16 @@
            "attrs": {},
            "children": [
             "hanmail.net"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "직접 입력"
            ],
            "state": {
             "selected": false

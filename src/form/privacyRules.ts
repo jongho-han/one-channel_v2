@@ -3,7 +3,7 @@ import { EMAIL_PATTERN } from '../core/format';
 
 export interface PrivacyValues {
   mob?: string; mobVerified?: boolean;
-  emailLocal?: string; emailDomain?: string; emailChecked?: boolean;
+  emailLocal?: string; emailDomain?: string; emailCustom?: boolean; emailChecked?: boolean;   // emailCustom: 도메인 직접 입력
   addrH?: string; addrH_zip?: string; addrH_d?: string; telH1?: string; telH2?: string; telH3?: string;
   addrW?: string; addrW_zip?: string; addrW_d?: string; telW1?: string; telW2?: string; telW3?: string;
 }
@@ -35,6 +35,8 @@ export const splitEmail = (email: string): [string, string] => {
   return [email.slice(0, at), email.slice(at + 1)];
 };
 
+export const EMAIL_DOMAIN_MISSING = '이메일 도메인을 입력해 주세요.';
+
 const MOBILE_PATTERN = /^01\d-?\d{3,4}-?\d{4}$/;
 const TEL_PATTERNS = [/^\d{2,4}$/, /^\d{3,4}$/, /^\d{4}$/];
 const TELS = [['telH', '자택전화'], ['telW', '직장전화']] as const;
@@ -48,8 +50,9 @@ export function privacyErrors(values: PrivacyValues): PrivacyErrors {
     if (!MOBILE_PATTERN.test(text('mob'))) errors.mob = '휴대폰번호 형식을 확인해 주세요. 예: 010-1234-5678';
     else if (!values.mobVerified) errors.mob = '휴대폰 인증을 해 주세요.';
   }
-  if (text('emailLocal') || text('emailDomain')) {
+  if (text('emailLocal') || text('emailDomain') || values.emailCustom) {
     if (!text('emailLocal')) errors.email = '이메일 아이디를 입력해 주세요.';
+    else if (values.emailCustom && !text('emailDomain')) errors.email = EMAIL_DOMAIN_MISSING;
     else if (!EMAIL_PATTERN.test(`${text('emailLocal')}@${text('emailDomain')}`) || /\s/.test(values.emailLocal ?? '')) errors.email = '이메일 주소 형식을 확인해 주세요.';
     else if (!values.emailChecked) errors.email = '이메일 중복확인을 해 주세요.';
   }
@@ -61,7 +64,7 @@ export function privacyErrors(values: PrivacyValues): PrivacyErrors {
     if (text(key) && !text(`${key}_d` as keyof PrivacyValues)) errors[key] = `${label} 상세주소를 입력해 주세요.`;
   }
 
-  const changed = (['mob', 'emailLocal', 'emailDomain', 'addrH', 'addrW', 'telH1', 'telH2', 'telH3', 'telW1', 'telW2', 'telW3'] as const).some(key => text(key));
+  const changed = Boolean(values.emailCustom) || (['mob', 'emailLocal', 'emailDomain', 'addrH', 'addrW', 'telH1', 'telH2', 'telH3', 'telW1', 'telW2', 'telW3'] as const).some(key => text(key));
   if (!changed) errors.form = '변경할 내용이 없습니다.';
   return errors;
 }

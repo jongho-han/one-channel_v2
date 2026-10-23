@@ -31,6 +31,8 @@ describe('privacyErrors: 입력한 항목만 검사 (비우면 현재 정보 유
     expect(privacyErrors({ emailLocal: 'new.mail', emailDomain: 'gmail.com' }).email).toBe('이메일 중복확인을 해 주세요.');
     expect(privacyErrors({ emailLocal: 'new.mail', emailDomain: 'gmail.com', emailChecked: true })).toEqual({});
     expect(privacyErrors({ emailDomain: 'gmail.com' }).email).toBe('이메일 아이디를 입력해 주세요.');   // 도메인만 바꾸면 아이디도 입력
+    expect(privacyErrors({ emailLocal: 'new.mail', emailCustom: true, emailDomain: '' }).email).toBe('이메일 도메인을 입력해 주세요.');
+    expect(privacyErrors({ emailLocal: 'new.mail', emailCustom: true, emailDomain: 'corp.co.kr', emailChecked: true })).toEqual({});
   });
   test('전화: 세 칸 모두 숫자', () => {
     expect(privacyErrors({ telH1: '02', telH2: '987' }).telH).toBe('자택전화 번호를 모두 입력해 주세요.');

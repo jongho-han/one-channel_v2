@@ -25,7 +25,9 @@ test('현재 정보를 가려서 보여줌 (입력하면 변경)', () => {
   expect(input(/^휴대폰번호/).placeholder).toBe('010-****-5678');
   expect(input(/^휴대폰번호/).value).toBe('');
   expect(input('이메일 아이디').placeholder).toBe('gi**********');
-  expect((screen.getByLabelText('이메일 도메인') as HTMLSelectElement).value).toBe('example.com');
+  expect(input('이메일 도메인').value).toBe('example.com');
+  expect(input('이메일 도메인').readOnly).toBe(true);
+  expect((screen.getByLabelText('이메일 도메인 선택') as HTMLSelectElement).value).toBe('');
   expect(input(/^자택주소\*/).value).toBe('[04524] 서울특별시 중구 세종대로 110');
   expect(input(/^자택주소\*/).readOnly).toBe(true);
   expect(input('자택 상세주소').placeholder).toBe('**** ****');
@@ -53,13 +55,41 @@ test('휴대폰인증: 형식이 틀리면 오류, 맞으면 인증 → 인증 �
 test('이메일 중복확인: 사용 중 / 사용 가능', () => {
   const { onChange } = setup();
   fireEvent.input(input('이메일 아이디'), { target: { value: 'test' } });
-  fireEvent.change(screen.getByLabelText('이메일 도메인'), { target: { value: 'gmail.com' } });
+  fireEvent.change(screen.getByLabelText('이메일 도메인 선택'), { target: { value: 'gmail.com' } });
   fireEvent.click(screen.getByRole('button', { name: '중복확인' }));
   expect(screen.getByText('이미 사용 중인 이메일입니다.')).toBeTruthy();
   fireEvent.input(input('이메일 아이디'), { target: { value: 'hong.new' } });
   fireEvent.click(screen.getByRole('button', { name: '중복확인' }));
   expect(screen.getByText('사용할 수 있는 이메일입니다.')).toBeTruthy();
   expect(onChange).toHaveBeenLastCalledWith(expect.objectContaining({ emailLocal: 'hong.new', emailDomain: 'gmail.com', emailChecked: true }));
+});
+
+test('이메일: 아이디 @ 도메인 칸 + 도메인 선택 — 고르면 도메인 칸에 채움, 「직접 입력」이면 도메인 칸 입력 가능', () => {
+  const { onChange, isEmailTaken } = setup();
+  const domain = input('이메일 도메인');
+  const select = screen.getByLabelText('이메일 도메인 선택') as HTMLSelectElement;
+  const row = domain.closest('.email-row') as HTMLElement;
+  expect([...row.querySelectorAll('input, select')].map(element => element.getAttribute('aria-label'))).toEqual(['이메일 아이디', '이메일 도메인', '이메일 도메인 선택']);
+  expect([...select.options].map(option => option.textContent)).toEqual(['선택', 'example.com', 'gmail.com', 'naver.com', '직접 입력']);
+
+  fireEvent.change(select, { target: { value: 'gmail.com' } });
+  expect(domain.value).toBe('gmail.com');
+  expect(domain.readOnly).toBe(true);
+  expect(onChange).toHaveBeenLastCalledWith(expect.objectContaining({ emailDomain: 'gmail.com', emailCustom: false, emailChecked: false }));
+
+  fireEvent.change(select, { target: { value: '직접 입력' } });
+  expect(domain.readOnly).toBe(false);
+  expect(domain.value).toBe('');
+  expect(document.activeElement).toBe(domain);
+  fireEvent.input(input('이메일 아이디'), { target: { value: 'hong.new' } });
+  fireEvent.input(domain, { target: { value: 'corp.co.kr' } });
+  expect(onChange).toHaveBeenLastCalledWith(expect.objectContaining({ emailLocal: 'hong.new', emailDomain: 'corp.co.kr', emailCustom: true, emailChecked: false }));
+  fireEvent.click(screen.getByRole('button', { name: '중복확인' }));
+  expect(isEmailTaken).toHaveBeenLastCalledWith('hong.new@corp.co.kr');
+
+  fireEvent.change(select, { target: { value: 'naver.com' } });
+  expect(domain.value).toBe('naver.com');
+  expect(domain.readOnly).toBe(true);
 });
 
 test('주소 검색: 고른 주소로 바꾸고 상세주소는 비워 입력받음', () => {

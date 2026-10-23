@@ -10,7 +10,7 @@ import type { ScreenSpec } from '../../data/menu';
 import { VARIABLE_CONTRACTS, selectedVariableContract } from '../../features/variableContract';
 import { chooseSignMethod, verifyPhone } from '../../services/auth';
 import { $, focusElement } from '../../core/dom';
-import { privacyErrors, type PrivacyErrors, type PrivacyValues } from '../../form/privacyRules';
+import { EMAIL_DOMAIN_MISSING, privacyErrors, type PrivacyErrors, type PrivacyValues } from '../../form/privacyRules';
 import { searchZip } from '../../form/zipSearch';
 import { rerenderScreen } from '../../pages/screen';
 import { state, updateScreenFlow, updateScreenValues } from '../../state/store';
@@ -44,7 +44,7 @@ function submitPrivacy(screen: ScreenSpec, flow: CustomFlow) {
   updateScreenFlow({ privacyErrors: errors });
   rerenderScreen();
   const first = (Object.keys(PRIVACY_FOCUS) as (keyof PrivacyErrors)[]).find(key => errors[key]);
-  if (first) return focusElement($(PRIVACY_FOCUS[first]));
+  if (first) return focusElement($(errors.email === EMAIL_DOMAIN_MISSING ? '#emailDomainText' : PRIVACY_FOCUS[first]));
   chooseSignMethod(screen, () => completeSingleForm(flow));
 }
 

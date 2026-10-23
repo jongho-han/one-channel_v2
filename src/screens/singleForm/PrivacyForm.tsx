@@ -4,7 +4,7 @@ import { flushSync } from 'react-dom';
 import { RequiredMark } from '../../components/form/Field';
 import { Icon } from '../../components/Icon';
 import { maskPhone } from '../../core/format';
-import { maskDetail, maskEmailLocal, splitAddress, splitEmail, telParts, type PrivacyErrors, type PrivacyValues } from '../../form/privacyRules';
+import { EMAIL_DOMAIN_MISSING, maskDetail, maskEmailLocal, splitAddress, splitEmail, telParts, type PrivacyErrors, type PrivacyValues } from '../../form/privacyRules';
 
 export interface PrivacyCurrent {
   phone: string; email: string;
@@ -26,6 +26,7 @@ export interface PrivacyFormProps {
 
 type Place = 'H' | 'W';
 const ADDRESS_NOTE = '자택, 직장 중 1개 이상의 주소를 꼭 입력해 주세요.';
+export const CUSTOM_DOMAIN = '직접 입력';
 
 function Err({ id, message }: { id: string; message?: string }) {
   return <span className="err" id={id} role="alert">{message ?? ''}</span>;
@@ -36,8 +37,10 @@ export function PrivacyForm({ current, values, errors, domains, callCenter, onCh
   const [mobMessage, setMobMessage] = useState('');
   const [emailTaken, setEmailTaken] = useState(false);
   const detailRefs = { H: useRef<HTMLInputElement>(null), W: useRef<HTMLInputElement>(null) };
+  const customDomainRef = useRef<HTMLInputElement>(null);
   const [currentLocal, currentDomain] = splitEmail(current.email);
   const domainOptions = [...new Set([currentDomain, ...domains])];
+  const domainValue = vals.emailDomain ?? currentDomain;   // 도메인 칸: 고른 도메인(또는 직접 입력), 처음엔 현재 도메인
 
   const update = (patch: PrivacyValues) => {
     const next = { ...vals, ...patch };
@@ -51,6 +54,18 @@ export function PrivacyForm({ current, values, errors, domains, callCenter, onCh
     if (!phone) { flushSync(() => setMobMessage('변경할 휴대폰번호를 입력해 주세요.')); return; }
     flushSync(() => setMobMessage(''));
     verifyPhone(phone, () => update({ mobVerified: true }));
+  };
+
+  /** 도메인 선택: 고른 도메인을 도메인 칸에 채움, 「직접 입력」이면 도메인 칸을 비우고 입력 가능하게 */
+  const chooseDomain = (choice: string) => {
+    flushSync(() => setEmailTaken(false));
+    if (!choice) return;
+    if (choice === CUSTOM_DOMAIN) {
+      update({ emailCustom: true, emailDomain: '', emailChecked: false });
+      customDomainRef.current?.focus();
+    } else {
+      update({ emailCustom: false, emailDomain: choice, emailChecked: false });
+    }
   };
 
   const checkEmail = () => {
@@ -136,13 +151,17 @@ export function PrivacyForm({ current, values, errors, domains, callCenter, onCh
           <div className="lb-row"><span className="lb">이메일<RequiredMark /></span>
             <button type="button" className="btn sm" id="emailCheck" onClick={checkEmail}>중복확인</button></div>
           <div className="email-row">
-            <input className={errors.email ? 'inp bad' : 'inp'} id="emailLocal" aria-label="이메일 아이디" autoComplete="email" placeholder={maskEmailLocal(currentLocal)}
-                   defaultValue={vals.emailLocal ?? ''} aria-describedby="e-email" aria-invalid={errors.email ? true : undefined}
-                   onInput={event => { flushSync(() => setEmailTaken(false)); update({ emailLocal: event.currentTarget.value, emailDomain: vals.emailDomain ?? currentDomain, emailChecked: false }); }} />
+            <input className={errors.email && errors.email !== EMAIL_DOMAIN_MISSING ? 'inp bad' : 'inp'} id="emailLocal" aria-label="이메일 아이디" autoComplete="email"
+                   placeholder={maskEmailLocal(currentLocal)} defaultValue={vals.emailLocal ?? ''} aria-describedby="e-email" aria-invalid={errors.email ? true : undefined}
+                   onInput={event => { flushSync(() => setEmailTaken(false)); update({ emailLocal: event.currentTarget.value, emailDomain: domainValue, emailChecked: false }); }} />
             <span aria-hidden="true">@</span>
-            <select className="inp" id="emailDomain" aria-label="이메일 도메인" defaultValue={vals.emailDomain ?? currentDomain}
-                    onChange={event => { flushSync(() => setEmailTaken(false)); update({ emailDomain: event.currentTarget.value, emailChecked: false }); }}>
-              {domainOptions.map(domain => <option key={domain}>{domain}</option>)}
+            <input className={errors.email === EMAIL_DOMAIN_MISSING ? 'inp bad' : 'inp'} id="emailDomainText" ref={customDomainRef} aria-label="이메일 도메인"
+                   value={domainValue} readOnly={!vals.emailCustom} placeholder={vals.emailCustom ? '직접 입력' : undefined} aria-describedby="e-email"
+                   onChange={event => { flushSync(() => setEmailTaken(false)); update({ emailDomain: event.currentTarget.value.trim(), emailChecked: false }); }} />
+            <select className="inp" id="emailDomain" aria-label="이메일 도메인 선택" value={vals.emailCustom ? CUSTOM_DOMAIN : vals.emailDomain ?? ''}
+                    onChange={event => chooseDomain(event.currentTarget.value)}>
+              <option value="">선택</option>
+              {[...domainOptions, CUSTOM_DOMAIN].map(domain => <option key={domain}>{domain}</option>)}
             </select>
           </div>
           {vals.emailChecked && <span className="ok-msg" id="emailOk">사용할 수 있는 이메일입니다.</span>}
