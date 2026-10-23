@@ -1097,6 +1097,7 @@ test('개인정보변경 진입 시 「개인정보 유출 주의」: 예 → �
   layerGolden('privacy-warning');
   assert.equal($('#modalTitle').textContent, '개인정보 유출 주의');
   assert.equal($('#dlgX'), null, '닫기(X) 없음');
+  assert.ok($('#layer .modal').classList.contains('compact'), '작은 팝업(가운데 정렬·작은 버튼)');
   escape();
   assert.ok($('#layer .dim'), 'Esc 로 닫히지 않음');
   click($('#dlgYes'));

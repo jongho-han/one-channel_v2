@@ -322,6 +322,11 @@ ul.dots li::marker { color: var(--brand); }
 .notice-link time { flex: none; font-size: 13px; color: var(--mute); }
 
 /* 공지사항 게시판 레이어팝업 */
+.modal.compact { max-width: 340px; padding: 26px 22px 22px; text-align: center; }
+.modal.compact h2 { font-size: 18px; }
+.modal.compact .dlg-msg { margin-bottom: 20px; font-size: 15px; line-height: 1.6; color: var(--ink); }
+.modal.compact .dlg-btns { justify-content: center; }
+.modal.compact .dlg-btns .btn.lg { min-height: 44px; padding-inline: 18px; font-size: 15px; }
 .modal.wide { display: flex; flex-direction: column; max-width: 720px; overflow: hidden; }
 .board-count { margin: 0 0 10px !important; font-size: 13px; }
 .board { flex: 1 1 auto; min-height: 0; margin: 0; padding: 0 2px 0 0; overflow-y: auto; list-style: none; border-top: 2px solid var(--navy); }   /* 제목·X는 고정, 목록만 스크롤 */

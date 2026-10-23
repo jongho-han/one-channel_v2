@@ -12,6 +12,6 @@ export function checkScreenEntry(goHome: () => void): void {
   openModal(
     <ConfirmDialog title={check.title} message={check.message} noLabel="아니요" closable={false} primary="no"
                    onYes={() => { closeModal(); goHome(); }} onNo={closeModal} />,
-    { closable: false },   // Esc 로 닫고 넘어가지 못하게
+    { closable: false, size: 'compact' },   // Esc 로 닫고 넘어가지 못하게 · 작은 팝업(가운데 정렬)
   );
 }
