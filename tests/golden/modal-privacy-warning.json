@@ -1,0 +1,73 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "layer"
+ },
+ "children": [
+  {
+   "tag": "div",
+   "attrs": {
+    "aria-labelledby": "modalTitle",
+    "aria-modal": "true",
+    "class": "dim",
+    "role": "dialog"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "modal"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {
+        "id": "modalTitle"
+       },
+       "children": [
+        "개인정보 유출 주의"
+       ]
+      },
+      {
+       "tag": "p",
+       "attrs": {
+        "class": "dlg-msg"
+       },
+       "children": [
+        "다른사람의 요청으로 개인정보를 변경하나요?"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "dlg-btns inline mt-0 navrow"
+       },
+       "children": [
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn lg",
+          "id": "dlgYes"
+         },
+         "children": [
+          "예"
+         ]
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn lg pri",
+          "id": "dlgNo"
+         },
+         "children": [
+          "아니요"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

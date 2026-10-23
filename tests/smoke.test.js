@@ -380,6 +380,7 @@ test('T4 선택에 따라 상환 계산이 바뀐다 (LN-05)', () => {
 test('T4 우편번호 검색 결과를 주소 칸에 넣는다 (MY-01)', () => {
   login();
   window.App.openScreen('MY-01');
+  click($('#dlgNo'));   // 개인정보 유출 주의: 아니요 → 수정 가능
   click($('[data-zip="addrW"]'));
   const result = $('#layer [data-zip-code]');
   click(result);
@@ -1064,6 +1065,32 @@ test('출금 계좌 「다른 본인 계좌 등록」: 계좌 확인(은행) 후
   assert.deepEqual(errors, []);
 });
 
+test('개인정보변경 진입 시 「개인정보 유출 주의」: 예 → 메인, 아니요일 때만 수정 (MY-01)', () => {
+  login();
+  window.App.openScreen('MY-01');
+  layerGolden('privacy-warning');
+  assert.equal($('#modalTitle').textContent, '개인정보 유출 주의');
+  assert.equal($('#dlgX'), null, '닫기(X) 없음');
+  escape();
+  assert.ok($('#layer .dim'), 'Esc 로 닫히지 않음');
+  click($('#dlgYes'));
+  assert.equal($('#layer .dim'), null);
+  assert.equal(window.App.state.route.page, 'home', '예 → 메인');
+
+  window.App.openScreen('MY-01');
+  click($('#dlgNo'));
+  assert.equal($('#layer .dim'), null);
+  assert.equal(window.App.state.route.screenId, 'MY-01', '아니요 → 개인정보변경 화면 그대로');
+  assert.equal(window.document.activeElement, $('#main h1'));
+
+  window.App.openScreen('CT-01');
+  click($('[data-action="back"]'));
+  assert.equal(window.App.state.route.screenId, 'MY-01');
+  assert.equal($('#modalTitle').textContent, '개인정보 유출 주의', '뒤로 돌아와도 다시 확인');
+  click($('#dlgNo'));
+  assert.deepEqual(errors, []);
+});
+
 test('모달: 첫 버튼으로 초점, Esc 닫기 후 연 버튼으로 초점 복귀 (확인 창 · MY-02)', () => {
   login();
   window.App.openScreen('MY-02');
@@ -1114,6 +1141,7 @@ test('모달: 서명 수단 → 인증 대기(Esc 무시) → 휴대폰 추가�
 test('모달: 우편번호 검색 · 신청 취소 · 펀드 진단 안내 내용', () => {
   login();
   window.App.openScreen('MY-01');
+  click($('#dlgNo'));
   click($('[data-zip="addrH"]'));
   layerGolden('zip');
   click($('#layer [data-action="close-modal"]'));

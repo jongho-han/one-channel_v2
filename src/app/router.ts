@@ -1,5 +1,6 @@
 import { $, focusElement, scrollToTop } from '../core/dom';
 import { MENU_GROUPS, SCREEN_BY_ID } from '../data/menu';
+import { checkScreenEntry } from '../features/entryCheck';
 import { stepsOf } from '../screens/stepFlow/stepRules';
 import { STEP_FLOWS } from '../screens/stepFlows';
 import { freshScreenState, state, type Page } from '../state/store';
@@ -26,6 +27,7 @@ export function showNewPage(): void {
   render();
   scrollToTop();
   focusElement($('#main h1') || $('#main'));
+  checkScreenEntry(() => navigate('home'));   // 진입 확인 팝업이 있는 화면 (닫으면 제목으로 초점 복귀)
 }
 
 /** 문서 제목: 「화면 이름 (진행 단계) | 1Depth | 서비스명」 (KWCAG 15번 제목 제공) */

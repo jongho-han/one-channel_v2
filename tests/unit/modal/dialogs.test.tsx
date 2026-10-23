@@ -17,6 +17,19 @@ test('ConfirmDialog: 예·아니오·닫기', () => {
   expect(onYes).toHaveBeenCalledTimes(1);
 });
 
+test('ConfirmDialog: 닫기 없음(closable=false)·아니오 강조 시 예 → 아니오 순서', () => {
+  const onYes = vi.fn();
+  const onNo = vi.fn();
+  render(<ConfirmDialog title="개인정보 유출 주의" message="다른사람의 요청으로 개인정보를 변경하나요?" noLabel="아니요" closable={false} primary="no" onYes={onYes} onNo={onNo} />);
+  expect(screen.queryByRole('button', { name: '닫기' })).toBeNull();
+  const buttons = screen.getAllByRole('button');
+  expect(buttons.map(button => button.textContent)).toEqual(['예', '아니요']);
+  expect(buttons[1].className).toContain('pri');
+  expect(buttons[0].className).not.toContain('pri');
+  fireEvent.click(buttons[0]);
+  expect(onYes).toHaveBeenCalledTimes(1);
+});
+
 test('SignMethodDialog: 금전 거래 안내·수단 선택', () => {
   const onChoose = vi.fn();
   render(<SignMethodDialog needsExtraAuth methods={[{ name: '간편인증', desc: '카카오' }]} onChoose={onChoose} />);

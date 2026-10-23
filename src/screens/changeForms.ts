@@ -12,6 +12,7 @@ export interface ChangeFormConfig {
   agree?: string[];
   note?: string;
   nextLabel?: string;
+  entryCheck?: { title: string; message: string };   // 화면에 들어올 때 확인 팝업 (예 → 메인, 아니요 → 이용)
   done: string;
 }
 
@@ -20,6 +21,7 @@ const contracts = activeContracts as SampleContract[];
 
 export const CHANGE_FORMS: Record<string, ChangeFormConfig> = {
   'MY-01': {
+    entryCheck: { title: '개인정보 유출 주의', message: '다른사람의 요청으로\n개인정보를 변경하나요?' },
     current: [['자택 주소', `(${USER.homeZip}) ${USER.homeAddress}`], ['직장 주소', `(${USER.workZip}) ${USER.workAddress}`], ['휴대폰', USER.phone], ['이메일', USER.email]],
     fields: [
       { id: 'addrH', label: '자택 주소', type: 'addr', zip: USER.homeZip, value: USER.homeAddress },
