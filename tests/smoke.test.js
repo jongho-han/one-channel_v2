@@ -122,7 +122,9 @@ test('하단 이용 안내 링크는 회사 홈페이지로 새 창 연결된다
   assert.equal(links['개인정보처리방침']?.href, 'https://www.imlifeins.co.kr/BE/BE_A030_2.do');
   assert.equal(links['신용정보활용체제']?.href, 'https://www.imlifeins.co.kr/BE/BE_A032.do');
   assert.equal(links['고객권리안내']?.href, 'https://www.imlifeins.co.kr/BE/BE_A031.do');
+  assert.equal(links['금융소비자보호']?.href, 'https://www.imlifeins.co.kr/BB/BB_B090.do');
   assert.equal(links['보험사기신고']?.href, 'https://www.imlifeins.co.kr/BB/BB_C020.do');
+  assert.equal(links['위법계약해지요구권']?.href, 'https://www.imlifeins.co.kr/BB/BB_B070.do');
   assert.equal(links['전자민원']?.href, 'https://www.imlifeins.co.kr/BB/BB_B010.do');
   for (const link of Object.values(links)) {
     assert.equal(link.target, '_blank');

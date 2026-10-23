@@ -19,9 +19,9 @@ export const APP = {
     { label: '개인정보처리방침', url: 'https://www.imlifeins.co.kr/BE/BE_A030_2.do', strong: true },
     { label: '신용정보활용체제', url: 'https://www.imlifeins.co.kr/BE/BE_A032.do', strong: true },
     { label: '고객권리안내',     url: 'https://www.imlifeins.co.kr/BE/BE_A031.do', strong: true },
-    { label: '금융소비자보호' },
+    { label: '금융소비자보호',   url: 'https://www.imlifeins.co.kr/BB/BB_B090.do', strong: true },
     { label: '보험사기신고',     url: 'https://www.imlifeins.co.kr/BB/BB_C020.do', strong: true },
-    { label: '위법계약해지요구권' },
+    { label: '위법계약해지요구권', url: 'https://www.imlifeins.co.kr/BB/BB_B070.do', strong: true },
     { label: '전자민원',         url: 'https://www.imlifeins.co.kr/BB/BB_B010.do', strong: true },
   ] satisfies readonly FooterLink[] as readonly FooterLink[],
   features: {
