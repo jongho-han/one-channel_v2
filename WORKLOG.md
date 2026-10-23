@@ -111,3 +111,4 @@
 | 2026-10-23 11:44:54 | 개인정보 유출 주의 팝업: 내용 가운데 정렬, 팝업 사이즈 조금 작게, 버튼도 조금 작게 | 스모크(작은 팝업 클래스) 선작성(RED) 후 진입 확인 팝업을 compact 크기로(최대 폭 440→340px, 가운데 정렬, 문구 15px, 버튼 높이 54→44px·글자 15px), 모달 기준 modal-privacy-warning 갱신(클래스만), 메뉴정의서 개정이력 추가. 영향 테스트만: 스모크 MY-01 5건 통과, analyze 0, Chromium PC·모바일 확인 |
 | 2026-10-23 11:46:00 | main 병합 후 배포 | 개인정보 유출 주의 팝업 크기 조정 커밋 main fast-forward 병합·push(a3c7dd8), GitHub Pages 배포 실행(#23). 이전 배포 #22 성공 확인 |
 | 2026-10-23 11:50:21 | 안내장 수신설정의 안내장 받으실 곳에 나와있는 휴대폰번호 및 이메일 주소 마스킹 처리 | 단위 테스트(가린 휴대폰·이메일 표시, maskEmail) 선작성(RED) 후 form/privacyRules 에 maskEmail 추가, NoticeSettings 에서 maskPhone·maskEmail 로 표시(010-****-5678, gi**********@example.com). 기준 화면 MY-02 갱신(두 값만). 메뉴정의서 MY-02 비고·개정이력, menu-spec.json 동기화. 영향 테스트만: 단위 12건·스모크 MY-02 3건 통과, analyze 0 |
+| 2026-10-23 11:51:10 | main 병합 후 배포 | 안내장 수신설정 마스킹 커밋 main fast-forward 병합·push(af7897c), GitHub Pages 배포 실행(#24). 이전 배포 #23 성공 확인. 증명서발급(CF-01~06) 연락처 마스킹은 사용자 요청으로 보류 |
