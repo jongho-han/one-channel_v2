@@ -858,6 +858,10 @@ test('보험료 납입: 계약 전체선택·해제, 고른 계약 보험료 합
   login();
   window.App.openScreen('PM-01');
   const cards = () => [...window.document.querySelectorAll('[data-action="pick"]')];
+  const states = cards().map(card => card.querySelector('.st')?.textContent);
+  assert.ok(states.every(state => state === '정상' || state === '연체'), '계약 카드마다 납입 상태');
+  assert.ok(states.includes('연체') && states.includes('정상'));
+  assert.ok(cards().every(card => /최종 납입 \d{4}\.\d{2}\.\d{2}/.test(card.textContent)), '납입 방식·최종 납입일');
   click($('[data-action="pick-all"]'));
   assert.ok(cards().length > 1);
   assert.ok(cards().every(card => card.getAttribute('aria-pressed') === 'true'), '전체선택');

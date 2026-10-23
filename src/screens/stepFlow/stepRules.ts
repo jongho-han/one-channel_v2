@@ -10,6 +10,8 @@ export interface PickItem {
   title: string;
   sub: string;
   value: string;
+  status?: string;   // 카드 상태 표시 (예: 정상·연체)
+  detail?: string;   // 카드 보조 안내 한 줄
 }
 
 /** 단계: 안내(guide) 또는 선택(pick) · 입력 · 확인(생략 가능) · 인증 · 완료 */

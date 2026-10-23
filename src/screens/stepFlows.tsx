@@ -7,6 +7,7 @@ import { CONTRACTS, contractByNo, insuredLabel, type InsuranceContract } from '.
 import { ANNUITY_AGE_RANGE, ANNUITY_OPTION_FIELDS, annuityAgeOptions, annuityLockRules, annuityOptionCalc, pickedAnnuityContract } from '../features/annuity';
 import { ANNUITY_CONVERSION_FIELDS, annuityConversionCalc, isConvertible } from '../features/annuityConversion';
 import { loanCalcRows } from '../features/loanRules';
+import { payStatus, payStatusNote } from '../features/payStatus';
 import { PAY_BY_ACCOUNT, PAY_BY_VIRTUAL, VIRTUAL_ACCOUNT_BANKS, isVirtualPayment, issueVirtualAccount, type VirtualAccount } from '../features/virtualAccount';
 import { LoanRequestSummary, LoanResult } from './stepFlow/LoanPick';
 import type { InputStepConfig } from './stepFlow/StepFlow';
@@ -56,6 +57,13 @@ const contractChoices = (filter: (contract: InsuranceContract) => boolean | unde
   CONTRACTS.filter(contract => Boolean(filter(contract))).map(contract => ({
     key: contract.no, title: contract.name, sub: `증권번호 ${contract.no} · 피보험자 ${insuredLabel(contract)}`, value: valueOf(contract),
   }));
+
+/** 보험료 납입 계약 카드: 기준일 대비 납입 상태(연체·정상)와 납입 방식·최종 납입일 */
+const premiumChoices = (): PickItem[] =>
+  contractChoices(c => c.status === '정상' || c.status === '납입유예', c => formatWon(c.premium)).map(item => {
+    const { lastPaid } = contractByNo(item.key);
+    return lastPaid ? { ...item, status: payStatus(lastPaid, APP.today), detail: payStatusNote(lastPaid) } : item;
+  });
 
 const loanAmountOf = (flow: StepFlowState) => Number(flow.values.loanAmount) || 0;
 
@@ -144,7 +152,7 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     done: '연금 지급 신청이 완료되었습니다. 첫 연금은 연금개시일에 입금됩니다.', receiptPrefix: 'A2610' },
 
   'PM-01': {
-    pick: { label: '납입할 계약을 선택하세요', multiple: true, items: () => contractChoices(c => c.status === '정상' || c.status === '납입유예', c => formatWon(c.premium)) },
+    pick: { label: '납입할 계약을 선택하세요', multiple: true, items: premiumChoices },
     fields: [
       { id: 'cnt', label: '납입 회차', type: 'radio', options: ['이번 회차(10월분)', '2개월 선납', '3개월 선납'] },
       { id: 'how', label: '납입 방법', type: 'radio', options: [PAY_BY_ACCOUNT, PAY_BY_VIRTUAL] },

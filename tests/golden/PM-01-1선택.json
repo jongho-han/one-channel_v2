@@ -187,10 +187,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 든든한 종신보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 든든한 종신보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "g st"
+             },
+             "children": [
+              "정상"
+             ]
+            }
            ]
           },
           {
@@ -200,6 +217,15 @@
            },
            "children": [
             "증권번호 2018-0012345 · 피보험자 홍길동"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "월납 · 최종 납입 2026.09.25"
            ]
           }
          ]
@@ -239,10 +265,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 하이브리드 변액연금보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 하이브리드 변액연금보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "r st"
+             },
+             "children": [
+              "연체"
+             ]
+            }
            ]
           },
           {
@@ -252,6 +295,15 @@
            },
            "children": [
             "증권번호 2020-0456789 · 피보험자 홍길동"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "월납 · 최종 납입 2026.08.10"
            ]
           }
          ]
@@ -291,10 +343,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 실손의료비보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 실손의료비보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "g st"
+             },
+             "children": [
+              "정상"
+             ]
+            }
            ]
           },
           {
@@ -304,6 +373,15 @@
            },
            "children": [
             "증권번호 2021-0778812 · 피보험자 홍길동"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "3개월 선납 · 최종 납입 2026.07.25"
            ]
           }
          ]
@@ -343,10 +421,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 유니버설저축보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 유니버설저축보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "g st"
+             },
+             "children": [
+              "정상"
+             ]
+            }
            ]
           },
           {
@@ -356,6 +451,15 @@
            },
            "children": [
             "증권번호 2016-0033190 · 피보험자 홍길동"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "6개월 선납 · 최종 납입 2026.04.25"
            ]
           }
          ]
@@ -395,10 +499,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 행복드림 연금보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 행복드림 연금보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "g st"
+             },
+             "children": [
+              "정상"
+             ]
+            }
            ]
           },
           {
@@ -408,6 +529,15 @@
            },
            "children": [
             "증권번호 2017-0091234 · 피보험자 홍길동"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "연납 · 최종 납입 2025.11.20"
            ]
           }
          ]
@@ -447,10 +577,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 변액유니버설 종신보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 변액유니버설 종신보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "r st"
+             },
+             "children": [
+              "연체"
+             ]
+            }
            ]
           },
           {
@@ -460,6 +607,15 @@
            },
            "children": [
             "증권번호 2021-0345678 · 피보험자 홍길동"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "6개월 선납 · 최종 납입 2026.03.15"
            ]
           }
          ]
@@ -499,10 +655,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 튼튼 어린이보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 튼튼 어린이보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "g st"
+             },
+             "children": [
+              "정상"
+             ]
+            }
            ]
           },
           {
@@ -512,6 +685,15 @@
            },
            "children": [
             "증권번호 2019-0234567 · 피보험자 홍서연(자녀)"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "월납 · 최종 납입 2026.09.25"
            ]
           }
          ]
@@ -551,10 +733,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "(무)iM 든든 암보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "(무)iM 든든 암보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "r st"
+             },
+             "children": [
+              "연체"
+             ]
+            }
            ]
           },
           {
@@ -564,6 +763,15 @@
            },
            "children": [
             "증권번호 2022-0567123 · 피보험자 김영희(배우자)"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "연납 · 최종 납입 2025.08.05"
            ]
           }
          ]

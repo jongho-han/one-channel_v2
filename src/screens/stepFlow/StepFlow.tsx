@@ -4,7 +4,7 @@ import { flushSync } from 'react-dom';
 import { Field } from '../../components/form/Field';
 import type { FieldSpec, FieldValues } from '../../components/form/fieldSpec';
 import { Icon } from '../../components/Icon';
-import { Agreements, CalcBox, DoneCard, InfoBox, KeyValueList, checkedAgreements, type CalcRow, type ReceiptRow } from '../../components/widgets';
+import { Agreements, CalcBox, DoneCard, InfoBox, KeyValueList, StatusChip, checkedAgreements, type CalcRow, type ReceiptRow } from '../../components/widgets';
 import { focusElement } from '../../core/dom';
 import { RETENTION_OPTIONS } from '../../data/homeContent';
 import type { AuthLevel } from '../../data/menu';
@@ -59,7 +59,11 @@ export function PickStep({ label, items, picked, multiple = false, pickedKeys = 
         {items.map(item => (
           <button key={item.key} className={['pick', multiple && 'multi', isOn(item.key) && 'on'].filter(Boolean).join(' ')} aria-pressed={isOn(item.key)} data-action="pick" data-key={item.key}>
             <span className="rd" aria-hidden="true" />
-            <span className="pm"><b>{item.title}</b><small className="num">{item.sub}</small></span>
+            <span className="pm">
+              {item.status ? <span className="pm-t"><b>{item.title}</b><StatusChip status={item.status} /></span> : <b>{item.title}</b>}
+              <small className="num">{item.sub}</small>
+              {item.detail && <small className="pm-d num">{item.detail}</small>}
+            </span>
             <span className="pv num">{item.value}</span>
           </button>
         ))}

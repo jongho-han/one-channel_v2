@@ -16,3 +16,11 @@ test('납입 보험료 = 고른 계약 보험료 합계 × 회차, 선납 할인
   const discount = Math.round(sum * 1 * 0.004);
   expect(config.calc?.({ cnt: '2개월 선납' }, `${a.no},${b.no}`)).toEqual([['납입 보험료', won(sum * 2)], ['선납 할인', won(discount)], ['납입할 금액', won(sum * 2 - discount), true]]);
 });
+
+test('계약 카드: 납입 상태(연체·정상)와 최종 납입 안내', () => {
+  const items = config.pick?.items?.() ?? [];
+  expect(items.every(item => item.status === '정상' || item.status === '연체')).toBe(true);
+  expect(items.some(item => item.status === '연체')).toBe(true);
+  expect(items.some(item => item.status === '정상')).toBe(true);
+  expect(items.every(item => /최종 납입 \d{4}\.\d{2}\.\d{2}/.test(item.detail ?? ''))).toBe(true);
+});

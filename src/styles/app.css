@@ -462,6 +462,10 @@ ul.dots li::marker { color: var(--brand); }
 .pick .pm { flex: 1; min-width: 0; }
 .pick .pm b { display: block; font-size: 15.5px; }
 .pick .pm small { font-size: 13px; color: var(--sub); }
+.pick .pm-t { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; }
+.pick .pm-t b { display: inline; }
+.pick .pm-d { display: block; margin-top: 2px; }
+.pick.on .st.g { background: var(--card); }
 .pick .pv { text-align: right; font-weight: 750; white-space: nowrap; }
 .pick .doc-ic { color: var(--brand-ink); }
 .calc { display: grid; gap: 8px; padding: 18px 20px; border-radius: 14px; background: var(--navy); color: #fff; }

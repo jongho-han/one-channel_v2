@@ -39,6 +39,15 @@ test('PickStep 여러 개 고르기: 체크 표시·전체선택/전체해제·�
   expect(screen.getByText('2건 선택')).toBeTruthy();
 });
 
+test('PickStep: 항목에 상태가 있으면 카드에 상태 표시와 보조 안내', () => {
+  const items = [{ key: 'a', title: '종신', sub: '증권', value: '1원', status: '연체', detail: '월납 · 최종 납입 2026.08.10' }, { key: 'b', title: '연금', sub: '', value: '2원' }];
+  render(<PickStep label="납입할 계약을 선택하세요" items={items} picked={null} multiple pickedKeys={[]} onNext={vi.fn()} />);
+  const [a, b] = screen.getAllByRole('button', { pressed: false }).filter(button => button.dataset.action === 'pick');
+  expect(a.querySelector('.st.r')?.textContent).toBe('연체');
+  expect(a.textContent).toContain('월납 · 최종 납입 2026.08.10');
+  expect(b.querySelector('.st')).toBeNull();
+});
+
 describe('InputStep', () => {
   const config = {
     fields: [{ id: 'nm', label: '이름' }, { id: 'amt', label: '금액', type: 'money' as const, max: 1000 }],
