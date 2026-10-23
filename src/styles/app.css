@@ -235,6 +235,7 @@ table.tbl.min-520 { min-width: 520px; }
 .tbl tbody tr.clk:hover td { background: var(--brand-soft); }
 .tbl tbody tr.sel td { background: var(--brand-soft); }
 .tbl td.r, .tbl th.r { text-align: right; }
+.tbl th.c { text-align: center; }
 /* 보험금 청구 안내 (PY-01 안내 단계) */
 table.tbl.claim-guide { min-width: 0; table-layout: fixed; }
 .tbl.claim-guide col.label { width: 150px; }

@@ -69,7 +69,7 @@ function Rows({ title, config, rows, selectedRow }: { title: string; config: Lis
     <>
       <div className="tbl-wrap has-m"><table className="tbl">
         <caption className="sr-only">{title} 목록 · 첫 칸을 누르면 아래에 상세 내용이 나옵니다</caption>
-        <thead><tr>{columns.map(column => <th key={column} scope="col" className={isNumericColumn(column) ? 'r' : undefined}>{column}</th>)}</tr></thead>
+        <thead><tr>{columns.map(column => <th key={column} scope="col" className={config.headAlign === 'center' ? 'c' : isNumericColumn(column) ? 'r' : undefined}>{column}</th>)}</tr></thead>
         <tbody>
           {rows.map(({ cells, index }) => (
             <tr key={index} className={selectedRow === index ? 'clk sel' : 'clk'} data-action="select-row" data-index={index}>

@@ -9,6 +9,7 @@ export interface ListConfig {
   filters: readonly ListFilter[];
   filterColumns?: Readonly<Record<string, number>>;
   columns: readonly string[];
+  headAlign?: 'center';                              // 표 머리글 정렬 (기본: 왼쪽, 숫자 열 오른쪽)
   rows: string[][];
   top?: 'variable-contracts';                        // 목록 위 변액 계약 탭 (CT-03)
   tiles?: readonly (readonly [string, string])[];
@@ -54,7 +55,7 @@ export const LIST_SCREENS: Record<string, ListConfig> = {
       { label: '연금개시나이', options: ['65세', '60세', '70세'] },
       { label: '적용이율', options: ['현재 공시이율 연 2.75%', '최저보증이율 연 1.0%'] },
       { label: '연금유형', options: ['전체', '종신연금형', '확정기간형(20년)', '상속연금형'] }],
-    filterColumns: { '연금유형': 0 }, columns: ['연금유형', '연간 예상액', '월 환산', '보증기간'], rows: [
+    filterColumns: { '연금유형': 0 }, columns: ['연금유형', '연간 예상액', '월 환산', '보증기간'], headAlign: 'center', rows: [
     ['종신연금형', '12,384,000원', '1,032,000원', '20년 보증'], ['확정기간형(20년)', '14,016,000원', '1,168,000원', '20년'], ['상속연금형', '8,952,000원', '746,000원', '-']],
     warn: '예시금액이며 확정된 금액이 아닙니다. 공시이율·펀드 수익률 변동에 따라 달라집니다.', links: [['연금개시유형 변경', 'CH-07']] },
   'CT-08': { filters: ['period', { label: '거래구분', options: ['전체', '납입', '지급', '대출', '상환'] }],

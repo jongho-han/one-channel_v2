@@ -304,6 +304,7 @@
           {
            "tag": "th",
            "attrs": {
+            "class": "c",
             "scope": "col"
            },
            "children": [
@@ -313,7 +314,7 @@
           {
            "tag": "th",
            "attrs": {
-            "class": "r",
+            "class": "c",
             "scope": "col"
            },
            "children": [
@@ -323,6 +324,7 @@
           {
            "tag": "th",
            "attrs": {
+            "class": "c",
             "scope": "col"
            },
            "children": [
@@ -332,6 +334,7 @@
           {
            "tag": "th",
            "attrs": {
+            "class": "c",
             "scope": "col"
            },
            "children": [

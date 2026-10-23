@@ -118,3 +118,4 @@
 | 2026-10-23 12:53:17 | main 병합 후 커밋 | 보험료 납입 관리 연체·정상 표시 커밋 main fast-forward 병합·push(d19c5f7), GitHub Pages 배포 실행. 이전 배포 #25 성공 확인 |
 | 2026-10-23 14:05:43 | main 화면 금융소비자보호 링크 https://www.imlifeins.co.kr/BB/BB_B090.do 넣어줘 / 위법계약해지요구권 링크추가 https://www.imlifeins.co.kr/BB/BB_B070.do | 스모크(하단 이용 안내 링크 주소) 선작성(RED) 후 core/config footerLinks 에 두 링크 URL 추가(다른 링크와 같이 새 창·강조). 메뉴정의서 개정이력, MILESTONE 갱신. 영향 테스트: 스모크 전체 116건(하단은 모든 화면 공통)·단위 Footer 2건 통과, analyze 0 |
 | 2026-10-23 14:06:33 | main 병합 후 배포 | 하단 이용 안내 링크 추가 커밋 main fast-forward 병합·push(2c67a8a), GitHub Pages 배포 실행(#27). 이전 배포 #26 성공 확인 |
+| 2026-10-23 14:17:05 | 미래예상연금액 조회 안에 있는 테이블에서 첫번째 행(연금유형, 연간 예상액, 월 환산, 보증기간)을 가운데 정렬해줘 | 단위(ListScreen headAlign·CT-07 설정) 선작성(RED) 후 목록 설정에 headAlign 'center' 추가, 표 머리글 th.c 가운데 정렬(CT-07만, 다른 목록 그대로). 기준 화면 CT-07 갱신(머리글 클래스만). 메뉴정의서 CT-07 비고·개정이력, menu-spec.json 동기화. 영향 테스트: 단위 12건·스모크 통과, analyze 0, Chromium 확인 |

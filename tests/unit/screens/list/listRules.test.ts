@@ -30,3 +30,8 @@ test('행 상태별 이어서 할 일', () => {
   expect(followUpFor('PY-03', '')).toBe('claim');
   expect(followUpFor('CT-08', '')).toBeNull();
 });
+
+test('미래예상연금액 조회(CT-07) 표 머리글은 가운데 정렬', async () => {
+  const { LIST_SCREENS } = await import('../../../../src/screens/listScreens');
+  expect(LIST_SCREENS['CT-07'].headAlign).toBe('center');
+});

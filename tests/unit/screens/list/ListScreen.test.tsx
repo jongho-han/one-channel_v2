@@ -30,6 +30,16 @@ describe('ListScreen', () => {
     expect(screen.getByRole('button', { name: '펀드 변경하기' }).className).toBe('btn pri');
   });
 
+  test('headAlign: center 면 표 머리글 가운데 정렬(c), 기본은 그대로', () => {
+    setup({}, 'CT-07', { ...CONFIG, headAlign: 'center' });
+    expect(screen.getAllByRole('columnheader').map(th => th.className)).toEqual(['c', 'c', 'c', 'c']);
+  });
+
+  test('headAlign 이 없으면 숫자 열만 오른쪽(r)', () => {
+    setup();
+    expect(screen.getAllByRole('columnheader').map(th => th.className)).toEqual(['', '', 'r', '']);
+  });
+
   test('필터를 바꾸면 알림, 선택값에 맞는 행만', () => {
     const { onFilterChange } = setup({ filters: { 거래구분: '지급' } });
     expect(screen.getAllByRole('row')).toHaveLength(2);   // 머리글 + 1행
