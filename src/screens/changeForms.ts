@@ -1,11 +1,11 @@
 import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
 import type { CalcRow } from '../components/widgets';
 import { formatWon, toNumber } from '../core/format';
-import { USER, activeContracts } from '../data/customerRepository';
+import { activeContracts } from '../data/customerRepository';
 
 /* T4 단일폼 변경 (current: 현재 등록값 / custom: 전용 화면 notice · marketing · fund) */
 export interface ChangeFormConfig {
-  custom?: 'notice' | 'marketing' | 'fund';   // 전용 화면 (current·fields 없음)
+  custom?: 'notice' | 'marketing' | 'fund' | 'privacy';   // 전용 화면 (current·fields 없음)
   current?: (readonly [string, string])[];
   fields?: FieldSpec[];
   calc?: (values: FieldValues) => CalcRow[];
@@ -22,14 +22,7 @@ const contracts = activeContracts as SampleContract[];
 export const CHANGE_FORMS: Record<string, ChangeFormConfig> = {
   'MY-01': {
     entryCheck: { title: '개인정보 유출 주의', message: '다른사람의 요청으로\n개인정보를 변경하나요?' },
-    current: [['자택 주소', `(${USER.homeZip}) ${USER.homeAddress}`], ['직장 주소', `(${USER.workZip}) ${USER.workAddress}`], ['휴대폰', USER.phone], ['이메일', USER.email]],
-    fields: [
-      { id: 'addrH', label: '자택 주소', type: 'addr', zip: USER.homeZip, value: USER.homeAddress },
-      { id: 'addrW', label: '직장 주소', type: 'addr', zip: USER.workZip, value: USER.workAddress, optional: true },
-      { id: 'mob', label: '휴대폰', type: 'tel', value: USER.phone },
-      { id: 'telH', label: '자택 전화', type: 'tel', value: USER.homeTel, optional: true },
-      { id: 'telW', label: '직장 전화', type: 'tel', value: USER.workTel, optional: true },
-      { id: 'mail', label: '이메일', type: 'email', value: USER.email }],
+    custom: 'privacy',   // 연락처·자택정보·직장정보 (현재 정보는 가려서 표시, PrivacyForm)
     note: '변경한 연락처는 보유하신 모든 계약에 함께 적용됩니다. 개인정보 보호를 위해 변경 사실을 변경 전 휴대폰·이메일로도 알려드립니다.',
     done: '연락처 변경이 완료되었습니다.' },
   'MY-02': { custom: 'notice', note: '법정 안내장(계약사항 안내, 변액 운용보고서 등)은 받지 않음을 선택할 수 없습니다.', done: '안내장 수신 방법이 변경되었습니다.' },

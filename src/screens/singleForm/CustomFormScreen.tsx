@@ -4,11 +4,15 @@ import type { FieldValues } from '../../components/form/fieldSpec';
 import { InfoBox } from '../../components/widgets';
 import { APP } from '../../core/config';
 import { MARKETING_CONSENTS, NOTICE_E_CONSENT_DEFAULT, NOTICE_SETTINGS } from '../../data/consentRepository';
-import { USER } from '../../data/customerRepository';
+import { EMAIL_DOMAINS, USER, isEmailTaken } from '../../data/customerRepository';
 import { SUITABILITY, SUITABILITY_QUESTIONS } from '../../data/fundRepository';
 import type { ScreenSpec } from '../../data/menu';
 import { VARIABLE_CONTRACTS, selectedVariableContract } from '../../features/variableContract';
-import { chooseSignMethod } from '../../services/auth';
+import { chooseSignMethod, verifyPhone } from '../../services/auth';
+import { $, focusElement } from '../../core/dom';
+import { privacyErrors, type PrivacyErrors, type PrivacyValues } from '../../form/privacyRules';
+import { searchZip } from '../../form/zipSearch';
+import { rerenderScreen } from '../../pages/screen';
 import { state, updateScreenFlow, updateScreenValues } from '../../state/store';
 import { announce, confirmDialog, toast } from '../../ui/overlay';
 import type { ChangeFormConfig } from '../changeForms';
@@ -17,9 +21,31 @@ import { ratioTotal } from '../fund/fundRules';
 import { FundCompare, FundEdit, SuitabilityQuestions, SuitabilityResult } from '../fund/FundViews';
 import { completeSingleForm } from './completeSingleForm';
 import { MarketingConsents, NoticeSettings } from './CustomForms';
+import { PrivacyForm } from './PrivacyForm';
 
 interface CustomFlow extends FundFlow {
   values: FieldValues & { noticeMethods?: string[]; eConsent?: boolean };
+  privacyErrors?: PrivacyErrors;
+}
+
+/** 개인정보변경 검증 오류 → 초점을 옮길 칸 */
+const PRIVACY_FOCUS: Record<keyof PrivacyErrors, string> = { mob: '#mob', email: '#emailLocal', addrH: '#addrH_d', addrW: '#addrW_d', telH: '#telH1', telW: '#telW1', form: '#e-form' };
+
+function PrivacyBody({ flow }: { flow: CustomFlow }) {
+  return (
+    <PrivacyForm current={USER} values={flow.values as PrivacyValues} errors={flow.privacyErrors ?? {}} domains={EMAIL_DOMAINS} callCenter={APP.callCenter}
+                 onChange={values => updateScreenValues(values as FieldValues)} verifyPhone={verifyPhone} searchZip={searchZip} isEmailTaken={isEmailTaken} />
+  );
+}
+
+/** 개인정보변경: 입력한 항목 검증 → 오류면 첫 오류 칸으로, 통과하면 전자서명 */
+function submitPrivacy(screen: ScreenSpec, flow: CustomFlow) {
+  const errors = privacyErrors(flow.values as PrivacyValues);
+  updateScreenFlow({ privacyErrors: errors });
+  rerenderScreen();
+  const first = (Object.keys(PRIVACY_FOCUS) as (keyof PrivacyErrors)[]).find(key => errors[key]);
+  if (first) return focusElement($(PRIVACY_FOCUS[first]));
+  chooseSignMethod(screen, () => completeSingleForm(flow));
 }
 
 const contracts = VARIABLE_CONTRACTS;
@@ -68,9 +94,11 @@ export function CustomFormScreen({ screen, config }: { screen: ScreenSpec; confi
     notice: <NoticeBody flow={flow} />,
     marketing: <MarketingConsents consents={MARKETING_CONSENTS} />,
     fund: <FundBody flow={flow} />,
+    privacy: <PrivacyBody flow={flow} />,
   };
 
   const next = () => {
+    if (config.custom === 'privacy') return submitPrivacy(screen, flow);
     if (!isFund) return chooseSignMethod(screen, () => completeSingleForm(flow));
     if (ratioTotal(currentFundRatios(flow)) !== 100) return toast('변경 후 비율 합계를 100%로 맞춰 주세요.');
     submitFundChange(flow);

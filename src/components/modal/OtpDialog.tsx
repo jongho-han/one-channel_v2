@@ -9,12 +9,14 @@ const EXPIRED = '입력 시간이 지났습니다. 재전송 후 다시 입력�
 
 interface OtpDialogProps {
   phone: string;                         // 가린 휴대폰 번호
+  title?: string;                        // 기본: 추가인증
+  message?: string;                      // 기본: 금전 거래 추가인증 안내
   onConfirm: () => void;
   announce: (message: string) => void;
   toast: (message: string) => void;
 }
 
-export function OtpDialog({ phone, onConfirm, announce, toast }: OtpDialogProps) {
+export function OtpDialog({ phone, title = '추가인증', message, onConfirm, announce, toast }: OtpDialogProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [left, setLeft] = useState(OTP_SECONDS);
   const [startedAt, setStartedAt] = useState(0);   // 타이머 다시 시작 표시
@@ -47,8 +49,8 @@ export function OtpDialog({ phone, onConfirm, announce, toast }: OtpDialogProps)
 
   return (
     <>
-      <ModalTitle>추가인증</ModalTitle>
-      <p>계좌·지급 등 금전 거래는 추가인증이 필요합니다. 등록된 휴대폰({phone})으로 인증번호를 보냈습니다.</p>
+      <ModalTitle>{title}</ModalTitle>
+      <p>{message ?? `계좌·지급 등 금전 거래는 추가인증이 필요합니다. 등록된 휴대폰(${phone})으로 인증번호를 보냈습니다.`}</p>
       <div className="fld">
         <label htmlFor="otp">인증번호 6자리</label>
         <div className="inrow">

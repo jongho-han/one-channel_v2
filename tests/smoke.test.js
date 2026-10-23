@@ -377,15 +377,41 @@ test('T4 선택에 따라 상환 계산이 바뀐다 (LN-05)', () => {
   assert.deepEqual(errors, []);
 });
 
-test('T4 우편번호 검색 결과를 주소 칸에 넣는다 (MY-01)', () => {
+test('개인정보변경: 가린 현재 정보, 주소 검색, 변경 없으면 진행 안 함, 이메일 중복확인 후 전자서명 (MY-01)', () => {
   login();
   window.App.openScreen('MY-01');
   click($('#dlgNo'));   // 개인정보 유출 주의: 아니요 → 수정 가능
+  assert.equal($('#mob').placeholder, '010-****-5678');
+  assert.equal($('#emailLocal').placeholder, 'gi**********');
+
   click($('[data-zip="addrW"]'));
   const result = $('#layer [data-zip-code]');
   click(result);
-  assert.equal($('#addrW_zip').value, result.dataset.zipCode);
-  assert.equal($('#addrW').value, result.dataset.address);
+  assert.equal($('#layer .dim'), null);
+  assert.equal($('#addrW').value, `[${result.dataset.zipCode}] ${result.dataset.address}`);
+  assert.equal(window.document.activeElement, $('#addrW_d'));
+
+  click($('#next'));
+  assert.equal($('#e-addrW').textContent, '직장 상세주소를 입력해 주세요.');
+  setInput($('#addrW_d'), '3층');
+
+  setInput($('#emailLocal'), 'hong.new');
+  click($('#next'));
+  assert.equal($('#e-email').textContent, '이메일 중복확인을 해 주세요.');
+  assert.equal(window.document.activeElement, $('#emailLocal'));
+  click($('#emailCheck'));
+  assert.equal($('#emailOk').textContent, '사용할 수 있는 이메일입니다.');
+  click($('#next'));
+  assert.ok($('#layer [data-auth="간편인증"]'), '전자서명 수단 선택');
+  assert.deepEqual(errors, []);
+});
+
+test('개인정보변경: 바꾼 내용이 없으면 진행하지 않음 (MY-01)', () => {
+  login();
+  window.App.openScreen('MY-01');
+  click($('#dlgNo'));
+  click($('#next'));
+  assert.equal($('#e-form').textContent, '변경할 내용이 없습니다.');
   assert.equal($('#layer .dim'), null);
   assert.deepEqual(errors, []);
 });

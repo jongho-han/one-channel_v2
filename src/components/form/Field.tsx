@@ -38,7 +38,7 @@ interface ControlProps {
 
 const GROUP_TYPES = ['radio', 'checks', 'addr'];
 
-function RequiredMark() {
+export function RequiredMark() {
   return <><span className="req" aria-hidden="true">*</span><span className="sr-only">(필수)</span></>;
 }
 

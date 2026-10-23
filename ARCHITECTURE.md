@@ -105,6 +105,7 @@ one-channel/
     │   ├── locks.ts            # 고정 규칙 (해당없음·고정값·바뀐 항목 안내)
     │   ├── focus.ts            # 첫 오류 칸으로 초점
     │   ├── zipSearch.tsx       # 우편번호 검색 창
+    │   ├── privacyRules.ts     # 개인정보변경: 현재 정보 가리기·변경 입력 검증
     │   └── validation.ts       # 입력 검증 규칙
     │
     ├── pages/
@@ -122,7 +123,7 @@ one-channel/
     │   ├── list/               # T2 목록·상세 (listRules.ts 규칙 · ListScreen.tsx · ContractDetail.tsx 계약조회 · ListDetailScreen.tsx 상태 연결 · listActions.tsx 취소·보완서류)
     │   ├── dashboard/          # T1 계약종합현황 (Dashboard.tsx · contractSummary.ts)
     │   ├── issuance/           # T5 발급 (Issuance.tsx 화면 부품 · IssuanceScreen.tsx 상태 연결)
-    │   ├── singleForm/         # T4 단일폼 (SingleForm 표준 · CustomForms 안내장·마케팅 · CustomFormScreen 전용 화면 · SingleFormScreen 서명·완료 · completeSingleForm)
+    │   ├── singleForm/         # T4 단일폼 (SingleForm 표준 · CustomForms 안내장·마케팅 · PrivacyForm 개인정보변경 · CustomFormScreen 전용 화면 · SingleFormScreen 서명·완료 · completeSingleForm)
     │   ├── stepFlow/           # T3 단계형 (stepRules.ts 규칙 · StepFlow.tsx 단계 부품 · LoanPick·AnnuityPick 맞춤 선택 · VirtualAccountInfo · StepFlowScreen 상태 연결 · stepFlowActions 단계 이동)
     │   ├── fund/               # 펀드변경 (fundRules.ts 규칙 · FundViews.tsx 편집·진단·결과·비교 · fundFlow.tsx 단계 진행)
     │   ├── listScreens.ts      # T2 목록 열·필터·상세 (ListConfig 타입, 행 상태 변경)

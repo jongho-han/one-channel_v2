@@ -31,6 +31,13 @@ function requestExtraAuth(onDone: () => void): void {
   openModal(<OtpDialog phone={maskPhone(USER.phone)} announce={announce} toast={toast} onConfirm={() => { closeModal(); onDone(); }} />);
 }
 
+/** 새 휴대폰번호 본인 인증 (개인정보변경): 그 번호로 인증번호를 보냈다고 안내 */
+export function verifyPhone(phone: string, onDone: () => void): void {
+  const masked = maskPhone(phone.replace(/^(\d{3})-?(\d{3,4})-?(\d{4})$/, '$1-$2-$3'));
+  openModal(<OtpDialog phone={masked} title="휴대폰 인증" message={`본인명의 휴대폰(${masked})으로 인증번호를 보냈습니다.`}
+                       announce={announce} toast={toast} onConfirm={() => { closeModal(); toast('휴대폰 인증이 완료되었습니다.'); onDone(); }} />);
+}
+
 /** 전자서명 → (A2 화면이면) 추가인증 → onDone */
 export function signAndConfirm(screen: AuthLevelHolder, methodName: string, onDone: () => void): void {
   requestAuth(methodName, () => (screen.authLevel === 'A2' ? requestExtraAuth(onDone) : onDone()), '전자서명');

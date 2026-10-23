@@ -499,7 +499,7 @@ ul.dots li::marker { color: var(--brand); }
 /* 7-5. 입력 폼 */
 .form { display: grid; gap: 18px; }
 .fld { display: grid; gap: 7px; }
-.fld > label, .fld > .lb { font-size: 14px; font-weight: 650; color: var(--ink); }
+.fld > label, .fld > .lb, .fld .lb-row > .lb { font-size: 14px; font-weight: 650; color: var(--ink); }
 .fld .req { margin-left: 2px; color: var(--red); }
 .fld .help { font-size: 12.5px; color: var(--mute); }
 .fld .err { font-size: 12.5px; color: var(--red); }
@@ -517,6 +517,20 @@ textarea.inp.area { min-height: 104px; line-height: 1.55; resize: vertical; font
 .inp.bad { border-color: var(--red); }
 .inrow { display: flex; gap: 8px; }
 .inrow .inp { flex: 1; min-width: 0; }
+/* 개인정보변경(MY-01): 구역 제목·필수 안내, 이메일(아이디 @ 도메인), 전화 세 칸, 주소 검색 */
+.privacy-sec .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.privacy-sec .sec-head h2 { margin-bottom: 4px; }
+.privacy-sec .fld + .fld { margin-top: 18px; }
+.req-note { margin: 0; font-size: 12.5px; color: var(--sub); }
+.lb-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.email-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 10px; }
+.email-row > span { color: var(--sub); font-weight: 700; }
+.tel3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.addr-search .btn.icon-only { flex: none; width: 48px; padding: 0; }
+.ok-msg { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; font-weight: 600; color: var(--brand-ink); }
+.ok-msg svg.i { width: 14px; height: 14px; }
+p.err#e-form { margin: 4px 0 0; font-size: 13.5px; color: var(--red); }
+p.err#e-form:empty { display: none; }
 .money { position: relative; }
 .money .inp { padding-right: 40px; text-align: right; font-size: 18px; font-weight: 700; }
 .money .u { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); }

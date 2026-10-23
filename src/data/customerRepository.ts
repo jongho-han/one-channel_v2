@@ -40,6 +40,12 @@ export const USER = {
   workZip: '42020', workAddress: '대구광역시 수성구 달구벌대로 2310, 8층',   workTel: '053-740-0000',
 };
 
+/** 개인정보변경 이메일 도메인 선택지 */
+export const EMAIL_DOMAINS: readonly string[] = ['gmail.com', 'naver.com', 'daum.net', 'kakao.com', 'nate.com', 'hanmail.net'];
+
+/** 이메일 중복확인 (시뮬레이션: 아이디가 test·admin 이면 이미 사용 중) */
+export const isEmailTaken = (email: string): boolean => /^(test|admin)@/i.test(email);
+
 export const CONTRACTS: InsuranceContract[] = [
   { no: '2018-0012345', name: '(무)iM 든든한 종신보험', kind: '종신', status: '정상',
     premium: 128400, paidCount: 99, totalCount: 240, startDate: '2018.07.15', endDate: '종신', payEnd: '2038.06',

@@ -7,471 +7,150 @@
   {
    "tag": "div",
    "attrs": {
-    "class": "card"
+    "class": "card privacy-sec"
    },
    "children": [
     {
-     "tag": "h2",
-     "attrs": {},
-     "children": [
-      "현재 등록된 정보"
-     ]
-    },
-    {
-     "tag": "dl",
+     "tag": "div",
      "attrs": {
-      "class": "kv"
+      "class": "sec-head"
      },
      "children": [
       {
-       "tag": "dt",
+       "tag": "h2",
        "attrs": {},
        "children": [
-        "자택 주소"
+        "연락처"
        ]
       },
       {
-       "tag": "dd",
-       "attrs": {},
+       "tag": "p",
+       "attrs": {
+        "class": "req-note"
+       },
        "children": [
-        "(04524) 서울특별시 중구 세종대로 110, 101동 1203호"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "직장 주소"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "(42020) 대구광역시 수성구 달구벌대로 2310, 8층"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "휴대폰"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "010-1234-5678"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
-        "이메일"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {},
-       "children": [
-        "gildong.hong@example.com"
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "req"
+         },
+         "children": [
+          "*"
+         ]
+        },
+        "표시는 필수 입력 항목입니다."
        ]
       }
-     ]
-    }
-   ]
-  },
-  {
-   "tag": "div",
-   "attrs": {
-    "class": "card"
-   },
-   "children": [
-    {
-     "tag": "h2",
-     "attrs": {},
-     "children": [
-      "변경할 내용"
      ]
     },
     {
      "tag": "div",
      "attrs": {
-      "class": "form",
-      "id": "frm"
+      "class": "fld"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "mob"
+       },
+       "children": [
+        "휴대폰번호",
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "req"
+         },
+         "children": [
+          "*"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "sr-only"
+         },
+         "children": [
+          "(필수)"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "inrow"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "h-mob e-mob",
+          "autocomplete": "tel",
+          "class": "inp num",
+          "id": "mob",
+          "inputmode": "tel",
+          "placeholder": "010-****-5678"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "class": "btn pri",
+          "id": "mobVerify",
+          "type": "button"
+         },
+         "children": [
+          "휴대폰인증"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "help",
+        "id": "h-mob"
+       },
+       "children": [
+        "휴대폰번호를 변경하려면 본인명의 휴대폰 인증이 필요합니다. 본인명의 휴대폰이 없다면 콜센터(1588-4770)로 문의해 주세요."
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "err",
+        "id": "e-mob",
+        "role": "alert"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "aria-label": "이메일",
+      "class": "fld",
+      "role": "group"
      },
      "children": [
       {
        "tag": "div",
        "attrs": {
-        "class": "fld",
-        "data-f": "addrH"
+        "class": "lb-row"
        },
        "children": [
         {
          "tag": "span",
          "attrs": {
-          "class": "lb",
-          "id": "lb-addrH"
-         },
-         "children": [
-          "자택 주소",
-          {
-           "tag": "span",
-           "attrs": {
-            "aria-hidden": "true",
-            "class": "req"
-           },
-           "children": [
-            "*"
-           ]
-          },
-          {
-           "tag": "span",
-           "attrs": {
-            "class": "sr-only"
-           },
-           "children": [
-            "(필수)"
-           ]
-          }
-         ]
-        },
-        {
-         "tag": "div",
-         "attrs": {
-          "class": "inrow"
-         },
-         "children": [
-          {
-           "tag": "input",
-           "attrs": {
-            "aria-label": "자택 주소 우편번호",
-            "autocomplete": "postal-code",
-            "class": "inp num zip",
-            "id": "addrH_zip",
-            "name": "addrH_zip",
-            "readonly": ""
-           },
-           "children": [],
-           "state": {
-            "value": "04524"
-           }
-          },
-          {
-           "tag": "button",
-           "attrs": {
-            "aria-label": "자택 주소 우편번호 검색",
-            "class": "btn",
-            "data-zip": "addrH",
-            "type": "button"
-           },
-           "children": [
-            "우편번호 검색"
-           ]
-          }
-         ]
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-describedby": "e-addrH",
-          "aria-label": "자택 주소 기본주소",
-          "aria-required": "true",
-          "autocomplete": "street-address",
-          "class": "inp",
-          "id": "addrH",
-          "name": "addrH"
-         },
-         "children": [],
-         "state": {
-          "value": "서울특별시 중구 세종대로 110, 101동 1203호"
-         }
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-label": "자택 주소 상세주소",
-          "autocomplete": "address-line2",
-          "class": "inp",
-          "id": "addrH_d",
-          "name": "addrH_d",
-          "placeholder": "상세주소"
-         },
-         "children": [],
-         "state": {
-          "value": ""
-         }
-        },
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "err",
-          "id": "e-addrH",
-          "role": "alert"
-         },
-         "children": []
-        }
-       ]
-      },
-      {
-       "tag": "div",
-       "attrs": {
-        "class": "fld",
-        "data-f": "addrW"
-       },
-       "children": [
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "lb",
-          "id": "lb-addrW"
-         },
-         "children": [
-          "직장 주소"
-         ]
-        },
-        {
-         "tag": "div",
-         "attrs": {
-          "class": "inrow"
-         },
-         "children": [
-          {
-           "tag": "input",
-           "attrs": {
-            "aria-label": "직장 주소 우편번호",
-            "autocomplete": "postal-code",
-            "class": "inp num zip",
-            "id": "addrW_zip",
-            "name": "addrW_zip",
-            "readonly": ""
-           },
-           "children": [],
-           "state": {
-            "value": "42020"
-           }
-          },
-          {
-           "tag": "button",
-           "attrs": {
-            "aria-label": "직장 주소 우편번호 검색",
-            "class": "btn",
-            "data-zip": "addrW",
-            "type": "button"
-           },
-           "children": [
-            "우편번호 검색"
-           ]
-          }
-         ]
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-describedby": "e-addrW",
-          "aria-label": "직장 주소 기본주소",
-          "autocomplete": "street-address",
-          "class": "inp",
-          "id": "addrW",
-          "name": "addrW"
-         },
-         "children": [],
-         "state": {
-          "value": "대구광역시 수성구 달구벌대로 2310, 8층"
-         }
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-label": "직장 주소 상세주소",
-          "autocomplete": "address-line2",
-          "class": "inp",
-          "id": "addrW_d",
-          "name": "addrW_d",
-          "placeholder": "상세주소"
-         },
-         "children": [],
-         "state": {
-          "value": ""
-         }
-        },
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "err",
-          "id": "e-addrW",
-          "role": "alert"
-         },
-         "children": []
-        }
-       ]
-      },
-      {
-       "tag": "div",
-       "attrs": {
-        "class": "fld",
-        "data-f": "mob"
-       },
-       "children": [
-        {
-         "tag": "label",
-         "attrs": {
-          "for": "mob"
-         },
-         "children": [
-          "휴대폰",
-          {
-           "tag": "span",
-           "attrs": {
-            "aria-hidden": "true",
-            "class": "req"
-           },
-           "children": [
-            "*"
-           ]
-          },
-          {
-           "tag": "span",
-           "attrs": {
-            "class": "sr-only"
-           },
-           "children": [
-            "(필수)"
-           ]
-          }
-         ]
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-describedby": "e-mob",
-          "aria-required": "true",
-          "autocomplete": "tel",
-          "class": "inp",
-          "id": "mob",
-          "inputmode": "tel",
-          "name": "mob",
-          "placeholder": "",
-          "type": "tel"
-         },
-         "children": [],
-         "state": {
-          "value": "010-1234-5678"
-         }
-        },
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "err",
-          "id": "e-mob",
-          "role": "alert"
-         },
-         "children": []
-        }
-       ]
-      },
-      {
-       "tag": "div",
-       "attrs": {
-        "class": "fld",
-        "data-f": "telH"
-       },
-       "children": [
-        {
-         "tag": "label",
-         "attrs": {
-          "for": "telH"
-         },
-         "children": [
-          "자택 전화"
-         ]
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-describedby": "e-telH",
-          "autocomplete": "tel",
-          "class": "inp",
-          "id": "telH",
-          "inputmode": "tel",
-          "name": "telH",
-          "placeholder": "",
-          "type": "tel"
-         },
-         "children": [],
-         "state": {
-          "value": "02-123-4567"
-         }
-        },
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "err",
-          "id": "e-telH",
-          "role": "alert"
-         },
-         "children": []
-        }
-       ]
-      },
-      {
-       "tag": "div",
-       "attrs": {
-        "class": "fld",
-        "data-f": "telW"
-       },
-       "children": [
-        {
-         "tag": "label",
-         "attrs": {
-          "for": "telW"
-         },
-         "children": [
-          "직장 전화"
-         ]
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-describedby": "e-telW",
-          "autocomplete": "work tel",
-          "class": "inp",
-          "id": "telW",
-          "inputmode": "tel",
-          "name": "telW",
-          "placeholder": "",
-          "type": "tel"
-         },
-         "children": [],
-         "state": {
-          "value": "053-740-0000"
-         }
-        },
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "err",
-          "id": "e-telW",
-          "role": "alert"
-         },
-         "children": []
-        }
-       ]
-      },
-      {
-       "tag": "div",
-       "attrs": {
-        "class": "fld",
-        "data-f": "mail"
-       },
-       "children": [
-        {
-         "tag": "label",
-         "attrs": {
-          "for": "mail"
+          "class": "lb"
          },
          "children": [
           "이메일",
@@ -497,36 +176,610 @@
          ]
         },
         {
+         "tag": "button",
+         "attrs": {
+          "class": "btn sm",
+          "id": "emailCheck",
+          "type": "button"
+         },
+         "children": [
+          "중복확인"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "email-row"
+       },
+       "children": [
+        {
          "tag": "input",
          "attrs": {
-          "aria-describedby": "e-mail",
-          "aria-required": "true",
+          "aria-describedby": "e-email",
+          "aria-label": "이메일 아이디",
           "autocomplete": "email",
           "class": "inp",
-          "id": "mail",
-          "name": "mail",
-          "placeholder": "",
-          "type": "email"
+          "id": "emailLocal",
+          "placeholder": "gi**********"
          },
          "children": [],
          "state": {
-          "value": "gildong.hong@example.com"
+          "value": ""
          }
         },
         {
          "tag": "span",
          "attrs": {
-          "class": "err",
-          "id": "e-mail",
-          "role": "alert"
+          "aria-hidden": "true"
          },
-         "children": []
+         "children": [
+          "@"
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-label": "이메일 도메인",
+          "class": "inp",
+          "id": "emailDomain"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "example.com"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "gmail.com"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "naver.com"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "daum.net"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "kakao.com"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "nate.com"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "hanmail.net"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
         }
        ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "err",
+        "id": "e-email",
+        "role": "alert"
+       },
+       "children": []
       }
      ]
     }
    ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card privacy-sec"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "sec-head"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {},
+       "children": [
+        "자택정보"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "fld"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "addrH"
+       },
+       "children": [
+        "자택주소",
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "req"
+         },
+         "children": [
+          "*"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "sr-only"
+         },
+         "children": [
+          "(필수)"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "addr-search inrow"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-addrH",
+          "class": "inp",
+          "id": "addrH",
+          "readonly": ""
+         },
+         "children": [],
+         "state": {
+          "value": "[04524] 서울특별시 중구 세종대로 110"
+         }
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "자택주소 검색",
+          "class": "btn icon-only",
+          "data-zip": "addrH",
+          "type": "button"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "circle",
+             "attrs": {
+              "cx": "11",
+              "cy": "11",
+              "r": "7"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M20 20l-4-4"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "input",
+       "attrs": {
+        "aria-label": "자택 상세주소",
+        "class": "inp mt-8",
+        "id": "addrH_d",
+        "placeholder": "**** ****"
+       },
+       "children": [],
+       "state": {
+        "value": ""
+       }
+      },
+      {
+       "tag": "ul",
+       "attrs": {
+        "class": "dots mt-8 note-sm"
+       },
+       "children": [
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          "자택, 직장 중 1개 이상의 주소를 꼭 입력해 주세요."
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "err",
+        "id": "e-addrH",
+        "role": "alert"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "fld"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "lb",
+        "id": "lb-telH"
+       },
+       "children": [
+        "자택전화"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-labelledby": "lb-telH",
+        "class": "tel3",
+        "role": "group"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-telH",
+          "aria-label": "자택전화 앞자리",
+          "class": "inp num",
+          "id": "telH1",
+          "inputmode": "numeric",
+          "maxlength": "4",
+          "placeholder": "02"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-telH",
+          "aria-label": "자택전화 가운데자리",
+          "class": "inp num",
+          "id": "telH2",
+          "inputmode": "numeric",
+          "maxlength": "4",
+          "placeholder": "****"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-telH",
+          "aria-label": "자택전화 끝자리",
+          "class": "inp num",
+          "id": "telH3",
+          "inputmode": "numeric",
+          "maxlength": "4",
+          "placeholder": "4567"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "err",
+        "id": "e-telH",
+        "role": "alert"
+       },
+       "children": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card privacy-sec"
+   },
+   "children": [
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "sec-head"
+     },
+     "children": [
+      {
+       "tag": "h2",
+       "attrs": {},
+       "children": [
+        "직장정보"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "fld"
+     },
+     "children": [
+      {
+       "tag": "label",
+       "attrs": {
+        "for": "addrW"
+       },
+       "children": [
+        "직장주소"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "addr-search inrow"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-addrW",
+          "class": "inp",
+          "id": "addrW",
+          "readonly": ""
+         },
+         "children": [],
+         "state": {
+          "value": "[42020] 대구광역시 수성구 달구벌대로 2310"
+         }
+        },
+        {
+         "tag": "button",
+         "attrs": {
+          "aria-label": "직장주소 검색",
+          "class": "btn icon-only",
+          "data-zip": "addrW",
+          "type": "button"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "circle",
+             "attrs": {
+              "cx": "11",
+              "cy": "11",
+              "r": "7"
+             },
+             "children": []
+            },
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M20 20l-4-4"
+             },
+             "children": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "input",
+       "attrs": {
+        "aria-label": "직장 상세주소",
+        "class": "inp mt-8",
+        "id": "addrW_d",
+        "placeholder": "****"
+       },
+       "children": [],
+       "state": {
+        "value": ""
+       }
+      },
+      {
+       "tag": "ul",
+       "attrs": {
+        "class": "dots mt-8 note-sm"
+       },
+       "children": [
+        {
+         "tag": "li",
+         "attrs": {},
+         "children": [
+          "자택, 직장 중 1개 이상의 주소를 꼭 입력해 주세요."
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "err",
+        "id": "e-addrW",
+        "role": "alert"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "fld"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "lb",
+        "id": "lb-telW"
+       },
+       "children": [
+        "직장전화"
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "aria-labelledby": "lb-telW",
+        "class": "tel3",
+        "role": "group"
+       },
+       "children": [
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-telW",
+          "aria-label": "직장전화 앞자리",
+          "class": "inp num",
+          "id": "telW1",
+          "inputmode": "numeric",
+          "maxlength": "4",
+          "placeholder": "053"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-telW",
+          "aria-label": "직장전화 가운데자리",
+          "class": "inp num",
+          "id": "telW2",
+          "inputmode": "numeric",
+          "maxlength": "4",
+          "placeholder": "****"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-telW",
+          "aria-label": "직장전화 끝자리",
+          "class": "inp num",
+          "id": "telW3",
+          "inputmode": "numeric",
+          "maxlength": "4",
+          "placeholder": "0000"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        }
+       ]
+      },
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "err",
+        "id": "e-telW",
+        "role": "alert"
+       },
+       "children": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "p",
+   "attrs": {
+    "class": "err",
+    "id": "e-form",
+    "role": "alert"
+   },
+   "children": []
   },
   {
    "tag": "div",
