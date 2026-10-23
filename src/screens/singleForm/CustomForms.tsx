@@ -2,6 +2,8 @@
 import { useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { focusElement } from '../../core/dom';
+import { maskPhone } from '../../core/format';
+import { maskEmail } from '../../form/privacyRules';
 
 /** [안내장, 구분(법정·선택), 현재 수신 방법] */
 export type NoticeSetting = readonly [name: string, type: string, method: string];
@@ -61,8 +63,8 @@ export function NoticeSettings({ notices, contact, methods: initialMethods, cons
     <>
       <div className="card"><h2>안내장 받으실 곳</h2>
         <dl className="kv">
-          <dt>휴대폰</dt><dd className="num">{contact.phone}</dd>
-          <dt>이메일</dt><dd>{contact.email}</dd>
+          <dt>휴대폰</dt><dd className="num">{maskPhone(contact.phone)}</dd>
+          <dt>이메일</dt><dd>{maskEmail(contact.email)}</dd>
         </dl>
         <div className="agree checks e-consent">
           <label><input type="checkbox" id="eConsent" ref={consentRef} checked={consent} onChange={event => changeConsent(event.currentTarget.checked)} /><span>{NOTICE_E_CONSENT_TEXT}</span></label>

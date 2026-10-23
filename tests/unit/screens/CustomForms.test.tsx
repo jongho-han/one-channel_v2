@@ -11,6 +11,14 @@ describe('NoticeSettings', () => {
     return props;
   };
 
+  test('안내장 받으실 곳: 휴대폰·이메일은 가려서 표시', () => {
+    setup();
+    expect(screen.getByText('010-****-5678')).toBeTruthy();
+    expect(screen.getByText('m*@example.com')).toBeTruthy();
+    expect(screen.queryByText('010-1234-5678')).toBeNull();
+    expect(screen.queryByText('me@example.com')).toBeNull();
+  });
+
   test('법정 안내장에는 받지 않음 없음', () => {
     setup();
     const options = (id: string) => [...(document.getElementById(id) as HTMLSelectElement).options].map(option => option.text);

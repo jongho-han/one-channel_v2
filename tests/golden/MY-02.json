@@ -36,7 +36,7 @@
         "class": "num"
        },
        "children": [
-        "010-1234-5678"
+        "010-****-5678"
        ]
       },
       {
@@ -50,7 +50,7 @@
        "tag": "dd",
        "attrs": {},
        "children": [
-        "gildong.hong@example.com"
+        "gi**********@example.com"
        ]
       }
      ]

@@ -35,6 +35,12 @@ export const splitEmail = (email: string): [string, string] => {
   return [email.slice(0, at), email.slice(at + 1)];
 };
 
+/** 이메일 전체: 아이디만 가림 — 예: gi**********@example.com */
+export const maskEmail = (email: string): string => {
+  const [local, domain] = splitEmail(email);
+  return `${maskEmailLocal(local)}@${domain}`;
+};
+
 export const EMAIL_DOMAIN_MISSING = '이메일 도메인을 입력해 주세요.';
 
 const MOBILE_PATTERN = /^01\d-?\d{3,4}-?\d{4}$/;

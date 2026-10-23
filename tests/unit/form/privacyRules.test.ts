@@ -1,9 +1,10 @@
 /* 개인정보변경(MY-01): 현재 정보 가리기 · 변경 입력 검증 */
-import { maskDetail, maskEmailLocal, privacyErrors, splitAddress, splitEmail, telParts } from '../../../src/form/privacyRules';
+import { maskDetail, maskEmail, maskEmailLocal, privacyErrors, splitAddress, splitEmail, telParts } from '../../../src/form/privacyRules';
 
 test('가리기: 이메일 아이디 앞 2자리만, 상세주소 단어마다 ****, 전화 가운데 ****', () => {
   expect(maskEmailLocal('gildong.hong')).toBe('gi**********');
   expect(maskEmailLocal('me')).toBe('m*');
+  expect(maskEmail('gildong.hong@example.com')).toBe('gi**********@example.com');
   expect(maskDetail('101동 1203호')).toBe('**** ****');
   expect(maskDetail('8층')).toBe('****');
   expect(maskDetail('')).toBe('');
