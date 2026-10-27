@@ -548,16 +548,6 @@
     {
      "tag": "button",
      "attrs": {
-      "class": "btn lg",
-      "data-action": "back"
-     },
-     "children": [
-      "취소"
-     ]
-    },
-    {
-     "tag": "button",
-     "attrs": {
       "class": "btn lg pri",
       "id": "issue"
      },

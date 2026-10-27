@@ -58,7 +58,6 @@ export function IssuanceForm({ config, values, user, onIssue }: IssuanceFormProp
         <div className="fld" id="faxF" hidden={method !== '팩스로 받기'}><label htmlFor="fax">받을 팩스번호</label><input className="inp num" id="fax" type="tel" placeholder="02-000-0000" /><span className="err" id="faxErr">{faxError}</span></div>
       </div></div>
       <div className="navrow">
-        <button className="btn lg" data-action="back">취소</button>
         <button className="btn pri lg" id="issue" onClick={issue}>발급하기</button>
       </div>
     </>
@@ -99,7 +98,7 @@ export function IssuedCertificate({ config, values, user, issueNo, documentCode,
         <div className="sign num">{today}<br />iM라이프생명보험주식회사<small>본 문서는 기획 검토용 견본이며 효력이 없습니다.</small></div>
       </div>
       <div className="navrow">
-        <button className="btn lg" data-action="reset-flow">다시 발급</button>
+        <button className="btn lg" data-action="reset-flow">추가 발급</button>
         <button className="btn pri lg" data-action="reset-flow">완료</button>
       </div>
     </>

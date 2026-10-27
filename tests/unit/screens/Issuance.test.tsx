@@ -20,6 +20,11 @@ describe('IssuanceForm', () => {
     expect(document.getElementById('faxF')?.hidden).toBe(false);
   });
 
+  test('버튼은 [발급하기] 하나만 (취소 없음)', () => {
+    const { container } = render(<IssuanceForm config={CONFIG} values={{}} user={USER} onIssue={vi.fn()} />);
+    expect([...container.querySelectorAll('.navrow button')].map(button => button.textContent)).toEqual(['발급하기']);
+  });
+
   test('팩스번호 오류면 발급하지 않고 안내', () => {
     const onIssue = vi.fn();
     render(<IssuanceForm config={CONFIG} values={{}} user={USER} onIssue={onIssue} />);
@@ -49,7 +54,7 @@ describe('IssuedCertificate', () => {
     expect(within(table).getByText('홍길동 (1978.**.**)')).toBeTruthy();
     expect(within(table).getByText('2026.09.15')).toBeTruthy();
     expect(screen.getByText(/No\. 20261002-550000 · 문서확인번호 AAAA-BBBB/)).toBeTruthy();
-    expect(screen.getByRole('button', { name: '다시 발급' }).dataset.action).toBe('reset-flow');
+    expect(screen.getByRole('button', { name: '추가 발급' }).dataset.action).toBe('reset-flow');
     expect(screen.getByRole('button', { name: '완료' }).dataset.action).toBe('reset-flow');   // 메인이 아닌 발급 화면으로
   });
 });
