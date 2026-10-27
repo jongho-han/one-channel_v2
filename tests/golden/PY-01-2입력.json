@@ -483,14 +483,64 @@
              "children": [],
              "state": {
               "checked": true,
-              "value": "통원치료"
+              "value": "사망"
              }
             },
             {
              "tag": "span",
              "attrs": {},
              "children": [
-              "통원치료"
+              "사망"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "kind",
+              "type": "checkbox"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "장해"
+             }
+            },
+            {
+             "tag": "span",
+             "attrs": {},
+             "children": [
+              "장해"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "kind",
+              "type": "checkbox"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "진단"
+             }
+            },
+            {
+             "tag": "span",
+             "attrs": {},
+             "children": [
+              "진단"
              ]
             }
            ]
@@ -558,14 +608,14 @@
              "children": [],
              "state": {
               "checked": false,
-              "value": "진단(암·뇌·심장 등)"
+              "value": "통원"
              }
             },
             {
              "tag": "span",
              "attrs": {},
              "children": [
-              "진단(암·뇌·심장 등)"
+              "통원"
              ]
             }
            ]
@@ -583,14 +633,39 @@
              "children": [],
              "state": {
               "checked": false,
-              "value": "장해"
+              "value": "치아"
              }
             },
             {
              "tag": "span",
              "attrs": {},
              "children": [
-              "장해"
+              "치아"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "kind",
+              "type": "checkbox"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "실손의료비"
+             }
+            },
+            {
+             "tag": "span",
+             "attrs": {},
+             "children": [
+              "실손의료비"
              ]
             }
            ]

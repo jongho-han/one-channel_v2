@@ -87,7 +87,7 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     fields: [
       { id: 'who', label: '피보험자', type: 'radio', options: ['홍길동(본인)', '홍서연(자녀)', '김영희(배우자)'] },   // 청구 종류에 맞게 바뀜 (withClaimType)
       { id: 'acc', label: '사고 유형', type: 'radio', options: ['질병', '재해', '기타'], other: { option: '기타', placeholder: '사고 유형을 입력해 주세요' } },
-      { id: 'kind', label: '청구 내용', type: 'checks', inline: true, options: ['통원치료', '입원', '수술', '진단(암·뇌·심장 등)', '장해'] },
+      { id: 'kind', label: '청구 내용', type: 'checks', inline: true, options: ['사망', '장해', '진단', '입원', '수술', '통원', '치아', '실손의료비'] },
       { id: 'date1', label: '사고일(발병일)', type: 'date', value: '2026-09-20' },
       { id: 'place', label: '사고장소(초진병원)', placeholder: '예: 서울 중구 ○○내과의원' },
       { id: 'story', label: '사고(발생경위)', type: 'textarea', optional: true, wide: true, placeholder: '예) 오늘 계단을 급하게 내려가다 발목을 접지름',
