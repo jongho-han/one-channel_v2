@@ -100,7 +100,7 @@ export function IssuedCertificate({ config, values, user, issueNo, documentCode,
       </div>
       <div className="navrow">
         <button className="btn lg" data-action="reset-flow">다시 발급</button>
-        <button className="btn pri lg" data-action="nav" data-page="home">완료</button>
+        <button className="btn pri lg" data-action="reset-flow">완료</button>
       </div>
     </>
   );

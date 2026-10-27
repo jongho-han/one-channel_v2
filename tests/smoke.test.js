@@ -312,6 +312,13 @@ test('T5 발급하면 입력값으로 견본 증명서를 보여준다 (CF-02)',
 
   click($('#sbody [data-action="reset-flow"]'));
   assert.ok($('#issue'));
+
+  click($('#issue'));
+  assert.equal(window.App.state.screen.flow.step, 1);
+  click([...window.document.querySelectorAll('#sbody .navrow button')].find(button => button.textContent === '완료'));
+  assert.equal(window.App.state.route.page, 'screen', '완료는 메인으로 가지 않음');
+  assert.equal(window.App.state.route.screenId, 'CF-02');
+  assert.ok($('#issue'), '완료를 누르면 발급 화면으로 돌아감');
   assert.deepEqual(errors, []);
 });
 

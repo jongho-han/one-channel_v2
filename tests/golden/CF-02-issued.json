@@ -257,8 +257,7 @@
      "tag": "button",
      "attrs": {
       "class": "btn lg pri",
-      "data-action": "nav",
-      "data-page": "home"
+      "data-action": "reset-flow"
      },
      "children": [
       "완료"

@@ -50,6 +50,7 @@ describe('IssuedCertificate', () => {
     expect(within(table).getByText('2026.09.15')).toBeTruthy();
     expect(screen.getByText(/No\. 20261002-550000 · 문서확인번호 AAAA-BBBB/)).toBeTruthy();
     expect(screen.getByRole('button', { name: '다시 발급' }).dataset.action).toBe('reset-flow');
+    expect(screen.getByRole('button', { name: '완료' }).dataset.action).toBe('reset-flow');   // 메인이 아닌 발급 화면으로
   });
 });
 
