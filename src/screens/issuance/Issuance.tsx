@@ -97,7 +97,7 @@ export function IssuedCertificate({ config, values, user, issueNo, documentCode,
         <p className="attest">위와 같이 증명합니다.</p>
         <div className="sign num">{today}<br />iM라이프생명보험주식회사<small>본 문서는 기획 검토용 견본이며 효력이 없습니다.</small></div>
       </div>
-      <div className="navrow">
+      <div className="navrow even">
         <button className="btn lg" data-action="reset-flow">추가 발급</button>
         <button className="btn pri lg" data-action="reset-flow">완료</button>
       </div>

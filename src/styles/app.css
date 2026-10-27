@@ -157,6 +157,7 @@ footer p { margin: 2px 0; }
 .navrow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .navrow .btn { flex: 1 1 auto; }
 .navrow .btn.pri { flex: 2; }
+.navrow.even .btn { flex: 1 1 0; }   /* 버튼 같은 크기 */
 .navrow.inline { position: static; margin-inline: 0; padding: 0; background: none; }
 
 /* 4-3. 칩 · 세그먼트 · 배지 · 상태 */

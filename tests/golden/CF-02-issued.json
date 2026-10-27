@@ -240,7 +240,7 @@
   {
    "tag": "div",
    "attrs": {
-    "class": "navrow"
+    "class": "even navrow"
    },
    "children": [
     {
