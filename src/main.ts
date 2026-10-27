@@ -5,7 +5,7 @@ import { mountFooter } from './components/mountFooter';
 import { mountShell } from './components/shell/mountShell';
 import { bindGlobalEvents } from './controller/events';
 import { APP } from './core/config';
-import { $ } from './core/dom';
+import { $, startAtTop } from './core/dom';
 import { storage } from './core/storage';
 import { setLargeText } from './features/largeText';
 import { registerAppIcon } from './features/shortcut';
@@ -42,6 +42,7 @@ function boot(): void {
   mountModalLayer(region('#layer'));
   bindGlobalEvents();
   render();
+  startAtTop();   // 새로고침 시 이전 스크롤 위치가 아닌 메인 맨 위
 }
 
 /* 테스트·시연용 진입점 (개발자 도구에서 App.openScreen('CT-01') 등) */
