@@ -1,5 +1,5 @@
 /* 폼 값 표시·조건부 항목·처음 그려질 때의 값 */
-import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
+import { otherInputId, type FieldSpec, type FieldValues } from '../components/form/fieldSpec';
 import { formatWon, toNumber } from '../core/format';
 import { accountOptions } from '../data/accountRepository';
 
@@ -22,6 +22,7 @@ export function displayValue(field: FieldSpec, values: FieldValues): string {
   if (field.type === 'money') return value ? formatWon(Number(value)) : '-';
   if (field.type === 'addr') return `(${values[`${field.id}_zip`]}) ${values[field.id]} ${values[`${field.id}_d`] || ''}`;
   if (Array.isArray(value)) return value.length ? value.join(', ') : '-';
+  if (field.other && value === field.other.option && values[otherInputId(field)]) return `${value}(${values[otherInputId(field)]})`;
   return String(value ?? '');
 }
 
@@ -35,7 +36,10 @@ export function renderedValues(fields: readonly FieldSpec[], values: FieldValues
     const { id } = field;
     const value = values[id] ?? field.value ?? '';
     switch (field.type) {
-      case 'radio':   result[id] = String(value || field.options?.[0] || ''); break;
+      case 'radio':
+        result[id] = String(value || field.options?.[0] || '');
+        if (field.other) result[otherInputId(field)] = String(values[otherInputId(field)] ?? '');
+        break;
       case 'select':  result[id] = firstOrPick(field.options ?? [], String(value), field.placeholder); break;
       case 'account': result[id] = firstOrPick(accountOptions(), String(value)); break;
       case 'checks':  result[id] = Array.isArray(value) ? value : []; break;

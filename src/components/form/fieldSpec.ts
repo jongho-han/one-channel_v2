@@ -18,7 +18,11 @@ export interface FieldSpec {
   quick?: readonly (number | 'max')[];   // money: 빠른 금액 버튼
   inline?: boolean;               // checks: 가로 배치
   showWhen?: { field: string; value: string };   // 다른 항목 값이 맞을 때만 보이고 검증
+  other?: { option: string; placeholder?: string };   // radio: 이 선택지 오른쪽 직접 입력칸 (고르면 입력·필수)
 }
+
+/** 라디오 직접 입력칸 id (값도 이 키로 저장) */
+export const otherInputId = (field: Pick<FieldSpec, 'id'>): string => `${field.id}Etc`;
 
 /** 입력값: 항목 id → 값 (checks·file 은 배열) */
 export type FieldValues = Record<string, string | string[] | number | undefined>;

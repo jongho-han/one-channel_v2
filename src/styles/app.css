@@ -555,6 +555,9 @@ p.err#e-form:empty { display: none; }
 .radios label { display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; font-size: 14.5px; cursor: pointer; }
 .radios input { width: 18px; height: 18px; margin: 0; accent-color: var(--brand); }
 .radios label:has(input:checked) { background: var(--brand-soft); border-color: var(--brand); font-weight: 650; }
+/* 라디오 「기타」 오른쪽 직접 입력칸 — 기타를 골라야 입력 가능 */
+.radios input.radio-other { flex: 1 1 180px; width: auto; height: auto; min-width: 0; min-height: 46px; margin: 0; }
+.radios input.radio-other:disabled { background: var(--bg); color: var(--sub); cursor: not-allowed; }
 .fld.locked .radios label { background: var(--bg); border-style: dashed; border-color: var(--line); color: var(--ink); cursor: default; font-weight: 650; }
 .lock-note { color: var(--sub); }
 

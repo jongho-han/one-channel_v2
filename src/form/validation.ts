@@ -1,5 +1,5 @@
 /* 입력 검증 규칙 */
-import type { FieldSpec, FieldValues } from '../components/form/fieldSpec';
+import { otherInputId, type FieldSpec, type FieldValues } from '../components/form/fieldSpec';
 import { NEW_ACCOUNT } from '../data/accountRepository';
 import { EMAIL_PATTERN, PHONE_PATTERN, formatWon, withObjectParticle } from '../core/format';
 
@@ -33,6 +33,9 @@ export function validateValues(fields: readonly FieldSpec[], values: FieldValues
     if (field.optional) continue;
     const message = validationMessage(field, values[field.id]);
     if (message) errors[field.id] = message;
+    else if (field.other && values[field.id] === field.other.option && !String(values[otherInputId(field)] ?? '').trim()) {
+      errors[field.id] = `${withObjectParticle(`${field.other.option} ${field.label}`)} 입력해 주세요.`;
+    }
   }
   return errors;
 }

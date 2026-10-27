@@ -814,6 +814,25 @@ const goToInput = (id, pick = () => click($('[data-action="pick"]'))) => {
   assert.equal(currentStepName(), '입력');
 };
 
+test('보험금 청구: 사고 유형 「기타」를 고르면 오른쪽에 직접 입력, 비우면 안내, 확인에 기타(입력값) (PY-01)', () => {
+  goToInput('PY-01');
+  const etc = $('#accEtc');
+  assert.equal(etc.disabled, true, '처음(질병)에는 입력 불가');
+  assert.equal($('input[name="acc"][value="기타"]').closest('label').nextElementSibling, etc, '기타 오른쪽');
+  click($('input[name="acc"][value="기타"]'));
+  assert.equal(etc.disabled, false);
+  STEP_FLOW_INPUTS['PY-01'].input();
+  checkAll('[data-agree]');
+  click($('#next'));
+  assert.equal(currentStepName(), '입력');
+  assert.equal($('#e-acc').textContent, '기타 사고 유형을 입력해 주세요.');
+  etc.value = '벌에 쏘임';
+  click($('#next'));
+  assert.equal(currentStepName(), '확인');
+  assert.match($('#sbody').textContent, /사고 유형기타\(벌에 쏘임\)/);
+  assert.deepEqual(errors, []);
+});
+
 test('보험금 청구: 계약 선택 없이 안내 → 청구 종류에 맞는 피보험자 (PY-01)', () => {
   login();
   window.App.openScreen('PY-01');

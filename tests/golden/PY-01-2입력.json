@@ -395,6 +395,22 @@
             },
             "기타"
            ]
+          },
+          {
+           "tag": "input",
+           "attrs": {
+            "aria-label": "기타 사고 유형 직접 입력",
+            "class": "inp radio-other sm",
+            "disabled": "",
+            "id": "accEtc",
+            "name": "accEtc",
+            "placeholder": "사고 유형을 입력해 주세요",
+            "type": "text"
+           },
+           "children": [],
+           "state": {
+            "value": ""
+           }
           }
          ]
         },

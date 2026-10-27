@@ -17,3 +17,7 @@ test('사고일 바로 다음에 사고장소(초진병원) 필수, 그다음 �
   expect(field('story')?.help).toMatch(/육하원칙/);
   expect(field('hosp')).toBeUndefined();   // 병원명은 사고장소(초진병원)로 대체
 });
+
+test('사고 유형 「기타」는 오른쪽에 직접 입력', () => {
+  expect(field('acc')?.other).toEqual({ option: '기타', placeholder: '사고 유형을 입력해 주세요' });
+});

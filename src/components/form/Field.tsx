@@ -1,7 +1,7 @@
 /* 입력칸 하나 (React): 레이블 · 필수 표시(별표 + 글자) · 도움말 · 오류 문구 연결 (KWCAG 25 · 26번)
    값은 비제어(default*)로 두고 form/fieldValues 의 readFieldValues 로 읽음
    (고정 규칙이 걸린 라디오만 제어 — 고정값을 화면이 바로 따라가게) */
-import { useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from 'react';
+import { Fragment, useRef, useState, type ChangeEvent, type FormEvent, type MouseEvent } from 'react';
 import { flushSync } from 'react-dom';
 import { toNumber } from '../../core/format';
 import { NEW_ACCOUNT, accountOptions } from '../../data/accountRepository';
@@ -9,7 +9,7 @@ import { openAccountRegister } from '../../features/accountRegister';
 import { openZipSearch } from '../../form/zipSearch';
 import { NOT_APPLICABLE } from '../../form/locks';
 import { Icon } from '../Icon';
-import { AUTOCOMPLETE, type FieldSpec, type FieldValues } from './fieldSpec';
+import { AUTOCOMPLETE, otherInputId, type FieldSpec, type FieldValues } from './fieldSpec';
 
 /** 고정 규칙 상태: value 가 있으면 고정 중, everLocked 이면 안내 칸 유지(숨김) */
 export interface FieldLock {
@@ -111,23 +111,32 @@ function FileControl({ field, invalid, onChange }: ControlProps) {
 }
 
 /** 라디오: 고정 규칙이 있으면 고정값만 보이고 선택 불가, 풀려 있으면 '해당없음'은 숨김 */
-function RadioControl({ field, value, lock, onChange }: ControlProps) {
+function RadioControl({ field, value, values, lock, onChange }: ControlProps) {
   const { id } = field;
   const options = field.options ?? [];
   const locked = lock?.value !== undefined;
   const checked = locked ? lock?.value : value && value !== NOT_APPLICABLE ? value : lock ? options[0] : value || options[0];
+  const [selected, setSelected] = useState(checked);
   const describedByIds = [describedBy(field), lock?.everLocked ? `lk-${id}` : ''].filter(Boolean).join(' ');
+  const pick = (option: string) => { if (field.other) flushSync(() => setSelected(option)); onChange?.(option); };
   return (
     <div className="radios" role="radiogroup" aria-labelledby={`lb-${id}`} aria-describedby={describedByIds}>
       {options.map(option => {
         const labelHidden = lock ? (locked ? option !== lock.value : option === NOT_APPLICABLE) : undefined;
         return (
-          <label key={option} hidden={labelHidden || undefined}>
-            {lock
-              ? <input type="radio" name={id} value={option} checked={checked === option} disabled={locked || undefined} onChange={() => onChange?.(option)} />
-              : <input type="radio" name={id} value={option} defaultChecked={checked === option} onChange={() => onChange?.(option)} />}
-            {option}
-          </label>
+          <Fragment key={option}>
+            <label hidden={labelHidden || undefined}>
+              {lock
+                ? <input type="radio" name={id} value={option} checked={checked === option} disabled={locked || undefined} onChange={() => onChange?.(option)} />
+                : <input type="radio" name={id} value={option} defaultChecked={checked === option} onChange={() => pick(option)} />}
+              {option}
+            </label>
+            {field.other?.option === option && (
+              /* 직접 입력: 이 선택지를 골랐을 때만 입력 가능 */
+              <input className="inp sm radio-other" id={otherInputId(field)} name={otherInputId(field)} type="text" placeholder={field.other.placeholder}
+                     aria-label={`${option} ${field.label} 직접 입력`} defaultValue={String(values[otherInputId(field)] ?? '')} disabled={selected !== option} />
+            )}
+          </Fragment>
         );
       })}
     </div>
