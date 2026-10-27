@@ -13,7 +13,9 @@ test('사고일 바로 다음에 사고장소(초진병원) 필수, 그다음 �
   expect(ids.slice(ids.indexOf('date1'), ids.indexOf('date1') + 3)).toEqual(['date1', 'place', 'story']);
   expect(field('place')).toMatchObject({ label: '사고장소(초진병원)' });
   expect(field('place')?.optional).toBeFalsy();
-  expect(field('story')).toMatchObject({ label: '사고(발생경위)', type: 'textarea', placeholder: '예) 오늘 계단을 급하게 내려가다 발목을 접지름' });
+  expect(field('date1')).toMatchObject({ label: '사고일(초진일)', type: 'date' });
+  expect(field('story')).toMatchObject({ label: '사고(발생경위/치료내용)', type: 'textarea', placeholder: '예) 오늘 계단을 급하게 내려가다 발목을 접지름' });
+  expect(field('story')?.optional).toBeFalsy();   // 필수
   expect(field('story')?.help).toMatch(/육하원칙/);
   expect(field('hosp')).toBeUndefined();   // 병원명은 사고장소(초진병원)로 대체
 });

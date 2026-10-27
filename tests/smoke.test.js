@@ -859,8 +859,10 @@ test('보험금 청구: 계약 선택 없이 안내 → 청구 종류에 맞는 
   attachFiles($('#docs'), ['death.pdf']);
   click($('#next'));
   assert.equal($('#e-place').textContent, '사고장소(초진병원)을(를) 입력해 주세요.', '사고장소는 필수');
+  assert.equal($('#e-story').textContent, '사고(발생경위/치료내용)을(를) 입력해 주세요.', '발생경위/치료내용도 필수');
   assert.equal(window.document.activeElement, $('#place'));
   $('#place').value = '서울 중구 하나내과의원';
+  $('#story').value = '계단에서 넘어져 손목 골절, 깁스 치료';
   checkAll('[data-agree]');
   click($('#next'));
   assert.equal(currentStepName(), '확인');

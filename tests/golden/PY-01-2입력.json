@@ -696,7 +696,7 @@
           "for": "date1"
          },
          "children": [
-          "사고일(발병일)",
+          "사고일(초진일)",
           {
            "tag": "span",
            "attrs": {
@@ -820,13 +820,33 @@
           "for": "story"
          },
          "children": [
-          "사고(발생경위)"
+          "사고(발생경위/치료내용)",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
          ]
         },
         {
          "tag": "textarea",
          "attrs": {
           "aria-describedby": "h-story e-story",
+          "aria-required": "true",
           "class": "area inp",
           "id": "story",
           "name": "story",
