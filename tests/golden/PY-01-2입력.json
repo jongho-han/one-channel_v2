@@ -882,68 +882,6 @@
        "tag": "div",
        "attrs": {
         "class": "fld",
-        "data-f": "date2"
-       },
-       "children": [
-        {
-         "tag": "label",
-         "attrs": {
-          "for": "date2"
-         },
-         "children": [
-          "초진일",
-          {
-           "tag": "span",
-           "attrs": {
-            "aria-hidden": "true",
-            "class": "req"
-           },
-           "children": [
-            "*"
-           ]
-          },
-          {
-           "tag": "span",
-           "attrs": {
-            "class": "sr-only"
-           },
-           "children": [
-            "(필수)"
-           ]
-          }
-         ]
-        },
-        {
-         "tag": "input",
-         "attrs": {
-          "aria-describedby": "e-date2",
-          "aria-required": "true",
-          "class": "inp",
-          "id": "date2",
-          "name": "date2",
-          "placeholder": "",
-          "type": "date"
-         },
-         "children": [],
-         "state": {
-          "value": "2026-09-20"
-         }
-        },
-        {
-         "tag": "span",
-         "attrs": {
-          "class": "err",
-          "id": "e-date2",
-          "role": "alert"
-         },
-         "children": []
-        }
-       ]
-      },
-      {
-       "tag": "div",
-       "attrs": {
-        "class": "fld",
         "data-f": "acct"
        },
        "children": [

@@ -301,22 +301,6 @@
        "tag": "dt",
        "attrs": {},
        "children": [
-        "초진일"
-       ]
-      },
-      {
-       "tag": "dd",
-       "attrs": {
-        "class": "num"
-       },
-       "children": [
-        "2026-09-20"
-       ]
-      },
-      {
-       "tag": "dt",
-       "attrs": {},
-       "children": [
         "보험금 받을 계좌"
        ]
       },

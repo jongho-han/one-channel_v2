@@ -27,3 +27,8 @@ test('사고 유형 「기타」는 오른쪽에 직접 입력', () => {
 test('청구 내용: 사망 · 장해 · 진단 · 입원 · 수술 · 통원 · 치아 · 실손의료비', () => {
   expect(field('kind')?.options).toEqual(['사망', '장해', '진단', '입원', '수술', '통원', '치아', '실손의료비']);
 });
+
+test('초진일 항목 없음 (사고일(초진일)로 통합)', () => {
+  expect(field('date2')).toBeUndefined();
+  expect(fields.filter(item => item.label.includes('초진일')).map(item => item.id)).toEqual(['date1']);
+});

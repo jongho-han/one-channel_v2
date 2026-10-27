@@ -92,7 +92,6 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
       { id: 'place', label: '사고장소(초진병원)', placeholder: '예: 서울 중구 ○○내과의원' },
       { id: 'story', label: '사고(발생경위/치료내용)', type: 'textarea', wide: true, placeholder: '예) 오늘 계단을 급하게 내려가다 발목을 접지름',
         help: '누가·언제·어디서·무엇을·어떻게·왜(육하원칙)에 맞춰 작성해 주세요.' },
-      { id: 'date2', label: '초진일', type: 'date', value: '2026-09-20' },
       { id: 'acct', label: '보험금 받을 계좌', type: 'account' },
       { id: 'docs', label: '증빙서류', type: 'file', placeholder: '영수증·세부내역서 등을 촬영해 올려 주세요' }],
     agree: ['[필수] 개인(신용)정보 수집·이용·제공 동의', '[필수] 민감정보(질병·상해 정보) 처리 동의', '[필수] 고유식별정보 처리 동의'],
