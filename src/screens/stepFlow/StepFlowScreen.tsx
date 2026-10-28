@@ -69,7 +69,7 @@ function changeClaimType(key: string) {
 }
 
 function Stage({ screen, config: baseConfig, flow, step }: { screen: Screen; config: StepFlowConfig; flow: StepFlowState; step: string }): ReactNode {
-  const config = baseConfig.fieldsFor ? { ...baseConfig, fields: baseConfig.fieldsFor(flow.values) } : baseConfig;
+  const config = baseConfig.fieldsFor ? { ...baseConfig, fields: baseConfig.fieldsFor(flow.values, flow.pick) } : baseConfig;
   switch (step) {
     case '안내':
       return <ClaimGuide claimType={String(flow.values.claimType ?? '')} onChange={changeClaimType} onNext={next} />;

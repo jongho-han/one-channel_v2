@@ -158,10 +158,27 @@
          },
          "children": [
           {
-           "tag": "b",
-           "attrs": {},
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
            "children": [
-            "보험계약대출 · (무)iM 든든한 종신보험"
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "보험계약대출 · (무)iM 든든한 종신보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "g st"
+             },
+             "children": [
+              "정상"
+             ]
+            }
            ]
           },
           {
@@ -182,6 +199,84 @@
          },
          "children": [
           "잔액 3,000,000원"
+         ]
+        }
+       ]
+      },
+      {
+       "tag": "button",
+       "attrs": {
+        "aria-pressed": "false",
+        "class": "pick",
+        "data-action": "pick",
+        "data-key": "l2"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "rd"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "pm"
+         },
+         "children": [
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "pm-t"
+           },
+           "children": [
+            {
+             "tag": "b",
+             "attrs": {},
+             "children": [
+              "보험계약대출 · (무)iM 튼튼 어린이보험"
+             ]
+            },
+            {
+             "tag": "span",
+             "attrs": {
+              "class": "r st"
+             },
+             "children": [
+              "연체"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num"
+           },
+           "children": [
+            "대출일 2025.06.10 · 연 4.10%"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {
+            "class": "num pm-d"
+           },
+           "children": [
+            "이자 2개월 미납(2026.08.10부터) · 연체 이자 18,450원"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "num pv"
+         },
+         "children": [
+          "잔액 1,500,000원"
          ]
         }
        ]

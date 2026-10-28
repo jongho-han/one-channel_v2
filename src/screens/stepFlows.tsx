@@ -4,6 +4,7 @@ import { APP } from '../core/config';
 import { formatWon } from '../core/format';
 import { claimTypeOf, withClaimType } from '../data/claimGuide';
 import { CONTRACTS, contractByNo, insuredLabel, type InsuranceContract } from '../data/customerRepository';
+import { REPAY_LOANS, repayLoanByKey, repayLoanStatus } from '../data/loanRepository';
 import { ANNUITY_AGE_RANGE, ANNUITY_OPTION_FIELDS, annuityAgeOptions, annuityLockRules, annuityOptionCalc, pickedAnnuityContract } from '../features/annuity';
 import { ANNUITY_CONVERSION_FIELDS, annuityConversionCalc, isConvertible } from '../features/annuityConversion';
 import { loanCalcRows } from '../features/loanRules';
@@ -40,7 +41,7 @@ export interface StepFlowConfig extends InputStepConfig {
     summary?: (flow: StepFlowState, step: 'confirm' | 'done') => ReactNode;
   };
   guide?: 'claim';                                          // 첫 단계 '안내' (보험금 청구)
-  fieldsFor?: (values: FieldValues) => FieldSpec[];         // 진행 값에 맞춘 입력 항목 (청구 종류별 피보험자)
+  fieldsFor?: (values: FieldValues, pick?: string | null) => FieldSpec[];   // 진행 값·고른 항목에 맞춘 입력 항목 (청구 종류별 피보험자, 대출별 잔액)
   guideRow?: (values: FieldValues) => [string, string];     // 확인 단계 첫 행 (안내 단계에서 고른 것)
   retain?: boolean;                                         // 해지 전 대안 안내
   skipConfirm?: boolean;
@@ -64,6 +65,13 @@ const premiumChoices = (): PickItem[] =>
     const { lastPaid } = contractByNo(item.key);
     return lastPaid ? { ...item, status: payStatus(lastPaid, APP.today), detail: payStatusNote(lastPaid) } : item;
   });
+
+/** 대출 상환 입력 항목: 상환 금액 최대·전액 상환 자동 금액 = 고른 대출 잔액 */
+const repayFields = (balance: number): FieldSpec[] => [
+  { id: 'kind', label: '상환 구분', type: 'radio', options: ['일부 상환', '전액 상환', '이자만 납입'] },
+  { id: 'amt', label: '상환 금액', type: 'money', max: balance, quick: [100000, 500000, 1000000, 'max'], optional: true, help: '전액 상환·이자만 납입은 금액이 자동 계산됩니다.',
+    fillWhen: { field: 'kind', amounts: { '전액 상환': balance, '이자만 납입': 0 } } },
+  { id: 'acct', label: '출금 계좌', type: 'account' }];
 
 const loanAmountOf = (flow: StepFlowState) => Number(flow.values.loanAmount) || 0;
 
@@ -295,19 +303,17 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     done: '대출이 실행되었습니다. 신청 금액이 바로 입금됩니다.', receiptPrefix: 'L2610' },
 
   'LN-04': {
-    pick: { label: '상환할 대출을 선택하세요', items: () => [{ key: 'l1', title: '보험계약대출 · (무)iM 든든한 종신보험', sub: '대출일 2025.11.20 · 연 4.30%', value: '잔액 3,000,000원' }] },
-    fields: [
-      { id: 'kind', label: '상환 구분', type: 'radio', options: ['일부 상환', '전액 상환', '이자만 납입'] },
-      { id: 'amt', label: '상환 금액', type: 'money', max: 3000000, quick: [100000, 500000, 1000000, 'max'], optional: true, help: '전액 상환·이자만 납입은 금액이 자동 계산됩니다.',
-        fillWhen: { field: 'kind', amounts: { '전액 상환': 3000000, '이자만 납입': 0 } } },
-      { id: 'acct', label: '출금 계좌', type: 'account' }],
-    calc: values => {
+    pick: { label: '상환할 대출을 선택하세요', items: () => REPAY_LOANS.map(loan => ({
+      key: loan.key, title: `보험계약대출 · ${loan.contract}`, sub: `대출일 ${loan.loanDate} · ${loan.rate}`, value: `잔액 ${formatWon(loan.balance)}`,
+      status: repayLoanStatus(loan), detail: loan.overdueNote && `${loan.overdueNote} · 연체 이자 ${formatWon(loan.overdueInterest)}` })) },
+    fieldsFor: (_values, pick) => repayFields(repayLoanByKey(pick).balance),
+    fields: repayFields(repayLoanByKey(null).balance),
+    calc: (values, pick) => {   // 고른 대출의 잔액·경과 이자·연체 이자 기준, 연체 이자는 출금 금액에 더해짐
+      const loan = repayLoanByKey(pick);
       const kind = values.kind || '일부 상환';
-      const interest = 10750;
-      const overdueInterest = 0;   // 샘플: 이자 미납 없음(정상) — 미납이 있으면 연체 이자가 출금 금액에 더해짐
-      const principal = kind === '전액 상환' ? 3000000 : kind === '이자만 납입' ? 0 : (Number(values.amt) || 0);
-      return [['대출 잔액', '3,000,000원'], ['경과 이자', formatWon(interest)], ['연체 이자', formatWon(overdueInterest)], ['상환 원금', formatWon(principal)],
-        ['출금 금액', formatWon(principal + interest + overdueInterest), true], ['상환 후 잔액', formatWon(3000000 - principal)]];
+      const principal = kind === '전액 상환' ? loan.balance : kind === '이자만 납입' ? 0 : (Number(values.amt) || 0);
+      return [['대출 잔액', formatWon(loan.balance)], ['경과 이자', formatWon(loan.interest)], ['연체 이자', formatWon(loan.overdueInterest)], ['상환 원금', formatWon(principal)],
+        ['출금 금액', formatWon(principal + loan.interest + loan.overdueInterest), true], ['상환 후 잔액', formatWon(loan.balance - principal)]];
     },
     done: '상환이 완료되었습니다.', receiptPrefix: 'L2610' },
 };

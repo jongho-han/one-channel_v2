@@ -30,6 +30,6 @@ test('applyFills: 정한 값이면 그 금액, 정한 값에서 벗어나면 0 (
 });
 
 test('보험계약대출 상환(LN-04): 전액 상환은 현재 잔액, 이자만 납입은 0원', () => {
-  const amt = STEP_FLOWS['LN-04'].fields.find(field => field.id === 'amt');
+  const amt = STEP_FLOWS['LN-04'].fieldsFor?.({}, 'l1').find(field => field.id === 'amt');
   expect(amt?.fillWhen).toEqual({ field: 'kind', amounts: { '전액 상환': 3000000, '이자만 납입': 0 } });
 });

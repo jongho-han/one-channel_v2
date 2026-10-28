@@ -838,6 +838,22 @@ test('보험계약대출 상환: 전액 상환을 고르면 상환 금액에 현
   assert.deepEqual(errors, []);
 });
 
+test('보험계약대출 상환: 시연용 연체 대출을 고르면 연체 표시·연체 이자가 출금 금액에 더해지고, 전액 상환은 그 대출 잔액 (LN-04)', () => {
+  login();
+  window.App.openScreen('LN-04');
+  const cards = [...window.document.querySelectorAll('[data-action="pick"]')];
+  assert.deepEqual(cards.map(card => card.querySelector('.st')?.textContent), ['정상', '연체']);
+  click(cards[1]);
+  click($('#next'));
+  assert.equal(currentStepName(), '입력');
+  assert.match($('#calc').textContent, /대출 잔액1,500,000원/);
+  assert.doesNotMatch($('#calc').textContent, /연체 이자0원/);
+  click($('input[name="kind"][value="전액 상환"]'));
+  assert.equal($('#amt').value, '1,500,000', '전액 상환은 고른 대출 잔액');
+  assert.match($('#calc').textContent, /상환 후 잔액0원/);
+  assert.deepEqual(errors, []);
+});
+
 test('보험금 청구: 사고 유형 「기타」를 고르면 오른쪽에 직접 입력, 비우면 안내, 확인에 기타(입력값) (PY-01)', () => {
   goToInput('PY-01');
   const etc = $('#accEtc');
