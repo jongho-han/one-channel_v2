@@ -60,7 +60,7 @@ export function LoanPick({ contracts, amount: initialAmount, announce, onNext }:
     const next = toNumber(value);
     flushSync(() => { setAmount(next); setError(''); });   // 금액을 고치면 이전 오류 문구는 지움
     const totals = loanTotals(contracts, next);
-    announce(totals.amount ? `${totals.loans.length}개 계약에 배정, 배정 합계 ${formatWon(totals.amount)}` : '');
+    announce(totals.amount ? `${totals.loans.length}개 계약에 배정, 대출금 합계 ${formatWon(totals.amount)}` : '');
   };
 
   const next = () => {
@@ -81,7 +81,7 @@ export function LoanPick({ contracts, amount: initialAmount, announce, onNext }:
         <h2 className="split center">대출 가능 계약<small className="h-note">이율 낮은 순</small></h2>
         <div id="loanPlan">
           <div className="loan-list">{plan.map((loan, index) => <LoanCard key={loan.contract.no} loan={loan} card={{ mode: 'plan', rank: index + 1, hasRequest: amount > 0 }} />)}</div>
-          <div className="sumline">배정 합계 <span className="num">{formatWon(assigned)}</span></div>
+          <div className="sumline">대출금 합계 <span className="num">{formatWon(assigned)}</span></div>
         </div>
       </div>
       <div className="navrow">

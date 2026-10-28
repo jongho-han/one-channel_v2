@@ -19,8 +19,8 @@ test('LoanPick: 금액을 넣으면 배정·합계·안내, 없으면 오류', (
   fireEvent.input(screen.getByLabelText(/대출 신청금액/), { target: { value: '4000000' } });
   expect(document.getElementById('e-loanAmount')?.textContent).toBe('');
   expect(document.querySelectorAll('.loan-card.on')).toHaveLength(2);
-  expect(document.querySelector('#loanPlan .sumline')?.textContent).toBe('배정 합계 4,000,000원');
-  expect(announce).toHaveBeenLastCalledWith('2개 계약에 배정, 배정 합계 4,000,000원');
+  expect(document.querySelector('#loanPlan .sumline')?.textContent).toBe('대출금 합계 4,000,000원');
+  expect(announce).toHaveBeenLastCalledWith('2개 계약에 배정, 대출금 합계 4,000,000원');
   fireEvent.click(screen.getByRole('button', { name: '다음' }));
   expect(onNext).toHaveBeenCalledWith(4000000);
 });

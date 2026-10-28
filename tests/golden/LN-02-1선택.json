@@ -899,7 +899,7 @@
         "class": "sumline"
        },
        "children": [
-        "배정 합계",
+        "대출금 합계",
         {
          "tag": "span",
          "attrs": {

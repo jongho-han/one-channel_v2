@@ -1038,7 +1038,7 @@ test('T3 대출 신청금액에 맞춰 이율 낮은 계약부터 배정 (LN-02)
   assert.equal(window.document.querySelectorAll('.loan-card.on').length, 2);
   assert.match($('#loanPlan .sumline').textContent, /15,000,000원/);
   await wait(60);
-  assert.match($('#liveRegion').textContent, /2개 계약에 배정, 배정 합계 15,000,000원/);
+  assert.match($('#liveRegion').textContent, /2개 계약에 배정, 대출금 합계 15,000,000원/);
   click($('[data-add="max"]'));
   assert.match($('#loanPlan .sumline').textContent, /29,140,000원/);
   assert.deepEqual(errors, []);

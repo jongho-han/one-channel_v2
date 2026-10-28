@@ -13,7 +13,7 @@ export function toast(message: string): void {
   setTimeout(() => element.remove(), 4000);
 }
 
-/** 화면낭독기에만 들리는 안내 (검색 결과 수 · 배정 합계 등) */
+/** 화면낭독기에만 들리는 안내 (검색 결과 수 · 대출금 합계 등) */
 export function announce(message: string): void {
   const region = $('#liveRegion');
   if (!region) return;
