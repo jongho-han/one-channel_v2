@@ -304,8 +304,10 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     calc: values => {
       const kind = values.kind || '일부 상환';
       const interest = 10750;
+      const overdueInterest = 0;   // 샘플: 이자 미납 없음(정상) — 미납이 있으면 연체 이자가 출금 금액에 더해짐
       const principal = kind === '전액 상환' ? 3000000 : kind === '이자만 납입' ? 0 : (Number(values.amt) || 0);
-      return [['대출 잔액', '3,000,000원'], ['경과 이자', formatWon(interest)], ['상환 원금', formatWon(principal)], ['출금 금액', formatWon(principal + interest), true], ['상환 후 잔액', formatWon(3000000 - principal)]];
+      return [['대출 잔액', '3,000,000원'], ['경과 이자', formatWon(interest)], ['연체 이자', formatWon(overdueInterest)], ['상환 원금', formatWon(principal)],
+        ['출금 금액', formatWon(principal + interest + overdueInterest), true], ['상환 후 잔액', formatWon(3000000 - principal)]];
     },
     done: '상환이 완료되었습니다.', receiptPrefix: 'L2610' },
 };
