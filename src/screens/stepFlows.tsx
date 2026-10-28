@@ -299,7 +299,7 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     fields: [
       { id: 'kind', label: '상환 구분', type: 'radio', options: ['일부 상환', '전액 상환', '이자만 납입'] },
       { id: 'amt', label: '상환 금액', type: 'money', max: 3000000, quick: [100000, 500000, 1000000, 'max'], optional: true, help: '전액 상환·이자만 납입은 금액이 자동 계산됩니다.',
-        fillWhen: { field: 'kind', value: '전액 상환', amount: 3000000 } },
+        fillWhen: { field: 'kind', amounts: { '전액 상환': 3000000, '이자만 납입': 0 } } },
       { id: 'acct', label: '출금 계좌', type: 'account' }],
     calc: values => {
       const kind = values.kind || '일부 상환';

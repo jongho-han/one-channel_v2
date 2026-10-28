@@ -9,7 +9,7 @@ import { openAccountRegister } from '../../features/accountRegister';
 import { openZipSearch } from '../../form/zipSearch';
 import { NOT_APPLICABLE } from '../../form/locks';
 import { Icon } from '../Icon';
-import { AUTOCOMPLETE, isFilled, otherInputId, type FieldSpec, type FieldValues } from './fieldSpec';
+import { AUTOCOMPLETE, filledAmount, otherInputId, type FieldSpec, type FieldValues } from './fieldSpec';
 
 /** 고정 규칙 상태: value 가 있으면 고정 중, everLocked 이면 안내 칸 유지(숨김) */
 export interface FieldLock {
@@ -61,12 +61,13 @@ const formatAmount = (digits: string) => (digits ? Number(digits).toLocaleString
 /** 금액: 숫자만 받아 천 단위로 표시, 빠른 금액 버튼 (최대 금액까지) */
 function MoneyControl({ field, value, values, invalid, onChange }: ControlProps) {
   const { id } = field;
-  /* 자동 채움(fillWhen): 조건이 맞으면 정해진 금액으로 고정, 풀리면 빈칸에서 다시 입력 */
-  const filled = isFilled(field, values);
+  /* 자동 채움(fillWhen): 정한 금액으로 고정(0원도 표시), 풀리면 빈칸에서 다시 입력 */
+  const fill = filledAmount(field, values);
+  const filled = fill !== undefined;
   const [wasFilled, setWasFilled] = useState(filled);
   const [cleared, setCleared] = useState(false);
   if (wasFilled !== filled) { setWasFilled(filled); setCleared(!filled); }
-  const shown = filled ? field.fillWhen?.amount : cleared ? 0 : Number(value);
+  const shown = filled ? fill.toLocaleString() : !cleared && Number(value) ? Number(value).toLocaleString() : '';
   const typed = (event: FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget;
     input.value = formatAmount(input.value.replace(/[^\d]/g, ''));
@@ -83,7 +84,7 @@ function MoneyControl({ field, value, values, invalid, onChange }: ControlProps)
   return (
     <>
       <div className="money">
-        <input key={filled ? 'filled' : 'free'} className={inputClass('inp num', invalid)} id={id} name={id} inputMode="numeric" defaultValue={shown ? shown.toLocaleString() : ''} placeholder="0"
+        <input key={filled ? `fill-${fill}` : 'free'} className={inputClass('inp num', invalid)} id={id} name={id} inputMode="numeric" defaultValue={shown} placeholder="0"
                data-money="" data-max={field.max ?? ''} readOnly={filled || undefined} onInput={typed} {...inputAttributes(field, invalid)} />
         <span className="u" aria-hidden="true">원</span>
       </div>

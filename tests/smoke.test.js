@@ -827,6 +827,11 @@ test('보험계약대출 상환: 전액 상환을 고르면 상환 금액에 현
   assert.equal(amount().readOnly, false);
   assert.match($('#calc').textContent, /상환 원금0원/, '자동 금액이 계산에 남지 않음');
   click($('input[name="kind"][value="전액 상환"]'));
+  click($('input[name="kind"][value="이자만 납입"]'));
+  assert.equal(amount().value, '0', '이자만 납입은 0원');
+  assert.equal(amount().readOnly, true);
+  assert.match($('#calc').textContent, /상환 원금0원/);
+  click($('input[name="kind"][value="전액 상환"]'));
   click($('#next'));
   assert.equal(currentStepName(), '확인');
   assert.match($('#sbody').textContent, /상환 금액3,000,000원/);
