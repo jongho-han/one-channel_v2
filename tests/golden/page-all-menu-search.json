@@ -2562,39 +2562,6 @@
               {
                "tag": "li",
                "attrs": {
-                "data-n": "보험계약대출 상환/이자납입 보험계약대출 대출상환 이자납입 갚기"
-               },
-               "children": [
-                {
-                 "tag": "button",
-                 "attrs": {
-                  "data-action": "open",
-                  "data-id": "LN-04"
-                 },
-                 "children": [
-                  {
-                   "tag": "span",
-                   "attrs": {
-                    "class": "nm"
-                   },
-                   "children": [
-                    "보험계약대출 상환/이자납입"
-                   ]
-                  },
-                  {
-                   "tag": "span",
-                   "attrs": {
-                    "class": "mt"
-                   },
-                   "children": []
-                  }
-                 ]
-                }
-               ]
-              },
-              {
-               "tag": "li",
-               "attrs": {
                 "data-n": "보험계약대출 정액분할상환 보험계약대출 "
                },
                "children": [
@@ -2678,6 +2645,39 @@
               "id": "amp-대출2"
              },
              "children": [
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약대출 상환/이자납입 보험계약대출 관리 대출상환 이자납입 갚기"
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-04"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약대출 상환/이자납입"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
               {
                "tag": "li",
                "attrs": {
