@@ -2,7 +2,7 @@
 import { expect, test } from 'vitest';
 import { MENU_TREE } from '../../src/data/menu';
 
-test('보험계약대출 관리 첫 메뉴는 보험계약대출 상환/이자납입(LN-04)', () => {
-  expect(MENU_TREE['대출']['보험계약대출 관리'].map(screen => screen.id)).toEqual(['LN-04', 'LN-06']);
-  expect(MENU_TREE['대출']['보험계약대출'].map(screen => screen.id)).not.toContain('LN-04');
+test('보험계약대출 관리 순서: 상환/이자납입(LN-04) → 정액분할상환(LN-05) → 원리금 자동이체(LN-06)', () => {
+  expect(MENU_TREE['대출']['보험계약대출 관리'].map(screen => screen.id)).toEqual(['LN-04', 'LN-05', 'LN-06']);
+  expect(MENU_TREE['대출']['보험계약대출'].map(screen => screen.id)).toEqual(['LN-02', 'LN-03']);
 });

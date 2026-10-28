@@ -2515,39 +2515,6 @@
                  ]
                 }
                ]
-              },
-              {
-               "tag": "li",
-               "attrs": {
-                "data-n": "보험계약대출 정액분할상환 보험계약대출 "
-               },
-               "children": [
-                {
-                 "tag": "button",
-                 "attrs": {
-                  "data-action": "open",
-                  "data-id": "LN-05"
-                 },
-                 "children": [
-                  {
-                   "tag": "span",
-                   "attrs": {
-                    "class": "nm"
-                   },
-                   "children": [
-                    "보험계약대출 정액분할상환"
-                   ]
-                  },
-                  {
-                   "tag": "span",
-                   "attrs": {
-                    "class": "mt"
-                   },
-                   "children": []
-                  }
-                 ]
-                }
-               ]
               }
              ]
             }
@@ -2623,6 +2590,39 @@
                    },
                    "children": [
                     "보험계약대출 상환/이자납입"
+                   ]
+                  },
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "mt"
+                   },
+                   "children": []
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "tag": "li",
+               "attrs": {
+                "data-n": "보험계약대출 정액분할상환 보험계약대출 관리 "
+               },
+               "children": [
+                {
+                 "tag": "button",
+                 "attrs": {
+                  "data-action": "open",
+                  "data-id": "LN-05"
+                 },
+                 "children": [
+                  {
+                   "tag": "span",
+                   "attrs": {
+                    "class": "nm"
+                   },
+                   "children": [
+                    "보험계약대출 정액분할상환"
                    ]
                   },
                   {
