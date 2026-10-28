@@ -25,6 +25,17 @@ test('LoanPick: 금액을 넣으면 배정·합계·안내, 없으면 오류', (
   expect(onNext).toHaveBeenCalledWith(4000000);
 });
 
+test('LoanPick: 대출 가능금액 합계를 넘는 금액은 입력되지 않고 합계로 맞춰짐', () => {
+  const onNext = vi.fn();
+  render(<LoanPick contracts={LOANS} amount={0} announce={vi.fn()} onNext={onNext} />);
+  const input = screen.getByLabelText(/대출 신청금액/) as HTMLInputElement;
+  fireEvent.input(input, { target: { value: '99999999' } });
+  expect(input.value).toBe('7,000,000');   // 가능금액 4,000,000 + 3,000,000
+  expect(document.querySelector('#loanPlan .sumline')?.textContent).toBe('대출금 합계 7,000,000원');
+  fireEvent.click(screen.getByRole('button', { name: '다음' }));
+  expect(onNext).toHaveBeenCalledWith(7000000);
+});
+
 test('LoanResult: 실행 계약 카드', () => {
   render(<LoanResult contracts={LOANS} amount={4000000} step="done" />);
   expect(screen.getByRole('heading', { name: /대출 실행 계약/ }).textContent).toContain('2건 · 합계 4,000,000원');

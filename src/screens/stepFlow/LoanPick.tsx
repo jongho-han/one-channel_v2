@@ -12,7 +12,7 @@ import {
 } from '../../features/loanRules';
 
 export const loanAmountField = (contracts: readonly LoanContract[]): FieldSpec => ({
-  id: 'loanAmount', label: '대출 신청금액', type: 'money', min: LOAN_MIN_AMOUNT, max: totalLoanAvailable(contracts),
+  id: 'loanAmount', label: '대출 신청금액', type: 'money', min: LOAN_MIN_AMOUNT, max: totalLoanAvailable(contracts), capAtMax: true,   // 대출 가능금액 합계를 넘어 입력 불가
   quick: [1000000, 5000000, 10000000, 'max'],
   help: '대출 가능금액보다 적게 신청하면 이율이 낮은 계약부터 먼저 대출됩니다.',
 });

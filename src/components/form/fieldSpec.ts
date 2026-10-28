@@ -14,6 +14,7 @@ export interface FieldSpec {
   wide?: boolean;
   zip?: string;                   // addr: 우편번호 기본값
   max?: number;                   // money: 최대 금액
+  capAtMax?: boolean;             // money: 최대 금액을 넘게 입력하면 최대 금액으로 맞춤 (넘어서 입력 불가)
   min?: number;                   // money: 최소 금액
   quick?: readonly (number | 'max')[];   // money: 빠른 금액 버튼
   inline?: boolean;               // checks: 가로 배치

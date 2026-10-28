@@ -70,7 +70,8 @@ function MoneyControl({ field, value, values, invalid, onChange }: ControlProps)
   const shown = filled ? fill.toLocaleString() : !cleared && Number(value) ? Number(value).toLocaleString() : '';
   const typed = (event: FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget;
-    input.value = formatAmount(input.value.replace(/[^\d]/g, ''));
+    const digits = input.value.replace(/[^\d]/g, '');
+    input.value = formatAmount(field.capAtMax && field.max && Number(digits) > field.max ? String(field.max) : digits);
     onChange?.(input.value);
   };
   const add = (_event: MouseEvent<HTMLButtonElement>, amount: number | 'max') => {
