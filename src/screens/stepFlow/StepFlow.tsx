@@ -9,6 +9,7 @@ import { focusElement } from '../../core/dom';
 import { RETENTION_OPTIONS } from '../../data/homeContent';
 import type { AuthLevel } from '../../data/menu';
 import { isFieldVisible, renderedValues } from '../../form/display';
+import { applyFills } from '../../form/fills';
 import { focusFirstError } from '../../form/focus';
 import { readFieldValues } from '../../form/fieldValues';
 import { applyLocks, lockChanges, type LockRules, type Locks } from '../../form/locks';
@@ -106,7 +107,7 @@ const lockedIds = (locks: Locks) => Object.keys(locks);
 
 export function InputStep({ config, values: initialValues, agreed: initialAgreed, pick, picked, describe, announce, onValuesChange, onAgreedChange, onSubmit }: InputStepProps) {
   const formRef = useRef<HTMLDivElement>(null);
-  const [initial] = useState(() => applyLocks(config.fields, { ...renderedValues(config.fields, initialValues), ...pickNonField(initialValues, config.fields) }, config.lockRules));
+  const [initial] = useState(() => applyLocks(config.fields, applyFills(config.fields, { ...renderedValues(config.fields, initialValues), ...pickNonField(initialValues, config.fields) }, {}), config.lockRules));
   const [values, setValues] = useState<FieldValues>(initial.values);
   const [locks, setLocks] = useState<Locks>(initial.locks);
   const [everLocked, setEverLocked] = useState<readonly string[]>(lockedIds(initial.locks));
@@ -116,7 +117,7 @@ export function InputStep({ config, values: initialValues, agreed: initialAgreed
   /** 화면의 입력값을 읽고 고정 규칙 적용 → 계산·조건부 항목·고정 표시 갱신 */
   const sync = (): FieldValues => {
     const read = formRef.current ? readFieldValues(formRef.current, config.fields) as FieldValues : {};
-    const next = applyLocks(config.fields, { ...values, ...read }, config.lockRules);
+    const next = applyLocks(config.fields, applyFills(config.fields, { ...values, ...read }, values), config.lockRules);
     const changes = lockChanges(config.fields, locks, next.locks);
     flushSync(() => {
       setValues(next.values);

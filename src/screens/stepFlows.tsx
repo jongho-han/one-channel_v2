@@ -298,7 +298,8 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     pick: { label: '상환할 대출을 선택하세요', items: () => [{ key: 'l1', title: '보험계약대출 · (무)iM 든든한 종신보험', sub: '대출일 2025.11.20 · 연 4.30%', value: '잔액 3,000,000원' }] },
     fields: [
       { id: 'kind', label: '상환 구분', type: 'radio', options: ['일부 상환', '전액 상환', '이자만 납입'] },
-      { id: 'amt', label: '상환 금액', type: 'money', max: 3000000, quick: [100000, 500000, 1000000, 'max'], optional: true, help: '전액 상환·이자만 납입은 금액이 자동 계산됩니다.' },
+      { id: 'amt', label: '상환 금액', type: 'money', max: 3000000, quick: [100000, 500000, 1000000, 'max'], optional: true, help: '전액 상환·이자만 납입은 금액이 자동 계산됩니다.',
+        fillWhen: { field: 'kind', value: '전액 상환', amount: 3000000 } },
       { id: 'acct', label: '출금 계좌', type: 'account' }],
     calc: values => {
       const kind = values.kind || '일부 상환';

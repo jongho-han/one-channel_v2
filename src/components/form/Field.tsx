@@ -9,7 +9,7 @@ import { openAccountRegister } from '../../features/accountRegister';
 import { openZipSearch } from '../../form/zipSearch';
 import { NOT_APPLICABLE } from '../../form/locks';
 import { Icon } from '../Icon';
-import { AUTOCOMPLETE, otherInputId, type FieldSpec, type FieldValues } from './fieldSpec';
+import { AUTOCOMPLETE, isFilled, otherInputId, type FieldSpec, type FieldValues } from './fieldSpec';
 
 /** 고정 규칙 상태: value 가 있으면 고정 중, everLocked 이면 안내 칸 유지(숨김) */
 export interface FieldLock {
@@ -59,8 +59,14 @@ const inputClass = (base: string, invalid: boolean) => (invalid ? `${base} bad` 
 const formatAmount = (digits: string) => (digits ? Number(digits).toLocaleString() : '');
 
 /** 금액: 숫자만 받아 천 단위로 표시, 빠른 금액 버튼 (최대 금액까지) */
-function MoneyControl({ field, value, invalid, onChange }: ControlProps) {
+function MoneyControl({ field, value, values, invalid, onChange }: ControlProps) {
   const { id } = field;
+  /* 자동 채움(fillWhen): 조건이 맞으면 정해진 금액으로 고정, 풀리면 빈칸에서 다시 입력 */
+  const filled = isFilled(field, values);
+  const [wasFilled, setWasFilled] = useState(filled);
+  const [cleared, setCleared] = useState(false);
+  if (wasFilled !== filled) { setWasFilled(filled); setCleared(!filled); }
+  const shown = filled ? field.fillWhen?.amount : cleared ? 0 : Number(value);
   const typed = (event: FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget;
     input.value = formatAmount(input.value.replace(/[^\d]/g, ''));
@@ -77,14 +83,14 @@ function MoneyControl({ field, value, invalid, onChange }: ControlProps) {
   return (
     <>
       <div className="money">
-        <input className={inputClass('inp num', invalid)} id={id} name={id} inputMode="numeric" defaultValue={Number(value) ? Number(value).toLocaleString() : ''} placeholder="0"
-               data-money="" data-max={field.max ?? ''} onInput={typed} {...inputAttributes(field, invalid)} />
+        <input key={filled ? 'filled' : 'free'} className={inputClass('inp num', invalid)} id={id} name={id} inputMode="numeric" defaultValue={shown ? shown.toLocaleString() : ''} placeholder="0"
+               data-money="" data-max={field.max ?? ''} readOnly={filled || undefined} onInput={typed} {...inputAttributes(field, invalid)} />
         <span className="u" aria-hidden="true">원</span>
       </div>
       {field.quick && (
         <div className="chips quick-amounts">
           {field.quick.map(amount => (
-            <button type="button" className="chip" key={amount} data-add={amount} data-for={id} onClick={event => add(event, amount)}
+            <button type="button" className="chip" key={amount} data-add={amount} data-for={id} disabled={filled || undefined} onClick={event => add(event, amount)}
                     aria-label={amount === 'max' ? '최대 금액 입력' : `+${amount / 10000}만 (${(amount / 10000).toLocaleString()}만원 더하기)`}>
               {amount === 'max' ? '최대' : `+${amount / 10000}만`}
             </button>

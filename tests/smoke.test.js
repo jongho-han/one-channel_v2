@@ -814,6 +814,25 @@ const goToInput = (id, pick = () => click($('[data-action="pick"]'))) => {
   assert.equal(currentStepName(), '입력');
 };
 
+test('보험계약대출 상환: 전액 상환을 고르면 상환 금액에 현재 잔액(고정), 다른 구분이면 비움 (LN-04)', () => {
+  goToInput('LN-04');
+  const amount = () => $('#amt');
+  assert.equal(amount().value, '');
+  click($('input[name="kind"][value="전액 상환"]'));
+  assert.equal(amount().value, '3,000,000', '잔액이 상환 금액에');
+  assert.equal(amount().readOnly, true);
+  assert.match($('#calc').textContent, /상환 원금3,000,000원/);
+  click($('input[name="kind"][value="일부 상환"]'));
+  assert.equal(amount().value, '', '일부 상환은 다시 입력');
+  assert.equal(amount().readOnly, false);
+  assert.match($('#calc').textContent, /상환 원금0원/, '자동 금액이 계산에 남지 않음');
+  click($('input[name="kind"][value="전액 상환"]'));
+  click($('#next'));
+  assert.equal(currentStepName(), '확인');
+  assert.match($('#sbody').textContent, /상환 금액3,000,000원/);
+  assert.deepEqual(errors, []);
+});
+
 test('보험금 청구: 사고 유형 「기타」를 고르면 오른쪽에 직접 입력, 비우면 안내, 확인에 기타(입력값) (PY-01)', () => {
   goToInput('PY-01');
   const etc = $('#accEtc');
