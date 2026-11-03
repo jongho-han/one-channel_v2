@@ -86,6 +86,7 @@ export interface InputStepConfig {
   agree?: readonly string[];
   warn?: string;
   intro?: { tone: string; title: string; desc: string };
+  title?: string;                       // 입력 카드 제목 (기본 '입력하기')
   compact?: boolean;
   lockRules?: LockRules;
 }
@@ -97,6 +98,7 @@ interface InputStepProps {
   pick?: string | null;
   picked?: PickItem;
   describe?: ReactNode;                 // 선택 단계 결과 안내 (대출 신청금액 등)
+  lead?: ReactNode;                     // 입력 카드 위 내용 (FATCA·CRS 고객 인적사항 등)
   announce: (message: string) => void;
   onValuesChange: (values: FieldValues) => void;
   onAgreedChange: (agreed: number[]) => void;
@@ -105,7 +107,7 @@ interface InputStepProps {
 
 const lockedIds = (locks: Locks) => Object.keys(locks);
 
-export function InputStep({ config, values: initialValues, agreed: initialAgreed, pick, picked, describe, announce, onValuesChange, onAgreedChange, onSubmit }: InputStepProps) {
+export function InputStep({ config, values: initialValues, agreed: initialAgreed, pick, picked, describe, lead, announce, onValuesChange, onAgreedChange, onSubmit }: InputStepProps) {
   const formRef = useRef<HTMLDivElement>(null);
   const [initial] = useState(() => applyLocks(config.fields, applyFills(config.fields, { ...renderedValues(config.fields, initialValues), ...pickNonField(initialValues, config.fields) }, {}), config.lockRules));
   const [values, setValues] = useState<FieldValues>(initial.values);
@@ -161,8 +163,9 @@ export function InputStep({ config, values: initialValues, agreed: initialAgreed
       {picked && <InfoBox tone="ok mb-14" icon="check"><b>{picked.title}</b>{picked.sub} · {picked.value}</InfoBox>}
       {describe && <InfoBox tone="ok mb-14" icon="check">{describe}</InfoBox>}
       {intro && <InfoBox tone={`${intro.tone} mb-14`} icon={intro.tone === 'warn' ? 'alert' : 'info'}><b>{intro.title}</b>{intro.desc}</InfoBox>}
+      {lead}
       {config.fields.length
-        ? <div className="card"><h2>입력하기</h2><div className={config.compact ? 'form compact' : 'form'} id="frm" ref={formRef}>
+        ? <div className="card"><h2>{config.title ?? '입력하기'}</h2><div className={config.compact ? 'form compact' : 'form'} id="frm" ref={formRef}>
             {config.fields.map(field => (
               <Field key={field.id} field={field} values={values} error={errors[field.id]} hidden={!isFieldVisible(field, config.fields, values)}
                      lock={config.lockRules && field.type === 'radio' ? { value: locks[field.id]?.[0], reason: locks[field.id]?.[1], everLocked: everLocked.includes(field.id) } : undefined}

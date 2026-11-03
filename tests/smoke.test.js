@@ -94,6 +94,7 @@ test('보험계약대출 확인 단계는 예정 계약 카드를 보여준다 (
     box.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
   click($('#next'));
+  click($('#next'));   // FATCA·CRS 모두 아니오
   assert.match($('#sbody').textContent, /대출 실행 예정 계약/);
   assert.deepEqual(errors, []);
 });
@@ -448,7 +449,7 @@ test('T4 전자서명하면 완료 화면, 다시 보기로 돌아온다 (CH-09)
 /* ---- T4 전용 화면: 안내장 수신설정(MY-02) · 마케팅 동의(MY-03) · 펀드변경(CH-01) ---- */
 /** 입력값 바꾸고 이벤트 발생 (React가 값 변화를 감지하도록 원래 setter 사용) */
 function setInput(element, value, eventType = element.tagName === 'SELECT' ? 'change' : 'input') {
-  const prototype = element.tagName === 'SELECT' ? window.HTMLSelectElement.prototype : window.HTMLInputElement.prototype;
+  const prototype = { SELECT: window.HTMLSelectElement, TEXTAREA: window.HTMLTextAreaElement }[element.tagName]?.prototype ?? window.HTMLInputElement.prototype;
   Object.getOwnPropertyDescriptor(prototype, 'value').set.call(element, value);
   element.dispatchEvent(new window.Event(eventType, { bubbles: true }));
 }
@@ -771,7 +772,7 @@ for (const id of STEP_FLOW_IDS) {
     window.App.openScreen(id);
     const inputs = STEP_FLOW_INPUTS[id] ?? {};
     const visited = [];
-    for (let guard = 0; guard < 6; guard++) {
+    for (let guard = 0; guard < 7; guard++) {
       const step = currentStepName();
       visited.push(step);
       if (step === '안내') {
@@ -785,6 +786,9 @@ for (const id of STEP_FLOW_IDS) {
         inputs.input?.();
         checkAll('[data-agree]');
         assertMatchesGolden(`${id}-2입력`);
+        click($('#next'));
+      } else if (step === 'FATCA·CRS') {
+        assertMatchesGolden(`${id}-2FATCA`);
         click($('#next'));
       } else if (step === '확인') {
         assertMatchesGolden(`${id}-3확인`);
@@ -1044,6 +1048,36 @@ test('T3 대출 신청금액에 맞춰 이율 낮은 계약부터 배정 (LN-02)
   setInput($('#loanAmount'), '99999999');
   assert.equal($('#loanAmount').value, '29,140,000', '대출 가능금액 합계를 넘어 입력할 수 없음');
   assert.equal($('#e-loanAmount').textContent, '');
+  assert.deepEqual(errors, []);
+});
+
+test('보험계약대출 신청: 입력 다음 FATCA·CRS — 모두 아니오면 바로 확인, 예면 납세자 정보 필수·확인 단계에 답변 (LN-02)', () => {
+  goToInput('LN-02', () => setInput($('#loanAmount'), '3,000,000'));
+  checkAll('[data-agree]');
+  click($('#next'));
+  assert.equal(currentStepName(), 'FATCA·CRS');
+  assert.match($('#sbody').textContent, /고객 인적사항/);
+  assert.equal($('#fcLast').closest('.fld').hidden, true, '모두 아니오면 영문성명 숨김');
+  click($('input[name="fcUs"][value="예"]'));
+  assert.equal($('#fcLast').closest('.fld').hidden, false);
+  click($('#next'));
+  assert.equal(currentStepName(), 'FATCA·CRS', '필수 미입력이면 진행 안 함');
+  assert.equal(window.document.activeElement.closest('.fld').querySelector('[id^="e-"]').id, 'e-fcUsType');
+  click($('input[name="fcUsType"]'));
+  setInput($('#fcLast'), 'HONG');
+  setInput($('#fcFirst'), 'GILDONG');
+  setInput($('#fcCountry'), '미국');
+  setInput($('#fcAddr'), '1 Main St, New York, NY 10001');
+  setInput($('#fcTin'), '123456789');
+  attachFiles($('#fcDoc1'), ['등본.jpg']);
+  attachFiles($('#fcDoc2'), ['SSN.jpg']);
+  click($('#next'));
+  assert.equal(currentStepName(), '확인');
+  const text = $('#sbody').textContent;
+  assert.match(text, /미국 세법상 미국인에 해당하나요\?예/);
+  assert.match(text, /납세자번호\(TIN: SSN 또는 ITIN\)123456789/);
+  click($('[data-action="step-prev"]'));
+  assert.equal(currentStepName(), 'FATCA·CRS', '수정하면 FATCA·CRS 로');
   assert.deepEqual(errors, []);
 });
 

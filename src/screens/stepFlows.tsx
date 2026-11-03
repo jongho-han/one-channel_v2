@@ -41,6 +41,7 @@ export interface StepFlowConfig extends InputStepConfig {
     summary?: (flow: StepFlowState, step: 'confirm' | 'done') => ReactNode;
   };
   guide?: 'claim';                                          // 첫 단계 '안내' (보험금 청구)
+  fatca?: boolean;                                          // 입력 다음 'FATCA·CRS' 본인확인서 단계
   fieldsFor?: (values: FieldValues, pick?: string | null) => FieldSpec[];   // 진행 값·고른 항목에 맞춘 입력 항목 (청구 종류별 피보험자, 대출별 잔액)
   guideRow?: (values: FieldValues) => [string, string];     // 확인 단계 첫 행 (안내 단계에서 고른 것)
   retain?: boolean;                                         // 해지 전 대안 안내
@@ -297,6 +298,7 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     },
     intro: { tone: 'ok', title: '보험계약대출은 신용점수에 영향이 없습니다', desc: '해지하지 않고 해지환급금 범위에서 바로 받을 수 있습니다. 중도상환수수료 없음.' },
     fields: [{ id: 'acct', label: '입금 계좌', type: 'account' }],
+    fatca: true,
     calc: values => loanCalcRows(CONTRACTS, Number(values.loanAmount) || 0),
     warn: '대출 이자를 내지 않으면 원금에 더해져 해지환급금이 줄고, 대출 원리금이 해지환급금을 넘으면 계약이 해지될 수 있습니다.',
     agree: ['[필수] 보험계약대출 상품설명서를 확인했습니다.', '[필수] 보험계약대출 약정에 전자서명합니다.'],

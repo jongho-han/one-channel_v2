@@ -1,8 +1,9 @@
 /* T3 단계형 신청 규칙 — 화면과 분리한 순수 로직 */
 import type { FieldSpec, FieldValues } from '../../components/form/fieldSpec';
+import { FATCA_FIELDS } from '../../features/fatca';
 import { displayValue, isFieldVisible } from '../../form/display';
 
-export type StepName = '안내' | '선택' | '입력' | '확인' | '인증' | '완료';
+export type StepName = '안내' | '선택' | '입력' | 'FATCA·CRS' | '확인' | '인증' | '완료';
 
 /** 선택 카드 항목 */
 export interface PickItem {
@@ -14,10 +15,10 @@ export interface PickItem {
   detail?: string;   // 카드 보조 안내 한 줄
 }
 
-/** 단계: 안내(guide) 또는 선택(pick) · 입력 · 확인(생략 가능) · 인증 · 완료 */
-export function stepsOf(config: { guide?: unknown; pick?: unknown; skipConfirm?: boolean }): StepName[] {
+/** 단계: 안내(guide) 또는 선택(pick) · 입력 · FATCA·CRS(fatca) · 확인(생략 가능) · 인증 · 완료 */
+export function stepsOf(config: { guide?: unknown; pick?: unknown; fatca?: boolean; skipConfirm?: boolean }): StepName[] {
   const first: StepName[] = config.guide ? ['안내'] : config.pick ? ['선택'] : [];
-  return [...first, '입력', ...(config.skipConfirm ? [] : ['확인' as const]), '인증', '완료'];
+  return [...first, '입력', ...(config.fatca ? ['FATCA·CRS' as const] : []), ...(config.skipConfirm ? [] : ['확인' as const]), '인증', '완료'];
 }
 
 export const pickedItem = (config: { pick?: { items?: () => PickItem[] } }, pick: string | null | undefined): PickItem | undefined =>
@@ -30,9 +31,9 @@ export const pickedKeys = (flow: { pick: string | null | undefined; picks?: read
 /** 선택 문구에서 항목 이름만 — '납입할 계약을 선택하세요' → '납입할 계약' */
 export const pickLabelName = (label = ''): string => label.replace(/을 선택하세요|를 선택하세요/, '');
 
-/** 확인 단계 행: 안내 단계에서 고른 것(guideRow) + 고른 항목('…을 선택하세요' 제외) + 보이는 항목 */
+/** 확인 단계 행: 안내 단계에서 고른 것(guideRow) + 고른 항목('…을 선택하세요' 제외) + 보이는 항목(FATCA·CRS 답변 포함) */
 export function confirmRows(
-  config: { pick?: { label?: string; multiple?: boolean; items?: () => PickItem[] }; guideRow?: (values: FieldValues) => [string, string]; fields: readonly FieldSpec[] },
+  config: { pick?: { label?: string; multiple?: boolean; items?: () => PickItem[] }; guideRow?: (values: FieldValues) => [string, string]; fatca?: boolean; fields: readonly FieldSpec[] },
   flow: { pick: string | null | undefined; picks?: readonly string[]; values: FieldValues },
 ): [string, string][] {
   const rows: [string, string][] = config.guideRow ? [config.guideRow(flow.values)] : [];
@@ -43,7 +44,9 @@ export function confirmRows(
   }
   const picked = config.pick?.multiple ? undefined : pickedItem(config, flow.pick);
   if (picked && config.pick?.label) rows.push([pickLabelName(config.pick.label), picked.title]);
-  for (const field of config.fields.filter(item => isFieldVisible(item, config.fields, flow.values))) rows.push([field.label, displayValue(field, flow.values) || '-']);
+  for (const fields of [config.fields, config.fatca ? FATCA_FIELDS : []]) {
+    for (const field of fields.filter(item => isFieldVisible(item, fields, flow.values))) rows.push([field.label, displayValue(field, flow.values) || '-']);
+  }
   return rows;
 }
 

@@ -9,11 +9,14 @@ type Value = FieldValues[string];
 const currentFieldValue = (field: FieldSpec, values: FieldValues): Value =>
   values[field.id] ?? field.value ?? (field.type === 'radio' ? field.options?.[0] : '');
 
-/** 조건부 항목: showWhen { field, value } — 다른 항목 값이 맞을 때만 보이고 검증함 */
+/** 조건부 항목: showWhen { field, value } (배열은 하나라도 맞으면) — 다른 항목 값이 맞을 때만 보이고 검증함. 조건 항목이 숨겨져 있으면 함께 숨김 */
 export function isFieldVisible(field: FieldSpec, fields: readonly FieldSpec[], values: FieldValues): boolean {
   if (!field.showWhen) return true;
-  const source = fields.find(item => item.id === field.showWhen?.field);
-  return !source || currentFieldValue(source, values) === field.showWhen.value;
+  const conditions = Array.isArray(field.showWhen) ? field.showWhen : [field.showWhen];
+  return conditions.some(({ field: sourceId, value }) => {
+    const source = fields.find(item => item.id === sourceId);
+    return !source || (currentFieldValue(source, values) === value && isFieldVisible(source, fields, values));
+  });
 }
 
 /** 확인 단계에 보여줄 값 */

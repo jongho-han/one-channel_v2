@@ -12,6 +12,7 @@ import { announce } from '../../ui/overlay';
 import { STEP_FLOWS, type StepFlowConfig, type StepFlowState } from '../stepFlows';
 import { AnnuityPick } from './AnnuityPick';
 import { ClaimGuide } from './ClaimGuide';
+import { FatcaStep } from './FatcaStep';
 import { claimTypeOf } from '../../data/claimGuide';
 import { LoanPick } from './LoanPick';
 import { ConfirmStep, DoneStep, InputStep, PickStep, SignStep, Stepper } from './StepFlow';
@@ -82,6 +83,9 @@ function Stage({ screen, config: baseConfig, flow, step }: { screen: Screen; con
                    onValuesChange={values => updateScreenValues(values)} onAgreedChange={agreed => updateScreenFlow({ agreed })}
                    onSubmit={(values, agreed) => { updateScreenFlow({ values: { ...flow.values, ...values }, agreed }); next(); }} />
       );
+    case 'FATCA·CRS':
+      return <FatcaStep values={flow.values} announce={announce} onValuesChange={values => updateScreenValues(values)}
+                        onSubmit={values => { updateScreenFlow({ values: { ...flow.values, ...values } }); next(); }} />;
     case '확인': {
       const calcRows: readonly CalcRow[] | undefined = config.calc?.(flow.values, calcPick(config, flow));
       return <ConfirmStep rows={confirmRows(config, flow)} calcRows={calcRows} summary={config.pick?.summary?.(flow, 'confirm')} onConfirm={next} />;

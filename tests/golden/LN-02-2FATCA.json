@@ -1,0 +1,1655 @@
+{
+ "tag": "div",
+ "attrs": {
+  "id": "sbody"
+ },
+ "children": [
+  {
+   "tag": "ol",
+   "attrs": {
+    "aria-label": "진행 단계 (전체 6단계)",
+    "class": "steps"
+   },
+   "children": [
+    {
+     "tag": "li",
+     "attrs": {
+      "class": "done"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      "선택",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(완료)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {
+      "class": "done"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      "입력",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(완료)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {
+      "aria-current": "step",
+      "class": "on",
+      "id": "currentStep",
+      "tabindex": "-1"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "3"
+       ]
+      },
+      "FATCA·CRS",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(현재 단계)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "4"
+       ]
+      },
+      "확인"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "5"
+       ]
+      },
+      "인증"
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        "6"
+       ]
+      },
+      "완료"
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "box info mb-14"
+   },
+   "children": [
+    {
+     "tag": "svg",
+     "attrs": {
+      "aria-hidden": "true",
+      "class": "i",
+      "viewBox": "0 0 24 24"
+     },
+     "children": [
+      {
+       "tag": "circle",
+       "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "r": "9"
+       },
+       "children": []
+      },
+      {
+       "tag": "path",
+       "attrs": {
+        "d": "M12 11v6M12 7.5v.5"
+       },
+       "children": []
+      }
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {},
+     "children": [
+      {
+       "tag": "b",
+       "attrs": {},
+       "children": [
+        "FATCA·CRS 본인확인서를 작성해 주세요"
+       ]
+      },
+      "국제조세조정에 관한 법률에 따라 대한민국 외 국가의 납세의무 여부를 확인합니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card mb-14"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "고객 인적사항"
+     ]
+    },
+    {
+     "tag": "dl",
+     "attrs": {
+      "class": "kv"
+     },
+     "children": [
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "성명"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "홍길동"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "생년월일"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "1978.05.12"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "국적"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "대한민국"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "주소"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "서울특별시 중구 세종대로 110, 101동 1203호"
+       ]
+      },
+      {
+       "tag": "dt",
+       "attrs": {},
+       "children": [
+        "전화번호"
+       ]
+      },
+      {
+       "tag": "dd",
+       "attrs": {
+        "class": "num"
+       },
+       "children": [
+        "010-****-5678"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "p",
+     "attrs": {
+      "class": "note-sm"
+     },
+     "children": [
+      "계약 정보로 자동 표시됩니다."
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "card"
+   },
+   "children": [
+    {
+     "tag": "h2",
+     "attrs": {},
+     "children": [
+      "고객 확인사항"
+     ]
+    },
+    {
+     "tag": "div",
+     "attrs": {
+      "class": "form",
+      "id": "frm"
+     },
+     "children": [
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcUs"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-fcUs"
+         },
+         "children": [
+          "미국 세법상 미국인에 해당하나요?",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "e-fcUs",
+          "aria-labelledby": "lb-fcUs",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcUs",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "예"
+             }
+            },
+            "예"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcUs",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "아니오"
+             }
+            },
+            "아니오"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcUs",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcUsType",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-fcUsType"
+         },
+         "children": [
+          "해당되는 사항",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "e-fcUsType",
+          "aria-labelledby": "lb-fcUsType",
+          "class": "checks",
+          "role": "group"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcUsType",
+              "type": "checkbox"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "미국시민권자(이중국적자 포함)"
+             }
+            },
+            {
+             "tag": "span",
+             "attrs": {},
+             "children": [
+              "미국시민권자(이중국적자 포함)"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcUsType",
+              "type": "checkbox"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "미국영주권자"
+             }
+            },
+            {
+             "tag": "span",
+             "attrs": {},
+             "children": [
+              "미국영주권자"
+             ]
+            }
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcUsType",
+              "type": "checkbox"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "미국거주자"
+             }
+            },
+            {
+             "tag": "span",
+             "attrs": {},
+             "children": [
+              "미국거주자"
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcUsType",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcRes"
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-fcRes"
+         },
+         "children": [
+          "대한민국 외 국가의 조세목적상 거주자인가요?",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "h-fcRes e-fcRes",
+          "aria-labelledby": "lb-fcRes",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcRes",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "예"
+             }
+            },
+            "예"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcRes",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "아니오"
+             }
+            },
+            "아니오"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "h-fcRes"
+         },
+         "children": [
+          "국적이 한국이고 두 질문이 모두 '아니오'이면 납세자 정보는 작성하지 않아도 됩니다."
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcRes",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcLast",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fcLast"
+         },
+         "children": [
+          "영문 성(Last Name)",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-fcLast",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "fcLast",
+          "name": "fcLast",
+          "placeholder": "HONG",
+          "type": "text"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcLast",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcFirst",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fcFirst"
+         },
+         "children": [
+          "영문 이름(First Name)",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-fcFirst",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "fcFirst",
+          "name": "fcFirst",
+          "placeholder": "GILDONG",
+          "type": "text"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcFirst",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcCountry",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fcCountry"
+         },
+         "children": [
+          "거주지국",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "select",
+         "attrs": {
+          "aria-describedby": "e-fcCountry",
+          "aria-required": "true",
+          "class": "inp",
+          "id": "fcCountry",
+          "name": "fcCountry"
+         },
+         "children": [
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "선택해 주세요"
+           ],
+           "state": {
+            "selected": true
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "미국"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "일본"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "중국"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "캐나다"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "호주"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "영국"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "독일"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "싱가포르"
+           ],
+           "state": {
+            "selected": false
+           }
+          },
+          {
+           "tag": "option",
+           "attrs": {},
+           "children": [
+            "기타"
+           ],
+           "state": {
+            "selected": false
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcCountry",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcAddr",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fcAddr"
+         },
+         "children": [
+          "영문주소(우편번호 포함)",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "textarea",
+         "attrs": {
+          "aria-describedby": "e-fcAddr",
+          "aria-required": "true",
+          "class": "area inp",
+          "id": "fcAddr",
+          "name": "fcAddr",
+          "placeholder": "Street, City, State, ZIP Code",
+          "rows": "4"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcAddr",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcTinHave",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-fcTinHave"
+         },
+         "children": [
+          "납세자번호(TIN)",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "h-fcTinHave e-fcTinHave",
+          "aria-labelledby": "lb-fcTinHave",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcTinHave",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "있음"
+             }
+            },
+            "있음"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcTinHave",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "없음"
+             }
+            },
+            "없음"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "h-fcTinHave"
+         },
+         "children": [
+          "미국인은 납세자번호(SSN 또는 ITIN)가 필수입니다."
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcTinHave",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcTin",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fcTin"
+         },
+         "children": [
+          "납세자번호(TIN: SSN 또는 ITIN)",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "input",
+         "attrs": {
+          "aria-describedby": "e-fcTin",
+          "aria-required": "true",
+          "class": "inp num",
+          "id": "fcTin",
+          "name": "fcTin",
+          "placeholder": "숫자 9자리",
+          "type": "text"
+         },
+         "children": [],
+         "state": {
+          "value": ""
+         }
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcTin",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcNoTin",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "lb",
+          "id": "lb-fcNoTin"
+         },
+         "children": [
+          "납세자번호가 없는 사유",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-describedby": "h-fcNoTin e-fcNoTin",
+          "aria-labelledby": "lb-fcNoTin",
+          "class": "radios",
+          "role": "radiogroup"
+         },
+         "children": [
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcNoTin",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": true,
+              "value": "미발급 국가"
+             }
+            },
+            "미발급 국가"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcNoTin",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "미요구 국가"
+             }
+            },
+            "미요구 국가"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcNoTin",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "미취득"
+             }
+            },
+            "미취득"
+           ]
+          },
+          {
+           "tag": "label",
+           "attrs": {},
+           "children": [
+            {
+             "tag": "input",
+             "attrs": {
+              "name": "fcNoTin",
+              "type": "radio"
+             },
+             "children": [],
+             "state": {
+              "checked": false,
+              "value": "기타"
+             }
+            },
+            "기타"
+           ]
+          },
+          {
+           "tag": "input",
+           "attrs": {
+            "aria-label": "기타 납세자번호가 없는 사유 직접 입력",
+            "class": "inp radio-other sm",
+            "disabled": "",
+            "id": "fcNoTinEtc",
+            "name": "fcNoTinEtc",
+            "placeholder": "사유를 입력해 주세요",
+            "type": "text"
+           },
+           "children": [],
+           "state": {
+            "value": ""
+           }
+          }
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "h-fcNoTin"
+         },
+         "children": [
+          "미국 외 국가만 해당합니다."
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcNoTin",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcDoc1",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fcDoc1"
+         },
+         "children": [
+          "주민등록등본",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "label",
+         "attrs": {
+          "class": "file-drop",
+          "for": "fcDoc1"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M12 16V4M7 9l5-5 5 5M4 20h16"
+             },
+             "children": []
+            }
+           ]
+          },
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "사진 찍기 또는 파일 선택"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "JPG·PNG·PDF, 최대 20장"
+           ]
+          },
+          {
+           "tag": "input",
+           "attrs": {
+            "accept": "image/*,.pdf",
+            "aria-describedby": "h-fcDoc1 e-fcDoc1 fl-fcDoc1",
+            "aria-required": "true",
+            "id": "fcDoc1",
+            "multiple": "",
+            "name": "fcDoc1",
+            "type": "file"
+           },
+           "children": [],
+           "state": {
+            "value": ""
+           }
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-live": "polite",
+          "class": "files",
+          "id": "fl-fcDoc1"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "h-fcDoc1"
+         },
+         "children": [
+          "성명과 주소가 보이도록 전체를 촬영해 올려 주세요."
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcDoc1",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      },
+      {
+       "tag": "div",
+       "attrs": {
+        "class": "fld",
+        "data-f": "fcDoc2",
+        "hidden": ""
+       },
+       "children": [
+        {
+         "tag": "label",
+         "attrs": {
+          "for": "fcDoc2"
+         },
+         "children": [
+          "납세자번호 증명서",
+          {
+           "tag": "span",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "req"
+           },
+           "children": [
+            "*"
+           ]
+          },
+          {
+           "tag": "span",
+           "attrs": {
+            "class": "sr-only"
+           },
+           "children": [
+            "(필수)"
+           ]
+          }
+         ]
+        },
+        {
+         "tag": "label",
+         "attrs": {
+          "class": "file-drop",
+          "for": "fcDoc2"
+         },
+         "children": [
+          {
+           "tag": "svg",
+           "attrs": {
+            "aria-hidden": "true",
+            "class": "i",
+            "viewBox": "0 0 24 24"
+           },
+           "children": [
+            {
+             "tag": "path",
+             "attrs": {
+              "d": "M12 16V4M7 9l5-5 5 5M4 20h16"
+             },
+             "children": []
+            }
+           ]
+          },
+          {
+           "tag": "b",
+           "attrs": {},
+           "children": [
+            "사진 찍기 또는 파일 선택"
+           ]
+          },
+          {
+           "tag": "small",
+           "attrs": {},
+           "children": [
+            "JPG·PNG·PDF, 최대 20장"
+           ]
+          },
+          {
+           "tag": "input",
+           "attrs": {
+            "accept": "image/*,.pdf",
+            "aria-describedby": "h-fcDoc2 e-fcDoc2 fl-fcDoc2",
+            "aria-required": "true",
+            "id": "fcDoc2",
+            "multiple": "",
+            "name": "fcDoc2",
+            "type": "file"
+           },
+           "children": [],
+           "state": {
+            "value": ""
+           }
+          }
+         ]
+        },
+        {
+         "tag": "div",
+         "attrs": {
+          "aria-live": "polite",
+          "class": "files",
+          "id": "fl-fcDoc2"
+         },
+         "children": []
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "help",
+          "id": "h-fcDoc2"
+         },
+         "children": [
+          "SSN 등 납세자번호가 확인되는 카드 또는 서류"
+         ]
+        },
+        {
+         "tag": "span",
+         "attrs": {
+          "class": "err",
+          "id": "e-fcDoc2",
+          "role": "alert"
+         },
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "div",
+   "attrs": {
+    "class": "navrow"
+   },
+   "children": [
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg",
+      "data-action": "step-prev"
+     },
+     "children": [
+      "이전"
+     ]
+    },
+    {
+     "tag": "button",
+     "attrs": {
+      "class": "btn lg pri",
+      "id": "next"
+     },
+     "children": [
+      "다음"
+     ]
+    }
+   ]
+  }
+ ]
+}

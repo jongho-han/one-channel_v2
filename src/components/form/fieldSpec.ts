@@ -1,6 +1,9 @@
 /* 폼 필드 정의 */
 export type FieldType = 'text' | 'tel' | 'email' | 'date' | 'select' | 'radio' | 'checks' | 'money' | 'account' | 'file' | 'addr' | 'textarea';
 
+/** 조건부 표시: 다른 항목 값이 이 값일 때 */
+export interface ShowWhen { field: string; value: string }
+
 export interface FieldSpec {
   id: string;
   label: string;
@@ -18,7 +21,7 @@ export interface FieldSpec {
   min?: number;                   // money: 최소 금액
   quick?: readonly (number | 'max')[];   // money: 빠른 금액 버튼
   inline?: boolean;               // checks: 가로 배치
-  showWhen?: { field: string; value: string };   // 다른 항목 값이 맞을 때만 보이고 검증
+  showWhen?: ShowWhen | readonly ShowWhen[];     // 다른 항목 값이 맞을 때만 보이고 검증 (배열은 하나라도 맞으면)
   other?: { option: string; placeholder?: string };   // radio: 이 선택지 오른쪽 직접 입력칸 (고르면 입력·필수)
   fillWhen?: { field: string; amounts: Readonly<Record<string, number>> };   // money: 다른 항목 값마다 정한 금액으로 채우고 고정
 }
