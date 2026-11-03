@@ -862,114 +862,38 @@
          ]
         },
         {
-         "tag": "select",
+         "tag": "div",
          "attrs": {
-          "aria-describedby": "e-fcCountry",
-          "aria-required": "true",
-          "class": "inp",
-          "id": "fcCountry",
-          "name": "fcCountry"
+          "class": "inrow"
          },
          "children": [
           {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "선택해 주세요"
-           ],
+           "tag": "input",
+           "attrs": {
+            "aria-describedby": "e-fcCountry",
+            "aria-required": "true",
+            "class": "inp",
+            "id": "fcCountry",
+            "name": "fcCountry",
+            "placeholder": "국가를 선택해 주세요",
+            "readonly": ""
+           },
+           "children": [],
            "state": {
-            "selected": true
+            "value": ""
            }
           },
           {
-           "tag": "option",
-           "attrs": {},
+           "tag": "button",
+           "attrs": {
+            "aria-label": "거주지국 국가 선택",
+            "class": "btn",
+            "data-country": "fcCountry",
+            "type": "button"
+           },
            "children": [
-            "미국"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "일본"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "중국"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "캐나다"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "호주"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "영국"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "독일"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "싱가포르"
-           ],
-           "state": {
-            "selected": false
-           }
-          },
-          {
-           "tag": "option",
-           "attrs": {},
-           "children": [
-            "기타"
-           ],
-           "state": {
-            "selected": false
-           }
+            "국가 선택"
+           ]
           }
          ]
         },

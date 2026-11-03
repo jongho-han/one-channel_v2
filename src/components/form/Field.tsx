@@ -6,6 +6,7 @@ import { flushSync } from 'react-dom';
 import { toNumber } from '../../core/format';
 import { NEW_ACCOUNT, accountOptions } from '../../data/accountRepository';
 import { openAccountRegister } from '../../features/accountRegister';
+import { openCountrySearch } from '../../form/countrySearch';
 import { openZipSearch } from '../../form/zipSearch';
 import { NOT_APPLICABLE } from '../../form/locks';
 import { Icon } from '../Icon';
@@ -213,6 +214,14 @@ function Control(props: ControlProps) {
           <input className="inp" id={`${id}_d`} name={`${id}_d`} placeholder="상세주소" defaultValue={String(values[`${id}_d`] ?? '')}
                  aria-label={`${field.label} 상세주소`} autoComplete="address-line2" />
         </>
+      );
+    case 'country':
+      return (
+        <div className="inrow">
+          <input className={inputClass('inp', invalid)} id={id} name={id} defaultValue={value} placeholder={field.placeholder ?? ''} readOnly {...inputAttributes(field, invalid)} />
+          <button type="button" className="btn" data-country={id} aria-label={`${field.label} 국가 선택`}
+                  onClick={event => openCountrySearch(event.currentTarget.closest('.fld'), id, field.label, name => onChange?.(name))}>국가 선택</button>
+        </div>
       );
     case 'textarea':
       return (

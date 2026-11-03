@@ -1066,7 +1066,12 @@ test('보험계약대출 신청: 입력 다음 FATCA·CRS — 모두 아니오�
   click($('input[name="fcUsType"]'));
   setInput($('#fcLast'), 'HONG');
   setInput($('#fcFirst'), 'GILDONG');
-  setInput($('#fcCountry'), '미국');
+  click($('[data-country="fcCountry"]'));
+  assert.match($('#modalTitle').textContent, /거주지국 선택/);
+  click([...window.document.querySelectorAll('#layer [aria-pressed]')].find(button => button.textContent.includes('미국')));
+  click([...window.document.querySelectorAll('#layer button')].find(button => button.textContent === '선택 완료'));
+  assert.equal($('#modalTitle'), null, '선택 완료하면 닫힘');
+  assert.equal($('#fcCountry').value, '미국');
   setInput($('#fcAddr'), '1 Main St, New York, NY 10001');
   setInput($('#fcTin'), '123456789');
   attachFiles($('#fcDoc1'), ['등본.jpg']);

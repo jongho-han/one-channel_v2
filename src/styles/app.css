@@ -697,6 +697,16 @@ html.big .form.compact { grid-template-columns: minmax(0, 1fr); }
 .modal-x:hover { background: var(--line2); }
 .modal-x .i { width: 20px; height: 20px; }
 .modal:has(.modal-x) h2 { padding-right: 40px; }
+/* 국가 선택 레이어팝업: 자주 선택하는 국가 2열 버튼 + 검색 결과 목록 */
+.country-h { display: block; margin: 16px 0 8px; font-size: 14px; font-weight: 700; color: var(--sub); }
+.country-freq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.country-opt { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: var(--r); background: var(--card); font-size: 15px; font-weight: 600; text-align: left; }
+.country-opt.on { border-color: var(--brand); background: var(--brand-soft); color: var(--brand-ink); }
+.country-code { padding: 2px 6px; border-radius: 4px; background: var(--line2); font-size: 11px; font-weight: 700; color: var(--sub); }
+.country-opt.on .country-code { background: var(--brand); color: #fff; }
+.country-list { max-height: 240px; margin-top: 8px; overflow-y: auto; border-top: 1px solid var(--line2); }
+.country-row { display: block; width: 100%; min-height: 46px; padding: 0 4px; border: 0; border-bottom: 1px solid var(--line2); background: none; font-size: 15px; text-align: left; }
+.country-row.on { background: var(--brand-soft); color: var(--brand-ink); font-weight: 700; }
 .modal .navrow.dlg-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .spin { width: 44px; height: 44px; margin: 18px auto; border: 4px solid var(--brand-soft); border-top-color: var(--brand); border-radius: 50%; animation: spin 1s linear infinite; }
 .toast { position: fixed; left: 50%; bottom: calc(88px + env(safe-area-inset-bottom, 0px)); z-index: 95; max-width: calc(100% - 32px); padding: 12px 18px; border-radius: 12px; background: var(--navy); color: #fff; font-size: 14px; box-shadow: 0 10px 24px rgba(0,0,0,.2); transform: translateX(-50%); }

@@ -20,6 +20,7 @@ export function validationMessage(field: Pick<FieldSpec, 'label' | 'type' | 'pla
     case 'tel':    return PHONE_PATTERN.test(String(value ?? '')) ? '' : '전화번호 형식을 확인해 주세요. 예: 010-1234-5678';
     case 'email':  return EMAIL_PATTERN.test(String(value ?? '')) ? '' : '이메일 주소 형식을 확인해 주세요.';
     case 'select': return field.placeholder && !value ? `${withObjectParticle(field.label)} 선택해 주세요.` : '';
+    case 'country': return value ? '' : `${withObjectParticle(field.label)} 선택해 주세요.`;
     case 'account': return value === NEW_ACCOUNT ? `${withObjectParticle(field.label)} 선택하거나 새 계좌를 등록해 주세요.` : '';
     case 'radio': case 'addr': return '';
     default:       return String(value ?? '').trim() ? '' : `${field.label}을(를) 입력해 주세요.`;

@@ -1,5 +1,5 @@
 /* 폼 필드 정의 */
-export type FieldType = 'text' | 'tel' | 'email' | 'date' | 'select' | 'radio' | 'checks' | 'money' | 'account' | 'file' | 'addr' | 'textarea';
+export type FieldType = 'text' | 'tel' | 'email' | 'date' | 'select' | 'radio' | 'checks' | 'money' | 'account' | 'file' | 'addr' | 'textarea' | 'country';
 
 /** 조건부 표시: 다른 항목 값이 이 값일 때 */
 export interface ShowWhen { field: string; value: string }
@@ -8,7 +8,7 @@ export interface FieldSpec {
   id: string;
   label: string;
   type?: FieldType;               // 기본 text
-  options?: readonly string[];    // select · radio · checks
+  options?: readonly string[];    // select · radio · checks (country 는 국가 선택 레이어팝업)
   value?: string;                 // 기본값
   placeholder?: string;
   help?: string;

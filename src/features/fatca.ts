@@ -15,7 +15,7 @@ export const FATCA_FIELDS: readonly FieldSpec[] = [
     help: "국적이 한국이고 두 질문이 모두 '아니오'이면 납세자 정보는 작성하지 않아도 됩니다." },
   { id: 'fcLast', label: '영문 성(Last Name)', placeholder: 'HONG', showWhen: anyYes },
   { id: 'fcFirst', label: '영문 이름(First Name)', placeholder: 'GILDONG', showWhen: anyYes },
-  { id: 'fcCountry', label: '거주지국', type: 'select', placeholder: '선택해 주세요', options: ['미국', '일본', '중국', '캐나다', '호주', '영국', '독일', '싱가포르', '기타'], showWhen: anyYes },
+  { id: 'fcCountry', label: '거주지국', type: 'country', placeholder: '국가를 선택해 주세요', showWhen: anyYes },
   { id: 'fcAddr', label: '영문주소(우편번호 포함)', type: 'textarea', placeholder: 'Street, City, State, ZIP Code', showWhen: anyYes },
   { id: 'fcTinHave', label: '납세자번호(TIN)', type: 'radio', options: ['있음', '없음'], showWhen: anyYes, help: '미국인은 납세자번호(SSN 또는 ITIN)가 필수입니다.' },
   { id: 'fcTin', label: '납세자번호(TIN: SSN 또는 ITIN)', placeholder: '숫자 9자리', numeric: true, showWhen: { field: 'fcTinHave', value: '있음' } },

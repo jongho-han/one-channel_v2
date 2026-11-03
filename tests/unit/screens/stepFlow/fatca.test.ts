@@ -35,9 +35,14 @@ test('예를 고르면 필수 입력 검증', () => {
   const values = { fcUs: '예' };
   const errors = validateValues(FATCA_FIELDS.filter(field => isFieldVisible(field, FATCA_FIELDS, values)), values);
   expect(Object.keys(errors)).toEqual(['fcUsType', 'fcLast', 'fcFirst', 'fcCountry', 'fcAddr', 'fcTin', 'fcDoc1', 'fcDoc2']);
+  expect(errors.fcCountry).toBe('거주지국을 선택해 주세요.');
 });
 
 test('확인 단계에 FATCA·CRS 답변 표시', () => {
   const rows = confirmRows(STEP_FLOWS['LN-02'], { pick: null, values: { acct: '하나 123-456789-01', fcUs: '아니오', fcRes: '아니오' } });
   expect(rows.map(row => row[0])).toEqual(['입금 계좌', '미국 세법상 미국인에 해당하나요?', '대한민국 외 국가의 조세목적상 거주자인가요?']);
+});
+
+test('거주지국은 국가 선택 레이어팝업으로 고름', () => {
+  expect(FATCA_FIELDS.find(field => field.id === 'fcCountry')?.type).toBe('country');
 });
