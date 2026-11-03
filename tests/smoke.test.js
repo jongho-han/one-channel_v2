@@ -1086,6 +1086,25 @@ test('보험계약대출 신청: 입력 다음 FATCA·CRS — 모두 아니오�
   assert.deepEqual(errors, []);
 });
 
+test('중도인출 신청: 입력 다음 FATCA·CRS, 거주지국 국가 선택 팝업 (PY-05)', () => {
+  goToInput('PY-05');
+  setInput($('#amt'), '1,000,000');
+  click($('#next'));
+  assert.equal(currentStepName(), 'FATCA·CRS');
+  click($('input[name="fcRes"][value="예"]'));
+  click($('[data-country="fcCountry"]'));
+  click([...window.document.querySelectorAll('#layer [aria-pressed]')].find(button => button.textContent.includes('일본')));
+  click([...window.document.querySelectorAll('#layer button')].find(button => button.textContent === '선택 완료'));
+  assert.equal($('#fcCountry').value, '일본');
+  click($('[data-action="step-prev"]'));
+  click($('#next'));
+  click($('input[name="fcRes"][value="아니오"]'));
+  click($('#next'));
+  assert.equal(currentStepName(), '확인');
+  assert.match($('#sbody').textContent, /대한민국 외 국가의 조세목적상 거주자인가요\?아니오/);
+  assert.deepEqual(errors, []);
+});
+
 test('T3 이전 단계로 돌아가도 입력값 유지 (CH-10)', () => {
   goToInput('CH-10');
   $('#nm').value = '홍서연'; $('#bd').value = '2010-03-04'; $('#tel').value = '010-9876-5432';

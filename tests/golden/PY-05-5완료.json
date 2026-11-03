@@ -7,7 +7,7 @@
   {
    "tag": "ol",
    "attrs": {
-    "aria-label": "진행 단계 (전체 5단계)",
+    "aria-label": "진행 단계 (전체 6단계)",
     "class": "steps"
    },
    "children": [
@@ -131,6 +131,50 @@
         }
        ]
       },
+      "FATCA·CRS",
+      {
+       "tag": "span",
+       "attrs": {
+        "class": "sr-only"
+       },
+       "children": [
+        "(완료)"
+       ]
+      }
+     ]
+    },
+    {
+     "tag": "li",
+     "attrs": {
+      "class": "done"
+     },
+     "children": [
+      {
+       "tag": "span",
+       "attrs": {
+        "aria-hidden": "true",
+        "class": "n"
+       },
+       "children": [
+        {
+         "tag": "svg",
+         "attrs": {
+          "aria-hidden": "true",
+          "class": "i",
+          "viewBox": "0 0 24 24"
+         },
+         "children": [
+          {
+           "tag": "path",
+           "attrs": {
+            "d": "M5 12l5 5 9-10"
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
       "확인",
       {
        "tag": "span",
@@ -203,7 +247,7 @@
         "class": "n"
        },
        "children": [
-        "5"
+        "6"
        ]
       },
       "완료",

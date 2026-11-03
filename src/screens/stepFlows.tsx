@@ -127,6 +127,7 @@ export const STEP_FLOWS: Record<string, StepFlowConfig> = {
     fields: [
       { id: 'amt', label: '인출 금액', type: 'money', max: 5210000, min: 100000, quick: [100000, 500000, 1000000, 'max'] },
       { id: 'acct', label: '입금 계좌', type: 'account' }],
+    fatca: true,
     calc: values => {
       const amount = Number(values.amt) || 0;
       return [['인출 금액', formatWon(amount)], ['수수료', formatWon(amount ? 2000 : 0)], ['인출 후 적립금', formatWon(26450300 - amount)], ['실지급액', formatWon(Math.max(amount - 2000, 0)), true]];

@@ -13,6 +13,10 @@ test('보험계약대출 신청 단계: 선택 → 입력 → FATCA·CRS → 확
   expect(stepsOf(STEP_FLOWS['LN-04'])).not.toContain('FATCA·CRS');
 });
 
+test('중도인출 신청 단계: 선택 → 입력 → FATCA·CRS → 확인 → 인증 → 완료', () => {
+  expect(stepsOf(STEP_FLOWS['PY-05'])).toEqual(['선택', '입력', 'FATCA·CRS', '확인', '인증', '완료']);
+});
+
 test('처음(모두 아니오)에는 두 질문만 보이고 그대로 다음 가능', () => {
   expect(visibleIds({})).toEqual(['fcUs', 'fcRes']);
   expect(validateValues(FATCA_FIELDS.filter(field => isFieldVisible(field, FATCA_FIELDS, {})), {})).toEqual({});
